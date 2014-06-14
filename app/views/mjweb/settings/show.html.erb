@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @setting.company_id %>
+</p>
+
+<p>
+  <strong>Tile:</strong>
+  <%= @setting.tile_id %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @setting.order %>
+</p>
+
+<p>
+  <strong>Display:</strong>
+  <%= @setting.display %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @setting.link %>
+</p>
+
+<%= link_to 'Edit', edit_setting_path(@setting) %> |
+<%= link_to 'Back', settings_path %>

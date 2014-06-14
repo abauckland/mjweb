@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company_id:
+  tile_colour: MyString
+  background: MyString  
+  tagline: MyString
+  ecommerce: 
+  facebook: MyString
+  twitter: MyString
+  googleplus: MyString
+  linkedin: MyString
+
+two:
+  company_id: 
+  tile_colour: MyString  
+  background: MyString  
+  tagline: MyString
+  ecommerce: 
+  facebook: MyString
+  twitter: MyString
+  googleplus: MyString
+  linkedin: MyString

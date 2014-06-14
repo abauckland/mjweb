@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @detail.company_id %>
+</p>
+
+<p>
+  <strong>Tagline:</strong>
+  <%= @detail.tagline %>
+</p>
+
+<p>
+  <strong>Ecommerce:</strong>
+  <%= @detail.ecommerce %>
+</p>
+
+<p>
+  <strong>Facebook:</strong>
+  <%= @detail.facebook %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @detail.twitter %>
+</p>
+
+<p>
+  <strong>Googleplus:</strong>
+  <%= @detail.googleplus %>
+</p>
+
+<p>
+  <strong>Linkedin:</strong>
+  <%= @detail.linkedin %>
+</p>
+
+<%= link_to 'Edit', edit_detail_path(@detail) %> |
+<%= link_to 'Back', details_path %>

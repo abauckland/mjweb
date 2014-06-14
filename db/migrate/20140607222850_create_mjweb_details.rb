@@ -1,0 +1,17 @@
+class CreateMjwebDetails < ActiveRecord::Migration
+  def change
+    create_table :mjweb_details do |t|
+      t.integer :company_id
+      t.string :tile_colour
+      t.string :background
+      t.string :tagline
+      t.integer :ecommerce
+      t.string :facebook
+      t.string :twitter
+      t.string :googleplus
+      t.string :linkedin
+
+      t.timestamps
+    end
+  end
+end
