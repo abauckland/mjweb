@@ -1,0 +1,33 @@
+
+    <div class="tile_container">
+        <div class="colour_2 tile">
+            <div class="tile_content">
+                <p class="tile_title_text">Contact Us</p>
+                <ul>
+                    <% if company.address_1 %>
+                        <li class="tile_content_text"><%= company.address_1 %></li>
+                    <% end %>
+                    <% if company.address_2 %>
+                        <li class="tile_content_text"><%= company.address_2 %></li>
+                    <% end %>
+                    <% if company.city %>
+                        <li class="tile_content_text"><%= company.city %></li>
+                    <% end %>
+                    <% if company.county %>
+                        <li class="tile_content_text"><%= company.county %></li>
+                    <% end %>
+                    <% if company.postcode %>
+                        <li class="tile_content_text"><%= company.postcode %></li>
+                    <% end %>
+                </ul>
+                 <ul>
+                    <li class="tile_content_text"><%= company.tel %></li>
+                </ul>
+                <ul>
+                    <li class="tile_content_text"><%= company.email %></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+           

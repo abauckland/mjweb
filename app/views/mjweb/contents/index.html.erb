@@ -1,0 +1,36 @@
+<h1>Home Page Tiles</h1>
+
+<p>The website home page is made from a number of tiles. Tiles are added to the home page from left to right, in the order they are listed below.</p>
+
+<table class="table table-striped table-hover" style="width : 100%" >
+  <thead>
+    <tr>
+      <th width="20px">Order</th>
+      <th>Tile type</th>
+      <th width="150px">Display</th>
+      <th width="120px"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contents.each do |content| %>
+      <tr>
+        <td><%= content.order %></td>
+        <td><%= content.tile.name %></td>
+        <td><%= content.display %></td>
+        <td>
+            <div class="btn-group-xs">
+                <%= link_to 'Edit', edit_content_path(content), :class => "btn btn-sm btn-warning" %>
+                <%= link_to 'Delete', content, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-danger" %>
+            </div>
+        </td>  
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+    <%= link_to 'Add tile', new_content_path, class: "btn btn-sm btn-success" %>
+    <%= link_to "Back to Settings Menu", mjweb.settings_path, class: "btn btn-sm btn-warning btn pull-right" %>
