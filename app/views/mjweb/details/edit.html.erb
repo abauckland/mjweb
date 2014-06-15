@@ -1,6 +1,66 @@
-<h1>Editing detail</h1>
+<head>  
+  <%= stylesheet_link_tag    'mjweb/application', media: 'all'%>
+  <%= javascript_include_tag 'mjweb/application'%>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
-<%= render 'form' %>
+<p id="notice"><%= notice %></p>
 
-<%= link_to 'Show', @detail %> |
-<%= link_to 'Back', details_path %>
+
+<h1>Company Details & Colour Scheme</h1>
+
+
+
+<%= bootstrap_form_for(@detail) do |f| %>
+
+  <p id="notice"><%= notice %></p>
+  
+  <%= f.hidden_field :company_id, :value => current_user.company_id %>
+
+  <% if @detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@detail.errors.count, "error") %> prohibited this detail from being saved:</h2>
+
+      <ul>
+      <% @detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :subdomain_name, label: "Subdomain Name (your_name.myhq.co.uk)"  %>
+  </div>
+  <div class="field">
+    <%= f.text_field :tile_colour %>
+  </div>
+  <div class="field">
+    <%= f.text_field :background %>
+  </div>
+  <div class="field">
+    <%= f.text_area :tagline %>
+  </div>
+  <div class="field">
+    <%= f.text_field :ecommerce, label: "Web address for E-commerce site"  %>
+  </div>
+  <div class="field">
+    <%= f.text_field :facebook, label: "Facebook address"  %>
+  </div>
+  <div class="field">
+    <%= f.text_field :twitter, label: "Twitter address" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :googleplus, label: "Google+ address" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :linkedin, label: "Linkedin address"  %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "btn btn-success" %>
+    <%= link_to "Back to Settings Menu", mjweb.settings_path, class: "btn btn-sm btn-warning btn pull-right" %>
+  </div>
+<% end %>
+
+
+

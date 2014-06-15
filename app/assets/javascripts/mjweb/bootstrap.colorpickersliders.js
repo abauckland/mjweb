@@ -85,7 +85,7 @@
                     updateinterval: 30, // update interval of the sliders while in drag (ms)
                     previewontriggerelement: true,
                     previewcontrasttreshold: 15,
-                    previewformat: 'rgb', // rgb | hsl | hex
+                    previewformat: 'hex', // rgb | hsl | hex
                     erroneousciecolormarkers: true,
                     invalidcolorsopacity: 1, // everything below 1 causes slightly slower responses
                     finercierangeedges: true, // can be disabled for faster responses

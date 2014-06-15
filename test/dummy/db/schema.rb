@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(version: 20140607225455) do
 
   create_table "mjweb_details", force: true do |t|
     t.integer  "company_id"
+    t.string   "subdomain_name"
     t.string   "tile_colour"    
     t.string   "background"
     t.string   "tagline"
@@ -154,11 +155,11 @@ ActiveRecord::Schema.define(version: 20140607225455) do
     t.datetime "updated_at"
   end
 
-  create_table "mjweb_settings", force: true do |t|
+  create_table "mjweb_contents", force: true do |t|
     t.integer  "company_id"
     t.integer  "tile_id"
     t.integer  "order"
-    t.integer  "display"
+    t.string  "display"
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"

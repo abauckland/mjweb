@@ -2,11 +2,10 @@ require_dependency "mjweb/application_controller"
 
 module Mjweb
   class ImagesController < ApplicationController
-    before_action :set_image, only: [:show, :edit, :update, :destroy]
 
     # GET /images
     def index
-      @images = Image.all
+      @images = Image.where(:company_id => current_user.company_id)
     end
 
     # GET /images/new
@@ -27,19 +26,14 @@ module Mjweb
 
     # DELETE /images/1
     def destroy
-      @image.destroy
+      @image = Image.find(params[:id])
       redirect_to images_url, notice: 'Image was successfully destroyed.'
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_image
-        @image = Image.find(params[:id])
-      end
-
       # Only allow a trusted parameter "white list" through.
       def image_params
-        params.require(:image).permit(:company_id, :photo)
+        params.require(:image).permit(:company_id, :name, :photo)
       end
   end
 end

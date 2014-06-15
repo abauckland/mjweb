@@ -1,12 +1,12 @@
 Mjweb::Engine.routes.draw do
   namespace :mjweb do
-  get 'website/show'
+    get 'website/index'
   end
-
+  
+  resources :websites, :only => [:index]
+  resources :settings, :only => [:index]
+  resources :details, :only => [:edit, :update]
+  resources :contents
   resources :images
-
-  resources :details
-
-  resources :settings
 
 end

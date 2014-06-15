@@ -7,8 +7,8 @@ require "mjweb/version"
 Gem::Specification.new do |s|
   s.name        = "mjweb"
   s.version     = Mjweb::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
+  s.authors     = "Andrew Burton"
+  s.email       = "abauckland@gmail.com"
   s.homepage    = "TODO"
   s.summary     = "TODO: Summary of Mjweb."
   s.description = "TODO: Description of Mjweb."
@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'coffee-rails', '~> 4.0.0'
   s.add_dependency 'tzinfo-data'
   s.add_dependency 'jquery-rails'
+  s.add_dependency 'colorist'
 
   s.add_development_dependency 'mysql2'
 end

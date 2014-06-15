@@ -5,6 +5,7 @@ PATH
       bootstrap-sass
       bootstrap_form
       coffee-rails (~> 4.0.0)
+      colorist
       jquery-rails
       paperclip (~> 4.1)
       rails (~> 4.1.0)
@@ -56,6 +57,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    colorist (0.0.2)
     erubis (2.7.0)
     execjs (2.0.2)
     hike (1.2.3)
@@ -121,7 +123,7 @@ GEM
       coffee-rails
     tzinfo (1.2.1)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2014.2)
+    tzinfo-data (1.2014.5)
       tzinfo (>= 1.0.0)
 
 PLATFORMS

@@ -1,5 +1,28 @@
-<h1>New image</h1>
+<h1>Upload new image</h1>
 
-<%= render 'form' %>
+<%= bootstrap_form_for(@image) do |f| %>
+  <% if @image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
 
-<%= link_to 'Back', images_path %>
+      <ul>
+      <% @image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
+  <%= f.hidden_field :company_id, :value => current_user.company_id %>
+
+  <div class="field">
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.file_field :photo, title: "Search for a file to add" %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "btn btn-success" %>
+    <%= link_to "Back to Settings Menu", mjweb.settings_path, class: "btn btn-sm btn-warning btn pull-right" %>
+  </div>
+<% end %>

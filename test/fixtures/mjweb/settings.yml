@@ -1,15 +1,2 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  company_id:
-  tile_id: 
-  order: 
-  display: 
-  link: MyString
-
-two:
-  company_id: 
-  tile_id: 
-  order: 
-  display: 
-  link: MyString

@@ -1,5 +1,5 @@
 module Mjweb
   class Tile < ActiveRecord::Base
-    belongs_to :settings
+    has_many :contents
   end
 end

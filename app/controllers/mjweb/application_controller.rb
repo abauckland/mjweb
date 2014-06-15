@@ -1,4 +1,4 @@
-module Mjweb
-  class ApplicationController < ActionController::Base
+
+  class Mjweb::ApplicationController < ApplicationController
+    
   end
-end
