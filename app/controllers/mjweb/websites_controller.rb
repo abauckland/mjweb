@@ -59,9 +59,9 @@ module Mjweb
       
       def sprite_file(color)
         if color == '#ffffff'
-          return 80
+          "(/assets/mjweb/web_icons.png) 80px 0;"
         else
-          return 0             
+          "(/assets/mjweb/web_icons.png) 80px 0;"           
        end        
       end
   

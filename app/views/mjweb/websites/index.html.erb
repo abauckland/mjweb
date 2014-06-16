@@ -6,42 +6,39 @@
   <%= csrf_meta_tags %>
   
   <style>
-    <% @colour_settings.each_with_index do |setting, i| %>        
-        .colour_<%= (i + 1) %>{
-            color: <%= setting[:text] %>;
-            background-color: <%= setting[:tile] %>;
-            background-image: <%= setting[:tile_image] %>;            
-        }           
-
-        .colour_<%= (i + 1) %>:hover{
-            color: <%= setting[:text_hover] %>;
-            background-color: <%= setting[:tile_hover] %>;
-            background-image: <%= setting[:tile_image_hover] %>;
-        } 
-    <% end %>
-
     body {
-        /* IE10 Consumer Preview */ 
-        background-image: -ms-radial-gradient(left top, ellipse farthest-corner, #FFFFFF 30%, <%= @background_colour %> 200%);
-        
-        /* Mozilla Firefox */
-        background-image: -moz-radial-gradient(left top, ellipse farthest-corner, #FFFFFF 30%, <%= @background_colour %> 200%);
-        
-        /* Opera */ 
-        background-image: -o-radial-gradient(left top, ellipse farthest-corner, #FFFFFF 30%, <%= @background_colour %> 200%);
-        
-        /* Webkit (Safari/Chrome 10) */ 
-        background-image: -webkit-gradient(radial, left top, 0, left top, 1012, color-stop(0.3, #FFFFFF), color-stop(2, <%= @background_colour %>));
-        
-        /* Webkit (Chrome 11+) */ 
-        background-image: -webkit-radial-gradient(left top, ellipse farthest-corner, #FFFFFF 30%, <%= @background_colour %> 200%);
-        
-        /* W3C Markup, IE10 Release Preview */ 
-        background-image: radial-gradient(ellipse farthest-corner at left top, #FFFFFF 30%, <%= @background_colour %> 200%);
+        background: url('/assets/mjweb/background.jpg');
     }
 
+    <% @colour_settings.each_with_index do |setting, i| %>        
+        .colour_<%=i+1%>{
+            color: <%= setting[:text] %>;
+            background-color: <%= setting[:tile] %>;        
+        }           
+
+        .hover_<%=i+1%>{
+            color: <%= setting[:text] %>;
+            background-color: <%= setting[:tile] %>;
+            background-image: url<%= setting[:tile_image] %>;             
+        }
+
+        .hover_<%=i+1%> a{
+            color: <%= setting[:text] %>;          
+        }
+
+        .hover_<%=i+1%>:hover{
+            color: <%= setting[:text_hover] %>;
+            background: <%= setting[:tile_hover] %> url<%= setting[:tile_image_hover] %> 80px 0px; 
+        } 
+
+        .hover_<%=i+1%>:hover a{
+            color: <%= setting[:text_hover] %>;
+        }
+
+    <% end %>
+
     .tile_link_icon {
-        background: image-url('web_icons.png') 80px 0;
+        background: url('/assets/mjweb/web_icons.jpg') 80px 0;
     }
   </style>
   
@@ -50,20 +47,19 @@
 </head>
 
 <header>
-  <div class="login_container">
+    <div class="login_container">
       <%= link_to "Log-in", main_app.new_user_session_path, class: "login_link"%>   
-  </div>
+    </div>
      
     <div class="header_container">  
-    
-        
-
-                <div class="company_logo"></div>  
-</div>
+        <div class="company_logo"></div>  
+    </div>
     
     <% if !@detail.tagline.empty? %>
         <div class="company_tagline"> <table><tr><td class="tagline_cell"><%= @detail.tagline %></td></tr></table></div> 
     <% end %>
+
+
 
     <div class="social_media_container">                  
         <% if !@detail.facebook.empty? %>
@@ -87,17 +83,15 @@
             </div>
         <% end %>  
     </div> 
-  
  
 </header> 
-
 
 
 <article>
     <div class="content">
     
-    <% @contents.each_with_index do |content| %>    
-        <%= display_web_tiles(content, @detail) %>
+    <% @contents.each_with_index do |content, i| %>    
+        <%= display_web_tiles(content, @detail, i) %>
     <% end%>
     
     </div>

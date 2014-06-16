@@ -10,4 +10,13 @@ $("input#detail_tile_colour").ColorPickerSliders({
                     hsl: 1
                 }
             });
+            
+$("input#detail_tile_colour").ColorPickerSliders({
+                size: 'sm',
+                placement: 'bottom',
+                swatches: false,
+                order: {
+                    hsl: 1
+                }
+            });            
 });
