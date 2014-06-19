@@ -1,23 +1,20 @@
-    
-  <% if !content.link.empty? %>
-    <div class="tile_container">
+      
+  <%= tile_link_image('white', 0) %>
+  
+  <div class="tile_container">
+    <% if content.link.empty? %>
         <div class="hover_<%= colour_ref %> tile">
         <a href="<%= content.link %>">
-            <div class="tile_content">
+            <div class="tile_content image">
                 <p class="tile_title_text">Our Shop</p>
-                <div class="tile_link_icon"></div>
             </div>
         </a>
-        </div>
-    </div>  
-  <% else %>
-    <div class="tile_container">
+        </div> 
+    <% else %>    
         <div class="colour_<%= colour_ref %> tile">
             <div class="tile_content">
                 <p class="tile_title_text">Our Shop</p>
-                <div class="tile_link_icon"></div>
             </div>
-        </div>
-    </div>   
-  <% end %>
-                         
+        </div>       
+    <% end %>
+  </div>                       

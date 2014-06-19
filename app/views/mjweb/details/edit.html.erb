@@ -33,14 +33,39 @@
     <%= f.text_field :subdomain_name, label: "Subdomain Name (your_name.myhq.co.uk)"  %>
   </div>
   <div class="field">
-    <%= f.text_field :tile_colour %>
+    <%= f.text_field :tile_colour, label: "Colour of Information Tiles"  %>
   </div>
   <div class="field">
-    <%= f.text_field :background %>
+    <%= f.text_field :background, label: "Background Pattern"  %>
+  </div>
+ <div class="field">
+    <%= f.text_field :font, label: "Font Style"  %>
   </div>
   <div class="field">
-    <%= f.text_area :tagline %>
+    <%= f.text_area :tagline, label: "Trading Hours (Monday)"  %>
   </div>
+    <div class="field">
+    <%= f.text_area :Monday, label: "Trading Hours (Monday)" %>
+  </div>
+    <div class="field">
+    <%= f.text_area :Tuesday, label: "Trading Hours (Tuesday)"  %>
+  </div>
+    <div class="field">
+    <%= f.text_area :Wednesday, label: "Trading Hours (Wednesday)"  %>
+  </div>
+  <div class="field">
+    <%= f.text_area :Thursday, label: "Trading Hours (Thursday)"  %>
+  </div>
+  <div class="field">
+    <%= f.text_area :Friday, label: "Trading Hours (Friday)"  %>
+  </div>
+  <div class="field">
+    <%= f.text_area :Saturday, label: "Trading Hours (Saturday)"  %>
+  </div>  
+  <div class="field">
+    <%= f.text_area :Sunday, label: "Trading Hours (Sunday)"  %>
+  </div>  
+  
   <div class="field">
     <%= f.text_field :ecommerce, label: "Web address for E-commerce site"  %>
   </div>

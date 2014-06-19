@@ -1,14 +1,9 @@
 // Place all the styles related to the websites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+@import url(http://fonts.googleapis.com/css?family=Marck+Script);
+@import url(http://fonts.googleapis.com/css?family=Ek+Mukta);
 //settings
-$background-colour: white;//transparent;
-$tile_color: #663399;
-$tile_color_1: $tile_color;
-$tile_color_2: darken( $tile_color, 15% ); 
-$tile_color_3: lighten( $tile_color, 15% );
-
 $heading_font: "Trebuchet MS", Trebuchet, "Liberation Sans", sans-serif;
 $content_font: Arial,Helvetica,sans-serif;
 $font_color: #fff;
@@ -21,20 +16,23 @@ $small_device: 768px;
 
 @mixin dark_grey_24_gradient {background: image-url('dark_grey_24.png') repeat-x};
 
-
 //GLOBAL PAGE CSS
-
-
 body {  
   margin: 0px;
   padding: 0px;
   width: 100%;
-  height: 100%;  
+  height: 100%;
   }
 
-a:hover{text-decoration: none;}  
-
 ul {list-style-type: none; padding:0; margin:0; text-align:center;}
+
+a{color:#ffffff;}
+a:hover{
+  color: #ffffff;
+  text-decoration: none;
+}
+a:visited{color: #ffffff;}
+
 
 .container {
   margin-right: auto;
@@ -72,59 +70,65 @@ ul {list-style-type: none; padding:0; margin:0; text-align:center;}
   }
 }
 
-a{color:#ffffff;}
-a:hover{color: #ffffff;}
-a:visited{color: #ffffff;}
-
 
 .header_container{
-  clear: both; 
-  height: 75px;
-}
-
-.company_logo{
-  float: left;
-  height: inherit;
-  width: 75px;
-  background: url('specright_logo_portrait.png') 0px 0px;
-}
-
-.company_tagline{
   clear:both;
   width: 100%;
-  padding: 20px 0px 20px 0px;
 }
-  @media screen and (max-width: $medium_device) {
-    .company_tagline{
-      padding: 10px 0px 0px 0px;
-     }  
-  }
 
-.tagline_cell{  font-family: $heading_font;
+
+@media screen and (min-width: $medium_device) {
+  .company_info_small{
+    display: none;
+  }
+}
+
+.company_logo_small{
+  height: 75px;
+  width: 100%;
+}
+
+.company_tagline_small{
+  width: 100%;
+  padding: 10px 0px 0px 0px;
+}
+
+.tagline_cell_small{ font-family: $heading_font;
   font-size: 1.8rem;
   text-align:center;
+}
 
+
+  @media screen and (max-width: $medium_device) {
+    .company_info_medium{
+      display: none;
   }
-  @media screen and (max-width: $small_device) {
-    .tagline_cell{
-      text-align: center;
-    }
+}
+
+.tagline_cell_medium{ font-family: $heading_font;
+  font-size: 1.8rem;
+  vertical-align:bottom;
+  text-align:left;
+  width: 600px;
+  padding: 0px 0px 0px 15px;
   }
+
 
 .social_media_container{
   clear:both;
   width: 100%;
-  height: 30px;
-  padding: 0px 0px 0px 0px;   
+  height: 30px; 
 }
-  @media screen and (max-width: $medium_device) {
+  @media screen and (min-width: $medium_device) {
     .social_media_container{
-      clear:both;
-      width: 100%;
-      height: 30px; 
-      padding: 20px 0px 0px 0px;
+      padding: 10px 0px 0px 0px;
      }  
   }
+  @media screen and (max-width: $medium_device) {
+    .social_media_container{
+      padding: 10px 0px 0px 0px;
+     } 
+  }  
 
 .social_media_link{
   float: right; 
@@ -187,10 +191,6 @@ a.linkedin {
   height: 200px;
 }
 
-.colour_1 {background-color: $tile_color_1; color: set-button-text-color($tile_color_1);}
-.colour_2 {background-color: $tile_color_2; color: set-button-text-color($tile_color_2);}
-.colour_3 {background-color: $tile_color_3; color: set-button-text-color($tile_color_3);}
-
 .empty_tile{
   float: left;
   width: 200px;
@@ -219,19 +219,32 @@ a.linkedin {
 .tile_content{
   width: 200px;
   height: 200px;
-  padding: 30px 0px 0px 0px;
-  
+  padding: 30px 0px 0px 0px; 
 }
 
 //FOOTER CSS
 .footer_container{
   clear: both;
-  padding: 25px 0px 0px 0px;
+  padding: 40px 0px 0px 0px;
 }
 
 
-.myhq_link{
-  float: left;  
+.footer_text{ font-family: $content_font;
+  font-size: 12px;
+  vertical-align:bottom;
+  text-align:left;
+  width: 200px;
+  padding: 0px 0px 3px 5px;
+  }
+
+a.myhq_icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url('myhq_logo_small.png');
+    &:hover{
+      background: url('myhq_logo_small.png');
+    }
 }
 
 
@@ -251,18 +264,16 @@ a.linkedin {
 
 .tile_content_text {
   font-family: $content_font;
-  font-size: 1.2rem;
+  font-size: 12px;
   text-align:center;
   padding: 0px 10px 0px 10px;
   word-wrap: break-word;
 }
 
 .tile_link_icon {
-  position:relative;
-  top: 15px;
-  left:60px;
-  width: 75px;
-  height: 75px;
+  width: 200px;
+  height: 200px;
+
 }
 
 .rotating-item {

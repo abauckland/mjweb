@@ -1,14 +1,17 @@
-<head>
-  <title>MyHQ</title>
+
   
+
+
+<title>MyHQ</title> 
   <%= stylesheet_link_tag    'mjweb/application', media: 'all'%>
   <%= javascript_include_tag 'mjweb/application'%>
-  <%= csrf_meta_tags %>
   
   <style>
-    body {
-        background: url('/assets/mjweb/background.jpg');
-    }
+    
+
+    html { font-size: 62.5%; }
+    
+    body {background: url('/assets/mjweb/background.jpg');}
 
     <% @colour_settings.each_with_index do |setting, i| %>        
         .colour_<%=i+1%>{
@@ -18,48 +21,45 @@
 
         .hover_<%=i+1%>{
             color: <%= setting[:text] %>;
-            background-color: <%= setting[:tile] %>;
-            background-image: url<%= setting[:tile_image] %>;             
-        }
-
-        .hover_<%=i+1%> a{
-            color: <%= setting[:text] %>;          
+            background-color: <%= setting[:tile] %>;           
         }
 
         .hover_<%=i+1%>:hover{
             color: <%= setting[:text_hover] %>;
-            background: <%= setting[:tile_hover] %> url<%= setting[:tile_image_hover] %> 80px 0px; 
+            background-color: <%= setting[:tile_hover] %>; 
         } 
-
-        .hover_<%=i+1%>:hover a{
-            color: <%= setting[:text_hover] %>;
-        }
-
     <% end %>
-
-    .tile_link_icon {
-        background: url('/assets/mjweb/web_icons.jpg') 80px 0;
-    }
   </style>
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+
+
 
 <header>
     <div class="login_container">
       <%= link_to "Log-in", main_app.new_user_session_path, class: "login_link"%>   
     </div>
-     
-    <div class="header_container">  
-        <div class="company_logo"></div>  
+
+
+    <div class="company_info_small">    
+        <div class="header_container">   
+            <div class="company_logo_small"><%= image_tag 'media_icons.png', height: '75'%></div>      
+            <% if !@detail.tagline.empty? %>
+                <div class="company_tagline_small"> <table><tr><td class="tagline_cell_small"><%= @detail.tagline %></td></tr></table></div> 
+            <% end %>
+        </div>
     </div>
-    
-    <% if !@detail.tagline.empty? %>
-        <div class="company_tagline"> <table><tr><td class="tagline_cell"><%= @detail.tagline %></td></tr></table></div> 
-    <% end %>
 
-
+    <div class="company_info_medium">    
+        <div class="header_container">
+            <table border="0" cellpadding="0" cellspacing="0" class="company_logo_medium">
+                <tr>
+                    <td><%= image_tag 'media_icons.png', height: '75'%></td>
+                    <% if !@detail.tagline.empty? %>
+                        <td class="tagline_cell_medium"><%= @detail.tagline %></td>
+                    <% end %>
+                </tr>
+            </table>
+        </div>
+    </div>
 
     <div class="social_media_container">                  
         <% if !@detail.facebook.empty? %>
@@ -82,29 +82,23 @@
                 <%= link_to " ", @detail.linkedin, class: "linkedin"%> 
             </div>
         <% end %>  
-    </div> 
- 
+    </div>  
 </header> 
 
-
 <article>
-    <div class="content">
-    
-    <% @contents.each_with_index do |content, i| %>    
-        <%= display_web_tiles(content, @detail, i) %>
-    <% end%>
-    
-    </div>
-      
+    <div class="content">    
+        <% @contents.each_with_index do |content, i| %>    
+            <%= display_web_tiles(content, @detail, i) %>
+        <% end%>    
+    </div>      
 </article>
 
 <footer>
     <div class="footer_container">
-        <div class="myhq_link">
-            <a href="#">
-                
-            </a>
-        </div>                
+        <table><tr>
+            <td><%= link_to " ", "www.myhq.co.uk", class: "myhq_icon"%></td>
+            <td class="footer_text">myhq promotional text here</td>
+        </tr></table>               
     </div>    
 </footer>    
                        

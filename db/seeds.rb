@@ -11,3 +11,13 @@ Myjweb::Tiles.create(:name => "Services", :partial_name => 'services')
 Myjweb::Tiles.create(:name => "Contact", :partial_name => 'contact')
 Myjweb::Tiles.create(:name => "Image", :partial_name => 'image_tile')
 Myjweb::Tiles.create(:name => "Ecommerce Link", :partial_name => 'ecommerce')
+Myjweb::Tiles.create(:name => "Trading Hours", :partial_name => 'hours')
+
+
+Myjweb::Details.create(:monday => "9.00am - 5.30pm",
+                       :tuesday => "9.00am - 5.30pm",
+                       :wednesday => "9.00am - 5.30pm",
+                       :thursday => "9.00am - 5.30pm",
+                       :friday => "9.00am - 5.30pm",
+                       :saturday => "9.00am - 5.30pm",
+                       :sunday => "11.00am - 4.30pm")
