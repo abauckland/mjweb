@@ -1,0 +1,27 @@
+<h1>Upload new image</h1>
+
+<%= bootstrap_form_for(@imagesetting) do |f| %>
+  <% if @imagesetting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@imagesetting.errors.count, "error") %> prohibited this image from being added:</h2>
+
+      <ul>
+      <% @imagesetting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
+  <%= f.hidden_field :content_id, :value => @content.id %>
+
+  <div class="field">
+     <%= f.select :image_id, @images.map {|i| [i.name, i.id] } %>  
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: "btn btn-success" %>
+    <%= link_to "Back to Settings Menu", mjweb.settings_path, class: "btn btn-sm btn-warning btn pull-right" %>
+  </div>
+<% end %>
+

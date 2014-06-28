@@ -1,0 +1,32 @@
+<%= form_for(@about) do |f| %>
+  <% if @about.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@about.errors.count, "error") %> prohibited this about from being saved:</h2>
+
+      <ul>
+      <% @about.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.hidden_field :company_id, :value => current_user.company_id %>
+  
+    <%= f.text_field :title %>
+
+    <% if @images %>
+        <%= f.select :image_id, @images.map {|i| [i.name,i.id] } %>
+    <% else %>
+        No images are available, please upload images before selecting        
+    <% end %>
+
+    <%= f.text_area :text %>
+
+
+  <div class="actions">
+    <%= f.submit class: "btn btn-success" %>
+    <%= link_to "Back to Settings Menu", mjweb.settings_path, class: "btn btn-sm btn-warning btn pull-right" %>
+  </div>
+
+<% end %>

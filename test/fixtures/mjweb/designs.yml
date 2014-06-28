@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company_id:
+  tile_colour: MyString
+  background: MyString
+  font: MyString
+
+two:
+  company_id:
+  tile_colour: MyString
+  background: MyString
+  font: MyString

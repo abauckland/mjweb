@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company_id: 1
+  monday_status: 1
+  monday_open: 2014-06-26 10:20:24
+  monday_close: 2014-06-26 10:20:24
+  tuesday_status: 1
+  tuesday_open: 2014-06-26 10:20:24
+  tuesday_close: 2014-06-26 10:20:24
+  wednesday_status: 1
+  wednesday_open: 2014-06-26 10:20:24
+  wednesday_close: 2014-06-26 10:20:24
+  thursday_status: 1
+  thursday_open: 2014-06-26 10:20:24
+  thursday_close: 2014-06-26 10:20:24
+  friday_status: 1
+  friday_open: 2014-06-26 10:20:24
+  friday_close: 2014-06-26 10:20:24
+  saturday_status: 1
+  saturday_open: 2014-06-26 10:20:24
+  saturday_close: 2014-06-26 10:20:24
+  sunday_status: 1
+  sunday_open: 2014-06-26 10:20:24
+  sunday_close: 2014-06-26 10:20:24
+
+two:
+  company_id: 1
+  monday_status: 1
+  monday_open: 2014-06-26 10:20:24
+  monday_close: 2014-06-26 10:20:24
+  tuesday_status: 1
+  tuesday_open: 2014-06-26 10:20:24
+  tuesday_close: 2014-06-26 10:20:24
+  wednesday_status: 1
+  wednesday_open: 2014-06-26 10:20:24
+  wednesday_close: 2014-06-26 10:20:24
+  thursday_status: 1
+  thursday_open: 2014-06-26 10:20:24
+  thursday_close: 2014-06-26 10:20:24
+  friday_status: 1
+  friday_open: 2014-06-26 10:20:24
+  friday_close: 2014-06-26 10:20:24
+  saturday_status: 1
+  saturday_open: 2014-06-26 10:20:24
+  saturday_close: 2014-06-26 10:20:24
+  sunday_status: 1
+  sunday_open: 2014-06-26 10:20:24
+  sunday_close: 2014-06-26 10:20:24

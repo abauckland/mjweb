@@ -1,0 +1,70 @@
+<h1>Editing hour</h1>
+
+<%= form_for(@hour) do |f| %>
+  <% if @hour.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hour.errors.count, "error") %> prohibited this hour from being saved:</h2>
+
+      <ul>
+      <% @hour.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+     <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#Mon">Mon</a></li>
+        <li><a data-toggle="tab" href="#Tue">Tue</a></li>
+        <li><a data-toggle="tab" href="#Wed">Wed</a></li>
+        <li><a data-toggle="tab" href="#Thu">Thu</a></li>
+        <li><a data-toggle="tab" href="#Fri">Fri</a></li>
+        <li><a data-toggle="tab" href="#Sat">Sat</a></li>
+        <li><a data-toggle="tab" href="#Sun">Sun</a></li>
+    </ul>
+
+    <%= f.hidden_field :company_id, :value => current_user.company_id %>
+
+<div id="Mon">  
+    <%= f.number_field :monday_status %>
+    <%= f.datetime_select :monday_open %>
+    <%= f.datetime_select :monday_close %>
+</div>
+<div id="Tue"> 
+    <%= f.number_field :tuesday_status %>
+    <%= f.datetime_select :tuesday_open %>
+    <%= f.datetime_select :tuesday_close %>
+</div>
+<div id="Wed"> 
+    <%= f.number_field :wednesday_status %>
+    <%= f.datetime_select :wednesday_open %>
+    <%= f.datetime_select :wednesday_close %>
+</div>
+<div id="Thu"> 
+    <%= f.number_field :thursday_status %>
+    <%= f.datetime_select :thursday_open %>
+    <%= f.datetime_select :thursday_close %>
+</div>
+<div id="Fri"> 
+    <%= f.number_field :friday_status %>
+    <%= f.datetime_select :friday_open %>
+    <%= f.datetime_select :friday_close %>
+</div>
+<div id="Sat"> 
+    <%= f.number_field :saturday_status %>
+    <%= f.datetime_select :saturday_open %>
+    <%= f.datetime_select :saturday_close %>
+</div>
+<div id="Sun"> 
+    <%= f.number_field :sunday_status %>
+    <%= f.datetime_select :sunday_open %>
+    <%= f.datetime_select :sunday_close %>
+</div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @hour %> |
+<%= link_to 'Back', hours_path %>
