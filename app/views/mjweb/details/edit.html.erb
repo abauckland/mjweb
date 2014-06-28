@@ -28,58 +28,23 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.text_field :subdomain_name, label: "Subdomain Name (your_name.myhq.co.uk)"  %>
-  </div>
-  <div class="field">
-    <%= f.text_field :tile_colour, label: "Colour of Information Tiles"  %>
-  </div>
-  <div class="field">
-    <%= f.text_field :background, label: "Background Pattern"  %>
-  </div>
- <div class="field">
-    <%= f.text_field :font, label: "Font Style"  %>
-  </div>
-  <div class="field">
-    <%= f.text_area :tagline, label: "Trading Hours (Monday)"  %>
-  </div>
-    <div class="field">
-    <%= f.text_area :Monday, label: "Trading Hours (Monday)" %>
-  </div>
-    <div class="field">
-    <%= f.text_area :Tuesday, label: "Trading Hours (Tuesday)"  %>
-  </div>
-    <div class="field">
-    <%= f.text_area :Wednesday, label: "Trading Hours (Wednesday)"  %>
-  </div>
-  <div class="field">
-    <%= f.text_area :Thursday, label: "Trading Hours (Thursday)"  %>
-  </div>
-  <div class="field">
-    <%= f.text_area :Friday, label: "Trading Hours (Friday)"  %>
-  </div>
-  <div class="field">
-    <%= f.text_area :Saturday, label: "Trading Hours (Saturday)"  %>
-  </div>  
-  <div class="field">
-    <%= f.text_area :Sunday, label: "Trading Hours (Sunday)"  %>
-  </div>  
+ 
   
   <div class="field">
-    <%= f.text_field :ecommerce, label: "Web address for E-commerce site"  %>
+    <%= f.text_area :tagline, label: "Tagline - describe nature of your company"  %>
+  </div>
+ 
+  <div class="field">
+    <%= f.url_field :facebook, label: "Facebook address"  %>
   </div>
   <div class="field">
-    <%= f.text_field :facebook, label: "Facebook address"  %>
+    <%= f.url_field :twitter, label: "Twitter address" %>
   </div>
   <div class="field">
-    <%= f.text_field :twitter, label: "Twitter address" %>
+    <%= f.url_field :googleplus, label: "Google+ address" %>
   </div>
   <div class="field">
-    <%= f.text_field :googleplus, label: "Google+ address" %>
-  </div>
-  <div class="field">
-    <%= f.text_field :linkedin, label: "Linkedin address"  %>
+    <%= f.url_field :linkedin, label: "Linkedin address"  %>
   </div>
   <div class="actions">
     <%= f.submit class: "btn btn-success" %>

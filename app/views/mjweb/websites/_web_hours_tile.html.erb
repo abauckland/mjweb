@@ -1,17 +1,71 @@
 
+
     <div class="tile_container">
         <div class="colour_<%= colour_ref %> tile">
-            <div class="tile_detail">
+            <div class="tile_content">
                 <p class="tile_title_text">Opening Hours</p>
-                <ul>
-                    <li class="tile_detail_text"><%= detail.monday %></li>
-                    <li class="tile_detail_text"><%= detail.tuesday %></li>
-                    <li class="tile_detail_text"><%= detail.wednesday %></li>
-                    <li class="tile_detail_text"><%= detail.thursday %></li>
-                    <li class="tile_detail_text"><%= detail.friday %></li>
-                    <li class="tile_detail_text"><%= detail.saturday %></li>
-                    <li class="tile_detail_text"><%= detail.sunday %></li>
-                </ul>
+                <% if hours %>
+                <div class="hours">
+                <table>
+                    <tr>
+                        <td class="tile_content_text">Mon:</td>
+                        <% if hours.monday_status == 0 %>
+                            <td class="tile_content_text"><%= hours.monday_open.to_s(:time) %> - <%= hours.monday_close.to_s(:time) %></td>
+                        <% else %>
+                            <td class="tile_content_text">closed</td>
+                        <% end %>
+                    </tr>
+                    <tr>
+                        <td class="tile_content_text">Tue:</td>
+                        <% if hours.tuesday_status == 0 %>
+                            <td class="tile_content_text"><%= hours.tuesday_open.to_s(:time) %> - <%= hours.tuesday_close.to_s(:time) %></td>
+                        <% else %>
+                            <td class="tile_content_text">closed</td>
+                        <% end %>
+                    </tr>
+                    <tr>
+                        <td class="tile_content_text">Wed:</td>
+                        <% if hours.wednesday_status == 0 %>
+                            <td class="tile_content_text"><%= hours.wednesday_open.to_s(:time) %> - <%= hours.wednesday_close.to_s(:time) %></td>
+                        <% else %>
+                            <td class="tile_content_text">closed</td>
+                        <% end %>
+                    </tr>
+                    <tr>
+                        <td class="tile_content_text">Thu:</td>
+                        <% if hours.thursday_status == 0 %>
+                            <td class="tile_content_text"><%= hours.thursday_open.to_s(:time) %> - <%= hours.thursday_close.to_s(:time) %></td>
+                        <% else %>
+                            <td class="tile_content_text">closed</td>
+                        <% end %>
+                    </tr>
+                    <tr>
+                        <td class="tile_content_text">Fri:</td>
+                        <% if hours.friday_status == 0 %>
+                            <td class="tile_content_text"><%= hours.friday_open.to_s(:time) %> - <%= hours.friday_close.to_s(:time) %></td>
+                        <% else %>
+                            <td class="tile_content_text">closed</td>
+                        <% end %>
+                    </tr>                
+                    <tr>
+                        <td class="tile_content_text">Sat:</td>
+                        <% if hours.saturday_status == 0 %>
+                            <td class="tile_content_text"><%= hours.saturday_open.to_s(:time) %> - <%= hours.saturday_close.to_s(:time) %></td>
+                        <% else %>
+                            <td>closed</td>
+                        <% end %>
+                    </tr>
+                    <tr>
+                        <td class="tile_content_text">Sun:</td>
+                        <% if hours.sunday_status == 0 %>
+                            <td class="tile_content_text"><%= hours.sunday_open.to_s(:time) %> - <%= hours.sunday_close.to_s(:time) %></td>
+                        <% else %>
+                            <td class="tile_content_text">closed</td>
+                        <% end %>
+                    </tr>
+                 </table>
+                 </div>
+                 <% end %>
             </div>
         </div>
     </div>                               

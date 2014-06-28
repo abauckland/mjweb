@@ -5,22 +5,21 @@
 <table class="table table-striped table-hover" style="width : 100%" >
   <thead>
     <tr>
-      <th width="20px">Order</th>
       <th>Tile type</th>
-      <th width="150px">Display</th>
-      <th width="120px"></th>
+      <th width="120px">Visibility</th>
+      <th width="210px"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @contents.each do |content| %>
       <tr>
-        <td><%= content.order %></td>
         <td><%= content.tile.name %></td>
         <td><%= content.display %></td>
         <td>
             <div class="btn-group-xs">
-                <%= link_to 'Edit', edit_content_path(content), :class => "btn btn-sm btn-warning" %>
+                <%= link_to 'Move to Top', move_content_path(content), data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-warning" %>
+                <%= link_to 'Edit', edit_content_path(content), :class => "btn btn-sm btn-success" %>
                 <%= link_to 'Delete', content, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-danger" %>
             </div>
         </td>  

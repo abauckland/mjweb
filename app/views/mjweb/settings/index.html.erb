@@ -1,7 +1,9 @@
 <h1>Website Settings</h1>
 
 <div class="list-group">
-  <%= link_to "Company Details & Colour Scheme", mjweb.edit_detail_path(current_user.company_id), class: "list-group-item list-group-item-info" %>
-  <%= link_to "Home Page Content", mjweb.contents_path, class: "list-group-item list-group-item-info" %>
+  <%= link_to "Colour Scheme", mjweb.edit_design_path(current_user.company_id), class: "list-group-item list-group-item-info" %>
+  <%= link_to "Company Details", mjweb.edit_detail_path(current_user.company_id), class: "list-group-item list-group-item-info" %>
   <%= link_to "Website Images", mjweb.images_path, class: "list-group-item list-group-item-info" %>
+  <%= link_to "Home Page Content", mjweb.contents_path, class: "list-group-item list-group-item-info" %>
+
 </div>

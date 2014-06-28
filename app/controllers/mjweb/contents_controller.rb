@@ -2,12 +2,12 @@ require_dependency "mjweb/application_controller"
 
 module Mjweb
   class ContentsController < ApplicationController
-    before_action :set_content, only: [:show, :edit, :update, :destroy]
+    before_action :set_content, only: [:show, :edit, :update, :destroy, :move]
     before_action :set_tiles, only: [:new, :edit]
 
     # GET /contents
     def index
-      @contents = Content.where(:company_id => current_user.company_id)
+      @contents = Content.where(:company_id => current_user.company_id).order('updated_at DESC')
     end
 
     # GET /contents/1
@@ -28,7 +28,7 @@ module Mjweb
       @content = Content.new(content_params)
 
       if @content.save
-        redirect_to contents_path, notice: 'content was successfully created.'
+        redirect_to contents_path, notice: 'tile was successfully created.'
       else
         render :new
       end
@@ -41,6 +41,13 @@ module Mjweb
       else
         render :edit
       end
+    end
+
+    def move
+      @content.updated_at = Time.now
+      if @content.save
+        redirect_to contents_path, notice: 'Tile moved to top.'
+      end      
     end
 
     # DELETE /contents/1

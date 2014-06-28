@@ -7,12 +7,14 @@
   <%= javascript_include_tag 'mjweb/application'%>
   
   <style>
-    
-
     html { font-size: 62.5%; }
     
-    body {background: url('/assets/mjweb/background.jpg');}
+    body {background: url('/assets/mjweb/<%= @design.background %>.jpg');}
 
+    .tagline_cell_small{ <%= font_style_colour(@design.font) %> }   
+    .tagline_cell_medium{ <%= font_style_colour(@design.font) %> }        
+    .tile_title_text{ <%= font_style_colour(@design.font) %> }
+        
     <% @colour_settings.each_with_index do |setting, i| %>        
         .colour_<%=i+1%>{
             color: <%= setting[:text] %>;
@@ -42,7 +44,7 @@
     <div class="company_info_small">    
         <div class="header_container">   
             <div class="company_logo_small"><%= image_tag 'media_icons.png', height: '75'%></div>      
-            <% if !@detail.tagline.empty? %>
+            <% if @detail.tagline %>
                 <div class="company_tagline_small"> <table><tr><td class="tagline_cell_small"><%= @detail.tagline %></td></tr></table></div> 
             <% end %>
         </div>
@@ -53,7 +55,7 @@
             <table border="0" cellpadding="0" cellspacing="0" class="company_logo_medium">
                 <tr>
                     <td><%= image_tag 'media_icons.png', height: '75'%></td>
-                    <% if !@detail.tagline.empty? %>
+                    <% if @detail.tagline %>
                         <td class="tagline_cell_medium"><%= @detail.tagline %></td>
                     <% end %>
                 </tr>
@@ -62,22 +64,22 @@
     </div>
 
     <div class="social_media_container">                  
-        <% if !@detail.facebook.empty? %>
+        <% if @detail.facebook %>
             <div class="social_media_link">
                 <%= link_to " ", @detail.facebook, class: "facebook"%> 
             </div>
         <% end %>
-        <% if !@detail.twitter.empty? %>
+        <% if @detail.twitter %>
             <div class="social_media_link">
                 <%= link_to " ", @detail.twitter, class: "twitter"%> 
             </div>
         <% end %>
-        <% if !@detail.googleplus.empty? %>
+        <% if @detail.googleplus %>
             <div class="social_media_link">
                 <%= link_to " ", @detail.googleplus, class: "googleplus"%> 
             </div>
         <% end %>
-        <% if !@detail.linkedin.empty? %>
+        <% if @detail.linkedin %>
             <div class="social_media_link">
                 <%= link_to " ", @detail.linkedin, class: "linkedin"%> 
             </div>
@@ -88,7 +90,7 @@
 <article>
     <div class="content">    
         <% @contents.each_with_index do |content, i| %>    
-            <%= display_web_tiles(content, @detail, i) %>
+            <%= display_web_tiles(content, @colour_settings, i) %>
         <% end%>    
     </div>      
 </article>

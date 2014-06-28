@@ -72,12 +72,12 @@ GEM
     mime-types (1.25.1)
     minitest (5.3.4)
     multi_json (1.10.1)
-    mysql2 (0.3.15)
     paperclip (4.1.1)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    pg (0.17.1-x86-mingw32)
     polyglot (0.3.5)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -134,5 +134,5 @@ DEPENDENCIES
   bootstrap_form
   jquery-rails
   mjweb!
-  mysql2
+  pg
   turbolinks

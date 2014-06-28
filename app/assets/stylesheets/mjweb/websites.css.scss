@@ -4,7 +4,7 @@
 @import url(http://fonts.googleapis.com/css?family=Marck+Script);
 @import url(http://fonts.googleapis.com/css?family=Ek+Mukta);
 //settings
-$heading_font: "Trebuchet MS", Trebuchet, "Liberation Sans", sans-serif;
+$heading_font: 'Ek Mukta';
 $content_font: Arial,Helvetica,sans-serif;
 $font_color: #fff;
 
@@ -93,8 +93,7 @@ a:visited{color: #ffffff;}
   padding: 10px 0px 0px 0px;
 }
 
-.tagline_cell_small{ font-family: $heading_font;
-  font-size: 1.8rem;
+.tagline_cell_small{
   text-align:center;
 }
 
@@ -105,8 +104,7 @@ a:visited{color: #ffffff;}
   }
 }
 
-.tagline_cell_medium{ font-family: $heading_font;
-  font-size: 1.8rem;
+.tagline_cell_medium{
   vertical-align:bottom;
   text-align:left;
   width: 600px;
@@ -219,7 +217,7 @@ a.linkedin {
 .tile_content{
   width: 200px;
   height: 200px;
-  padding: 30px 0px 0px 0px; 
+  padding: 20px 0px 0px 0px; 
 }
 
 //FOOTER CSS
@@ -249,14 +247,8 @@ a.myhq_icon {
 
 
 //FONT STYLES
-.company_tagline_text {
-  font-family: $heading_font;
-  font-size: 2.8rem;
-  //font-weight:bold;
-}
-
 .tile_title_text {
-  font-family: $heading_font;
+font-family: 'Ek Mukta', sans-serif;
   font-size: 1.8rem;
   text-align:center;
   font-weight:bold;

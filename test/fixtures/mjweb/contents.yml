@@ -7,13 +7,9 @@
 one:
   company_id:
   tile_id: 
-  order: 
   display: MyString 
-  link: MyString
 
 two:
   company_id: 
   tile_id: 
-  order: 
-  display: MyString 
-  link: MyString
+  display: MyString

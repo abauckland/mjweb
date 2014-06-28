@@ -1,14 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  company_id: 
+  company_id:
+  name: 
   photo_file_name:
   photo_content_type:
   photo_file_size:
   photo_updated_at:
     
 two:
-  company_id: 
+  company_id:
+  name: 
   photo_file_name:
   photo_content_type:
   photo_file_size:
