@@ -89,9 +89,9 @@
 
 <article>
     <div class="content">    
-        <% @contents.each_with_index do |content, i| %>    
-            <%= display_web_tiles(content, @colour_settings, i) %>
-        <% end%>    
+        <% @contents.each_with_index do |content, i| %>  
+                <%= content_display(content, @colour_settings, i) %>                  
+        <% end%> 
     </div>      
 </article>
 

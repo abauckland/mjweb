@@ -1,6 +1,15 @@
 module Mjweb
   module WebsitesHelper
   
+    def content_display(content, colour_settings, i)
+      case content[:display]
+      when 'All devices'; "<div class='all_devices'>#{display_web_tiles(content, colour_settings, i)}</div>".html_safe
+      when 'Desktops & Tablets'; "<div class='tablets'>#{display_web_tiles(content, colour_settings, i)}</div>".html_safe
+      when 'Desktops only'; "<div class='desktops'>#{display_web_tiles(content, colour_settings, i)}</div>".html_safe
+      end  
+    end
+    
+    
     def display_web_tiles(content, colour_settings, colour_ref)
       
       case colour_ref
@@ -92,8 +101,8 @@ module Mjweb
   
     def font_style_colour(font)
       case font
-        when 'Marck Script' ; "font-family: 'Marck Script', cursive; font-size: 2.2rem".html_safe                                        
-        when 'Marck Script' ; "font-family: 'Marck Script', cursive; font-size: 2.2rem".html_safe
+        when 'Marck Script' ; "font-family: 'Marck Script', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe                                        
+        when 'Marck Script' ; "font-family: 'Marck Script', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe
       end      
     end 
 

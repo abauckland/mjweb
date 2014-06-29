@@ -182,6 +182,23 @@ a.linkedin {
   padding: 20px 0px 20px 0px;  
 }
 
+//tile display
+
+  .all_devices{display: block;}  
+  .tablets{display: block;} 
+  .desktops{display: block;} 
+  
+  @media screen and (max-width: $small_device) {
+    .tablets{
+      display: none;
+     }  
+  }
+
+  @media screen and (max-width: $medium_device) {
+    .desktops{
+      display: none;
+     }  
+  }
 
 .tile_container{
   float: left;
@@ -193,11 +210,6 @@ a.linkedin {
   float: left;
   width: 200px;
   height: 200px;
-  }
-  @media screen and (max-width: $medium_device) {
-    .empty_tile{
-      display: none;
-     }  
   }
 
 .tile{
