@@ -9,7 +9,10 @@ module Mjweb
 
     has_attached_file :photo, :styles => { :tile => "200x200>", :thumb => "100x100>" } 
   
-  #  validates_attachment_content_type :photo, content_type: { content_type: ["image/jpg", "image/png"]}
+  # Validate content type
+  validates_attachment_content_type :photo, content_type: { content_type: ["image/jpg", "image/png"]}
+  # Validate filename
+  validates_attachment_file_name :photo, :matches => [/png\Z/, /jpe?g\Z/]
   
     validates_attachment :photo,
       :on => :create,
