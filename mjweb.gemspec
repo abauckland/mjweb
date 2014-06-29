@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 4.1.0"
   s.add_dependency 'colorist'
 
-  s.add_dependency  'paperclip', "~> 4.1"
+  s.add_dependency  'paperclip', "~> 4.1.1"
   s.add_dependency  'bootstrap-sass'
   s.add_dependency  'bootstrap_form'
   s.add_dependency  'sass-rails', '~> 4.0.3'
