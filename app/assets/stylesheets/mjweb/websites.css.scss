@@ -14,7 +14,7 @@ $medium_device: 992px;
 $small_device: 768px;
 
 
-@mixin dark_grey_24_gradient {background: image-url('dark_grey_24.png') repeat-x};
+@mixin dark_grey_24_gradient {background: asset_url('dark_grey_24.png') repeat-x};
 
 //GLOBAL PAGE CSS
 body {  
@@ -139,9 +139,9 @@ a.facebook {
     display: inline-block;
     width: 30px;
     height: 30px;
-    background: image-url('media_icons.png') 0px 0px;
+    background: asset_url('media_icons.png') 0px 0px;
     &:hover{
-      background: image-url('media_icons.png') 0px -30px;
+      background: asset_url('media_icons.png') 0px -30px;
     }
 }
 
@@ -149,9 +149,9 @@ a.twitter {
     display: inline-block;
     width: 30px;
     height: 30px;
-    background: image-url('media_icons.png') 90px 0px;
+    background: asset_url('media_icons.png') 90px 0px;
     &:hover{
-      background: image-url('media_icons.png') 90px -30px;
+      background: asset_url('media_icons.png') 90px -30px;
     }
 }
 
@@ -159,9 +159,9 @@ a.googleplus {
     display: inline-block;
     width: 30px;
     height: 30px;
-    background: image-url('media_icons.png') 30px 0px;
+    background: asset_url('media_icons.png') 30px 0px;
     &:hover{
-      background: image-url('media_icons.png') 30px -30px;
+      background: asset_url('media_icons.png') 30px -30px;
     }
 }
 
@@ -169,9 +169,9 @@ a.linkedin {
     display: inline-block;
     width: 30px;
     height: 30px;
-    background: image-url('media_icons.png') 60px 0px;
+    background: asset_url('media_icons.png') 60px 0px;
     &:hover{
-      background: image-url('media_icons.png') 60px -30px;
+      background: asset_url('media_icons.png') 60px -30px;
     }
 }
 
@@ -251,9 +251,9 @@ a.myhq_icon {
     display: inline-block;
     width: 30px;
     height: 30px;
-    background: image-url('myhq_logo_small.png');
+    background: asset_urll('myhq_logo_small.png');
     &:hover{
-      background: image-url('myhq_logo_small.png');
+      background: asset_url('myhq_logo_small.png');
     }
 }
 
