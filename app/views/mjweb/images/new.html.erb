@@ -18,9 +18,11 @@
   <div class="field">
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.file_field :photo, title: "Search for a file to add" %>
+  
+  <div class="field">  
+  <%= f.file_field :image %>
   </div>
+  
   <div class="actions">
     <%= f.submit class: "btn btn-success" %>
     <%= link_to "Back to Images", mjweb.images_path, class: "btn btn-sm btn-warning btn pull-right" %>

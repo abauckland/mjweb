@@ -1,5 +1,5 @@
 require "mjweb/engine"
-require 'paperclip'
+require 'carrierwave'
 require 'jquery-rails'
 require 'bootstrap-sass'
 require 'bootstrap_form'

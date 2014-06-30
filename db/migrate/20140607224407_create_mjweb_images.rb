@@ -3,11 +3,7 @@ class CreateMjwebImages < ActiveRecord::Migration
     create_table :mjweb_images do |t|
       t.integer :company_id
       t.string :name
-      t.string :photo_file_name
-      t.string :photo_content_type
-      t.string :photo_file_size
-      t.string :photo_updated_at
-
+      t.string :image
       t.timestamps
     end
   end

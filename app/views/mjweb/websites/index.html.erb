@@ -43,7 +43,7 @@
 
     <div class="company_info_small">    
         <div class="header_container">   
-            <div class="company_logo_small"><%= image_tag 'media_icons.png', height: '75'%></div>      
+            <div class="company_logo_small"><%= image_tag @detail.company.image, height: '75'%></div>      
             <% if @detail.tagline %>
                 <div class="company_tagline_small"> <table><tr><td class="tagline_cell_small"><%= @detail.tagline %></td></tr></table></div> 
             <% end %>

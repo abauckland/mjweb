@@ -18,7 +18,7 @@ module Mjweb
       @image = Image.new(image_params)
 
       if @image.save
-        redirect_to @image, notice: 'Image was successfully created.'
+        redirect_to images_path, notice: 'Image was successfully created.'
       else
         render :new
       end
@@ -33,7 +33,7 @@ module Mjweb
     private
       # Only allow a trusted parameter "white list" through.
       def image_params
-        params.require(:image).permit(:company_id, :name, :photo)
+        params.require(:image).permit(:company_id, :name, :image)
       end
   end
 end

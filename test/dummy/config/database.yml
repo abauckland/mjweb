@@ -5,22 +5,22 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
-  database: mary-jolisa
   pool: 5
-  username: root
-  password: specright1707
+  username: manager
+  password: 144bubble
   host: localhost
 
 development:
   <<: *default
-
+  database: myhq_dev
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-
+  database: myhq_test
 production:
   <<: *default
+  database: myhq_prod
