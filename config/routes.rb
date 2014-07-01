@@ -7,7 +7,9 @@ Mjweb::Engine.routes.draw do
   resources :abouts
   resources :services
   resources :images, :only => [:index, :new, :create, :destroy]
-  resources :imagesettings, :only => [:index, :new, :create, :destroy]
+  resources :imagesettings, :only => [:new, :create, :destroy] do
+    get :list, :on => :member
+  end
       
   resources :websites, :only => [:index] do
     get :about, :on => :member
