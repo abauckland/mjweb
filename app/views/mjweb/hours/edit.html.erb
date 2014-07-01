@@ -62,9 +62,8 @@
 </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-success" %>
+    <%= link_to "Back to Settings Menu", mjweb.settings_path, class: "btn btn-sm btn-warning btn pull-right" %>
   </div>
 <% end %>
 
-<%= link_to 'Show', @hour %> |
-<%= link_to 'Back', hours_path %>

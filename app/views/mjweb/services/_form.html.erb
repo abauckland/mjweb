@@ -16,7 +16,7 @@
     <%= f.text_field :title %>
     
     <% if @images %>
-        <%= f.select :image_id, @images.map {|i| [i.name,i.id] } %>
+        <%= f.select :image_id, @images.collect{|i| [i.name,i.id] } %>
     <% else %>
         No images are available, please upload images before selecting         
     <% end %>
