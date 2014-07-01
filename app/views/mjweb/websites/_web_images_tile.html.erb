@@ -3,7 +3,7 @@
     <div class="images_tile">
         <% if images %>
             <% images.each do |image| %>
-                <%= image_tag(image.image, height: '200', width: '200', :class => "rotating-item") %>       
+                <%= image_tag(image.image, :class => "rotating-item") %>       
             <% end %>
         <% end %>
     </div>
