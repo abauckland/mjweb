@@ -80,21 +80,21 @@ module Mjweb
 
     def tile_link_icon(colour_settings, colour_ref, y)
 
-      icon_image = "background: url('/assets/mjweb/web_icons.png')"
-
-      if colour_settings[colour_ref][:tile_image] == 'white'
-        if colour_settings[colour_ref][:tile_image_hover] == 'white'
-          "<style> .image{#{icon_image} 0px #{y.to_s}px} .image:hover{#{icon_image} 0px #{y.to_s}px}</style>".html_safe 
-        else
-          "<style> .image{#{icon_image} 0px #{y.to_s}px} .image:hover{#{icon_image} 0px #{y.to_s}px}</style>".html_safe
-        end
-      else
-        if colour_settings[colour_ref][:tile_image_hover] == 'white'
-          "<style> .image{#{icon_image} 200px #{y.to_s}px} .image:hover{#{icon_image} 0px #{y.to_s}px}</style>".html_safe 
-        else
-          "<style> .image{#{icon_image} 200px #{y.to_s}px} .image:hover{#{icon_image} 200px #{y.to_s}px}</style>".html_safe
-        end
-      end
+#      icon_image = "background: url('/assets/mjweb/web_icons.png')"
+#
+#      if colour_settings[colour_ref][:tile_image] == 'white'
+#        if colour_settings[colour_ref][:tile_image_hover] == 'white'
+#          "<style> .image{#{icon_image} 0px #{y.to_s}px} .image:hover{#{icon_image} 0px #{y.to_s}px}</style>".html_safe 
+#        else
+#          "<style> .image{#{icon_image} 0px #{y.to_s}px} .image:hover{#{icon_image} 0px #{y.to_s}px}</style>".html_safe
+#        end
+##      else
+#        if colour_settings[colour_ref][:tile_image_hover] == 'white'
+#          "<style> .image{#{icon_image} 200px #{y.to_s}px} .image:hover{#{icon_image} 0px #{y.to_s}px}</style>".html_safe 
+#        else
+#          "<style> .image{#{icon_image} 200px #{y.to_s}px} .image:hover{#{icon_image} 200px #{y.to_s}px}</style>".html_safe
+#        end
+#      end
 
     end
 
