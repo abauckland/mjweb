@@ -6,21 +6,22 @@ module Mjweb
     
     # GET /images
     def list
-      @imagesettings = Imagesettings.where(:content_id => @content.id)
+      @imagesettings = Imagesetting.where(:content_id => @content.id)
     end
 
     # GET /images/new
     def new
-      @imagesetting = Imagesettings.new
-      @images = Mjweb::Images.where(:company_id => current_user.company_id)
+      @imagesetting = Imagesetting.new
+      @images = Mjweb::Image.where(:company_id => current_user.company_id)
+      @content = Content.find(params[:content_id])
     end
 
     # POST /images
     def create
-      @imagesetting = Imagesettings.new(image_params)
+      @imagesetting = Imagesetting.new(image_params)
 
-      if @image.save
-        redirect_to @imagesetting, notice: 'Image was successfully added.'
+      if @imagesetting.save
+        redirect_to list_imagesetting_path(:id => @imagesetting.content_id), notice: 'Image was successfully added.'
       else
         render :new
       end
@@ -29,12 +30,13 @@ module Mjweb
     # DELETE /images/1
     def destroy
       @imagesetting = Imagesetting.find(params[:id])
-      redirect_to images_url, notice: 'Image was successfully removed.'
+      @imagesetting.destroy
+      redirect_to list_imagesetting_path(:id => @imagesetting.content_id), notice: 'Image was successfully removed.'
     end
 
     private
       def set_content
-        @content = Content.find(params[:content_id])
+        @content = Content.find(params[:id])
       end
     
       # Only allow a trusted parameter "white list" through.

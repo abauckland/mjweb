@@ -1,0 +1,23 @@
+<%= bootstrap_form_for(@background, :html => {:multipart => true}) do |f| %>
+  <% if @background.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@background.errors.count, "error") %> prohibited this background from being saved:</h2>
+
+      <ul>
+      <% @background.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.file_field :background %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

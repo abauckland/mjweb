@@ -53,7 +53,7 @@ module Mjweb
       end
       
       def get_images
-        @images = Mjweb::Image.where(:company_id => current_user.company_id).first 
+        @images = Mjweb::Image.where(:company_id => current_user.company_id)
       end
 
       # Only allow a trusted parameter "white list" through.

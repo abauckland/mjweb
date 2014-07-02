@@ -9,16 +9,18 @@
   </thead>
 
   <tbody>
+    <% if @imagesettings %>
     <% @imagesettings.each do |imagesetting| %>
       <tr>
-        <td><%= image_tag @imagesetting.image.photo(:thumb) %></td>
+        <td><%= image_tag imagesetting.image.image %></td>
         <td><%= link_to 'Destroy', imagesetting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'Add Image', new_imagessetting_path %>
-
+<%= link_to 'Add Image', new_imagesetting_path(:content_id => @content.id), class: "btn btn-sm btn-warning"  %>
+<%= link_to "Back to Contents List", mjweb.contents_path, class: "btn btn-sm btn-warning btn pull-right" %>

@@ -1,5 +1,9 @@
 Mjweb::Engine.routes.draw do
  
+  resources :fonts
+
+  resources :backgrounds
+
   namespace :mjweb do
 
   end

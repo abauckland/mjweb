@@ -26,7 +26,7 @@ module Mjweb
 
       # Only allow a trusted parameter "white list" through.
       def design_params
-        params.require(:design).permit(:tile_colour, :background, :font)
+        params.require(:design).permit(:company_id, :tile_colour, :background_id, :font_id)
       end
   end
 end

@@ -12,7 +12,7 @@ module Mjweb
     # PATCH/PUT /hours/1
     def update
       if @hour.update(hour_params)
-        redirect_to @hour, notice: 'Hours were successfully updated.'
+        redirect_to edit_hour_path(@hour), notice: 'Hours were successfully updated.'
       else
         render :edit
       end

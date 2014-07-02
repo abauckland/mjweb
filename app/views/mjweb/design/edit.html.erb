@@ -33,10 +33,10 @@
     <%= f.text_field :tile_colour, label: "Colour of Information Tiles"  %>
   </div>
   <div class="field">
-    <%= f.select :background, options_for_select([["background", "background"], ["background", "background"]]), label: "Background Pattern"  %>
+    <%= f.collection_select(:background_id, Mjweb::Background.all, :id, :name, {:selected => @design.background_id, :prompt => :true})%>
   </div>
  <div class="field">
-    <%= f.select :font, options_for_select([["Marck Script", "Marck Script"], ["Marck Script", "Marck Script"]]), label: "Font Style"  %>
+    <%= f.collection_select(:font_id, Mjweb::Font.all, :id, :name, {:selected => @design.background_id, :prompt => :true}) %>
   </div>
 
   <div class="actions">

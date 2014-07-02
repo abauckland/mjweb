@@ -9,11 +9,11 @@
   <style>
     html { font-size: 62.5%; }
     
-    body {background: image-url('/assets/mjweb/<%= @design.background %>.jpg');}
+    body {  }
 
-    .tagline_cell_small{ <%= font_style_colour(@design.font) %> }   
-    .tagline_cell_medium{ <%= font_style_colour(@design.font) %> }        
-    .tile_title_text{ <%= font_style_colour(@design.font) %> }
+    .tagline_cell_small{ <%= font_style_colour(@design.font.name) %> }   
+    .tagline_cell_medium{ <%= font_style_colour(@design.font.name) %> }        
+    .tile_title_text{ <%= font_style_colour(@design.font.name) %>}
         
     <% @colour_settings.each_with_index do |setting, i| %>        
         .colour_<%=i+1%>{

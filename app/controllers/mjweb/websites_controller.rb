@@ -31,12 +31,12 @@ module Mjweb
       end
 
       def set_company             
-      # if request.subdomain == www
-      #sub_company = ::Company.find_by subdomain: request.subdomain
-      # else
-      #sub_company = ::Company.find_by subdomain: request.subdomain  
-      # end  
-        @sub_company = ::Company.first      
+       if request.subdomain == 'www' || ''
+          @sub_company = ::Company.where(:subdomain => 'myhq').first
+       else
+          @sub_company = ::Company.find_by subdomain: request.subdomain  
+       end  
+     #  @sub_company = ::Company.first      
       end
 
       

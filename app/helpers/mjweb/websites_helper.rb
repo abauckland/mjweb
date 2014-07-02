@@ -101,10 +101,14 @@ module Mjweb
   
     def font_style_colour(font)
       case font
-        when 'Marck Script' ; "font-family: 'Marck Script', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe                                        
+        when 'Ek Mukta' ; "font-family: 'Ek Mukta', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe                                        
         when 'Marck Script' ; "font-family: 'Marck Script', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe
       end      
     end 
+   
+    def background_image(background)
+      "background-image: url('http://localhost:3000/public#{background.background.url}')".html_safe
+    end
 
   end
 end

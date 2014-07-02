@@ -17,7 +17,8 @@ $small_device: 768px;
 @mixin dark_grey_24_gradient {background: asset_url('dark_grey_24.png') repeat-x};
 
 //GLOBAL PAGE CSS
-body {  
+body { 
+
   margin: 0px;
   padding: 0px;
   width: 100%;

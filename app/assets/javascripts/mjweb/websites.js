@@ -39,7 +39,7 @@ $(document).ready(function(){
 
 
 
-$(window).load(function() {	//start after HTML, images have loaded
+$(window).ready(function() {	//start after HTML, images have loaded
 
 	var InfiniteRotator =
 	{

@@ -1,6 +1,6 @@
 <h1>Editing hour</h1>
 
-<%= form_for(@hour) do |f| %>
+<%= bootstrap_form_for(@hour) do |f| %>
   <% if @hour.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@hour.errors.count, "error") %> prohibited this hour from being saved:</h2>
@@ -13,7 +13,7 @@
     </div>
   <% end %>
  
-     <ul class="nav nav-tabs">
+     <ul class="nav nav-tabs" data-tabs="tabs">
         <li class="active"><a data-toggle="tab" href="#Mon">Mon</a></li>
         <li><a data-toggle="tab" href="#Tue">Tue</a></li>
         <li><a data-toggle="tab" href="#Wed">Wed</a></li>
@@ -24,46 +24,46 @@
     </ul>
 
     <%= f.hidden_field :company_id, :value => current_user.company_id %>
-
-<div id="Mon">  
-    <%= f.number_field :monday_status %>
-    <%= f.datetime_select :monday_open %>
-    <%= f.datetime_select :monday_close %>
+ <div id="my-tab-content" class="tab-content">
+<div  class="tab-pane active" id="Mon">  
+    <%= f.select :monday_status, options_for_select(["Open", "Closed"], @hour.monday_status) %>
+    <%= f.time_select :monday_open, {minute_step: 15}  %>
+    <%= f.time_select :monday_close, {minute_step: 15}  %>
 </div>
-<div id="Tue"> 
-    <%= f.number_field :tuesday_status %>
-    <%= f.datetime_select :tuesday_open %>
-    <%= f.datetime_select :tuesday_close %>
+<div class="tab-pane" id="Tue"> 
+    <%= f.select :tuesday_status, options_for_select(["Open", "Closed"], @hour.tuesday_status) %>
+    <%= f.time_select :tuesday_open, {minute_step: 15} %>
+    <%= f.time_select :tuesday_close, {minute_step: 15} %>
 </div>
-<div id="Wed"> 
-    <%= f.number_field :wednesday_status %>
-    <%= f.datetime_select :wednesday_open %>
-    <%= f.datetime_select :wednesday_close %>
+<div class="tab-pane" id="Wed"> 
+    <%= f.select :wednesday_status, options_for_select(["Open", "Closed"], @hour.wednesday_status) %>
+    <%= f.time_select :wednesday_open, {minute_step: 15}  %>
+    <%= f.time_select :wednesday_close, {minute_step: 15}  %>
 </div>
-<div id="Thu"> 
-    <%= f.number_field :thursday_status %>
-    <%= f.datetime_select :thursday_open %>
-    <%= f.datetime_select :thursday_close %>
+<div class="tab-pane" id="Thu"> 
+    <%= f.select :thursday_status, options_for_select(["Open", "Closed"], @hour.thursday_status) %>
+    <%= f.time_select :thursday_open, {minute_step: 15}  %>
+    <%= f.time_select :thursday_close, {minute_step: 15}  %>
 </div>
-<div id="Fri"> 
-    <%= f.number_field :friday_status %>
-    <%= f.datetime_select :friday_open %>
-    <%= f.datetime_select :friday_close %>
+<div class="tab-pane" id="Fri"> 
+    <%= f.select :friday_status, options_for_select(["Open", "Closed"], @hour.friday_status) %>
+    <%= f.time_select :friday_open, {minute_step: 15}  %>
+    <%= f.time_select :friday_close, {minute_step: 15}  %>
 </div>
-<div id="Sat"> 
-    <%= f.number_field :saturday_status %>
-    <%= f.datetime_select :saturday_open %>
-    <%= f.datetime_select :saturday_close %>
+<div class="tab-pane" id="Sat"> 
+    <%= f.select :saturday_status, options_for_select(["Open", "Closed"], @hour.saturday_status) %>
+    <%= f.time_select :saturday_open, {minute_step: 15}  %>
+    <%= f.time_select :saturday_close, {minute_step: 15}  %>
 </div>
-<div id="Sun"> 
-    <%= f.number_field :sunday_status %>
-    <%= f.datetime_select :sunday_open %>
-    <%= f.datetime_select :sunday_close %>
+<div class="tab-pane" id="Sun"> 
+    <%= f.select :sunday_status, options_for_select(["Open", "Closed"], @hour.sunday_status) %>
+    <%= f.time_select :sunday_open, {minute_step: 15}  %>
+    <%= f.time_select :sunday_close, {minute_step: 15}  %>
 </div>
-
+</div>
   <div class="actions">
     <%= f.submit class: "btn btn-success" %>
-    <%= link_to "Back to Settings Menu", mjweb.settings_path, class: "btn btn-sm btn-warning btn pull-right" %>
+    <%= link_to "Back to Contents List", mjweb.contents_path, class: "btn btn-sm btn-warning btn pull-right" %>
   </div>
 <% end %>
 

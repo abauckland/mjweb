@@ -5,7 +5,7 @@
       <div class="website_images">
         <table width="100%">
             <tr>
-                <td><%= image_tag(image.image_url(:thumb).to_s) if image.image? %></td>
+                <td><%= image_tag(image.image) if image.image? %></td>
                 <td width="100px"><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-danger"  %></td>
             </tr>
         </table>

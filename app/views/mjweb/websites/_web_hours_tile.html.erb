@@ -9,7 +9,7 @@
                 <table>
                     <tr>
                         <td class="tile_content_text">Mon:</td>
-                        <% if hours.monday_status == 0 %>
+                        <% if hours.monday_status == "Open" %>
                             <td class="tile_content_text"><%= hours.monday_open.to_s(:time) %> - <%= hours.monday_close.to_s(:time) %></td>
                         <% else %>
                             <td class="tile_content_text">closed</td>
@@ -17,7 +17,7 @@
                     </tr>
                     <tr>
                         <td class="tile_content_text">Tue:</td>
-                        <% if hours.tuesday_status == 0 %>
+                        <% if hours.tuesday_status == "Open" %>
                             <td class="tile_content_text"><%= hours.tuesday_open.to_s(:time) %> - <%= hours.tuesday_close.to_s(:time) %></td>
                         <% else %>
                             <td class="tile_content_text">closed</td>
@@ -25,7 +25,7 @@
                     </tr>
                     <tr>
                         <td class="tile_content_text">Wed:</td>
-                        <% if hours.wednesday_status == 0 %>
+                        <% if hours.wednesday_status == "Open" %>
                             <td class="tile_content_text"><%= hours.wednesday_open.to_s(:time) %> - <%= hours.wednesday_close.to_s(:time) %></td>
                         <% else %>
                             <td class="tile_content_text">closed</td>
@@ -33,7 +33,7 @@
                     </tr>
                     <tr>
                         <td class="tile_content_text">Thu:</td>
-                        <% if hours.thursday_status == 0 %>
+                        <% if hours.thursday_status == "Open" %>
                             <td class="tile_content_text"><%= hours.thursday_open.to_s(:time) %> - <%= hours.thursday_close.to_s(:time) %></td>
                         <% else %>
                             <td class="tile_content_text">closed</td>
@@ -41,7 +41,7 @@
                     </tr>
                     <tr>
                         <td class="tile_content_text">Fri:</td>
-                        <% if hours.friday_status == 0 %>
+                        <% if hours.friday_status == "Open" %>
                             <td class="tile_content_text"><%= hours.friday_open.to_s(:time) %> - <%= hours.friday_close.to_s(:time) %></td>
                         <% else %>
                             <td class="tile_content_text">closed</td>
@@ -49,7 +49,7 @@
                     </tr>                
                     <tr>
                         <td class="tile_content_text">Sat:</td>
-                        <% if hours.saturday_status == 0 %>
+                        <% if hours.saturday_status == "Open" %>
                             <td class="tile_content_text"><%= hours.saturday_open.to_s(:time) %> - <%= hours.saturday_close.to_s(:time) %></td>
                         <% else %>
                             <td>closed</td>
@@ -57,7 +57,7 @@
                     </tr>
                     <tr>
                         <td class="tile_content_text">Sun:</td>
-                        <% if hours.sunday_status == 0 %>
+                        <% if hours.sunday_status == "Open"%>
                             <td class="tile_content_text"><%= hours.sunday_open.to_s(:time) %> - <%= hours.sunday_close.to_s(:time) %></td>
                         <% else %>
                             <td class="tile_content_text">closed</td>
