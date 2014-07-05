@@ -30,13 +30,25 @@ module Mjweb
        # @website = Website.find(params[:id])
       end
 
-      def set_company             
-       if request.subdomain == 'www' || ''
-          @sub_company = ::Company.where(:subdomain => 'myhq').first
-       else
-          @sub_company = ::Company.find_by subdomain: request.subdomain  
-       end  
-     #  @sub_company = ::Company.first      
+      def set_company
+	 
+	subdomain = request.subdomain(tld_length = 2)
+
+	if subdomain == 'www'
+		company = ::Company.find_by_sql(["SELECT * FROM companies WHERE id = ?", 1])
+
+	else
+		company = ::Company.find_by_sql(["SELECT * FROM companies WHERE subdomain = ?", subdomain])		
+	end
+
+	if !company.empty?
+		selected = company.first
+		company_id = selected[:id]
+       	@sub_company = ::Company.find(company_id) 
+	else
+		@sub_company = ::Company.find(1) 
+	end      
+      
       end
 
       
