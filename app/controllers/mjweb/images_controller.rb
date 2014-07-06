@@ -27,6 +27,7 @@ module Mjweb
     # DELETE /images/1
     def destroy
       @image = Image.find(params[:id])
+	@image.destroy
       redirect_to images_url, notice: 'Image was successfully destroyed.'
     end
 
