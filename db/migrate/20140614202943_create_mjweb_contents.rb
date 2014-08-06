@@ -3,7 +3,7 @@ class CreateMjwebContents < ActiveRecord::Migration
     create_table :mjweb_contents do |t|
       t.integer :company_id
       t.integer :tile_id
-      t.string :display
+      t.string :display, default: "All devices"
 
       t.timestamps
     end

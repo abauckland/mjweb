@@ -13,44 +13,27 @@ module Mjweb
     def display_web_tiles(content, colour_settings, colour_ref)
       
       case colour_ref
-      when 0 ; colour_ref = 1
-      when 1 ; colour_ref = 2
-      when 2 ; colour_ref = 3
-      when 3 ; colour_ref = 1
-      when 4 ; colour_ref = 2
-      when 5 ; colour_ref = 3
-      when 6 ; colour_ref = 1
-      when 7 ; colour_ref = 2
-      when 8 ; colour_ref = 3
-      when 9 ; colour_ref = 1
-      when 10 ; colour_ref = 2                                        
+      when 0, 3, 6, 9, 12 ; colour_ref = 0
+      when 1, 4, 7, 10, 13 ; colour_ref = 1
+      when 2, 5, 8, 11, 14 ; colour_ref = 2      
       end
       
             
       case content.tile.partial_name
         when "transparent_tile" ; render partial: "web_empty_tile"
         when "colour_tile" ; render partial: "web_colour_tile", locals: { colour_ref: colour_ref }
-        when "services" ; render_services(content, colour_ref)  
         when "contact" ; render_contact(content, colour_ref)
+        when "map" ; render_map(content)
         when "hours" ; render_hours(content, colour_ref)    
-        when "image" ; render_images(content, colour_ref)
+        when "image" ; render_image(content, colour_ref)
+        when "images" ; render_images(content, colour_ref)
+        when "services" ; render_services(content, colour_ref) 
+        when "services_link" ; render_services_link(colour_settings, colour_ref) 
+        when "about" ; render_abouts_link(colour_settings, colour_ref)     
         when "ecommerce" ; render_ecommerce(content, colour_settings, colour_ref)
-        when "map" ; render_map(content)    
       end
     end
     
-    def render_map(content)        
-      company = ::Company.where(:id => content.company_id).first 
-      
-      return render partial: "web_map_tile", locals: { company: company }      
-    end
-
-
-    def render_services(content, colour_ref)        
-      services = Mjweb::Service.where(:company_id => content.company_id).order('id') 
-      
-      return render partial: "web_services_tile", locals: { services: services, colour_ref: colour_ref }      
-    end
 
     def render_contact(content, colour_ref)        
       company = ::Company.where(:id => content.company_id).first
@@ -58,12 +41,25 @@ module Mjweb
       return render partial: "web_contact_tile", locals: { company: company, colour_ref: colour_ref }      
     end      
 
+    def render_map(content)        
+      company = ::Company.where(:id => content.company_id).first 
+      
+      return render partial: "web_map_tile", locals: { company: company }      
+    end
+
     def render_hours(content, colour_ref)
       hours = Mjweb::Hour.where(:company_id => content.company_id).first  
                     
       return render partial: "web_hours_tile", locals: { hours: hours, colour_ref: colour_ref }      
     end 
 
+    def render_image(content, colour_ref)
+      #doing as one query does not works with PG and namespaces for some reason              
+      set_image = Mjweb::Imagesetting.where(:content_id => content.id).first
+      image = Mjweb::Image.where(:id => set_image.id).first
+      
+      return render partial: "web_image_tile", locals: { image: image }      
+    end
 
     def render_images(content, colour_ref)
       #doing as one query does not works with PG and namespaces for some reason              
@@ -73,32 +69,43 @@ module Mjweb
       return render partial: "web_images_tile", locals: { images: images }      
     end
 
-    def render_ecommerce(content, colour_settings, colour_ref)                    
+    def render_services(content, colour_ref)        
+      services = Mjweb::Service.where(:company_id => content.company_id).order('id') 
+      
+      return render partial: "web_services_tile", locals: { services: services, colour_ref: colour_ref }      
+    end
+
+    def render_services_link(colour_settings, colour_ref)
+      return render partial: "web_services_link_tile", locals: { colour_settings: colour_settings, colour_ref: colour_ref }     
+    end
+
+    def render_abouts_link(colour_settings, colour_ref)
+      return render partial: "web_about_tile", locals: { colour_settings: colour_settings, colour_ref: colour_ref }      
+    end
+    
+    def render_ecommerce(content, colour_settings, colour_ref)
       return render partial: "web_ecommerce_tile", locals: { content: content, colour_settings: colour_settings, colour_ref: colour_ref}      
+    end    
+
+
+
+    def  link_icon(colour_settings, colour_ref)
+      if colour_settings[colour_ref][:tile_image] == 'white'
+        if colour_settings[colour_ref][:tile_image_hover] == 'white'
+          'white'
+        else
+          'white_black'
+        end
+      else  
+        if colour_settings[colour_ref][:tile_image_hover] == 'white'
+          'black_white'
+        else
+          'black'
+        end
+      end  
     end
 
-
-    def tile_link_icon(colour_settings, colour_ref, y)
-
-#      icon_image = "background: url('/assets/mjweb/web_icons.png')"
-#
-#      if colour_settings[colour_ref][:tile_image] == 'white'
-#        if colour_settings[colour_ref][:tile_image_hover] == 'white'
-#          "<style> .image{#{icon_image} 0px #{y.to_s}px} .image:hover{#{icon_image} 0px #{y.to_s}px}</style>".html_safe 
-#        else
-#          "<style> .image{#{icon_image} 0px #{y.to_s}px} .image:hover{#{icon_image} 0px #{y.to_s}px}</style>".html_safe
-#        end
-##      else
-#        if colour_settings[colour_ref][:tile_image_hover] == 'white'
-#          "<style> .image{#{icon_image} 200px #{y.to_s}px} .image:hover{#{icon_image} 0px #{y.to_s}px}</style>".html_safe 
-#        else
-#          "<style> .image{#{icon_image} 200px #{y.to_s}px} .image:hover{#{icon_image} 200px #{y.to_s}px}</style>".html_safe
-#        end
-#      end
-
-    end
-
-  
+ 
     def font_style_colour(font)
       case font
         when 'Ek Mukta' ; "font-family: 'Ek Mukta', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe                                        
@@ -106,9 +113,5 @@ module Mjweb
       end      
     end 
    
-    def background_image(background)
-      "background-image: url('http://localhost:3000/public#{background.background.url}')".html_safe
-    end
-
   end
 end

@@ -1,7 +1,7 @@
 require_dependency "mjweb/application_controller"
 
 module Mjweb
-  class DesignController < ApplicationController
+  class DesignsController < ApplicationController
     before_action :set_design, only: [:edit, :update]
 
 

@@ -1,4 +1,4 @@
-<h1>Listing abouts</h1>
+<h1>Company Information</h1>
 
 <table>
   <thead>
@@ -17,7 +17,7 @@
         <td><%= about.company_id %></td>
         <td><%= about.title %></td>
         <td><%= about.text %></td>
-        <td><%= about.image_id %></td>
+        <td><%= about.image.image_url(:thumb) %></td>
         <td>
             <div class="btn-group-xs">        
                 <%= link_to 'Edit', edit_about_path(about), :class => "btn btn-sm btn-success"  %>

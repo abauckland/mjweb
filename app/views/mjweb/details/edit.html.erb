@@ -1,56 +1,70 @@
-<head>  
-  <%= stylesheet_link_tag    'mjweb/application', media: 'all'%>
-  <%= javascript_include_tag 'mjweb/application'%>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
 <p id="notice"><%= notice %></p>
 
+<h2>Company Tagline & Social Media Links</h2>
 
-<h1>Company Details & Colour Scheme</h1>
-
-
-
-<%= bootstrap_form_for(@detail) do |f| %>
-
-  <p id="notice"><%= notice %></p>
-  
-  <%= f.hidden_field :company_id, :value => current_user.company_id %>
-
-  <% if @detail.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@detail.errors.count, "error") %> prohibited this detail from being saved:</h2>
-
-      <ul>
-      <% @detail.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
- 
-  
-  <div class="field">
-    <%= f.text_area :tagline, label: "Tagline - describe nature of your company"  %>
+<div class="row-fluid">
+  <div class="span4 well">
+    <%= form_for(@detail) do |f| %>
+      <fieldset>
+          <p id="notice"><%= notice %></p>
+          
+          <%= f.hidden_field :company_id, :value => current_user.company_id %>
+        
+          <% if @detail.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@detail.errors.count, "error") %> prohibited this detail from being saved:</h2>
+        
+              <ul>
+              <% @detail.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+     
+      
+          <div class="form-group">
+            <label class="control-label">Tagline
+                <div class="help_tooltip" id="4"></div>
+            </label>   
+            <%= f.text_area :tagline, :class=>"form-control" %>
+          </div> 
+     
+          <div class="form-group">
+            <label class="control-label">Facebook Address
+                <div class="help_tooltip" id="5"></div>
+            </label>   
+            <%= f.url_field :facebook, :class=>"form-control" %>
+          </div> 
+      
+          <div class="form-group">
+            <label class="control-label">Twitter Address
+                <div class="help_tooltip" id="6"></div>
+            </label>   
+            <%= f.url_field :twitter, :class=>"form-control" %>
+          </div> 
+      
+          <div class="form-group">
+            <label class="control-label">Google+ Address
+                <div class="help_tooltip" id="7"></div>
+            </label>   
+            <%= f.url_field :googleplus, :class=>"form-control" %>
+          </div>  
+          
+          <div class="form-group">
+            <label class="control-label">Linkedin Address
+                <div class="help_tooltip" id="8"></div>
+            </label>   
+            <%= f.url_field :linkedin, :class=>"form-control" %>
+          </div>        
+          
+          <div class="form-actions">
+            <%= f.submit class: "btn btn-success" %>
+            <%= link_to "Back to Settings Menu", mjweb.settings_path, class: "btn btn-sm btn-warning btn pull-right" %>
+          </div>
+      </fieldset>
+    <% end %>
   </div>
- 
-  <div class="field">
-    <%= f.url_field :facebook, label: "Facebook address"  %>
-  </div>
-  <div class="field">
-    <%= f.url_field :twitter, label: "Twitter address" %>
-  </div>
-  <div class="field">
-    <%= f.url_field :googleplus, label: "Google+ address" %>
-  </div>
-  <div class="field">
-    <%= f.url_field :linkedin, label: "Linkedin address"  %>
-  </div>
-  <div class="actions">
-    <%= f.submit class: "btn btn-success" %>
-    <%= link_to "Back to Settings Menu", mjweb.settings_path, class: "btn btn-sm btn-warning btn pull-right" %>
-  </div>
-<% end %>
-
+</div>
 
 

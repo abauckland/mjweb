@@ -2,8 +2,9 @@ class CreateMjwebDetails < ActiveRecord::Migration
   def change
     create_table :mjweb_details do |t|
 
-      t.string :tagline
       t.integer :company_id
+      t.string :tagline
+      
       t.integer :ecommerce
       t.string :facebook
       t.string :twitter

@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Website Design Settings</h2>
+
+<div class="row-fluid">
+  <div class="span4 well">
+    <%= form_for(@design) do |f| %>
+    <fieldset>
+      <p id="notice"><%= notice %></p>
+      
+      <%= f.hidden_field :company_id, :value => current_user.company_id %>
+    
+      <% if @design.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@design.errors.count, "error") %> prohibited this detail from being saved:</h2>
+    
+          <ul>
+          <% @design.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+          <div class="form-group">
+                <label class="control-label">Tile Colour
+                    <div class="help_tooltip" id="1"></div>
+                </label>  
+            <%= f.text_field :tile_colour, :class=>"form-control"  %>
+            </div>
+          <div class="form-group">
+                <label class="control-label">Background
+                    <div class="help_tooltip" id="2"></div>
+                </label>  
+            <%= f.collection_select(:background_id, Mjweb::Background.all, :id, :name, {:selected => @design.background_id, :prompt => :true}, :class=>"form-control" )%>
+          </div>
+          <div class="form-group">
+                <label class="control-label">Title & Tagline Font
+                    <div class="help_tooltip" id="3"></div>
+                </label> 
+            <%= f.collection_select(:font_id, Mjweb::Font.all, :id, :name, {:selected => @design.background_id, :prompt => :true}, :class=>"form-control" ) %>
+          </div>
+    
+      <div class="form-actions">
+        <%= f.submit class: "btn btn-success" %>
+        <%= link_to "Back to Settings Menu", mjweb.settings_path, class: "btn btn-sm btn-warning btn pull-right" %>
+      </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>

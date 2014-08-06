@@ -2,11 +2,15 @@ require_dependency "mjweb/application_controller"
 
 module Mjweb
   class ImagesettingsController < ApplicationController
-    before_action :set_content, only: [:list]
+    before_action :set_content, only: [:list, :show]
     
     # GET /images
     def list
       @imagesettings = Imagesetting.where(:content_id => @content.id)
+    end
+    
+    def show
+      @imagesetting = Imagesetting.where(:content_id => @content.id).first
     end
 
     # GET /images/new

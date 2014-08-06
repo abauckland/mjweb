@@ -1,5 +1,9 @@
 <h1>Edit contents of the Home Page</h1>
-<%= bootstrap_form_for(@content) do |f| %>
+<div class="row-fluid">
+  <div class="span4 well">
+<fieldset>
+
+<%= form_for(@content) do |f| %>
   <% if @content.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@content.errors.count, "error") %> prohibited this content from being saved:</h2>
@@ -14,13 +18,19 @@
 
   <%= f.hidden_field :company_id, :value => current_user.company_id %>
 
-  <div class="field">
-    <%= f.collection_select(:tile_id, @tiles, :id, :name)%>
+      <div class="form-group">
+        <label class="control-label">Select Tile Type
+            <div class="help_tooltip" id="11"></div> 
+        </label> 
+    <%= f.collection_select(:tile_id, @tiles, :id, :name, {}, :class=>"form-control")%>
   </div>
-  <div class="field">
-    <%= f.select(:display, [['All devices', 'All devices'], ['Desktops & Tablets', 'Desktops & Tablets'], ['Desktops only', 'Desktops only']]) %>
+      <div class="form-group">
+        <label class="control-label">Set Display Options
+            <div class="help_tooltip" id="12"></div> 
+        </label> 
+    <%= f.select(:display, [['All devices', 'All devices'], ['Desktops & Tablets', 'Desktops & Tablets'], ['Desktops only', 'Desktops only']], {}, :class=>"form-control") %>
   </div>
-  <div class="actions">
+  <div class="form-actions">
     <%= f.submit "Add/Update Tile", class: "btn btn-success" %>
     
     <div class="btn-group pull-right">
@@ -28,4 +38,7 @@
         <%= link_to "Back to tile list", mjweb.contents_path, class: "btn btn-sm btn-warning btn" %>
     </div>
   </div>
+  </fieldset>
 <% end %>
+</div>
+</div>

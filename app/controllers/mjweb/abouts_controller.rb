@@ -8,7 +8,11 @@ module Mjweb
     # GET /abouts
     def index
       #filter by company subdmain      
-      @abouts = About.where(:company_id => current_user.company_id)
+      @abouts = About.where(:company_id => current_user.company_id).first 
+      if @abouts.nil?
+        redirect_to new_about_path
+      end
+      
     end
 
     # GET /abouts/new
@@ -54,8 +58,9 @@ module Mjweb
       end
       
       def get_images
-        @images = Mjweb::Image.where(:company_id => current_user.company_id).first 
+        @images = Mjweb::Image.where(:company_id => current_user.company_id)
       end
+
 
       # Only allow a trusted parameter "white list" through.
       def about_params

@@ -7,6 +7,7 @@ module Mjweb
 
     # GET /details/1/edit
     def edit
+
     end
 
     # PATCH/PUT /details/1

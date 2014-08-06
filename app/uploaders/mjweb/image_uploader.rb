@@ -30,11 +30,11 @@ module Mjweb
   # def scale(width, height)
   #   # do something
   # end
-  process :resize_to_limit => [200, 200]  
+  process :resize_to_fill => [200, 200, gravity=CenterGravity]  
 
   # Create different versions of your uploaded files:
    version :thumb do
-     process :resize_to_limit => [50, 50]
+     process :resize_to_fill => [25, 25, gravity=CenterGravity]
    end
 
 

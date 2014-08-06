@@ -1,7 +1,7 @@
 require 'test_helper'
 
 module Mjweb
-  class SettingTest < ActiveSupport::TestCase
+  class HelpTest < ActiveSupport::TestCase
     # test "the truth" do
     #   assert true
     # end

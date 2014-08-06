@@ -1,0 +1,18 @@
+<h1>Tile Image</h1>
+
+<% if @imagesetting %>
+    <table>
+          <tr><td><%= image_tag(@imagesetting.image) %></td></tr>       
+    </table>
+
+    <br>
+    
+    <%= link_to 'Destroy', @imagesetting, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger"  %>
+    <%= link_to "Back to Contents List", mjweb.contents_path, class: "btn btn-sm btn-warning btn pull-right" %>
+<% else %>
+
+    <br>
+    
+    <%= link_to 'Add Image', new_imagesetting_path(:content_id => @content.id), class: "btn btn-sm btn-warning"  %>
+    <%= link_to "Back to Contents List", mjweb.contents_path, class: "btn btn-sm btn-warning btn pull-right" %>
+<% end %>

@@ -1,30 +1,63 @@
-<%= bootstrap_form_for(@service) do |f| %>
-  <% if @service.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
+<div class="row-fluid">
+    <div class="span4 well">
+        <%= form_for(@service) do |f| %>
+          <fieldset>
+              <% if @service.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
+            
+                  <ul>
+                  <% @service.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+        
+              <%= f.hidden_field :company_id, :value => current_user.company_id %>
+          
+              <div class="form-group">
+                <label class="control-label">Service Title
+                    <div class="help_tooltip" id="18"></div>
+                </label>
+                <div class="pull-right" id="count_message"></div>  
+              <%= f.text_field :title, :class=>"form-control text_count", :maxlength => 20    %>
+              </div>
+            
+              <% if @images %>
+                <div class="form-group">
+                    <label class="control-label">Select Image
+                        <div class="help_tooltip" id="19"></div>
+                    </label>  
+                <%= f.collection_select(:image_id, @images, :id, :name, {:prompt => :true}, :class=>"form-control" ) %>
+                </div>
+              <% else %>                    
+                 <label class="control-label">No images are available, please upload images before selecting
+                     <div class="help_tooltip" id="1"></div>
+                 </label>         
+              <% end %>
+              
 
-      <ul>
-      <% @service.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+              <div class="form-group">
+                <label class="control-label">Service Description
+                    <div class="help_tooltip" id="20"></div>
+                </label>
+                <div class="pull-right" id="count_message"></div>             
+              <%= f.text_area :text, :class=>"form-control text_count", :maxlength => 500   %>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label">Link URL
+                    <div class="help_tooltip" id="21"></div>
+                </label>              
+              <%= f.url_field :link, :class=>"form-control"  %>
+              </div>
+              
+              <div class="form-actions">        
+                  <%= f.submit  class: "btn btn-success"%>
+                  <%= link_to "Back to List of Services", mjweb.services_path, class: "btn btn-sm btn-warning btn pull-right" %>
+              </div>
+          </fieldset>
+        <% end %>
     </div>
-  <% end %>
-
-    <%= f.hidden_field :company_id, :value => current_user.company_id %>
-  
-    <%= f.text_field :title %>
-    
-    <% if @images %>
-        <%= f.collection_select(:image_id, @images, :id, :name) %>
-    <% else %>    
-        No images are available, please upload images before selecting         
-    <% end %>
-    
-    <%= f.text_area :text %>
-
-    <%= f.url_field :link %>
-
-    <%= f.submit  class: "btn btn-success"%>
-    <%= link_to "Back to List of Services", mjweb.services_path, class: "btn btn-sm btn-warning btn pull-right" %>
-<% end %>
+</div>
