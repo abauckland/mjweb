@@ -22,3 +22,7 @@ Mjweb::Background.create(:name => 'White Linen')
 
 Mjweb::Font.create(:name => 'Ek Mukta')
 Mjweb::Font.create(:name => 'Marck Script')
+
+Mjweb::Detail.create(:company_id => Company.first)
+
+Mjweb::Design.create(:company_id => Company.first, :tile_colour => '#9900CC', :background_id => 1, :font_id => 1)
