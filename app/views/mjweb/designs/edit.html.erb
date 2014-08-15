@@ -38,7 +38,7 @@
                 <label class="control-label">Title & Tagline Font
                     <div class="help_tooltip" id="3"></div>
                 </label> 
-            <%= f.collection_select(:font_id, Mjweb::Font.all, :id, :name, {:selected => @design.background_id, :prompt => :true}, :class=>"form-control" ) %>
+            <%= f.collection_select(:font_id, Mjweb::Font.all, :id, :name, {:selected => @design.font_id, :prompt => :true}, :class=>"form-control" ) %>
           </div>
     
       <div class="form-actions">

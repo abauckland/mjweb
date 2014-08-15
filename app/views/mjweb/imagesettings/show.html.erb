@@ -2,7 +2,7 @@
 
 <% if @imagesetting %>
     <table>
-          <tr><td><%= image_tag(@imagesetting.image) %></td></tr>       
+          <tr><td><%= image_tag(@imagesetting.image.image_url(:thumb)) %></td></tr>       
     </table>
 
     <br>

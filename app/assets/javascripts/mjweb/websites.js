@@ -146,7 +146,7 @@ $("div.help_tooltip").qtip({ // Grab some elements to apply the tooltip to
 $("div.help_tooltip").dblclick(function (){
 
 // redirect to edit tip content
-        window.location = 'http://localhost:3000/helps/'+$(this).attr('id')+'/edit';
+        window.location = 'http://www.myhq.org.uk/helps/'+$(this).attr('id')+'/edit';
         return false;
 });
 
