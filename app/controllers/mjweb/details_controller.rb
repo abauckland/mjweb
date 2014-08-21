@@ -12,10 +12,13 @@ module Mjweb
 
     # PATCH/PUT /details/1
     def update
-      if @detail.update(detail_params)
-        render :edit, notice: 'Detail was successfully updated.'
-      else
-        render :edit
+      respond_to do |format|
+        if @detail.update(detail_params)
+          format.html { redirect_to settings_path, notice: 'Company details were successfully updated.' }
+        else
+          format.html { render :edit }
+          format.json { render json: @detail.errors, status: :unprocessable_entity }
+        end
       end
     end
 

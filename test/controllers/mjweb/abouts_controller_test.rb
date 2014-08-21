@@ -19,7 +19,7 @@ module Mjweb
 
     test "should create about" do
       assert_difference('About.count') do
-        post :create, about: { company_id: @about.company_id, image: @about.image, text: @about.text, title: @about.title }
+        post :create, about: { company_id: @about.company_id, image: @about.image, text: @about.text, link_text: @about.link_text,  link_url: @about.link_url, title: @about.title }
       end
 
       assert_redirected_to about_path(assigns(:about))
@@ -36,7 +36,7 @@ module Mjweb
     end
 
     test "should update about" do
-      patch :update, id: @about, about: { company_id: @about.company_id, image: @about.image, text: @about.text, title: @about.title }
+      patch :update, id: @about, about: { company_id: @about.company_id, image: @about.image, text: @about.text, link_text: @about.link_text,  link_url: @about.link_url, title: @about.title }
       assert_redirected_to about_path(assigns(:about))
     end
 

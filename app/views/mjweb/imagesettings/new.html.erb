@@ -1,4 +1,4 @@
-<h2>Add new image</h2>
+<h3>Add new image</h3>
 
 <div class="row-fluid">
   <div class="span4 well">
@@ -20,9 +20,10 @@
         
           <div class="form-group">
             <label class="control-label">Select image file
-                <div class="help_tooltip" id="22"></div>
+                <div class="help_tooltip" id="33"></div>
             </label> 
-                <%= f.collection_select(:image_id, @images, :id, :name, {}, :class=>"form-control" ) %> 
+  
+                <%= f.select :image_id, options_for_select(@images.map{ |c| [c.name, c.id, {'data-img-src' => c.image_url(:thumb)}] }) %> 
           </div>
         
           <div class="form-actions">

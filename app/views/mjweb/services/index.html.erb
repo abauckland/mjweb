@@ -17,7 +17,7 @@
         <td><%= service.title %></td>
         <td><%= service.text %></td>
         <td><%= service.link %></td>
-        <td><%= service.image.image_url(:thumb) %></td>
+        <td><%= image_tag(service.image.image_url(:thumb)) if service.image.image? %></td>
         <td>
             <div class="btn-group-xs">        
                 <%= link_to 'Edit', edit_service_path(service), :class => "btn btn-sm btn-success"  %>

@@ -6,8 +6,13 @@ module Mjweb
     #relationships with models in same engine
     has_many :imagesettings, :class_name => "Mjweb::Imagesetting"
     has_many :abouts
-
-
+    has_many :services
+    has_many :books
+    has_many :banks
+    has_many :networkings
+    has_many :products    
+    has_many :trainings 
+    has_many :webpages  
 
   end
 end

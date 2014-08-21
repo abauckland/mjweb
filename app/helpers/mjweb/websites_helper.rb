@@ -13,9 +13,9 @@ module Mjweb
     def display_web_tiles(content, colour_settings, colour_ref)
       
       case colour_ref
-      when 0, 3, 6, 9, 12 ; colour_ref = 0
-      when 1, 4, 7, 10, 13 ; colour_ref = 1
-      when 2, 5, 8, 11, 14 ; colour_ref = 2      
+      when 0, 3, 6, 9, 12, 15 ; colour_ref = 0
+      when 1, 4, 7, 10, 13, 16 ; colour_ref = 1
+      when 2, 5, 8, 11, 14, 17 ; colour_ref = 2      
       end
       
             
@@ -25,15 +25,24 @@ module Mjweb
         when "contact" ; render_contact(content, colour_ref)
         when "map" ; render_map(content)
         when "hours" ; render_hours(content, colour_ref)    
-        when "image" ; render_image(content, colour_ref)
-        when "images" ; render_images(content, colour_ref)
+        when "image" ; render_image(content)
+        when "images" ; render_images(content)
         when "services" ; render_services(content, colour_ref) 
         when "services_link" ; render_services_link(colour_settings, colour_ref) 
         when "about" ; render_abouts_link(colour_settings, colour_ref)     
         when "ecommerce" ; render_ecommerce(content, colour_settings, colour_ref)
+        when "products" ; render_services(content, colour_ref)
+        when "products_link" ; render_products_link(colour_settings, colour_ref) 
+        when "credit_union_link" ; render_banks_link(colour_settings, colour_ref)
+        when "books_link" ; render_books_link(colour_settings, colour_ref)            
+        when "webpages_link" ; render_webpages_link(colour_settings, colour_ref) 
+        when "networking_link" ; render_networkings_link(colour_settings, colour_ref)   
+        when "mentoring_link" ; render_mentorings_link(colour_settings, colour_ref) 
+        when "training_link" ; render_trainings_link(colour_settings, colour_ref) 
+        when "events_link" ; render_events_link(content, colour_settings, colour_ref)          
+        when "plans_link'" ; render_plans_link(content, colour_ref)
       end
     end
-    
 
     def render_contact(content, colour_ref)        
       company = ::Company.where(:id => content.company_id).first
@@ -53,15 +62,15 @@ module Mjweb
       return render partial: "web_hours_tile", locals: { hours: hours, colour_ref: colour_ref }      
     end 
 
-    def render_image(content, colour_ref)
+    def render_image(content)
       #doing as one query does not works with PG and namespaces for some reason              
       set_image = Mjweb::Imagesetting.where(:content_id => content.id).first
-      image = Mjweb::Image.where(:id => set_image.id).first
+      image = Mjweb::Image.where(:id => set_image.image_id).first
       
       return render partial: "web_image_tile", locals: { image: image }      
     end
 
-    def render_images(content, colour_ref)
+    def render_images(content)
       #doing as one query does not works with PG and namespaces for some reason              
       image_ids = Mjweb::Imagesetting.where(:content_id => content.id).pluck(:image_id)
       images = Mjweb::Image.where(:id => image_ids)
@@ -88,7 +97,48 @@ module Mjweb
     end    
 
 
+    def render_products(content, colour_ref)        
+      products = Mjweb::Product.where(:company_id => content.company_id).order('id') 
+      
+      return render partial: "web_products_tile", locals: { products: products, colour_ref: colour_ref }      
+    end
 
+    def render_products_link(colour_settings, colour_ref)
+      return render partial: "web_products_link_tile", locals: { colour_settings: colour_settings, colour_ref: colour_ref }      
+    end
+
+    def render_banks_link(colour_settings, colour_ref)
+      return render partial: "web_banks_link_tile", locals: { colour_settings: colour_settings, colour_ref: colour_ref }      
+    end
+
+    def render_books_link(colour_settings, colour_ref)
+      return render partial: "web_books_link_tile", locals: { colour_settings: colour_settings, colour_ref: colour_ref }      
+    end
+
+    def render_networkings_link(colour_settings, colour_ref)
+      return render partial: "web_networkings_link_tile", locals: { colour_settings: colour_settings, colour_ref: colour_ref }      
+    end
+    
+    def render_trainings_link(colour_settings, colour_ref)
+      return render partial: "web_trainings_link_tile", locals: { colour_settings: colour_settings, colour_ref: colour_ref }      
+    end    
+
+    def render_webpages_link(colour_settings, colour_ref)
+      return render partial: "web_webpages_link_tile", locals: { colour_settings: colour_settings, colour_ref: colour_ref }      
+    end
+
+    def render_events_link(content, colour_settings, colour_ref)        
+      events = Mjweb::Event.where(:company_id => content.company_id).order('id') 
+      
+      return render partial: "web_events_tile", locals: { events: events, colour_settings: colour_settings, colour_ref: colour_ref }      
+    end
+    
+    def render_plans_link(content, colour_ref)        
+      plans = Mjweb::Plan.where(:company_id => content.company_id).order('id') 
+      
+      return render partial: "web_plans_tile", locals: { plans: plans, colour_ref: colour_ref }      
+    end 
+    
     def  link_icon(colour_settings, colour_ref)
       if colour_settings[colour_ref][:tile_image] == 'white'
         if colour_settings[colour_ref][:tile_image_hover] == 'white'

@@ -25,7 +25,11 @@ module Mjweb
       @imagesetting = Imagesetting.new(image_params)
 
       if @imagesetting.save
-        redirect_to list_imagesetting_path(:id => @imagesetting.content_id), notice: 'Image was successfully added.'
+        if @imagesetting.content.tile_id == 14
+          redirect_to imagesetting_path(:id => @imagesetting.content_id), notice: 'Image was successfully added.'
+        else
+          redirect_to list_imagesetting_path(:id => @imagesetting.content_id), notice: 'Image was successfully added.'
+        end
       else
         render :new
       end
@@ -34,8 +38,13 @@ module Mjweb
     # DELETE /images/1
     def destroy
       @imagesetting = Imagesetting.find(params[:id])
+      tile_id = @imagesetting.content.tile_id      
       @imagesetting.destroy
-      redirect_to list_imagesetting_path(:id => @imagesetting.content_id), notice: 'Image was successfully removed.'
+      if tile_id == 14
+        redirect_to imagesetting_path(:id => @imagesetting.content_id), notice: 'Image was successfully removed.'
+      else
+        redirect_to list_imagesetting_path(:id => @imagesetting.content_id), notice: 'Image was successfully removed.'
+      end
     end
 
     private

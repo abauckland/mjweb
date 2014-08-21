@@ -17,7 +17,7 @@
         <td><%= about.company_id %></td>
         <td><%= about.title %></td>
         <td><%= about.text %></td>
-        <td><%= about.image.image_url(:thumb) %></td>
+        <td><%= image_tag(about.image.image_url(:thumb)) if about.image.image? %></td>
         <td>
             <div class="btn-group-xs">        
                 <%= link_to 'Edit', edit_about_path(about), :class => "btn btn-sm btn-success"  %>

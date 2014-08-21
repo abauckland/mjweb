@@ -19,7 +19,7 @@ module Mjweb
 
     test "should create service" do
       assert_difference('Service.count') do
-        post :create, service: { company_id: @service.company_id, image_id: @service.image_id, link: @service.link, text: @service.text, title: @service.title }
+        post :create, service: { company_id: @service.company_id, image_id: @service.image_id, link_text: @service.link_text, link_url: @service.link_url, text: @service.text, title: @service.title }
       end
 
       assert_redirected_to service_path(assigns(:service))
@@ -36,7 +36,7 @@ module Mjweb
     end
 
     test "should update service" do
-      patch :update, id: @service, service: { company_id: @service.company_id, image_id: @service.image_id, link: @service.link, text: @service.text, title: @service.title }
+      patch :update, id: @service, service: { company_id: @service.company_id, image_id: @service.image_id, link_text: @service.link_text, link_url: @service.link_url, link: @service.link, text: @service.text, title: @service.title }
       assert_redirected_to service_path(assigns(:service))
     end
 

@@ -1,5 +1,15 @@
 Mjweb::Engine.routes.draw do
 
+  resources :webpages
+  resources :trainings
+  resources :networkings
+  resources :accounts
+  resources :banks
+  resources :products
+  resources :events
+
+  resources :abouts
+  resources :services
 
   resources :helps
 
@@ -7,10 +17,7 @@ Mjweb::Engine.routes.draw do
   resources :fonts
 
   resources :backgrounds
-
-
-  resources :abouts
-  resources :services
+  
   resources :images, :only => [:index, :new, :create, :destroy]
   resources :imagesettings, :only => [:show, :new, :create, :destroy] do
     get :list, :on => :member
@@ -21,6 +28,13 @@ Mjweb::Engine.routes.draw do
   resource :websites do
     get :about, :on => :member
     get :service, :on => :member
+    get :bank, :on => :member
+    get :book, :on => :member
+    get :event, :on => :member
+    get :networking, :on => :member
+    get :product, :on => :member
+    get :training, :on => :member            
+    get :webpage, :on => :member
   end
 
   resources :settings, :only => [:index]
@@ -29,7 +43,8 @@ Mjweb::Engine.routes.draw do
   resources :designs, :only => [:edit, :update]
 
   resources :contents do
-    get :move, :on => :member
+    get :move_up, :on => :member
+    get :move_down, :on => :member
   end
   
 end

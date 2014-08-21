@@ -58,7 +58,7 @@ module Mjweb
 
       # Only allow a trusted parameter "white list" through.
       def service_params
-        params.require(:service).permit(:company_id, :title, :text, :link, :image_id)
+        params.require(:service).permit(:company_id, :title, :text, :link_url, :link_text, :image_id)
       end
   end
 end

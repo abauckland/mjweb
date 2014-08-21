@@ -18,7 +18,7 @@
           
               <div class="form-group">
                 <label class="control-label">Service Title
-                    <div class="help_tooltip" id="18"></div>
+                    <div class="help_tooltip" id="35"></div>
                 </label>
                 <div class="pull-right" id="count_message"></div>  
               <%= f.text_field :title, :class=>"form-control text_count", :maxlength => 20    %>
@@ -27,30 +27,37 @@
               <% if @images %>
                 <div class="form-group">
                     <label class="control-label">Select Image
-                        <div class="help_tooltip" id="19"></div>
+                        <div class="help_tooltip" id="36"></div>
                     </label>  
                 <%= f.collection_select(:image_id, @images, :id, :name, {:prompt => :true}, :class=>"form-control" ) %>
                 </div>
               <% else %>                    
                  <label class="control-label">No images are available, please upload images before selecting
-                     <div class="help_tooltip" id="1"></div>
+                     <div class="help_tooltip" id="36"></div>
                  </label>         
               <% end %>
               
 
               <div class="form-group">
                 <label class="control-label">Service Description
-                    <div class="help_tooltip" id="20"></div>
+                    <div class="help_tooltip" id="37"></div>
                 </label>
                 <div class="pull-right" id="count_message"></div>             
               <%= f.text_area :text, :class=>"form-control text_count", :maxlength => 500   %>
               </div>
 
               <div class="form-group">
-                <label class="control-label">Link URL
-                    <div class="help_tooltip" id="21"></div>
+                <label class="control-label">Link Text
+                    <div class="help_tooltip" id="39"></div>
                 </label>              
-              <%= f.url_field :link, :class=>"form-control"  %>
+              <%= f.text_field :link_text, :class=>"form-control text_count", :maxlength => 50    %>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label">Link URL
+                    <div class="help_tooltip" id="38"></div>
+                </label>              
+              <%= f.url_field :link_url, :class=>"form-control"  %>
               </div>
               
               <div class="form-actions">        

@@ -20,13 +20,13 @@
 
       <div class="form-group">
         <label class="control-label">Select Tile Type
-            <div class="help_tooltip" id="11"></div> 
+            <div class="help_tooltip" id="29"></div> 
         </label> 
     <%= f.collection_select(:tile_id, @tiles, :id, :name, {}, :class=>"form-control")%>
   </div>
       <div class="form-group">
         <label class="control-label">Set Display Options
-            <div class="help_tooltip" id="12"></div> 
+            <div class="help_tooltip" id="30"></div> 
         </label> 
     <%= f.select(:display, [['All devices', 'All devices'], ['Desktops & Tablets', 'Desktops & Tablets'], ['Desktops only', 'Desktops only']], {}, :class=>"form-control") %>
   </div>

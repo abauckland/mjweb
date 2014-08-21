@@ -3,18 +3,16 @@
 require 'colorist'
 include Colorist
 
-
-
 module Mjweb
   class WebsitesController < ApplicationController
-    before_action :set_company, only: [:index, :about, :service]
+    before_action :set_company
   
     # GET /websites
     # GET /websites.json
     def index
       @detail = Mjweb::Detail.where(:company_id =>  @sub_company.id).first      
-      @contents = Mjweb::Content.where(:company_id =>  @sub_company.id).order('updated_at DESC')
-      @design = Mjweb::Design.where(:company_id =>  @sub_company.id).first
+      @contents = Mjweb::Content.where(:company_id => @sub_company.id).order('tile_ref')
+      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
       
       render layout: "mjweb/layouts/website"      
@@ -22,8 +20,8 @@ module Mjweb
 
     def about
       @contents = Mjweb::About.where(:company_id => @sub_company.id).order('id')
-      @detail = Mjweb::Detail.where(:company_id =>  @sub_company.id).first 
-      @design = Mjweb::Design.where(:company_id =>  @sub_company.id).first
+      @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
+      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
       
       render layout: "mjweb/layouts/website"
@@ -31,13 +29,77 @@ module Mjweb
 
     def service
       @contents = Mjweb::Service.where(:company_id => @sub_company.id).order('id')
-      @detail = Mjweb::Detail.where(:company_id =>  @sub_company.id).first 
-      @design = Mjweb::Design.where(:company_id =>  @sub_company.id).first
+      @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
+      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
       
       render layout: "mjweb/layouts/website"      
     end
-  
+
+    def bank
+      @contents = Mjweb::Service.where(:company_id => @sub_company.id).order('id')
+      @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
+      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
+      colour_settings(@design.tile_colour) 
+      
+      render layout: "mjweb/layouts/website"      
+    end
+
+    def book
+      @contents = Mjweb::Service.where(:company_id => @sub_company.id).order('id')
+      @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
+      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
+      colour_settings(@design.tile_colour) 
+      
+      render layout: "mjweb/layouts/website"      
+    end
+
+    def event
+      @contents = Mjweb::Service.where(:company_id => @sub_company.id).order('id')
+      @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
+      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
+      colour_settings(@design.tile_colour) 
+      
+      render layout: "mjweb/layouts/website"      
+    end
+
+    def networking
+      @contents = Mjweb::Service.where(:company_id => @sub_company.id).order('id')
+      @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
+      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
+      colour_settings(@design.tile_colour) 
+      
+      render layout: "mjweb/layouts/website"      
+    end
+
+    def product
+      @contents = Mjweb::Service.where(:company_id => @sub_company.id).order('id')
+      @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
+      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
+      colour_settings(@design.tile_colour) 
+      
+      render layout: "mjweb/layouts/website"      
+    end    
+
+
+    def training
+      @contents = Mjweb::Service.where(:company_id => @sub_company.id).order('id')
+      @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
+      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
+      colour_settings(@design.tile_colour) 
+      
+      render layout: "mjweb/layouts/website"      
+    end  
+    
+    def webpage
+      @contents = Mjweb::Service.where(:company_id => @sub_company.id).order('id')
+      @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
+      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
+      colour_settings(@design.tile_colour) 
+      
+      render layout: "mjweb/layouts/website"      
+    end  
+                      
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_website

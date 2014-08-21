@@ -18,7 +18,7 @@ module Mjweb
       @image = Image.new(image_params)
 
       if @image.save
-        redirect_to images_path, notice: 'Image was successfully created.'
+        redirect_to images_path, notice: 'Image was successfully uploaded.'
       else
         render :new
       end
@@ -28,7 +28,7 @@ module Mjweb
     def destroy
       @image = Image.find(params[:id])
 	@image.destroy
-      redirect_to images_url, notice: 'Image was successfully destroyed.'
+      redirect_to images_url, notice: 'Image was successfully deleted.'
     end
 
     private

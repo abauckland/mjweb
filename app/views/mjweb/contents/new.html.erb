@@ -18,16 +18,18 @@
   <% end %>
 
   <%= f.hidden_field :company_id, :value => current_user.company_id %>
+  <%= f.hidden_field :tile_ref, :value => @tile_ref %>
+ 
 
       <div class="form-group">
         <label class="control-label">Select Tile Type
-            <div class="help_tooltip" id="13"></div> 
+            <div class="help_tooltip" id="29"></div> 
         </label> 
         <%= f.collection_select(:tile_id, @tiles, :id, :name, {}, :class=>"form-control")  %>
     </div>
       <div class="form-group">
         <label class="control-label">Set Display Options
-            <div class="help_tooltip" id="14"></div> 
+            <div class="help_tooltip" id="30"></div> 
         </label> 
         <%= f.select(:display, [['All devices', 'All devices'], ['Desktops & Tablets', 'Desktops & Tablets'], ['Desktops only', 'Desktops only']], {}, :class=>"form-control" )  %>
     </div>

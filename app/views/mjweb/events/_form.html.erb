@@ -1,0 +1,63 @@
+<div class="row-fluid">
+    <div class="span4 well">
+        <fieldset>
+
+        <%= form_for(@event) do |f| %>
+            <% if @event.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+            
+                  <ul>
+                  <% @event.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
+            <% end %>
+        
+            <%= f.hidden_field :company_id, :value => current_user.company_id %>
+          
+            <div class="form-group">
+                <label class="control-label">Topic</label> 
+                <%= f.text_field :topic, :class=>"form-control" %>
+            </div>
+            
+            <div class="form-group">
+                <label class="control-label">Start Time</label> 
+                <%= f.datetime_select :start, {minute_step: 15}, :class=>"form-control" %>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Finish Time</label> 
+                <%= f.datetime_select :finish, {minute_step: 15}, :class=>"form-control" %>
+            </div>
+            
+            <div class="form-group">
+                <label class="control-label">Venue</label> 
+                <%= f.text_field :venue, :class=>"form-control" %>
+            </div>
+            
+            <div class="form-group">
+                <label class="control-label">Address</label> 
+                <%= f.text_field :address, :class=>"form-control" %>
+            </div>
+            
+            <div class="form-group">
+                <label class="control-label">Postcode</label> 
+                <%= f.text_field :postcode, :class=>"form-control" %>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Link</label> 
+                <%= f.url_field :link, :class=>"form-control" %>
+            </div>
+
+            <div class="form-actions">
+                <%= f.submit "Add/Update Event", class: "btn btn-success" %>
+                <%= link_to "Back to event list", mjweb.events_path, class: "btn btn-sm btn-warning btn pull-right" %>
+            </div>
+
+        <% end %>
+        <fieldset>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+
+    <div class="tile_container">
+        <div class="colour_<%= colour_ref %> tile">
+            <div class="tile_content">
+                <p class="tile_title_text">Products</p>
+                <ul>
+                    <% products.each do |product|%>
+                    <li class="tile_content_text"><%= product.title %></li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>                               

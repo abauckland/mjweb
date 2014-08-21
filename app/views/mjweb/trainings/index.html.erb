@@ -1,0 +1,37 @@
+<h1>Training Information</h1>
+
+<table class="table table-striped table-hover" style="width : 100%" >
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Text</th>
+      <th>Link text</th>
+      <th>Link url</th>
+      <th>Image</th>
+      <th width="120px"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trainings.each do |training| %>
+      <tr>
+        <td><%= training.title %></td>
+        <td><%= training.text %></td>
+        <td><%= training.link_text %></td>
+        <td><%= training.link_url %></td>
+        <td><%= image_tag(training.image.image_url(:thumb)) if training.image.image? %></td>
+        <td>
+            <div class="btn-group-xs">        
+                <%= link_to 'Edit', edit_training_path(training), :class => "btn btn-sm btn-success"  %>
+                <%= link_to 'Destroy', training, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-danger"  %>
+            </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item', new_training_path, class: "btn btn-sm btn-success"  %>
+<%= link_to "Back to Contents List", mjweb.contents_path, class: "btn btn-sm btn-warning btn pull-right" %>

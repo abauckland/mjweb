@@ -5,6 +5,8 @@ class CreateMjwebAbouts < ActiveRecord::Migration
       t.string :title
       t.text :text
       t.integer :image_id
+      t.string :link_text
+      t.string :link_url
 
       t.timestamps
     end

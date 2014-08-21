@@ -1,4 +1,32 @@
 //NEW JQUERY
+function InfiniteRotator(tile) {
+			//initial fade-in time (in milliseconds)
+			var initialFadeIn = 0;
+			//interval between items (in milliseconds)
+			var itemInterval = 3000;
+			//cross-fade time (in milliseconds)
+			var fadeTime = 1500;
+			//count number of items
+			var numberOfItems = tile.children('.rotating-item').length;
+			//set current item
+			var currentItem = 0;			
+			//show first item
+			tile.children('.rotating-item').eq(currentItem).fadeIn(initialFadeIn);
+			//loop through the items
+			var infiniteLoop = setInterval(function(){
+				tile.children('.rotating-item').eq(currentItem).fadeOut(fadeTime);
+
+				if(currentItem == numberOfItems -1){
+					currentItem = 0;
+				}else{
+					currentItem++;
+				}
+				tile.children('.rotating-item').eq(currentItem).fadeIn(fadeTime);
+			}, itemInterval);
+};
+
+
+
 
 function roundDown(x) {
 	//rounds number up to next number
@@ -114,127 +142,52 @@ $(document).ready(function(){
 
 
 
-$("div.help_tooltip").qtip({ // Grab some elements to apply the tooltip to
-
-    show: 'click',
-    hide: 'unfocus',
-    content: {
-        text: function(event, api) {
-                
-            $.ajax({
-                url: 'http://localhost:3000/helps/'+$(this).attr('id'), // 'http://www.myhq.org.uk/helps/'+$(this).attr('id')
-                type: 'GET', // POST or GET
-                dataType: 'html',
-            })
-            .then(function(content) {
-                // Now we set the content manually (required!)
-                api.set('content.text', content);
-            }, function(xhr, status, error) {
-                // Upon failure... set the tooltip content to the status and error value
-                api.set('content.text', status + ': ' + error);
-            });
-            return 'Loading...';
-       }
-    },
-        position: {
-        my: 'top center',  // Position my top left...
-        at: 'bottom center', // at the bottom right of...
-    }
-})
-
-
-$("div.help_tooltip").dblclick(function (){
-
-// redirect to edit tip content
-        window.location = 'http://www.myhq.org.uk/helps/'+$(this).attr('id')+'/edit';
-        return false;
-});
+	$("div.help_tooltip").qtip({ // Grab some elements to apply the tooltip to
+	
+	    show: 'click',
+	    hide: 'unfocus',
+	    content: {
+	        text: function(event, api) {
+	                
+	            $.ajax({
+	                url: 'http://localhost:3000/helps/'+$(this).attr('id'), // 'http://www.myhq.org.uk/helps/'+$(this).attr('id')
+	                type: 'GET', // POST or GET
+	                dataType: 'html',
+	            })
+	            .then(function(content) {
+	                // Now we set the content manually (required!)
+	                api.set('content.text', content);
+	            }, function(xhr, status, error) {
+	                // Upon failure... set the tooltip content to the status and error value
+	                api.set('content.text', status + ': ' + error);
+	            });
+	            return 'Loading...';
+	       }
+	    },
+	        position: {
+	        my: 'top center',  // Position my top left...
+	        at: 'bottom center', // at the bottom right of...
+	    }
+	})
 
 
-$('#help_text').summernote({
-	  toolbar: [     
-    ['style', ['bold', 'italic', 'underline', 'clear']],
-    ['layout', ['ol']],
-  ]
-
-});
+	$("div.help_tooltip").dblclick(function (){
+	// redirect to edit tip content
+	        window.location = 'http://www.myhq.org.uk/helps/'+$(this).attr('id')+'/edit';
+	        return false;
+	});
 
 
-//	var InfiniteRotator =
-//	{
-//		init: function()
-//		{
-			//initial fade-in time (in milliseconds)
-//			var initialFadeIn = 0;
-
-			//interval between items (in milliseconds)
-//			var itemInterval = 4000;
-
-			//cross-fade time (in milliseconds)
-//			var fadeTime = 1500;
-
-			//count number of items
-//			var numberOfItems = $('.rotating-item').length;
-
-			//set current item
-//			var currentItem = 0;
-
-			//show first item
-//			$('.rotating-item').eq(currentItem).fadeIn(initialFadeIn);
-
-//			//loop through the items
-//			var infiniteLoop = setInterval(function(){
-//				$('.rotating-item').eq(currentItem).fadeOut(fadeTime);
-
-//				if(currentItem == numberOfItems -1){
-//					currentItem = 0;
-//				}else{
-//					currentItem++;
-//				}
-//				$('.rotating-item').eq(currentItem).fadeIn(fadeTime);
-
-//			}, itemInterval);
-//		}
-//	};
-
-//	InfiniteRotator.init();
+	$('#help_text').summernote({
+		  toolbar: [     
+					    ['style', ['bold', 'italic', 'underline', 'clear']],
+					    ['layout', ['ol']],
+	  			   ]	
+	});
 
 
-//var carouselCount = 0;
-$(".multiple_images_tile").each(function () {
-
-//    $(this).attr("id", "carousel" + carouselCount);
-//    $('#carousel' + carouselCount).owlCarousel({
-		var initialFadeIn = 0;
-		var itemInterval = 4000;
-		var fadeTime = 1500;    	
-
-		var numberOfItems = $(this).children('.rotating-item').length;
-		var currentItem = 0;
-		
-		$(this).children('.rotating-item').eq(currentItem).fadeIn(initialFadeIn);	
-
-			var infiniteLoop = setInterval(function(){
-				$(this).children('.rotating-item').eq(currentItem).fadeOut(fadeTime);
-
-				if(currentItem == numberOfItems -1){
-					currentItem = 0;
-				}else{
-					currentItem++;
-				}
-				$(this).children('.rotating-item').eq(currentItem).fadeIn(fadeTime);
-
-			}, itemInterval);		
-    	
- //   });
-//    carouselCount++;
-});
-
-
-
+	$(".multiple_images_tile").each(function(){
+		InfiniteRotator($(this));
+	});
 
 });
-
-
-
-​

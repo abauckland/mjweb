@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 4.1.0"
   s.add_dependency 'colorist'
-
+  
   s.add_dependency  'carrierwave'
   s.add_dependency  'rmagick'
   s.add_dependency  'bootstrap-sass'

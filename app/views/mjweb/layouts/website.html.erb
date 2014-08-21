@@ -20,7 +20,8 @@
         body {  }
     
         .tagline_cell_small{ <%=h font_style_colour(@design.font.name) %> }   
-        .tagline_cell_medium{ <%=h font_style_colour(@design.font.name) %> }        
+        .tagline_cell_medium{ <%=h font_style_colour(@design.font.name) %> }
+                
         .tile_title_text{ <%=h font_style_colour(@design.font.name) %>}        
         .web_content_tile_title{ <%=h font_style_colour(@design.font.name) %>}
             
@@ -29,19 +30,27 @@
                 color: <%=h setting[:text] %>;
                 background-color: <%=h setting[:tile] %>;        
             }           
-    
-            .hover_<%=h i %>{
-                color: <%=h setting[:text] %>;
-                background-color: <%=h setting[:tile] %>;           
-            }
-    
-            .hover_<%=h i %>:hover{
-                color: <%=h setting[:text_hover] %>;
-                background-color: <%=h setting[:tile_hover] %>; 
-            }
+      
+            .hover_<%=h i %>{background-color: <%=h setting[:tile] %>;}
+            .hover_<%=h i %>:hover{background-color: <%=h setting[:tile_hover] %>;}
+            
+            a.hover_link_<%=h i %>{color: <%=h setting[:text] %>;}
+            a.hover_link_<%=h i %>:visited{color: <%=h setting[:text] %>;}
+            a.hover_link_<%=h i %>:hover{color: <%=h setting[:text_hover] %>;}
+            
+            
+
             .web_content_tile_image{ border: 2px solid <%=h setting[:tile] %>}
-            .web_content_tile_title{ color: <%=h setting[:tile] %>} 
+            .web_content_tile_title{ color: <%=h setting[:tile] %>}
+            .web_content_tile_link{background-color: <%=h setting[:tile] %>; border: 2px solid <%=h setting[:tile] %>}
+            .web_content_tile_link:hover{background-color: <%=h setting[:tile_hover] %>; border: 2px solid <%=h setting[:tile_hover] %>}
+            .web_content_tile_link_text{ color: <%=h setting[:text] %>}
+            .web_content_tile_link_text:hover{color: <%=h setting[:text_hover] %>;}
+
         <% end %>
+        
+
+        
       </style>
     </head>
     

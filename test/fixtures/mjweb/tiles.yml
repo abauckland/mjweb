@@ -3,7 +3,9 @@
 one:
   name: MyString
   partial_name: MyString
+  group: 1
 
 two:
   name: MyString
   partial_name: MyString
+  group: 1

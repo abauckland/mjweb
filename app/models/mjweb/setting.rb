@@ -1,6 +1,4 @@
 module Mjweb
-  class Setting < ActiveRecord::Base
-
-    
+  class Setting < ActiveRecord::Base    
   end
 end
