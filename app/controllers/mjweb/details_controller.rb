@@ -25,7 +25,7 @@ module Mjweb
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_detail
-        @detail = Detail.find(params[:id])
+        @detail = Detail.where(:company_id => params[:id]).first
       end
 
       # Only allow a trusted parameter "white list" through.

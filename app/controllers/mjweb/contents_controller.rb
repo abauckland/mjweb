@@ -90,8 +90,8 @@ module Mjweb
         group = current_user.company.plan
         case group      
           when 1 ; @tiles = Mjweb::Tile.all
-          when 2 ; @tiles = Mjweb::Tile.where.not(:group => 2)
-          when 3 ; @tiles = Mjweb::Tile.where.not(:group => [2, 3])            
+          when 2 ; @tiles = Mjweb::Tile.where(:group => 2)
+          when 3 ; @tiles = Mjweb::Tile.where(:group => [2, 3])            
         end  
         
       end

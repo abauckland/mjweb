@@ -19,7 +19,7 @@
         <td><%= networking.text %></td>
         <td><%= networking.link_text %></td>
         <td><%= networking.link_url %></td>
-        <td><%= image_tag(networking.image.image_url(:thumb)) if networking.image.image? %></td>
+        <td><%= image_tag(networking.image.image_url(:thumb)) if networking.image_id? %></td>
         <td>
             <div class="btn-group-xs">        
                 <%= link_to 'Edit', edit_networking_path(networking), :class => "btn btn-sm btn-success"  %>

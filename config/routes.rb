@@ -3,7 +3,7 @@ Mjweb::Engine.routes.draw do
   resources :webpages
   resources :trainings
   resources :networkings
-  resources :accounts
+  resources :books
   resources :banks
   resources :products
   resources :events

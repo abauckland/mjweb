@@ -562,13 +562,15 @@ font-family: 'Ek Mukta', sans-serif;
 
 td.tile_day_text {
   @extend .tile_content_text;
-  width: 75px;
+  width: 65px;
+  padding: 0px 0px 0px 0px;
   text-align: right;
 }
 
 td.tile_hours_text {
   @extend .tile_content_text;
-  width: 75px;
+  width: 100px;
+  padding: 0px 0px 0px 0px;
   text-align: center;
 }
 

@@ -12,7 +12,7 @@ module Mjweb
 
     # GET /helps/1/edit
     def edit
-      if current_user.companyy_id == 1
+      if current_user.company_id == 1
         @help = Help.find_by_id(params[:id]) || Help.create(:id => params[:id])
       end
     end

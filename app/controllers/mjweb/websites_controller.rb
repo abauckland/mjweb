@@ -6,7 +6,6 @@ include Colorist
 module Mjweb
   class WebsitesController < ApplicationController
     before_action :set_company
-  
     # GET /websites
     # GET /websites.json
     def index
@@ -37,7 +36,7 @@ module Mjweb
     end
 
     def bank
-      @contents = Mjweb::Service.where(:company_id => @sub_company.id).order('id')
+      @contents = Mjweb::Bank.where(:company_id => @sub_company.id).order('id')
       @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
       @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
@@ -46,7 +45,7 @@ module Mjweb
     end
 
     def book
-      @contents = Mjweb::Service.where(:company_id => @sub_company.id).order('id')
+      @contents = Mjweb::Book.where(:company_id => @sub_company.id).order('id')
       @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
       @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
@@ -55,7 +54,7 @@ module Mjweb
     end
 
     def event
-      @contents = Mjweb::Service.where(:company_id => @sub_company.id).order('id')
+      @events = Mjweb::Event.where(:company_id => @sub_company.id).order('id')
       @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
       @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
@@ -64,7 +63,7 @@ module Mjweb
     end
 
     def networking
-      @contents = Mjweb::Service.where(:company_id => @sub_company.id).order('id')
+      @contents = Mjweb::Networking.where(:company_id => @sub_company.id).order('id')
       @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
       @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
@@ -73,7 +72,7 @@ module Mjweb
     end
 
     def product
-      @contents = Mjweb::Service.where(:company_id => @sub_company.id).order('id')
+      @contents = Mjweb::Product.where(:company_id => @sub_company.id).order('id')
       @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
       @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
@@ -83,7 +82,7 @@ module Mjweb
 
 
     def training
-      @contents = Mjweb::Service.where(:company_id => @sub_company.id).order('id')
+      @contents = Mjweb::Training.where(:company_id => @sub_company.id).order('id')
       @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
       @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
@@ -92,13 +91,13 @@ module Mjweb
     end  
     
     def webpage
-      @contents = Mjweb::Service.where(:company_id => @sub_company.id).order('id')
+      @contents = Mjweb::Webpage.where(:company_id => @sub_company.id).order('id')
       @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
       @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
       
       render layout: "mjweb/layouts/website"      
-    end  
+    end
                       
     private
       # Use callbacks to share common setup or constraints between actions.

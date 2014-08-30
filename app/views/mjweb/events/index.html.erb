@@ -7,6 +7,7 @@
   <thead>
     <tr>
       <th>Topic</th>
+      <th>Date</th>
       <th>Start</th>
       <th>Finish</th>
       <th>Venue</th>
@@ -20,8 +21,9 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.topic %></td>
-        <td><%= event.start %></td>
-        <td><%= event.finish %></td>
+        <td><%= event.start.strftime("%A %-d %B") %></td>
+        <td><%= event.start.strftime("%I:%M %P") %></td>
+        <td><%= event.finish.strftime("%I:%M %P") %></td>
         <td><%= event.venue %></td>
         <td><%= event.address %></td>
         <td><%= event.postcode %></td>

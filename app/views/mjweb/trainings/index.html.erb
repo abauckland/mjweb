@@ -19,7 +19,7 @@
         <td><%= training.text %></td>
         <td><%= training.link_text %></td>
         <td><%= training.link_url %></td>
-        <td><%= image_tag(training.image.image_url(:thumb)) if training.image.image? %></td>
+        <td><%= image_tag(training.image.image_url(:thumb)) if training.image_id? %></td>
         <td>
             <div class="btn-group-xs">        
                 <%= link_to 'Edit', edit_training_path(training), :class => "btn btn-sm btn-success"  %>

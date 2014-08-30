@@ -19,7 +19,7 @@
         <td><%= bank.text %></td>
         <td><%= bank.link_text %></td>
         <td><%= bank.link_url %></td>
-        <td><%= image_tag(bank.image.image_url(:thumb)) if bank.image.image? %></td>
+        <td><%= image_tag(bank.image.image_url(:thumb)) if bank.image_id? %></td>
         <td>
             <div class="btn-group-xs">        
                 <%= link_to 'Edit', edit_bank_path(bank), :class => "btn btn-sm btn-success"  %>

@@ -13,7 +13,7 @@
     <% if @images %>        
         <% @images.each do |image| %>               
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 thumb">  
-                <%= image_tag(image.image_url(:thumb), {:width => "200px", :class=> "img-responsive"}) if image.image? %>
+                <%= image_tag(image.image, {:width => "200px", :class=> "img-responsive"}) if image.image? %>
                 <div class="image_delete"><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-xs btn-danger"  %></div>
             </div>
         <% end %>    

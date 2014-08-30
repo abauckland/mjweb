@@ -150,7 +150,7 @@ $(document).ready(function(){
 	        text: function(event, api) {
 	                
 	            $.ajax({
-	                url: 'http://localhost:3000/helps/'+$(this).attr('id'), // 'http://www.myhq.org.uk/helps/'+$(this).attr('id')
+	                url: 'http://www.myhq.org.uk/helps/'+$(this).attr('id'),
 	                type: 'GET', // POST or GET
 	                dataType: 'html',
 	            })

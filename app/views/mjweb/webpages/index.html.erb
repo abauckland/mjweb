@@ -19,7 +19,7 @@
         <td><%= webpage.text %></td>
         <td><%= webpage.link_text %></td>
         <td><%= webpage.link_url %></td>
-        <td><%= image_tag(webpage.image.image_url(:thumb)) if webpage.image.image? %></td>
+        <td><%= image_tag(webpage.image.image_url(:thumb)) if webpage.image_id? %></td>
         <td>
             <div class="btn-group-xs">        
                 <%= link_to 'Edit', edit_webpage_path(webpage), :class => "btn btn-sm btn-success"  %>

@@ -13,8 +13,8 @@
     <% if @events %>
         <% @events.each do |event| %>
           <tr>
-            <td><%= event.start.strftime("%a %b #{time.day.ordinalize}") %></td>
-            <td><%= event.start.to_s(:time) %> - <%= event.finish.to_s(:time) %></td>
+            <td><%= event.start.strftime("%A %-d %B ") %></td>
+            <td><%= event.start.strftime("%I:%M %P") %> - <%= event.finish.strftime("%I:%M %P") %></td>
             <td><%= event.topic %></td>
             <td><%= event.venue %></td>
             <td><%= event.address %>, <%= event.postcode %></td>
@@ -22,4 +22,4 @@
         <% end %>
     <% end %>
   </tbody>
-</table>  
+</table> 

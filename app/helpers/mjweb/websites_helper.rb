@@ -65,17 +65,22 @@ module Mjweb
     def render_image(content)
       #doing as one query does not works with PG and namespaces for some reason              
       set_image = Mjweb::Imagesetting.where(:content_id => content.id).first
-      image = Mjweb::Image.where(:id => set_image.image_id).first
       
-      return render partial: "web_image_tile", locals: { image: image }      
+	if set_image
+	image = Mjweb::Image.where(:id => set_image.image_id).first
+      
+	return render partial: "web_image_tile", locals: { image: image } 
+	end     
     end
 
     def render_images(content)
       #doing as one query does not works with PG and namespaces for some reason              
       image_ids = Mjweb::Imagesetting.where(:content_id => content.id).pluck(:image_id)
-      images = Mjweb::Image.where(:id => image_ids)
+	if image_ids      
+	images = Mjweb::Image.where(:id => image_ids)
       
-      return render partial: "web_images_tile", locals: { images: images }      
+      	return render partial: "web_images_tile", locals: { images: images }      
+	end 
     end
 
     def render_services(content, colour_ref)        

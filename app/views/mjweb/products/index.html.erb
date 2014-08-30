@@ -19,7 +19,7 @@
         <td><%= product.text %></td>
         <td><%= product.link_text %></td>
         <td><%= product.link_url %></td>
-        <td><%= image_tag(product.image.image_url(:thumb)) if product.image.image? %></td>
+        <td><%= image_tag(product.image.image_url(:thumb)) if product.image_id? %></td>
         <td>
             <div class="btn-group-xs">        
                 <%= link_to 'Edit', edit_product_path(product), :class => "btn btn-sm btn-success"  %>
