@@ -161,10 +161,10 @@ module Mjweb
     end
 
  
-    def font_style_colour(font)
-      case font
-        when 'Ek Mukta' ; "font-family: 'Ek Mukta', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe                                        
-        when 'Marck Script' ; "font-family: 'Marck Script', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe
+    def font_style_colour(font_id)
+      case font_id
+        when 1 ; "font-family: 'Ek Mukta', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe                                        
+        when 2 ; "font-family: 'Marck Script', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe
       end      
     end 
    

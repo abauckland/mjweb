@@ -56,7 +56,7 @@ module Mjweb
 
       # Only allow a trusted parameter "white list" through.
       def event_params
-        params.require(:event).permit(:company_id, :topic, :start, :finish, :venue, :address, :postcode, :link)
+        params.require(:event).permit(:company_id, :topic, :date, :start, :finish, :venue, :address, :postcode, :link)
       end
   end
 end

@@ -1,44 +1,56 @@
-<h1>New content</h1>
-
-<div class="row-fluid">
-  <div class="span4 well">
-     <fieldset>
-  <%= form_for(@content) do |f| %>
-
-  <% if @content.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@content.errors.count, "error") %> prohibited this content from being saved:</h2>
-
-      <ul>
-      <% @content.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= f.hidden_field :company_id, :value => current_user.company_id %>
-  <%= f.hidden_field :tile_ref, :value => @tile_ref %>
- 
-
-      <div class="form-group">
-        <label class="control-label">Select Tile Type
-            <div class="help_tooltip" id="29"></div> 
-        </label> 
-        <%= f.collection_select(:tile_id, @tiles, :id, :name, {}, :class=>"form-control")  %>
-    </div>
-      <div class="form-group">
-        <label class="control-label">Set Display Options
-            <div class="help_tooltip" id="30"></div> 
-        </label> 
-        <%= f.select(:display, [['All devices', 'All devices'], ['Desktops & Tablets', 'Desktops & Tablets'], ['Desktops only', 'Desktops only']], {}, :class=>"form-control" )  %>
-    </div>
-
-        <div class="form-actions">
-            <%= f.submit "Add/Update Tile", class: "btn btn-success" %>
-            <%= link_to "Back to tile list", mjweb.contents_path, class: "btn btn-sm btn-warning btn pull-right" %>
-        </div>
-<fieldset>
-    <% end %>
+<div class="page_title">
+    <h1>New Tile</h1>
 </div>
+
+<div class="content">
+    <div class="column_1">
+        <div class="column_content">
+        
+            <% if notice %>
+                <div class="column_confirm">
+                    <p><%= notice %></p>
+                </div>
+            <% end %>
+            
+            <% if @content.errors.any? %>
+            <div class="column_error">
+            <p><%= pluralize(@content.errors.count, "error") %> prohibited this detail from being saved:</p>
+                  <ul>
+                  <% @content.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+            </div>
+            <% end %>
+            
+            <div class="column_sub_content">
+                <div class="column_form">
+                <%= form_for(@content) do |f| %>
+                  <%= f.hidden_field :company_id, :value => current_user.company_id %>
+                  <%= f.hidden_field :tile_ref, :value => @tile_ref %>    
+                    
+                        <div class="column_form_item">
+                            <label class="column_form_label">Select Tile Type:</label>                        
+                            <div class="column_form_input"><%= f.collection_select(:tile_id, @tiles, :id, :name)  %></div>
+                            <div class="column_help_tooltip" id="website_tile_type"></div> 
+                        </div>
+                        <div class="column_form_item">
+                            <label class="column_form_label">Set Display Options:</label>                        
+                            <div class="column_form_input"><%= f.select(:display, [['All devices', 'All devices'], ['Desktops & Tablets', 'Desktops & Tablets'], ['Desktops only', 'Desktops only']]) %></div>
+                            <div class="column_help_tooltip" id="website_tile_display"></div>  
+                        </div>
+                </div>
+           </div>     
+                
+           <div class="column_footer">
+                <div class="column_line"></div>
+                <div class="column_submit"><%= f.submit "add tile"%></div>
+                <div class="column_cancel"><%= link_to "cancel", contents_path %></div>
+                <% end %>
+           </div>
+            
+        </div>
+    </div>
+    <div class="column_2 column_blank"></div> 
+    <div class="column_3 column_blank"></div> 
 </div>

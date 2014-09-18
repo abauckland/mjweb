@@ -1,63 +1,77 @@
-<div class="row-fluid">
-    <div class="span4 well">
-        <fieldset>
-
-        <%= form_for(@event) do |f| %>
-            <% if @event.errors.any? %>
-                <div id="error_explanation">
-                  <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<div class="content">
+    <div class="column_1">
+        <div class="column_content">
+        
+            <% if notice %>
+                <div class="column_confirm">
+                    <p><%= notice %></p>
+                </div>
+            <% end %>
             
+            <% if @event.errors.any? %>
+            <div class="column_error">
+            <p><%= pluralize(@event.errors.count, "error") %> prohibited this detail from being saved:</p>
                   <ul>
                   <% @event.errors.full_messages.each do |message| %>
                     <li><%= message %></li>
                   <% end %>
                   </ul>
-                </div>
+            </div>
             <% end %>
-        
-            <%= f.hidden_field :company_id, :value => current_user.company_id %>
-          
-            <div class="form-group">
-                <label class="control-label">Topic</label> 
-                <%= f.text_field :topic, :class=>"form-control" %>
-            </div>
-            
-            <div class="form-group">
-                <label class="control-label">Start Time</label> 
-                <%= f.datetime_select :start, {minute_step: 15}, :class=>"form-control" %>
-            </div>
 
-            <div class="form-group">
-                <label class="control-label">Finish Time</label> 
-                <%= f.datetime_select :finish, {minute_step: 15}, :class=>"form-control" %>
-            </div>
+            <div class="column_sub_content">
+                <div class="column_form">
+                <%= form_for(@event) do |f| %>      
+                  <%= f.hidden_field :company_id, :value => current_user.company_id %>
+    
+                        <div class="column_form_item">
+                            <label class="column_form_label">Topic:</label>                        
+                            <div class="column_form_input"><%= f.text_field :topic %></div>
+                            <div class="column_help_tooltip" id="event_topic"></div> 
+                        </div>
+                        <div class="column_form_item">
+                            <label class="column_form_label">Date:</label>                        
+                            <div class="column_form_input"><%= f.date_select :date %></div> 
+                        </div>
+                        <div class="column_form_item">
+                            <label class="column_form_label">Start Time:</label>                        
+                            <div class="column_form_input"><%= f.time_select :start, {minute_step: 15} %></div>
+                        </div>
+                        <div class="column_form_item">
+                            <label class="column_form_label">Finish Time:</label>                        
+                            <div class="column_form_input"><%= f.time_select :finish, {minute_step: 15} %></div>
+                        </div>
+                        <div class="column_form_item">
+                            <label class="column_form_label">Venue:</label>                        
+                            <div class="column_form_input"><%= f.text_field :venue %></div>
+                            <div class="column_help_tooltip" id="event_venue"></div>  
+                        </div>
+                        <div class="column_form_item">
+                            <label class="column_form_label">Address:</label>                        
+                            <div class="column_form_input"><%= f.text_field :address %></div>
+                            <div class="column_help_tooltip" id="event_address"></div>  
+                        </div>
+                        <div class="column_form_item">
+                            <label class="column_form_label">Postcode:</label>                        
+                            <div class="column_form_input"><%= f.text_field :postcode %></div>
+                            <div class="column_help_tooltip" id="event_postcode"></div>  
+                        </div>
+                        <div class="column_form_item">
+                            <label class="column_form_label">Link:</label>                        
+                            <div class="column_form_input"><%= f.url_field :link %></div>
+                            <div class="column_help_tooltip" id="event_link"></div>  
+                        </div>
+                </div>
+           </div>     
+                
+           <div class="column_footer">
+                <div class="column_line"></div>
+                <div class="column_submit"><%= f.submit "save"%></div>
+                <% end %>
+           </div>
             
-            <div class="form-group">
-                <label class="control-label">Venue</label> 
-                <%= f.text_field :venue, :class=>"form-control" %>
-            </div>
-            
-            <div class="form-group">
-                <label class="control-label">Address</label> 
-                <%= f.text_field :address, :class=>"form-control" %>
-            </div>
-            
-            <div class="form-group">
-                <label class="control-label">Postcode</label> 
-                <%= f.text_field :postcode, :class=>"form-control" %>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label">Link</label> 
-                <%= f.url_field :link, :class=>"form-control" %>
-            </div>
-
-            <div class="form-actions">
-                <%= f.submit "Add/Update Event", class: "btn btn-success" %>
-                <%= link_to "Back to event list", mjweb.events_path, class: "btn btn-sm btn-warning btn pull-right" %>
-            </div>
-
-        <% end %>
-        <fieldset>
+        </div>
     </div>
-</div>
+    <div class="column_2 column_blank"></div> 
+    <div class="column_3 column_blank"></div> 
+</div>   

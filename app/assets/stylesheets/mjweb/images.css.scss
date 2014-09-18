@@ -1,0 +1,37 @@
+//core-ui
+@import "core";
+@import "buttons";
+
+.image_content_with_title {
+  position: absolute;
+  top:115px;    
+  left:10px;
+  right:10px;
+  bottom: 10px;
+  padding: 5px 5px 5px 5px;
+  border: 2px solid #dddddd;
+  @include border-radius(4px);
+  overflow: auto;
+  }
+  @media screen and (max-width: $medium_menu) {
+    .image_content_with_title {top:95px;}
+  }
+   @media screen and (max-width: $small_menu) {
+    .image_content_with_title {top:85px;}
+  }
+
+.web_image_tile{
+  float: left;
+  padding: 5px 5px 5px 5px;
+}
+
+.web_image_delete{
+  padding: 5px 0px 10px 40px;
+}
+
+
+
+.dd-selected-text{
+    font-size: 1.2rem;
+    color: #000;
+}

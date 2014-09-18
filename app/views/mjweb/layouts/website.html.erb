@@ -2,16 +2,10 @@
 <html>
     <head>
         
-    <% if @design.background.name  == 'Textured Light Beige'%>  
-        <div class="background_image_1"></div>
-    <% end %> 
-    <% if @design.background.name  == 'White Linen'%>  
-        <div class="background_image_2"></div>
-    <% end %> 
-
-    
+    <%= set_background(@design) %>
+            
     <title><%=h @detail.company.name %></title> 
-      <%= stylesheet_link_tag    'mjweb/application', media: 'all'%>
+      <%= stylesheet_link_tag 'mjweb/application', media: 'all'%>
       <%= javascript_include_tag 'mjweb/application'%>
       
       <style>
@@ -19,11 +13,11 @@
         
         body {  }
     
-        .tagline_cell_small{ <%=h font_style_colour(@design.font.name) %> }   
-        .tagline_cell_medium{ <%=h font_style_colour(@design.font.name) %> }
+        .tagline_cell_small{ <%=h font_style_colour(@design.font_id) %> }   
+        .tagline_cell_medium{ <%=h font_style_colour(@design.font_id) %> }
                 
-        .tile_title_text{ <%=h font_style_colour(@design.font.name) %>}        
-        .web_content_tile_title{ <%=h font_style_colour(@design.font.name) %>}
+        .tile_title_text{ <%=h font_style_colour(@design.font_id) %>}        
+        .web_content_tile_title{ <%=h font_style_colour(@design.font_id) %>}
             
         <% @colour_settings.each_with_index do |setting, i| %>        
             .colour_<%=h i %>{

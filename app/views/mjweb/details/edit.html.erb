@@ -1,70 +1,72 @@
-<p id="notice"><%= notice %></p>
-
-<h2>Company Tagline & Social Media Links</h2>
-
-<div class="row-fluid">
-  <div class="span4 well">
-    <%= form_for(@detail) do |f| %>
-      <fieldset>
-          <p id="notice"><%= notice %></p>
-          
-          <%= f.hidden_field :company_id, :value => current_user.company_id %>
-        
-          <% if @detail.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@detail.errors.count, "error") %> prohibited this detail from being saved:</h2>
-        
-              <ul>
-              <% @detail.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-              </ul>
-            </div>
-          <% end %>
-     
-      
-          <div class="form-group">
-            <label class="control-label">Tagline
-                <div class="help_tooltip" id="22"></div>
-            </label>   
-            <%= f.text_area :tagline, :class=>"form-control" %>
-          </div> 
-     
-          <div class="form-group">
-            <label class="control-label">Facebook Address
-                <div class="help_tooltip" id="23"></div>
-            </label>   
-            <%= f.url_field :facebook, :class=>"form-control" %>
-          </div> 
-      
-          <div class="form-group">
-            <label class="control-label">Twitter Address
-                <div class="help_tooltip" id="24"></div>
-            </label>   
-            <%= f.url_field :twitter, :class=>"form-control" %>
-          </div> 
-      
-          <div class="form-group">
-            <label class="control-label">Google+ Address
-                <div class="help_tooltip" id="25"></div>
-            </label>   
-            <%= f.url_field :googleplus, :class=>"form-control" %>
-          </div>  
-          
-          <div class="form-group">
-            <label class="control-label">Linkedin Address
-                <div class="help_tooltip" id="26"></div>
-            </label>   
-            <%= f.url_field :linkedin, :class=>"form-control" %>
-          </div>        
-          
-          <div class="form-actions">
-            <%= f.submit "Update",  class: "btn btn-success" %>
-            <%= link_to "Back to Settings Menu", mjweb.settings_path, class: "btn btn-sm btn-warning btn pull-right" %>
-          </div>
-      </fieldset>
-    <% end %>
-  </div>
+<div class="page_title">
+    <h1>Tagline & Social Media Links</h1>
 </div>
+
+<div class="content">
+    <div class="column_1">
+        <div class="column_content">
+        
+            <% if notice %>
+                <div class="column_confirm">
+                    <p><%= notice %></p>
+                </div>
+            <% end %>
+            
+            <% if @detail.errors.any? %>
+            <div class="column_error">
+            <p><%= pluralize(@detail.errors.count, "error") %> prohibited this detail from being saved:</p>
+                  <ul>
+                  <% @detail.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+            </div>
+            <% end %>
+
+            <div class="column_sub_content">
+                <div class="column_form">
+                <%= form_for(@detail) do |f| %>
+                    <%= f.hidden_field :company_id, :value => current_user.company_id %>    
+                    
+                        <div class="column_form_item">
+                            <label class="column_form_label">Tagline:</label>                        
+                            <div class="column_form_input"><%= f.text_area :tagline, :rows => 5 %></div>
+                            <div class="column_help_tooltip" id="website_tagline"></div> 
+                        </div>
+                        <div class="column_form_item">
+                            <label class="column_form_label">Facebook Address:</label>                        
+                            <div class="column_form_input"><%= f.url_field :facebook %></div>
+                            <div class="column_help_tooltip" id="website_facebook"></div>  
+                        </div>
+                        <div class="column_form_item">
+                            <label class="column_form_label">Twitter Address:</label>                        
+                            <div class="column_form_input"><%= f.url_field :twitter %></div>
+                            <div class="column_help_tooltip" id="website_twitter"></div>  
+                        </div>
+                        <div class="column_form_item">
+                            <label class="column_form_label">Google+ Address:</label>                        
+                            <div class="column_form_input"><%= f.url_field :googleplus %></div>
+                            <div class="column_help_tooltip" id="website_googleplus"></div>  
+                        </div>
+                        <div class="column_form_item">
+                            <label class="column_form_label">Linkedin Address:</label>                        
+                            <div class="column_form_input"><%= f.url_field :linkedin %></div>
+                            <div class="column_help_tooltip" id="website_linkedin"></div>  
+                        </div>
+                </div>
+           </div>     
+                
+           <div class="column_footer">
+                <div class="column_line"></div>
+                <div class="column_submit"><%= f.submit "save"%></div>
+                <% end %>
+           </div>
+            
+        </div>
+    </div>
+    <div class="column_2 column_blank"></div> 
+    <div class="column_3 column_blank"></div> 
+</div>
+
 
 

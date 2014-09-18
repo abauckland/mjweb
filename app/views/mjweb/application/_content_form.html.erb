@@ -1,0 +1,73 @@
+<div class="content">
+    <div class="column_linked_container">
+        
+        <% if @content.errors.any? %>
+            <div class="column_error">
+                <p><%= pluralize(@content.errors.count, "error") %> prohibited this project from being created</p>
+                <ul>
+                <% @content.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+                </ul>            
+            </div>
+        <% end %>
+        
+        <div class="sub_column_linked_1">
+             <div class="column_content">
+                    <div class="column_form">
+                    <%= form_for(@content) do |f| %>
+                        <%= f.hidden_field :company_id, :value => current_user.company_id %>  
+                        
+                            <div class="column_form_item">
+                                <label class="column_form_label">Title:*</label>                        
+                                <div class="column_form_input"><%= f.text_field :title, :maxlength => 30 %></div>
+                                <div class="column_help_tooltip" id="content_title"></div>
+                                <div class="column_error_note"> <%= error_check(@content, :title)%></div>   
+                            </div>
+                            <div class="column_form_item">
+                                <label class="column_form_label">Link Text:</label>                        
+                                <div class="column_form_input"><%= f.text_field :link_text, :maxlength => 50  %></div>
+                                <div class="column_help_tooltip" id="content_link_text"></div>  
+                            </div>
+                            <div class="column_form_item">
+                                <label class="column_form_label">>Link URL:</label>                        
+                                <div class="column_form_input"><%= f.url_field :link_url %></div>
+                                <div class="column_help_tooltip" id="content_link_url"></div>  
+                            </div>                         
+                            <div class="column_form_item">
+                                <% if @images %>    
+                                    <label class="column_form_label">Invoice Method:</label>                        
+                                    <div class="column_form_input"><%= f.collection_select(:image_id, @images, :id, :name, {:prompt => :true}, :class=>"form-control" ) %></div>
+                                <% else %>
+                                    <label class="column_form_label">No images are available, please upload images before selecting</label>                        
+                                    <div class="column_form_input"></div>                                                        
+                                <% end %>
+                                <div class="column_help_tooltip" id="content_image"></div>   
+                            </div>
+                     </div>                 
+              </div>
+        </div>
+        <div class="sub_column_linked_2">
+             <div class="column_content">
+                    <div class="column_form">
+                            <div class="column_form_item">
+                                <label class="column_form_label">Description:*</label>                        
+                                <div class="column_form_input"><%= f.text_area :text, :maxlength => 500 %></div>
+                                <div class="column_help_tooltip" id="content_description"></div>
+                                <div class="column_error_note"> <%= error_check(@content, :text)%></div>   
+                            </div>
+                     </div>                 
+              </div>
+        </div> 
+
+        <div class="sub_column_linked_3 column_linked_blank"></div> 
+
+    
+        <div class="column_linked_footer">
+            <div class="column_line"></div>
+            <div class="column_submit"><%= f.submit "save"%></div>
+            <div class="column_cancel"><%= link_to "cancel", nil %></div>
+            <% end %>
+        </div>
+    </div>
+</div>

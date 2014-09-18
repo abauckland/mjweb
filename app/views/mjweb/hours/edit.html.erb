@@ -1,198 +1,161 @@
-<h2>Edit opening hours</h2>
-
-        <div class="row-fluid">
-            <div class="span4 well">
-<%= form_for(@hour) do |f| %>
-  <% if @hour.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@hour.errors.count, "error") %> prohibited this hour from being saved:</h2>
-
-      <ul>
-      <% @hour.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
- 
-     <ul class="nav nav-tabs" data-tabs="tabs">
-        <li class="active"><a class="tab" role="tab" data-toggle="tab" href="#Mon">Mon</a></li>
-        <li><a class="tab" role="tab" data-toggle="tab" href="#Tue">Tue</a></li>
-        <li><a class="tab" role="tab" data-toggle="tab" href="#Wed">Wed</a></li>
-        <li><a class="tab" role="tab" data-toggle="tab" href="#Thu">Thu</a></li>
-        <li><a class="tab" role="tab" data-toggle="tab" href="#Fri">Fri</a></li>
-        <li><a class="tab" role="tab" data-toggle="tab" href="#Sat">Sat</a></li>
-        <li><a class="tab" role="tab" data-toggle="tab" href="#Sun">Sun</a></li>
-    </ul>
-
-    <%= f.hidden_field :company_id, :value => current_user.company_id %>
- 
- 
-<div class="tab-content">
-    <div class="tab-pane active" id="Mon">      
-        <div class="row-fluid">
-            <div class="span4 well tab_well">
-                <fieldset>
-                    <div class="form-group">
-                        <label class="control-label">Opening Status
-                            <div class="help_tooltip" id="34"></div>
-                        </label>
-                    <%= f.select :monday_status, options_for_select(["Open", "Closed"], @hour.monday_status), :class=>"form-control" %>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Opening Time</label>    
-                    <%= f.time_select :monday_open, {minute_step: 15} %>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Closing Time</label>
-                    <%= f.time_select :monday_close, {minute_step: 15} %>
-                    </div>
-                </fieldset>
-            </div>
-        </div>          
-    </div>
-
-    <div class="tab-pane" id="Tue">      
-        <div class="row-fluid">
-            <div class="span4 well tab_well">
-                <fieldset>
-                    <div class="form-group">
-                        <label class="control-label">Opening Status
-                            <div class="help_tooltip" id="34"></div>
-                        </label>
-                    <%= f.select :tuesday_status, options_for_select(["Open", "Closed"], @hour.tuesday_status), :class=>"form-control" %>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Opening Time</label>    
-                    <%= f.time_select :tuesday_open, {minute_step: 15} %>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Closing Time</label>
-                    <%= f.time_select :tuesday_close, {minute_step: 15} %>
-                    </div>
-                </fieldset>
-            </div>
-        </div>          
-    </div>
-    <div class="tab-pane" id="Tue">      
-        <div class="row-fluid">
-            <div class="span4 well tab_well">
-                <fieldset>
-                    <div class="form-group">
-                        <label class="control-label">Opening Status
-                            <div class="help_tooltip" id="34"></div>
-                        </label>
-                    <%= f.select :wednesday_status, options_for_select(["Open", "Closed"], @hour.wednesday_status), :class=>"form-control" %>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Opening Time</label>    
-                    <%= f.time_select :wednesday_open, {minute_step: 15} %>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Closing Time</label>
-                    <%= f.time_select :wednesday_close, {minute_step: 15} %>
-                    </div>
-                </fieldset>
-            </div>
-        </div>          
-    </div>
-    <div class="tab-pane" id="Tue">      
-        <div class="row-fluid">
-            <div class="span4 well tab_well">
-                <fieldset>
-                    <div class="form-group">
-                        <label class="control-label">Opening Status
-                            <div class="help_tooltip" id="34"></div>
-                        </label>
-                    <%= f.select :thursday_status, options_for_select(["Open", "Closed"], @hour.thursday_status), :class=>"form-control" %>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Opening Time</label>    
-                    <%= f.time_select :thursday_open, {minute_step: 15} %>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Closing Time</label>
-                    <%= f.time_select :thursday_close, {minute_step: 15} %>
-                    </div>
-                </fieldset>
-            </div>
-        </div>          
-    </div>
-    <div class="tab-pane" id="Tue">      
-        <div class="row-fluid">
-            <div class="span4 well tab_well">
-                <fieldset>
-                    <div class="form-group">
-                        <label class="control-label">Opening Status
-                            <div class="help_tooltip" id="34"></div>
-                        </label>
-                    <%= f.select :friday_status, options_for_select(["Open", "Closed"], @hour.friday_status), :class=>"form-control" %>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Opening Time</label>    
-                    <%= f.time_select :friday_open, {minute_step: 15} %>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Closing Time</label>
-                    <%= f.time_select :friday_close, {minute_step: 15} %>
-                    </div>
-                </fieldset>
-            </div>
-        </div>          
-    </div>
-    <div class="tab-pane" id="Tue">      
-        <div class="row-fluid">
-            <div class="span4 well tab_well">
-                <fieldset>
-                    <div class="form-group">
-                        <label class="control-label">Opening Status
-                            <div class="help_tooltip" id="34"></div>
-                        </label>
-                    <%= f.select :saturday_status, options_for_select(["Open", "Closed"], @hour.saturday_status), :class=>"form-control" %>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Opening Time</label>    
-                    <%= f.time_select :saturday_open, {minute_step: 15} %>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Closing Time</label>
-                    <%= f.time_select :saturday_close, {minute_step: 15} %>
-                    </div>
-                </fieldset>
-            </div>
-        </div>          
-    </div>
-    <div class="tab-pane" id="Tue">      
-        <div class="row-fluid">
-            <div class="span4 well tab_well">
-                <fieldset>
-                    <div class="form-group">
-                        <label class="control-label">Opening Status
-                            <div class="help_tooltip" id="34"></div>
-                        </label>
-                    <%= f.select :sunday_status, options_for_select(["Open", "Closed"], @hour.sunday_status), :class=>"form-control" %>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Opening Time</label>    
-                    <%= f.time_select :sunday_open, {minute_step: 15} %>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Closing Time</label>
-                    <%= f.time_select :sunday_close, {minute_step: 15} %>
-                    </div>
-                </fieldset>
-            </div>
-        </div>          
-    </div>                    
+<div class="page_title">
+    <h1>Edit Opening Hours</h1>
 </div>
-          
 
-</div>
-  <div class="form-actions">
-    <%= f.submit "Update Hours", class: "btn btn-success" %>
-    <%= link_to "Back to Contents List", mjweb.contents_path, class: "btn btn-sm btn-warning btn pull-right" %>
-  </div>
-<% end %>
+<div class="content">
+    <div class="column_linked_container">
 
-        </div>          
+            <% if notice %>
+                <div class="column_confirm">
+                    <p><%= notice %></p>
+                </div>
+            <% end %>
+            
+            <% if @hour.errors.any? %>
+            <div class="column_error">
+            <p><%= pluralize(@hour.errors.count, "error") %> prohibited this detail from being saved:</p>
+                  <ul>
+                  <% @hour.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+            </div>
+            <% end %>
+            
+        <%= form_for(@hour) do |f| %>
+
+        <div class="sub_column_linked_1">
+             <div class="column_content">
+                    <div class="column_form">
+                    
+                        <div class="column_linked_sub_title">Monday</div>                        
+                            <div class="column_form_item">
+                                <label class="column_form_label">Opening Status:</label>                        
+                                <div class="column_form_input"><%= f.select :monday_status, options_for_select(["Open", "Closed"], @hour.monday_status), {}, {:class=>"full_width"}%></div>
+                                <div class="column_help_tooltip" id="hours_open_status"></div>  
+                            </div>
+                            <div class="column_form_item">
+                                <label class="column_form_label">Opening Time:</label>                        
+                                <div class="column_form_input"><%= f.time_select :monday_open, {minute_step: 15}, :class=>"column_form_time" %></div> 
+                            </div>
+                            <div class="column_form_item">
+                                <label class="column_form_label">Closing Time:</label>                        
+                                <div class="column_form_input"><%= f.time_select :monday_close, {minute_step: 15} %></div>
+                            </div>
+                            <div class="column_linked_space"></div>
+                                                        
+                        <div class="column_linked_sub_title">Tuesday</div>                            
+                            <div class="column_form_item">
+                                <label class="column_form_label">Opening Status:</label>                        
+                                <div class="column_form_input"><%= f.select :tuesday_status, options_for_select(["Open", "Closed"], @hour.tuesday_status), {}, {:class=>"full_width"}%></div>  
+                            </div>
+                            <div class="column_form_item">
+                                <label class="column_form_label">Opening Time:</label>                        
+                                <div class="column_form_input"><%= f.time_select :tuesday_open, {minute_step: 15} %></div>
+                            </div>
+                            <div class="column_form_item">
+                                <label class="column_form_label">Closing Time:</label>                        
+                                <div class="column_form_input"><%= f.time_select :tuesday_close, {minute_step: 15} %></div>   
+                            </div>
+                            <div class="column_linked_space"></div>
+                            
+                        <div class="column_linked_sub_title">Wednesday</div>
+                            <div class="column_form_item">
+                                <label class="column_form_label">Opening Status:</label>                        
+                                <div class="column_form_input"><%= f.select :wednesday_status, options_for_select(["Open", "Closed"], @hour.wednesday_status), {}, {:class=>"full_width"} %></div>  
+                            </div>
+                            <div class="column_form_item">
+                                <label class="column_form_label">Opening Time:</label>                        
+                                <div class="column_form_input"><%= f.time_select :wednesday_open, {minute_step: 15} %></div> 
+                            </div>
+                            <div class="column_form_item">
+                                <label class="column_form_label">Closing Time:</label>                        
+                                <div class="column_form_input"><%= f.time_select :wednesday_close, {minute_step: 15} %></div>  
+                            </div>
+
+               </div>                 
+            </div>
+        </div>
+        <div class="sub_column_linked_2">
+             <div class="column_content">
+                    <div class="column_form">
+                    
+                       <div class="column_linked_sub_title">Thursday</div>                        
+                            <div class="column_form_item">
+                                <label class="column_form_label">Opening Status:</label>                        
+                                <div class="column_form_input"><%= f.select :thursday_status, options_for_select(["Open", "Closed"], @hour.thursday_status), {}, {:class=>"full_width"}%></div>  
+                            </div>
+                            <div class="column_form_item">
+                                <label class="column_form_label">Opening Time:</label>                        
+                                <div class="column_form_input"><%= f.time_select :thursday_open, {minute_step: 15} %></div>
+                            </div>
+                            <div class="column_form_item">
+                                <label class="column_form_label">Closing Time:</label>                        
+                                <div class="column_form_input"><%= f.time_select :thursday_close, {minute_step: 15} %></div>   
+                            </div>
+                            <div class="column_linked_space"></div>
+
+
+                        <div class="column_linked_sub_title">Friday</div>                            
+                            <div class="column_form_item">
+                                <label class="column_form_label">Opening Status:</label>                        
+                                <div class="column_form_input"><%= f.select :friday_status, options_for_select(["Open", "Closed"], @hour.friday_status), {}, {:class=>"full_width"} %></div> 
+                            </div>
+                            <div class="column_form_item">
+                                <label class="column_form_label">Opening Time:</label>                        
+                                <div class="column_form_input"><%= f.time_select :friday_open, {minute_step: 15} %></div>
+                            </div>
+                            <div class="column_form_item">
+                                <label class="column_form_label">Closing Time:</label>                        
+                                <div class="column_form_input"><%= f.time_select :friday_close, {minute_step: 15} %></div>
+                            </div>
+                            <div class="column_linked_space"></div>
+                                                        
+                        <div class="column_linked_sub_title">Saturday</div>
+
+                            <div class="column_form_item">
+                                <label class="column_form_label">Opening Status:</label>                        
+                                <div class="column_form_input"><%= f.select :saturday_status, options_for_select(["Open", "Closed"], @hour.saturday_status), {}, {:class=>"full_width"} %></div> 
+                            </div>
+                            <div class="column_form_item">
+                                <label class="column_form_label">Opening Time:</label>                        
+                                <div class="column_form_input"><%= f.time_select :saturday_open, {minute_step: 15} %></div> 
+                            </div>
+                            <div class="column_form_item">
+                                <label class="column_form_label">Closing Time:</label>                        
+                                <div class="column_form_input"><%= f.time_select :saturday_close, {minute_step: 15} %></div>  
+                            </div>
+
+               </div>                 
+            </div>            
+        </div> 
+        <div class="sub_column_linked_3">
+             <div class="column_content">
+                    <div class="column_form">
+                    
+                            <div class="column_linked_sub_title">Sunday</div>
+                                                    
+                            <div class="column_form_item">
+                                <label class="column_form_label">Opening Status:</label>                        
+                                <div class="column_form_input"><%= f.select :sunday_status, options_for_select(["Open", "Closed"], @hour.sunday_status), {}, {:class=>"full_width"} %></div>
+                            </div>
+                            <div class="column_form_item">
+                                <label class="column_form_label">Opening Time:</label>                        
+                                <div class="column_form_input"><%= f.time_select :sunday_open, {minute_step: 15} %></div>
+                            </div>
+                            <div class="column_form_item">
+                                <label class="column_form_label">Closing Time:</label>                        
+                                <div class="column_form_input"><%= f.time_select :sunday_close, {minute_step: 15} %></div> 
+                            </div>
+                           
+               </div>                 
+            </div>                         
+        </div> 
+    
+        <div class="column_linked_footer">
+            <div class="column_line"></div>
+            <div class="column_submit"><%= f.submit "update hours"%></div>
+            <% end %>
+        </div>
     </div>
+</div>

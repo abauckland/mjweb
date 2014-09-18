@@ -1,25 +1,40 @@
- <table style="width : 100%" >
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Time</th>
-      <th>Topic</th>
-      <th>Venue</th>
-      <th>Address</th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="website_page_title">Upcoming <%=h @events.first.company.name %> Events</div>
     <% if @events %>
         <% @events.each do |event| %>
-          <tr>
-            <td><%= event.start.strftime("%A %-d %B ") %></td>
-            <td><%= event.start.strftime("%I:%M %P") %> - <%= event.finish.strftime("%I:%M %P") %></td>
-            <td><%= event.topic %></td>
-            <td><%= event.venue %></td>
-            <td><%= event.address %>, <%= event.postcode %></td>
-          </tr>
+<div class="event_container">
+  <table width="100%">
+      <tr>
+          <td colspan="2" class="event_title"><%=h event.topic %></td>
+      </tr>
+      <tr>
+          <td width="200px" class="event_info">
+              <table>
+                  <tr>
+                      <td><%=h event.date.strftime("%A %-d %B %Y") %></td>
+                  </tr>
+                  <tr>
+                      <td>Start: <%=h event.finish.strftime("%I:%M %P") %></td>          
+                  </tr>      
+                  <tr>
+                      <td>Finish: <%=h event.finish.strftime("%I:%M %P") %></td>          
+                  </tr> 
+              </table>
+          </td>          
+          <td class="event_info">
+              <table>
+                  <tr>
+                      <td><%=h event.venue %></td>
+                  </tr>
+                  <tr>
+                      <td><%=h event.address %></td>
+                  </tr>
+                  <tr>
+                      <td> <%=h event.postcode %></td>                      
+                  </tr>     
+              </table>
+          </td>
+      </tr>      
+  </table>
+</div>
         <% end %>
     <% end %>
-  </tbody>
-</table> 

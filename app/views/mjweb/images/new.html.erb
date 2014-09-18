@@ -1,47 +1,55 @@
-<h3>Upload new image</h3>
-
-<div class="row-fluid">
-  <div class="span4 well">
-    <%= form_for(@image, :html => {:multipart => true}) do |f| %>
-        <fieldset>
-      <% if @image.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
-    
-          <ul>
-          <% @image.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-        
-      <%= f.hidden_field :company_id, :value => current_user.company_id %>
-    
-          <div class="form-group">
-            <label class="control-label">Name
-                <div class="help_tooltip" id="31"></div>
-            </label>
-            <%= f.text_field :name, :class=>"form-control"  %>
-          </div>
-      
-          <div class="form-group">
-            <label class="control-label">Image
-                <div class="help_tooltip" id="32"></div>
-            </label>  
-            <%= f.file_field :image, :class=>"form-control"  %>
-          </div>
-      
-    
-  <!--    <input type="file" name="image" accept="image/*" capture="camera"> -->
-      
-    
-      
-      <div class="form-actions">
-        <%= f.submit "Upload Image", class: "btn btn-success" %>
-        <%= link_to "Back to Images", mjweb.images_path, class: "btn btn-sm btn-warning btn pull-right" %>
-      </div>
-      </fieldset>
-    <% end %>
-  </div>
+<div class="page_title">
+    <h1>Upload new image</h1>
 </div>
+
+<div class="content">
+    <div class="column_1">
+        <div class="column_content">
+        
+            <% if notice %>
+                <div class="column_confirm">
+                    <p><%= notice %></p>
+                </div>
+            <% end %>
+            
+            <% if @image.errors.any? %>
+            <div class="column_error">
+            <p><%= pluralize(@image.errors.count, "error") %> prohibited this detail from being saved:</p>
+                  <ul>
+                  <% @image.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+            </div>
+            <% end %>
+
+            <div class="column_sub_content">
+                <div class="column_form">
+                <%= form_for(@image, :html => {:multipart => true}) do |f| %>       
+                  <%= f.hidden_field :company_id, :value => current_user.company_id %>    
+                    
+                        <div class="column_form_item">
+                            <label class="column_form_label">Name:</label>                        
+                            <div class="column_form_input"><%= f.text_field :name %></div>
+                            <div class="column_help_tooltip" id="website_image_name"></div> 
+                        </div>
+                        <div class="column_form_item">
+                            <label class="column_form_label">Image:</label>                        
+                            <div class="column_form_input"><%= f.file_field :image, accept: "image/*", :class=>"form-control"  %></div>
+                            <div class="column_help_tooltip" id="website_image_file"></div>  
+                        </div>
+                </div>
+           </div>     
+                
+           <div class="column_footer">
+                <div class="column_line"></div>
+                <div class="column_submit"><%= f.submit "save"%></div>
+                <% end %>
+           </div>
+            
+        </div>
+    </div>
+    <div class="column_2 column_blank"></div> 
+    <div class="column_3 column_blank"></div> 
+</div>
+

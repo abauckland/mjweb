@@ -1,37 +1,46 @@
-<h3>Add new image</h3>
-
-<div class="row-fluid">
-  <div class="span4 well">
-    <%= form_for(@imagesetting) do |f| %>
-      </fieldset>
-          <% if @imagesetting.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@imagesetting.errors.count, "error") %> prohibited this image from being added:</h2>
-        
-              <ul>
-              <% @imagesetting.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-              </ul>
-            </div>
-          <% end %>
-            
-          <%= f.hidden_field :content_id, :value => @content.id %>
-        
-          <div class="form-group">
-            <label class="control-label">Select image file
-                <div class="help_tooltip" id="33"></div>
-            </label> 
-  
-                <%= f.select :image_id, options_for_select(@images.map{ |c| [c.name, c.id, {'data-img-src' => c.image_url(:thumb)}] }) %> 
-          </div>
-        
-          <div class="form-actions">
-            <%= f.submit "Add image to tile", class: "btn btn-success" %>
-            <%= link_to "Back to Image List", list_imagesetting_path(:id => @content.id), class: "btn btn-sm btn-warning btn pull-right" %>
-          </div>
-      </fieldset>
-    <% end %>
-  </div>
+<div class="page_title">
+    <h1>Add image to tile</h1>
 </div>
+
+<div class="content">
+    <div class="column_1">
+        <div class="column_content">
+            
+            <% if @imagesetting.errors.any? %>
+            <div class="column_error">
+            <p><%= pluralize(@imagesetting.errors.count, "error") %> prohibited this detail from being saved:</p>
+                  <ul>
+                  <% @imagesetting.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+            </div>
+            <% end %>
+            
+            <div class="column_sub_content">
+                <div class="column_form">
+                <%= form_for(@imagesetting) do |f| %>
+                  <%= f.hidden_field :content_id, :value => @content.id %>  
+                    
+                        <div class="column_form_item">
+                            <label class="column_form_label">Select Image:</label>                        
+                            <div class="column_form_input"><%= f.select :image_id, options_for_select(@images.map{ |c| [c.name, c.id, {'data-imagesrc' => c.image_url}] }), :prompt => "Select Image...." %></div>
+                                                        
+                            <div class="column_help_tooltip" id="website_imagesetting_image"></div> 
+                        </div>
+                </div>
+           </div>     
+                
+           <div class="column_footer">
+                <div class="column_line"></div>
+                <div class="column_submit"><%= f.submit "add image to tile"%></div>
+                <% end %>
+           </div>
+            
+        </div>
+    </div>
+    <div class="column_2 column_blank"></div> 
+    <div class="column_3 column_blank"></div> 
+</div>
+
 

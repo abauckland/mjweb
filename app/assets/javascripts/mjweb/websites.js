@@ -178,12 +178,6 @@ $(document).ready(function(){
 	});
 
 
-	$('#help_text').summernote({
-		  toolbar: [     
-					    ['style', ['bold', 'italic', 'underline', 'clear']],
-					    ['layout', ['ol']],
-	  			   ]	
-	});
 
 
 	$(".multiple_images_tile").each(function(){

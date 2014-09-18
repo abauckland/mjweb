@@ -1,0 +1,32 @@
+
+<!-- desktop menu -->              
+<nav class="lrg_menu">                    
+    <div class='menu_container'>                                                                    
+        <ul class="left_menu">                                                  
+                <li><%= link_to "Dashboard", main_app.dashboards_path %></li>
+                <li><%= link_to "Design", mjweb.edit_design_path(current_user.company_id) %></li>
+                <li><%= link_to "Details", mjweb.edit_detail_path(current_user.company_id) %></li>
+                <li><%= link_to "Images", mjweb.images_path %></li>   
+                <li><%= link_to "Content", mjweb.contents_path %></li>
+                <li><%= link_to "Events", mjweb.events_path %></li>                             
+        </ul>                       
+    </div>                      
+</nav>
+
+<!-- mob menu -->
+<nav class="app_mob_menu">MENU</nav>
+
+<nav class="lrg_menu_mob">                    
+    <div class='menu_container_mob'>                                                                    
+        <ul class="left_menu_mob">                                                  
+                <li><%= link_to "DASHBOARD", main_app.dashboards_path %></li>
+                <li><%= link_to "DESIGN", mjweb.edit_design_path(current_user.company_id) %></li>
+                <li><%= link_to "DETAILS", mjweb.edit_detail_path(current_user.company_id) %></li>
+                <li><%= link_to "IMAGES", mjweb.images_path %></li>   
+                <li><%= link_to "CONTENT", mjweb.contents_path %></li>
+                <li><%= link_to "EVENTS", mjweb.events_path %></li>                                   
+        </ul>                      
+    </div>                      
+</nav>
+
+

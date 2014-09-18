@@ -3,6 +3,7 @@ class CreateMjwebEvents < ActiveRecord::Migration
     create_table :mjweb_events do |t|
       t.integer :company_id
       t.string :topic
+      t.timestamp :date      
       t.timestamp :start
       t.timestamp :finish
       t.string :venue

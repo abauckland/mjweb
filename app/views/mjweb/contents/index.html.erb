@@ -1,43 +1,36 @@
-<h1>Home Page Tiles</h1>
+<div class="page_title">
+    <h1>Home Page Tiles</h1>
+</div>
 
-<p>The website home page is made from a number of tiles. Tiles are added to the home page from left to right, in the order they are listed below.</p>
-
-<div class="row-fluid">
-  <div class="span4 well">
-
-<table class="table table-striped table-hover" style="width : 100%" >
-  <thead>
-    <tr>
-      <th width="20px">Order</th>
-      <th>Tile type</th>
-      <th width="120px">Visibility</th>
-      <th width="250px"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @contents.each do |content| %>
-      <tr>
-        <td><%= content.tile_ref %></td>
-        <td><%= content.tile.name %></td>
-        <td><%= content.display %></td>
-        <td>
-            <div class="btn-group-xs">
-                <%= link_to 'Move Up', move_up_content_path(content), :class => "btn btn-sm btn-warning" %>
-                <%= link_to 'Move Down', move_down_content_path(content), :class => "btn btn-sm btn-warning" %>
-                <%= link_to 'Edit', edit_content_path(content), :class => "btn btn-sm btn-success" %>
-                <%= link_to 'Delete', content, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-danger" %>
-            </div>
-        </td>  
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-
-    <%= link_to 'Add tile', new_content_path, class: "btn btn-sm btn-success" %>
-    <%= link_to "Back to Settings Menu", mjweb.settings_path, class: "btn btn-sm btn-warning btn pull-right" %>
-    
-</div></div>
+ <div class="table_content_with_title">
+    <table>
+      <thead>
+        <tr>
+          <th width="35px" class="mob_cell">Order</th>
+          <th class="mob_cell">Tile Type</th>
+          <th width="75px"  class="tab_cell">Visibility</th>
+          <th width="20px" class="row_button"></th>
+          <th width="20px" class="row_button"></th>
+          <th width="20px" class="row_button"></th>
+          <th width="20px" class="row_button"><%= link_to "", new_content_path, class: 'line_edit_icon', title: "download csv" %></th>
+        </tr>
+      </thead>
+    </table>
+    <div class="table_container">
+        <table>
+          <tbody>
+            <% @contents.each do |content| %>
+              <tr>
+                <td width="35px" class="mob_cell"><%= content.tile_ref %></td>
+                <td class="mob_cell"><%= content.tile.name %></td>
+                <td width="75px"  class="tab_cell"><%= content.display %></td>
+                <td width="20px" class="row_button"><%= link_to '', move_up_content_path(content), class: 'line_up_icon', title: "move up"  %></td>
+                <td width="20px" class="row_button"><%= link_to '', move_down_content_path(content), class: 'line_down_icon', title: "move down" %></td>
+                <td width="20px" class="row_button"><%= edit_links(content) %></td>
+                <td width="20px" class="row_button"><%= link_to '', content, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete tile"  %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+</div>

@@ -1,51 +1,61 @@
-<p id="notice"><%= notice %></p>
-
-<h2>Website Design Settings</h2>
-
-<div class="row-fluid">
-  <div class="span4 well">
-    <%= form_for(@design) do |f| %>
-    <fieldset>
-      <p id="notice"><%= notice %></p>
-      
-      <%= f.hidden_field :company_id, :value => current_user.company_id %>
-    
-      <% if @design.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@design.errors.count, "error") %> prohibited this detail from being saved:</h2>
-    
-          <ul>
-          <% @design.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-    
-          <div class="form-group">
-                <label class="control-label">Tile Colour
-                    <div class="help_tooltip" id="19"></div>
-                </label>  
-            <%= f.text_field :tile_colour, :class=>"form-control"  %>
-            </div>
-          <div class="form-group">
-                <label class="control-label">Background
-                    <div class="help_tooltip" id="20"></div>
-                </label>  
-            <%= f.collection_select(:background_id, Mjweb::Background.all, :id, :name, {:selected => @design.background_id, :prompt => :true}, :class=>"form-control" )%>         
-          </div>
-          <div class="form-group">
-                <label class="control-label">Title & Tagline Font
-                    <div class="help_tooltip" id="21"></div>
-                </label> 
-            <%= f.collection_select(:font_id, Mjweb::Font.all, :id, :name, {:selected => @design.font_id, :prompt => :true}, :class=>"form-control" ) %>
-          </div>
-    
-      <div class="form-actions">
-        <%= f.submit class: "btn btn-success" %>
-        <%= link_to "Back to Settings Menu", mjweb.settings_path, class: "btn btn-sm btn-warning btn pull-right" %>
-      </div>
-      </fieldset>
-    <% end %>
-  </div>
+<div class="page_title">
+    <h1>Website Design Settings</h1>
 </div>
+
+<div class="content">
+    <div class="column_1">
+        <div class="column_content">
+        
+            <% if notice %>
+                <div class="column_confirm">
+                    <p><%= notice %></p>
+                </div>
+            <% end %>
+            
+            <% if @design.errors.any? %>
+            <div class="column_error">
+            <p><%= pluralize(@design.errors.count, "error") %> prohibited this detail from being saved:</p>
+                  <ul>
+                  <% @design.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+            </div>
+            <% end %>
+            
+            <div class="column_sub_content">
+                <div class="column_form">
+                <%= form_for(@design) do |f| %>
+                    <%= f.hidden_field :company_id, :value => current_user.company_id %>    
+                    
+                        <div class="column_form_item">
+                            <label class="column_form_label">Tile Colour:</label>                        
+                            <div class="column_form_input"><%= f.color_field :tile_colour %></div>
+                            <div class="column_help_tooltip" id="website_tile_colour"></div> 
+                        </div>
+                        <div class="column_form_item">
+                            <label class="column_form_label">Background:</label>                        
+                            <div class="column_form_input"><%= f.select :background_id, options_for_select(Mjweb::Background.all.map{ |c| [c.name, c.id, {'data-img-src' => c.background}] }) %></div>
+                            <div class="column_help_tooltip" id="website_background"></div>  
+                        </div>
+                        <div class="column_form_item">
+                            <label class="column_form_label">Title Font:</label>                        
+                            <div class="column_form_input"> <%= f.select :font_id, options_for_select(Mjweb::Font.all.map{ |c| [c.name, c.id, {'data-img-src' => c.font}] }) %></div>
+                            <div class="column_help_tooltip" id="website_font"></div>  
+                        </div>
+                </div>
+           </div>     
+                
+           <div class="column_footer">
+                <div class="column_line"></div>
+                <div class="column_submit"><%= f.submit "save"%></div>
+                <% end %>
+           </div>
+            
+        </div>
+    </div>
+    <div class="column_2 column_blank"></div> 
+    <div class="column_3 column_blank"></div> 
+</div>
+
+

@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+//= require nav.js
 //= require_tree .
 

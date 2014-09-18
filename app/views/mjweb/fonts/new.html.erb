@@ -1,0 +1,44 @@
+<h3>Upload new image</h3>
+<p>Note: font files and supporting code must be added separately for each new font</p>
+
+<div class="row-fluid">
+  <div class="span4 well">
+    <%= form_for(@font, :html => {:multipart => true}) do |f| %>
+        <fieldset>
+      <% if @font.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@font.errors.count, "error") %> prohibited this image from being saved:</h2>
+    
+          <ul>
+          <% @font.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+        
+    
+          <div class="form-group">
+            <label class="control-label">Font Name</label>
+            <%= f.text_field :name, :class=>"form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">Style</label>
+            <%= f.text_field :style, :class=>"form-control"  %>
+          </div>
+      
+          <div class="form-group">
+            <label class="control-label">Image</label>  
+            <%= f.file_field :font, :class=>"form-control"  %>
+          </div>
+
+      
+      <div class="form-actions">
+        <%= f.submit "Upload font image", class: "btn btn-success" %>
+        <%= link_to "Back to Fonts", mjweb.fonts_path, class: "btn btn-sm btn-warning btn pull-right" %>
+      </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>
