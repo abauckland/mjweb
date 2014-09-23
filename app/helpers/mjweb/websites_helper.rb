@@ -1,6 +1,14 @@
 module Mjweb
   module WebsitesHelper
   
+      def set_background(design)     
+       case design.background_id         
+        when 1 ; "<div class='background_image_1'></div>".html_safe
+        when 2 ; "<div class='background_image_2'></div>".html_safe                
+       end  
+    end  
+  
+  
     def content_display(content, colour_settings, i)
       case content[:display]
       when 'All devices'; "<div class='all_devices'>#{display_web_tiles(content, colour_settings, i)}</div>".html_safe

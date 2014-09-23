@@ -5,17 +5,15 @@ module Mjweb
     before_action :set_product, only: [:edit, :update, :destroy]
     before_action :get_images, only: [:new, :edit]
 
-    # GET /products
     def index
-      @products = Product.where(:company_id => current_user.company_id)
+      @contents = Product.where(:company_id => current_user.company_id)
+      @content = Product.new
     end
 
-    # GET /products/new
     def new
-      @product = Product.new
+      @content = Product.new
     end
 
-    # GET /products/1/edit
     def edit
     end
 

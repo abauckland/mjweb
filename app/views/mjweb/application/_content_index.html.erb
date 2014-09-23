@@ -1,0 +1,33 @@
+<div class="table_content_with_title">
+    <table>
+      <thead>
+        <tr>
+          <th width="35px" class="mob_cell">Title</th>
+          <th class="lrg_cell">Text</th>
+          <th width="75px"  class="lrg_cell">Link text</th>
+          <th width="75px"  class="tab_cell">Link URL</th>
+          <th width="50px"  class="tab_cell">Image</th>
+          <th width="20px" class="row_button"></th>
+          <th width="20px" class="row_button"><%= link_to "", new_polymorphic_url(@content), class: 'line_new_icon', title: "new item" %></th>
+        </tr>
+      </thead>
+    </table>
+    <div class="table_container">
+        <table>
+          <tbody>
+            <% @contents.each do |content| %>
+              <tr>
+                <td width="35px" class="mob_cell"><%= content.title %></td>
+                <td class="lrg_cell"><%= content.text %></td>
+                <td width="75px"  class="lrg_cell"><%= content.link_text %></td>
+                <td width="75px"  class="tab_cell"><%= content.link_url %></td>
+                <td width="50px"  class="tab_cell"><%= image_tag(content.image.image_url, {:width => "50px", :height => "50px"}) if content.image_id? %></td>
+                <td width="20px" class="row_button"><%= link_to '', edit_polymorphic_url(content), class: 'line_edit_icon', title: "edit item"  %></td>
+                <td width="20px" class="row_button"><%= link_to '', polymorphic_url(content), method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete item"  %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+</div>
+

@@ -5,24 +5,16 @@ module Mjweb
     before_action :set_about, only: [:edit, :update, :destroy]
     before_action :get_images, only: [:new, :edit]
 
-    # GET /abouts
     def index
-      #filter by company subdmain      
-      @abouts = About.where(:company_id => current_user.company_id).first 
-      if @abouts.nil?
-        redirect_to new_about_path
-      end
-      
+      @contents = About.where(:company_id => current_user.company_id)
+      @content = About.new
     end
 
-    # GET /abouts/new
     def new
-      @about = About.new
+      @content = About.new
     end
 
-    # GET /abouts/1/edit
     def edit
-       
     end
 
     # POST /abouts

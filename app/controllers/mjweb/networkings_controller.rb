@@ -5,17 +5,15 @@ module Mjweb
     before_action :set_networking, only: [:edit, :update, :destroy]
     before_action :get_images, only: [:new, :edit]
     
-    # GET /networkings
     def index
-      @networkings = Networking.where(:company_id => current_user.company_id)
+      @contents = Networking.where(:company_id => current_user.company_id)
+      @content = Networking.new
     end
 
-    # GET /networkings/new
     def new
-      @networking = Networking.new
+      @content = Networking.new
     end
 
-    # GET /networkings/1/edit
     def edit
     end
 

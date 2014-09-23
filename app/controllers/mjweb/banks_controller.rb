@@ -5,17 +5,15 @@ module Mjweb
     before_action :set_bank, only: [:edit, :update, :destroy]
     before_action :get_images, only: [:new, :edit]
     
-    # GET /banks
     def index
-      @banks = Bank.where(:company_id => current_user.company_id)
+      @contents = Bank.where(:company_id => current_user.company_id)
+      @content = Bank.new
     end
 
-    # GET /banks/new
     def new
-      @bank = Bank.new
+      @content = Bank.new
     end
 
-    # GET /banks/1/edit
     def edit
     end
 

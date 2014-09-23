@@ -5,17 +5,15 @@ module Mjweb
     before_action :set_training, only: [:edit, :update, :destroy]
     before_action :get_images, only: [:new, :edit]
     
-    # GET /trainings
     def index
-      @trainings = Training.where(:company_id => current_user.company_id)
+      @contents = Training.where(:company_id => current_user.company_id)
+      @content = Training.new
     end
 
-    # GET /trainings/new
     def new
-      @training = Training.new
+      @content = Training.new
     end
 
-    # GET /trainings/1/edit
     def edit
     end
 

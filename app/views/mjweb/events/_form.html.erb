@@ -25,39 +25,39 @@
                   <%= f.hidden_field :company_id, :value => current_user.company_id %>
     
                         <div class="column_form_item">
-                            <label class="column_form_label">Topic:</label>                        
+                            <label class="column_form_label" style="width:80px">Topic:</label>                        
                             <div class="column_form_input"><%= f.text_field :topic %></div>
                             <div class="column_help_tooltip" id="event_topic"></div> 
                         </div>
                         <div class="column_form_item">
-                            <label class="column_form_label">Date:</label>                        
-                            <div class="column_form_input"><%= f.date_select :date %></div> 
+                            <label class="column_form_label" style="width:80px">Date:</label>                        
+                            <div class="column_form_input"><%= f.date_field :date, :start_year => Time.now.year%></div> 
                         </div>
                         <div class="column_form_item">
-                            <label class="column_form_label">Start Time:</label>                        
-                            <div class="column_form_input"><%= f.time_select :start, {minute_step: 15} %></div>
+                            <label class="column_form_label" style="width:80px">Start Time:</label>                        
+                            <div class="column_form_input"><%= f.time_field :start %></div>
                         </div>
                         <div class="column_form_item">
-                            <label class="column_form_label">Finish Time:</label>                        
-                            <div class="column_form_input"><%= f.time_select :finish, {minute_step: 15} %></div>
+                            <label class="column_form_label" style="width:80px">Finish Time:</label>                        
+                            <div class="column_form_input"><%= f.time_field :finish %></div>
                         </div>
                         <div class="column_form_item">
-                            <label class="column_form_label">Venue:</label>                        
+                            <label class="column_form_label" style="width:80px">Venue:</label>                        
                             <div class="column_form_input"><%= f.text_field :venue %></div>
                             <div class="column_help_tooltip" id="event_venue"></div>  
                         </div>
                         <div class="column_form_item">
-                            <label class="column_form_label">Address:</label>                        
+                            <label class="column_form_label" style="width:80px">Address:</label>                        
                             <div class="column_form_input"><%= f.text_field :address %></div>
                             <div class="column_help_tooltip" id="event_address"></div>  
                         </div>
                         <div class="column_form_item">
-                            <label class="column_form_label">Postcode:</label>                        
+                            <label class="column_form_label" style="width:80px">Postcode:</label>                        
                             <div class="column_form_input"><%= f.text_field :postcode %></div>
                             <div class="column_help_tooltip" id="event_postcode"></div>  
                         </div>
                         <div class="column_form_item">
-                            <label class="column_form_label">Link:</label>                        
+                            <label class="column_form_label" style="width:80px">Link:</label>                        
                             <div class="column_form_input"><%= f.url_field :link %></div>
                             <div class="column_help_tooltip" id="event_link"></div>  
                         </div>
@@ -72,6 +72,6 @@
             
         </div>
     </div>
-    <div class="column_2 column_blank"></div> 
-    <div class="column_3 column_blank"></div> 
+    <div class="column_2 column_2_blank"></div> 
+    <div class="column_3 column_3_blank"></div> 
 </div>   

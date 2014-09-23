@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require nav.js
+//= require mjweb/nav.js
+//= require mjweb/columns.js
+//= require mjweb/columns_linked.js
+//= require mjweb/websites.js
 //= require_tree .
 

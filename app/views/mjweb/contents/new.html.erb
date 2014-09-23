@@ -5,23 +5,6 @@
 <div class="content">
     <div class="column_1">
         <div class="column_content">
-        
-            <% if notice %>
-                <div class="column_confirm">
-                    <p><%= notice %></p>
-                </div>
-            <% end %>
-            
-            <% if @content.errors.any? %>
-            <div class="column_error">
-            <p><%= pluralize(@content.errors.count, "error") %> prohibited this detail from being saved:</p>
-                  <ul>
-                  <% @content.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                  </ul>
-            </div>
-            <% end %>
             
             <div class="column_sub_content">
                 <div class="column_form">
@@ -30,13 +13,13 @@
                   <%= f.hidden_field :tile_ref, :value => @tile_ref %>    
                     
                         <div class="column_form_item">
-                            <label class="column_form_label">Select Tile Type:</label>                        
-                            <div class="column_form_input"><%= f.collection_select(:tile_id, @tiles, :id, :name)  %></div>
+                            <label class="column_form_label" style="width:120px">Select Tile Type:</label>                        
+                            <div class="column_form_input"><%= f.collection_select(:tile_id, @tiles, :id, :name, {}, :class => "full_width")  %></div>
                             <div class="column_help_tooltip" id="website_tile_type"></div> 
                         </div>
                         <div class="column_form_item">
-                            <label class="column_form_label">Set Display Options:</label>                        
-                            <div class="column_form_input"><%= f.select(:display, [['All devices', 'All devices'], ['Desktops & Tablets', 'Desktops & Tablets'], ['Desktops only', 'Desktops only']]) %></div>
+                            <label class="column_form_label" style="width:120px">Set Display Options:</label>                        
+                            <div class="column_form_input"><%= f.select(:display, [['All devices', 'All devices'], ['Desktops & Tablets', 'Desktops & Tablets'], ['Desktops only', 'Desktops only']], {}, :class => "full_width") %></div>
                             <div class="column_help_tooltip" id="website_tile_display"></div>  
                         </div>
                 </div>
@@ -51,6 +34,6 @@
             
         </div>
     </div>
-    <div class="column_2 column_blank"></div> 
-    <div class="column_3 column_blank"></div> 
+    <div class="column_2 column_2_blank"></div> 
+    <div class="column_3 column_3_blank"></div> 
 </div>

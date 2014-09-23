@@ -5,18 +5,15 @@ module Mjweb
     before_action :set_service, only: [:edit, :update, :destroy]
     before_action :get_images, only: [:new, :edit]
     
-    # GET /services
     def index
-      #filter by company subdmain
-      @services = Service.where(:company_id => current_user.company_id)
+      @contents = Service.where(:company_id => current_user.company_id)
+      @content = Service.new
     end
 
-    # GET /services/new
     def new
-      @service = Service.new
+      @content = Service.new
     end
 
-    # GET /services/1/edit
     def edit
     end
 

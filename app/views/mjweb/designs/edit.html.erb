@@ -5,12 +5,6 @@
 <div class="content">
     <div class="column_1">
         <div class="column_content">
-        
-            <% if notice %>
-                <div class="column_confirm">
-                    <p><%= notice %></p>
-                </div>
-            <% end %>
             
             <% if @design.errors.any? %>
             <div class="column_error">
@@ -29,18 +23,18 @@
                     <%= f.hidden_field :company_id, :value => current_user.company_id %>    
                     
                         <div class="column_form_item">
-                            <label class="column_form_label">Tile Colour:</label>                        
+                            <label class="column_form_label" style="width:90px">Tile Colour:</label>                        
                             <div class="column_form_input"><%= f.color_field :tile_colour %></div>
                             <div class="column_help_tooltip" id="website_tile_colour"></div> 
                         </div>
-                        <div class="column_form_item">
-                            <label class="column_form_label">Background:</label>                        
-                            <div class="column_form_input"><%= f.select :background_id, options_for_select(Mjweb::Background.all.map{ |c| [c.name, c.id, {'data-img-src' => c.background}] }) %></div>
+                        <div class="column_form_item_dd-select">
+                            <label class="column_form_label" style="width:90px">Background:</label>                        
+                            <div class="column_form_input"><%= f.select :background_id, options_for_select(Mjweb::Background.all.map{ |c| [c.name, c.id, {'data-imagesrc' => c.background_url}] }) %></div>
                             <div class="column_help_tooltip" id="website_background"></div>  
                         </div>
-                        <div class="column_form_item">
-                            <label class="column_form_label">Title Font:</label>                        
-                            <div class="column_form_input"> <%= f.select :font_id, options_for_select(Mjweb::Font.all.map{ |c| [c.name, c.id, {'data-img-src' => c.font}] }) %></div>
+                        <div class="column_form_item_dd-select">
+                            <label class="column_form_label" style="width:90px">Title Font:</label>                        
+                            <div class="column_form_input"><%= f.select :font_id, options_for_select(Mjweb::Font.all.map{ |c| [c.name, c.id, {'data-imagesrc' => c.font_url}] }) %></div>
                             <div class="column_help_tooltip" id="website_font"></div>  
                         </div>
                 </div>
@@ -54,8 +48,8 @@
             
         </div>
     </div>
-    <div class="column_2 column_blank"></div> 
-    <div class="column_3 column_blank"></div> 
+    <div class="column_2 column_2_blank"></div> 
+    <div class="column_3 column_3_blank"></div> 
 </div>
 
 

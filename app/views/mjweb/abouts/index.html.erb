@@ -1,38 +1,5 @@
-<h1>Company Information</h1>
+<div class="page_title">
+    <h1>Company Information</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Company</th>
-      <th>Title</th>
-      <th>Text</th>
-      <th>Link Text</th>
-      <th>Link URL</th>
-      <th>Image</th>
-      <th width="120px"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @abouts.each do |about| %>
-      <tr>
-        <td><%= about.company_id %></td>
-        <td><%= about.title %></td>
-        <td><%= about.text %></td>
-        <td><%= about.link_text %></td>
-        <td><%= about.link_url %></td>
-        <td><%= image_tag(about.image.image_url(:thumb)) if about.image_id? %></td>
-        <td>
-            <div class="btn-group-xs">        
-                <%= link_to 'Edit', edit_about_path(about), :class => "btn btn-sm btn-success"  %>
-                <%= link_to 'Destroy', about, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-danger"  %>
-            </div>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New About', new_about_path %>
+<%=  render :partial => "content_index", locals: {contents: @contents, content: @content}  %>

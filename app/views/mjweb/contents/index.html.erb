@@ -1,5 +1,5 @@
 <div class="page_title">
-    <h1>Home Page Tiles</h1>
+    <h1>Content: Home Page Tiles</h1>
 </div>
 
  <div class="table_content_with_title">
@@ -12,7 +12,7 @@
           <th width="20px" class="row_button"></th>
           <th width="20px" class="row_button"></th>
           <th width="20px" class="row_button"></th>
-          <th width="20px" class="row_button"><%= link_to "", new_content_path, class: 'line_edit_icon', title: "download csv" %></th>
+          <th width="20px" class="row_button"><%= link_to "", new_content_path, class: 'line_new_icon', title: "add new tile" %></th>
         </tr>
       </thead>
     </table>
@@ -27,7 +27,7 @@
                 <td width="20px" class="row_button"><%= link_to '', move_up_content_path(content), class: 'line_up_icon', title: "move up"  %></td>
                 <td width="20px" class="row_button"><%= link_to '', move_down_content_path(content), class: 'line_down_icon', title: "move down" %></td>
                 <td width="20px" class="row_button"><%= edit_links(content) %></td>
-                <td width="20px" class="row_button"><%= link_to '', content, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete tile"  %></td>
+                <td width="20px" class="row_button"><%= link_to '', content, :method => :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete tile"  %></td>
               </tr>
             <% end %>
           </tbody>

@@ -7,12 +7,12 @@
       <thead>
         <tr>
           <th class="mob_cell">Topic</th>
-          <th class="mob_cell">Date</th>
-          <th class="tab_cell">Start</th>
-          <th class="tab_cell">Finish</th>
+          <th class="mob_cell" style="width:40px">Date</th>
+          <th class="tab_cell" style="width:30px">Start</th>
+          <th class="tab_cell" style="width:30px">Finish</th>
           <th class="tab_cell">Venue</th>
           <th class="lrg_cell">Address</th>
-          <th class="lrg_cell">Postcode</th>
+          <th class="lrg_cell" style="width:50px">Postcode</th>
           <th class="lrg_cell">Link URL</th>
           <th width="20px" class="row_button"><%= link_to "", new_event_path, class: 'line_new_icon', title: "add event" %></th>
           <th width="20px" class="row_button"><%= link_to "", nil, class: 'table_pdf_icon', title: "download pdf" %></th>
@@ -26,12 +26,12 @@
             <% @events.each do |event| %>
               <tr>
                 <td class="mob_cell"><%= event.topic %></td>
-                <td class="mob_cell"><%= event.date.strftime("%A %-d %B") %></td>
-                <td class="tab_cell"><%= event.start.strftime("%I:%M %P") %></td>
-                <td class="tab_cell"><%= event.finish.strftime("%I:%M %P") %></td>
+                <td class="mob_cell" style="width:40px"><%= event.date.strftime("%d/%m/%y") %></td>
+                <td class="tab_cell" style="width:30px"><%= event.start.strftime("%k:%M") %></td>
+                <td class="tab_cell" style="width:30px"><%= event.finish.strftime("%k:%M") %></td>
                 <td class="tab_cell"><%= event.venue %></td>
                 <td class="lrg_cell"><%= event.address %></td>
-                <td class="lrg_cell"><%= event.postcode %></td>
+                <td class="lrg_cell" style="width:50px"><%= event.postcode %></td>
                 <td class="lrg_cell"><%= event.link %></td>
                 <td width="20px" class="row_button"></td>
                 <td width="20px" class="row_button"><%= link_to '', edit_event_path(event), class: 'line_edit_icon', title: "edit event" %></td>

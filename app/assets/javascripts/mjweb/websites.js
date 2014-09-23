@@ -102,7 +102,7 @@ function content_tiling() {
 	var total_tile_width = (tiles_in_row_rounded*tile_width);
 
 	var margin = (container - total_tile_width)/2;
-	$('.content').css('margin-left',margin+'px');
+	$('.web_content').css('margin-left',margin+'px');
 
 
 }

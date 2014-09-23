@@ -5,17 +5,15 @@ module Mjweb
     before_action :set_account, only: [:edit, :update, :destroy]
     before_action :get_images, only: [:new, :edit]
     
-    # GET /books
     def index
-      @books = Book.where(:company_id => current_user.company_id)
+      @contents = Book.where(:company_id => current_user.company_id)
+      @content = Book.new
     end
 
-    # GET /books/new
     def new
-      @book = Book.new
+      @content = Book.new
     end
 
-    # GET /books/1/edit
     def edit
     end
 

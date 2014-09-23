@@ -5,17 +5,15 @@ module Mjweb
     before_action :set_webpage, only: [:edit, :update, :destroy]
     before_action :get_images, only: [:new, :edit]
     
-    # GET /webpages
     def index
-      @webpages = Webpage.where(:company_id => current_user.company_id)
+      @contents = Webpage.where(:company_id => current_user.company_id)
+      @content = Webpage.new
     end
 
-    # GET /webpages/new
     def new
-      @webpage = Webpage.new
+      @content = Webpage.new
     end
 
-    # GET /webpages/1/edit
     def edit
     end
 

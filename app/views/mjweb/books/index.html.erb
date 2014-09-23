@@ -1,38 +1,6 @@
-<h1>Book Keeping Information</h1>
+<div class="page_title">
+    <h1>Book Keeping Information</h1>
+</div>
 
-<table class="table table-striped table-hover" style="width : 100%" >
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Text</th>
-      <th>Link text</th>
-      <th>Link url</th>
-      <th>Image</th>
-      <th width="120px"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @books.each do |book| %>
-      <tr>
-        <td><%= book.title %></td>
-        <td><%= book.text %></td>
-        <td><%= book.link_text %></td>
-        <td><%= book.link_url %></td>
-        <td><%= image_tag(book.image.image_url(:thumb)) if book.image_id? %></td>
-        <td>
-            <div class="btn-group-xs">        
-                <%= link_to 'Edit', edit_book_path(account), :class => "btn btn-sm btn-success"  %>
-                <%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-danger"  %>
-            </div>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Item', new_book_path, class: "btn btn-sm btn-success"  %>
-<%= link_to "Back to Contents List", mjweb.contents_path, class: "btn btn-sm btn-warning btn pull-right" %>
+<%=  render :partial => "content_index", locals: {contents: @contents, content: @content}  %>
 

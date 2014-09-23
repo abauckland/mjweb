@@ -5,6 +5,12 @@
 <div class="content">
     <div class="column_1">
         <div class="column_content">
+        
+            <% if notice %>
+                <div class="column_confirm">
+                    <p><%= notice %></p>
+                </div>
+            <% end %>
             
             <% if @imagesetting.errors.any? %>
             <div class="column_error">
@@ -20,27 +26,31 @@
             <div class="column_sub_content">
                 <div class="column_form">
                 <%= form_for(@imagesetting) do |f| %>
-                  <%= f.hidden_field :content_id, :value => @content.id %>  
+                    <%= f.hidden_field :content_id, :value => @content.id %>     
                     
-                        <div class="column_form_item">
-                            <label class="column_form_label">Select Image:</label>                        
+                        <div class="column_form_item_dd-select">
+                            <label class="column_form_label" style="width:90px">Image:</label>                        
                             <div class="column_form_input"><%= f.select :image_id, options_for_select(@images.map{ |c| [c.name, c.id, {'data-imagesrc' => c.image_url}] }), :prompt => "Select Image...." %></div>
-                                                        
-                            <div class="column_help_tooltip" id="website_imagesetting_image"></div> 
+                            <div class="column_help_tooltip" id="website_background"></div>  
                         </div>
+
                 </div>
-           </div>     
+           </div>      
                 
            <div class="column_footer">
                 <div class="column_line"></div>
-                <div class="column_submit"><%= f.submit "add image to tile"%></div>
+                <div class="column_submit"><%= f.submit "save"%></div>
+                <div class="column_cancel"><%= link_to "cancel", contents_path %></div>
                 <% end %>
            </div>
             
         </div>
     </div>
-    <div class="column_2 column_blank"></div> 
-    <div class="column_3 column_blank"></div> 
+    <div class="column_2 column_2_blank"></div> 
+    <div class="column_3 column_3_blank"></div> 
 </div>
+
+            
+
 
 

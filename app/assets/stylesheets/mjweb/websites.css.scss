@@ -68,7 +68,13 @@ div.help_tooltip{
 .login_container{
   float: right;
   width: 50px;
-  height: 24px; 
+  height: 24px;
+    a{color:#eee;}
+    a:hover{
+      color: #fff;
+      text-decoration: none;
+    }
+    a:visited{color: #eee;} 
 }
   @media screen and (max-width: $medium_device) {
     .login_container{
@@ -80,10 +86,11 @@ div.help_tooltip{
   @include dark_grey_24_gradient;
   display: inline-block;  
   width: 50px;
-  height: 24px;
+  height: 22px;
   padding: 2px 0px 0px 0px;
   color:#ffffff;
   font-family: $heading_font;
+  font-size: 1.2rem;
   text-decoration:none;
   text-align:center;
   cursor:pointer;
@@ -205,7 +212,7 @@ a.linkedin {
 }
 
 //PAGE CONTENT CSS
-.content{
+.web_content{
   clear: both;
   width: 100%;
   padding: 20px 0px 20px 0px;  
@@ -233,6 +240,12 @@ a.linkedin {
   float: left;
   width: 200px;
   height: 200px;
+  a{  text-decoration: none;;}
+  a:hover{
+    text-decoration: none;;
+  }
+  a:visited{  text-decoration: none;;}
+
 }
 
 .empty_tile{
@@ -513,7 +526,10 @@ a.linkedin {
 .tile_content{
   width: 200px;
   height: 200px;
-  padding: 20px 0px 0px 0px; 
+  padding: 10px 0px 0px 0px;
+  ul{      padding: 0px 0px 0px 0px;
+          list-style-type: none;
+  } 
 }
 
 //FOOTER CSS
@@ -544,15 +560,18 @@ a.myhq_icon {
 
 //FONT STYLES
 .tile_title_text {
-font-family: 'Ek Mukta', sans-serif;
+  font-family: 'Ek Mukta', sans-serif;
   font-size: 1.8rem;
+  text-decoration: none;
   text-align:center;
   font-weight:bold;
+  padding: 10px 0px 10px 0px;
 }
 
 .tile_content_text {
   font-family: $content_font;
   font-size: 12px;
+
   text-align:center;
   padding: 0px 10px 0px 10px;
   word-wrap: break-word;
@@ -560,7 +579,7 @@ font-family: 'Ek Mukta', sans-serif;
 
 td.tile_day_text {
   @extend .tile_content_text;
-  width: 65px;
+  width:67px;
   padding: 0px 0px 0px 0px;
   text-align: right;
 }
@@ -655,10 +674,12 @@ td.tile_hours_text {
 
 .event_container{
     margin-top: 10px;
+  padding: 0px 10px 0px 10px;    
 }
 
 .event_title {
   background-color:#ccc;
+  font-size: 1.2rem;
   font-weight:bold;
 
   padding: 8px 10px 5px 10px;   
@@ -672,5 +693,6 @@ td.tile_hours_text {
 
 .website_page_title{
   font-size:2rem;
-  font-weight:bold;  
+  font-weight:bold;
+  padding: 0px 10px 0px 10px;    
 }

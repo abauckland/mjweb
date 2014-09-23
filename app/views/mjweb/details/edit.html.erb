@@ -5,13 +5,7 @@
 <div class="content">
     <div class="column_1">
         <div class="column_content">
-        
-            <% if notice %>
-                <div class="column_confirm">
-                    <p><%= notice %></p>
-                </div>
-            <% end %>
-            
+
             <% if @detail.errors.any? %>
             <div class="column_error">
             <p><%= pluralize(@detail.errors.count, "error") %> prohibited this detail from being saved:</p>
@@ -29,27 +23,27 @@
                     <%= f.hidden_field :company_id, :value => current_user.company_id %>    
                     
                         <div class="column_form_item">
-                            <label class="column_form_label">Tagline:</label>                        
-                            <div class="column_form_input"><%= f.text_area :tagline, :rows => 5 %></div>
+                            <label class="column_form_label" style="width:90px">Link:</label>                        
+                            <div class="column_form_input"><%= f.text_field :tagline %></div>
                             <div class="column_help_tooltip" id="website_tagline"></div> 
                         </div>
                         <div class="column_form_item">
-                            <label class="column_form_label">Facebook Address:</label>                        
+                            <label class="column_form_label" style="width:90px">Facebook Link:</label>                        
                             <div class="column_form_input"><%= f.url_field :facebook %></div>
                             <div class="column_help_tooltip" id="website_facebook"></div>  
                         </div>
                         <div class="column_form_item">
-                            <label class="column_form_label">Twitter Address:</label>                        
+                            <label class="column_form_label" style="width:90px">Twitter Link:</label>                        
                             <div class="column_form_input"><%= f.url_field :twitter %></div>
                             <div class="column_help_tooltip" id="website_twitter"></div>  
                         </div>
                         <div class="column_form_item">
-                            <label class="column_form_label">Google+ Address:</label>                        
+                            <label class="column_form_label" style="width:90px">Google+ Link:</label>                        
                             <div class="column_form_input"><%= f.url_field :googleplus %></div>
                             <div class="column_help_tooltip" id="website_googleplus"></div>  
                         </div>
                         <div class="column_form_item">
-                            <label class="column_form_label">Linkedin Address:</label>                        
+                            <label class="column_form_label" style="width:90px">Linkedin Link:</label>                        
                             <div class="column_form_input"><%= f.url_field :linkedin %></div>
                             <div class="column_help_tooltip" id="website_linkedin"></div>  
                         </div>
@@ -64,8 +58,8 @@
             
         </div>
     </div>
-    <div class="column_2 column_blank"></div> 
-    <div class="column_3 column_blank"></div> 
+    <div class="column_2 column_2_blank"></div> 
+    <div class="column_3 column_3_blank"></div> 
 </div>
 
 
