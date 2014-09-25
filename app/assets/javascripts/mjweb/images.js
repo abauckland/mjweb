@@ -7,6 +7,7 @@ jQuery(document).ready(function ($) {
 
 	$('#imagesetting_image_id').ddslick({
 		width: select_width,
+		selectText: "Select image...",
 	});
 	
 	$('#about_image_id').ddslick({

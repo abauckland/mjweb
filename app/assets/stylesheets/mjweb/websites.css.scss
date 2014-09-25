@@ -3,6 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import url(http://fonts.googleapis.com/css?family=Marck+Script);
 @import url(http://fonts.googleapis.com/css?family=Ek+Mukta);
+@import url(http://fonts.googleapis.com/css?family=Play);
+@import url(http://fonts.googleapis.com/css?family=Questrial);
+@import url(http://fonts.googleapis.com/css?family=Coming+Soon);
+@import url(http://fonts.googleapis.com/css?family=Crimson+Text);
+@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville);
+@import url(http://fonts.googleapis.com/css?family=Nunito);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+
+
 //settings
 $heading_font: 'Ek Mukta';
 $content_font: Arial,Helvetica,sans-serif;
@@ -262,139 +272,139 @@ a.linkedin {
 //ecommerce link
 .tile_ecommerce_black{
     @extend .tile;
-    background: asset_url('shopping_icon_black.png');
+    background: asset_url('web_page_icons.png') 0px -1200px no-repeat;
 }
 
 .tile_ecommerce_white{
     @extend .tile;
-    background: asset_url('shopping_icon_white.png');
+    background: asset_url('web_page_icons.png') 0px -1400px no-repeat;
 }
 
 .tile_ecommerce_white_black{
     @extend .tile;
-    background: asset_url('shopping_icon_white.png');
-    &:hover{background: asset_url('shopping_icon_black.png');}
+    background: asset_url('web_page_icons.png') 0px -1400px no-repeat;
+    &:hover{background: asset_url('web_page_icons.png') 0px -1200px no-repeat;}
 }
 
 .tile_ecommerce_black_white{
     @extend .tile;
-    background: asset_url('shopping_icon_white.png');
-    &:hover{background: asset_url('shopping_icon_black.png');}
+    background: asset_url('web_page_icons.png') 0px -1200px no-repeat;
+    &:hover{background: asset_url('web_page_icons.png') 0px -1400px no-repeat;}
 }
 
 //about link
 .tile_about_black{
     @extend .tile;
-    background: asset_url('about_icon_black.png');
+    background: asset_url('web_page_icons.png') 0px 0px no-repeat;
 }
 
 .tile_about_white{
     @extend .tile;
-    background: asset_url('about_icon_white.png');
+    background: asset_url('web_page_icons.png') 0px -200px no-repeat;
 }
 
 .tile_about_white_black{
     @extend .tile;
-    background: asset_url('about_icon_white.png');
-    &:hover{background: asset_url('about_icon_black.png');}
+    background: asset_url('web_page_icons.png') 0px -200px no-repeat;
+    &:hover{background: asset_url('web_page_icons.png') 0px 0px no-repeat;}
 }
 
 .tile_about_black_white{
     @extend .tile;
-    background: asset_url('about_icon_white.png');
-    &:hover{background: asset_url('about_icon_black.png');}
+    background: asset_url('web_page_icons.png') 0px 0px no-repeat;
+    &:hover{background: asset_url('web_page_icons.png') 0px -200px no-repeat;}
 }
 
 //services link
 .tile_services_black{
     @extend .tile;
-    background: asset_url('services_icon_black.png');
+    background: asset_url('web_page_icons.png') 0px -2400px no-repeat;
 }
 
 .tile_services_white{
     @extend .tile;
-    background: asset_url('services_icon_white.png');
+    background: asset_url('web_page_icons.png') 0px -2600px no-repeat;
 }
 
 .tile_services_white_black{
     @extend .tile;
-    background: asset_url('services_icon_white.png');
-    &:hover{background: asset_url('services_icon_black.png');}
+    background: asset_url('web_page_icons.png') 0px -2600px no-repeat;
+    &:hover{background: asset_url('web_page_icons.png') 0px -2400px no-repeat;}
 }
 
 .tile_services_black_white{
     @extend .tile;
-    background: asset_url('services_icon_white.png');
-    &:hover{background: asset_url('services_icon_black.png');}
+    background: asset_url('web_page_icons.png') 0px -2400px no-repeat;
+    &:hover{background: asset_url('web_page_icons.png') 0px -2600px no-repeat;}
 }
 
 //products link
 .tile_products_black{
     @extend .tile;
-    background: asset_url('products_icon_black.png');
+    background: asset_url('web_page_icons.png') 0px -2000px no-repeat;
 }
 
 .tile_products_white{
     @extend .tile;
-    background: asset_url('products_icon_white.png');
+    background: asset_url('web_page_icons.png') 0px -2200px no-repeat;
 }
 
 .tile_products_white_black{
     @extend .tile;
-    background: asset_url('products_icon_white.png');
-    &:hover{background: asset_url('products_icon_black.png');}
+    background: asset_url('web_page_icons.png') 0px -2200px no-repeat;
+    &:hover{background: asset_url('web_page_icons.png') 0px -2000px no-repeat;}
 }
 
 .tile_products_black_white{
     @extend .tile;
-    background: asset_url('products_icon_white.png');
-    &:hover{background: asset_url('products_icon_black.png');}
+    background: asset_url('web_page_icons.png') 0px -2000px no-repeat;
+    &:hover{background: asset_url('web_page_icons.png') 0px -2200px no-repeat;}
 }
 
 //banks link
 .tile_banks_black{
     @extend .tile;
-    background: asset_url('banks_icon_black.png');
+    background: asset_url('web_page_icons.png') 0px -400px no-repeat;
 }
 
 .tile_banks_white{
     @extend .tile;
-    background: asset_url('banks_icon_white.png');
+    background: asset_url('web_page_icons.png') 0px -600px no-repeat;
 }
 
 .tile_banks_white_black{
     @extend .tile;
-    background: asset_url('banks_icon_white.png');
-    &:hover{background: asset_url('banks_icon_black.png');}
+    background: asset_url('web_page_icons.png') 0px -600px no-repeat;
+    &:hover{background: asset_url('web_page_icons.png') 0px -400px no-repeat;}
 }
 
 .tile_banks_black_white{
     @extend .tile;
-    background: asset_url('banks_icon_white.png');
-    &:hover{background: asset_url('banks_icon_black.png');}
+    background: asset_url('web_page_icons.png') 0px -400px no-repeat;
+    &:hover{background: asset_url('web_page_icons.png') 0px -600px no-repeat;}
 }
 
 //books link
 .tile_books_black{
     @extend .tile;
-    background: asset_url('books_icon_black.png');
+    background: asset_url('web_page_icons.png') 0px -800px no-repeat;
 }
 
 .tile_books_white{
     @extend .tile;
-    background: asset_url('books_icon_white.png');
+    background: asset_url('web_page_icons.png') 0px -1000px no-repeat;
 }
 
 .tile_books_white_black{
     @extend .tile;
-    background: asset_url('books_icon_white.png');
-    &:hover{background: asset_url('books_icon_black.png');}
+    background: asset_url('web_page_icons.png') 0px -1000px no-repeat;
+    &:hover{background: asset_url('web_page_icons.png') 0px -800px no-repeat;}
 }
 
 .tile_books_black_white{
     @extend .tile;
-    background: asset_url('books_icon_white.png');
-    &:hover{background: asset_url('books_icon_black.png');}
+    background: asset_url('web_page_icons.png') 0px -800px no-repeat;
+    &:hover{background: asset_url('web_page_icons.png') 0px -1000px no-repeat;}
 }
 
 //networkings link
@@ -469,47 +479,47 @@ a.linkedin {
 //webpages link
 .tile_webpages_black{
     @extend .tile;
-    background: asset_url('webpages_icon_black.png');
+    background: asset_url('web_page_icons.png') 0px -2800px no-repeat;
 }
 
 .tile_webpages_white{
     @extend .tile;
-    background: asset_url('webpages_icon_white.png');
+    background: asset_url('web_page_icons.png') 0px -3000px no-repeat;
 }
 
 .tile_webpages_white_black{
     @extend .tile;
-    background: asset_url('webpages_icon_white.png');
-    &:hover{background: asset_url('webpages_icon_black.png');}
+    background: asset_url('web_page_icons.png') 0px -3000px no-repeat;
+    &:hover{background: asset_url('web_page_icons.png') 0px -2800px no-repeat;}
 }
 
 .tile_webpages_black_white{
     @extend .tile;
-    background: asset_url('webpages_icon_white.png');
-    &:hover{background: asset_url('webpages_icon_black.png');}
+    background: asset_url('web_page_icons.png') 0px -2800px no-repeat;
+    &:hover{background: asset_url('web_page_icons.png') 0px -3000px no-repeat;}
 }
 
 //events link
 .tile_events_black{
     @extend .tile;
-    background: asset_url('events_icon_black.png');
+    background: asset_url('web_page_icons.png') 0px -1600px no-repeat;
 }
 
 .tile_events_white{
     @extend .tile;
-    background: asset_url('events_icon_white.png');
+    background: asset_url('web_page_icons.png') 0px -1800px no-repeat;
 }
 
 .tile_events_white_black{
     @extend .tile;
-    background: asset_url('events_icon_white.png');
-    &:hover{background: asset_url('events_icon_black.png');}
+    background: asset_url('web_page_icons.png') 0px -1800px no-repeat;
+    &:hover{background: asset_url('web_page_icons.png') 0px -1600px no-repeat;}
 }
 
 .tile_events_black_white{
     @extend .tile;
-    background: asset_url('events_icon_white.png');
-    &:hover{background: asset_url('events_icon_black.png');}
+    background: asset_url('web_page_icons.png') 0px -1600px no-repeat;
+    &:hover{background: asset_url('web_page_icons.png') 0px -1800px no-repeat;}
 }
 .images_tile{
   @extend .tile;  

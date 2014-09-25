@@ -5,23 +5,6 @@
 <div class="content">
     <div class="column_1">
         <div class="column_content">
-        
-            <% if notice %>
-                <div class="column_confirm">
-                    <p><%= notice %></p>
-                </div>
-            <% end %>
-            
-            <% if @imagesetting.errors.any? %>
-            <div class="column_error">
-            <p><%= pluralize(@imagesetting.errors.count, "error") %> prohibited this detail from being saved:</p>
-                  <ul>
-                  <% @imagesetting.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                  </ul>
-            </div>
-            <% end %>
             
             <div class="column_sub_content">
                 <div class="column_form">
