@@ -18,10 +18,10 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 4.1.0"
-  s.add_dependency 'colorist'
   
   s.add_dependency  'pundit'
   s.add_dependency  'carrierwave'
+  s.add_dependency 'colorist'
 #  s.add_dependency  'rmagick'
   s.add_dependency  'sass-rails', '~> 4.0.3'
   s.add_dependency  'coffee-rails', '~> 4.0.0'
