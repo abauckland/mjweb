@@ -1,17 +1,16 @@
 #require_dependency "mjweb/application_controller"
-
 require 'colorist'
 include Colorist
 
 module Mjweb
   class WebsitesController < ApplicationController
     before_action :set_company
+    before_action :set_detail
+    before_action :set_design
     # GET /websites
     # GET /websites.json
     def index
-      @detail = Mjweb::Detail.where(:company_id =>  @sub_company.id).first      
       @contents = Mjweb::Content.where(:company_id => @sub_company.id).order('tile_ref')
-      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
       
       render layout: "mjweb/layouts/website"      
@@ -19,8 +18,6 @@ module Mjweb
 
     def about
       @contents = Mjweb::About.where(:company_id => @sub_company.id).order('id')
-      @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
-      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
       
       render layout: "mjweb/layouts/website"
@@ -28,8 +25,6 @@ module Mjweb
 
     def service
       @contents = Mjweb::Service.where(:company_id => @sub_company.id).order('id')
-      @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
-      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
       
       render layout: "mjweb/layouts/website"      
@@ -37,8 +32,6 @@ module Mjweb
 
     def bank
       @contents = Mjweb::Bank.where(:company_id => @sub_company.id).order('id')
-      @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
-      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
       
       render layout: "mjweb/layouts/website"      
@@ -46,8 +39,6 @@ module Mjweb
 
     def book
       @contents = Mjweb::Book.where(:company_id => @sub_company.id).order('id')
-      @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
-      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
       
       render layout: "mjweb/layouts/website"      
@@ -55,8 +46,6 @@ module Mjweb
 
     def event
       @events = Mjweb::Event.where(:company_id => @sub_company.id).order('id')
-      @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
-      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
       
       render layout: "mjweb/layouts/website"      
@@ -64,8 +53,6 @@ module Mjweb
 
     def networking
       @contents = Mjweb::Networking.where(:company_id => @sub_company.id).order('id')
-      @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
-      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
       
       render layout: "mjweb/layouts/website"      
@@ -73,8 +60,6 @@ module Mjweb
 
     def product
       @contents = Mjweb::Product.where(:company_id => @sub_company.id).order('id')
-      @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
-      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
       
       render layout: "mjweb/layouts/website"      
@@ -83,8 +68,6 @@ module Mjweb
 
     def training
       @contents = Mjweb::Training.where(:company_id => @sub_company.id).order('id')
-      @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
-      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
       
       render layout: "mjweb/layouts/website"      
@@ -92,8 +75,6 @@ module Mjweb
     
     def webpage
       @contents = Mjweb::Webpage.where(:company_id => @sub_company.id).order('id')
-      @detail = Mjweb::Detail.where(:company_id => @sub_company.id).first 
-      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
       
       render layout: "mjweb/layouts/website"      
@@ -105,17 +86,32 @@ module Mjweb
        # @website = Website.find(params[:id])
       end
 
+      def set_design
+        set_company
+        @design = Mjweb::Design.where(:company_id => @sub_company.id).first
+      end
+
+      def set_detail
+        set_company
+        @detail = Mjweb::Detail.where(:company_id =>  @sub_company.id).first
+      end
+
 
       def set_company	 
         subdomain = request.subdomain(tld_length = 2)
-
-      	if subdomain == 'www'
-      		company = ::Company.find_by_sql(["SELECT * FROM companies WHERE id = ?", 1])
+        domain = request.domain(tld_length = 2)
+      	
+      	if domain == "myhq.org.uk"
+        	if subdomain == 'www'
+        		company = ::Company.find_by_sql(["SELECT * FROM companies WHERE id = ?", 1])
+        	else
+        		company = ::Company.find_by_sql(["SELECT * FROM companies WHERE subdomain = ?", subdomain])		
+        	end
       	else
-      		company = ::Company.find_by_sql(["SELECT * FROM companies WHERE subdomain = ?", subdomain])		
-      	end
+      	  company = ::Company.find_by_sql(["SELECT * FROM companies WHERE domain = ?", domain])  
+      	end  
 
-      	if !company.empty?
+      	unless company.empty?
       		selected = company.first
       		company_id = selected[:id]
              	@sub_company = ::Company.find(company_id) 

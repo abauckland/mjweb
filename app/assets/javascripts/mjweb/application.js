@@ -16,5 +16,7 @@
 //= require mjweb/columns.js
 //= require mjweb/columns_linked.js
 //= require mjweb/websites.js
+//= require mjweb/qtip2.js
+//= require mjweb/widgEditor.js
 //= require_tree .
 
