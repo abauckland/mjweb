@@ -21,7 +21,7 @@
                 <td class="lrg_cell"><%= content.text %></td>
                 <td width="75px"  class="lrg_cell"><%= content.link_text %></td>
                 <td width="75px"  class="tab_cell"><%= content.link_url %></td>
-                <td width="50px"  class="tab_cell"><%= image_tag(content.image.image_url, {:width => "50px", :height => "50px"}) if content.image_id? %></td>
+                <td width="50px"  class="tab_cell"><%= image_tag(content.image.image_url(:thumb), {:width => "50px", :height => "50px"}) if content.image_id? %></td>
                 <td width="20px" class="row_button"><%= link_to '', edit_polymorphic_url(content), class: 'line_edit_icon', title: "edit item"  %></td>
                 <td width="20px" class="row_button"><%= link_to '', polymorphic_url(content), method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete item"  %></td>
               </tr>

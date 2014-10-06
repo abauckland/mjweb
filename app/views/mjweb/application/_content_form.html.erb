@@ -37,7 +37,7 @@
                             <div class="column_form_item">
                                 <% if @images %>    
                                     <label class="column_form_label" style="width:80px">Image:</label>                        
-                                    <div class="column_form_image_input"><%= f.select :image_id, options_for_select(@images.map{ |c| [c.name, c.id, {'data-imagesrc' => c.image_url}] }), :prompt => "Select Image...." %></div>
+                                    <div class="column_form_image_input"><%= f.select :image_id, options_for_select(@images.map{ |c| [c.name, c.id, {'data-imagesrc' => c.image_url(:thumb)}] }), :prompt => "Select Image...." %></div>
                                 <% else %>
                                     <label class="column_form_label" style="width:80px">No images are available, please upload images before selecting</label>                        
                                     <div class="column_form_input"></div>                                                        
