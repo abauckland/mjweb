@@ -13,7 +13,7 @@ module Mjweb
     # GET /helps/1/edit
     def edit
       if current_user.company_id == 1
-        @help = Help.find_by_id(params[:id]) || Help.create(:id => params[:id])
+        @help = Help.find_by_item(params[:id]) || Help.create(:item => params[:id])
       end
     end
 
@@ -36,7 +36,7 @@ module Mjweb
 
       # Only allow a trusted parameter "white list" through.
       def help_params
-        params.require(:help).permit(:id, :text)
+        params.require(:help).permit(:id, :item, :text)
       end
   end
 end

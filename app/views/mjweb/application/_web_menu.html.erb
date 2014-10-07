@@ -8,7 +8,9 @@
                 <li><%= link_to "Design", mjweb.edit_design_path(current_user.company_id) %></li>
                 <li><%= link_to "Details", mjweb.edit_detail_path(current_user.company_id) %></li>
                 <li><%= link_to "Images", mjweb.images_path %></li>   
-                <li><%= link_to "Events", mjweb.events_path %></li>                             
+                <% if current_user.admin? %>
+                    <li><%= link_to "Events", mjweb.events_path %></li>                             
+                <% end %>
         </ul>                       
     </div>                      
 </nav>
@@ -24,7 +26,9 @@
                 <li><%= link_to "DESIGN", mjweb.edit_design_path(current_user.company_id) %></li>
                 <li><%= link_to "DETAILS", mjweb.edit_detail_path(current_user.company_id) %></li>
                 <li><%= link_to "IMAGES", mjweb.images_path %></li>   
-                <li><%= link_to "EVENTS", mjweb.events_path %></li>                                   
+                <% if current_user.admin? %>
+                    <li><%= link_to "EVENTS", mjweb.events_path %></li>                                   
+                <% end %>
         </ul>                      
     </div>                      
 </nav>

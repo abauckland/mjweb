@@ -14,7 +14,7 @@ module Mjweb
     def update
       respond_to do |format|
         if @detail.update(detail_params)
-          format.html { redirect_to settings_path, notice: 'Company details were successfully updated.' }
+          format.html { redirect_to contents_path, notice: 'Company details were successfully updated.' }
         else
           format.html { render :edit }
           format.json { render json: @detail.errors, status: :unprocessable_entity }

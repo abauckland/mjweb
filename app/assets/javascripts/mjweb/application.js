@@ -18,5 +18,6 @@
 //= require mjweb/websites.js
 //= require mjweb/qtip2.js
 //= require mjweb/widgEditor.js
+//= require mjweb/kshelp.js
 //= require_tree .
 

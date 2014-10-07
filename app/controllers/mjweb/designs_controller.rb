@@ -13,7 +13,7 @@ module Mjweb
     def update
       respond_to do |format|
         if @design.update(design_params)
-          format.html { redirect_to settings_path, notice: 'Design settings were successfully updated.' }
+          format.html { redirect_to contents_path, notice: 'Design settings were successfully updated.' }
         else
           format.html { render :edit }
           format.json { render json: @design.errors, status: :unprocessable_entity }

@@ -7,6 +7,7 @@ module Mjweb
     # GET /events
     def index
       @events = Event.all
+      authorize @events
     end
 
     # GET /events/1
@@ -52,6 +53,7 @@ module Mjweb
       # Use callbacks to share common setup or constraints between actions.
       def set_event
         @event = Event.find(params[:id])
+        authorize @event
       end
 
       # Only allow a trusted parameter "white list" through.

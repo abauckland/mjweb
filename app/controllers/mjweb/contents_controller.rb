@@ -47,7 +47,7 @@ module Mjweb
     end
 
     def move_up            
-      if @content.tile_ref >= 1
+      if @content.tile_ref >= 2
         above_row = Content.where(:tile_ref => (@content.tile_ref - 1), :company_id => @content.company_id).first      
         above_row.update(:tile_ref => @content.tile_ref)
         @content.update(:tile_ref => @content.tile_ref - 1)

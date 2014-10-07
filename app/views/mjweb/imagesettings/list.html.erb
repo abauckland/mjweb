@@ -8,7 +8,7 @@
     <% if @imagesettings %>        
         <% @imagesettings.each do |imagesetting| %>               
             <div class="web_image_tile">
-                <div class="image"><%= image_tag(imagesetting.image.image_url, {:width => "100px", :height => "100px"})%></div>                  
+                <div class="image"><%= image_tag(imagesetting.image.image_url(:thumb))%></div>                  
                 <div class="web_image_delete"><%= link_to '', imagesetting, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete image"  %>
                 </div>
             </div>

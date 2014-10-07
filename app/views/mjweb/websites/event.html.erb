@@ -1,4 +1,4 @@
-<div class="website_page_title">Upcoming <%=h @events.first.company.name %> Events</div>
+<div class="website_page_title">Upcoming <%=h @company.name %> Events</div>
     <% if @events %>
         <% @events.each do |event| %>
 <div class="event_container">

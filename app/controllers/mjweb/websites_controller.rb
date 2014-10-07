@@ -45,6 +45,7 @@ module Mjweb
     end
 
     def event
+      @company = Company.where(:id => @sub_company.id).first
       @events = Mjweb::Event.where(:company_id => @sub_company.id).order('id')
       colour_settings(@design.tile_colour) 
       

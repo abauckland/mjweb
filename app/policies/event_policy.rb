@@ -1,13 +1,15 @@
 
   class EventPolicy < Struct.new(:user, :event)
     def owned
-      if user.admin? || user.owner?
-        company.id == user.company_id
+      #if user has role of admin or owner
+      if user.admin?
+        #return events that have same company_id as the current_user
+        event.company_id == user.company_id
       end
     end
         
     def index?
-      user.admin?
+      owned
     end
     
     def show?
@@ -15,11 +17,11 @@
     end
     
     def new?
-      index?
+      user.admin?
     end 
     
     def create?
-      index?
+      user.admin?
     end    
 
     def edit?
@@ -31,7 +33,7 @@
     end
     
     def delete?
-      false
+      owned
     end    
         
   end

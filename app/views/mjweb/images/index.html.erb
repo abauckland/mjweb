@@ -4,12 +4,13 @@
 </div>
 
 <div class="image_content_with_title">
-
     <% if @images %>        
         <% @images.each do |image| %>               
             <div class="web_image_tile">
                 <div class="image"><%= image_tag(image.image_url, {:width => "100px", :height => "100px"})%></div>                  
-                <div class="web_image_delete"><%= link_to '', image, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete image"  %>
+                <% if image_used(image) == false %>
+                    <div class="web_image_delete"><%= link_to '', image, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete image"  %>
+                <% end %>
                 </div>
             </div>
         <% end %>    
