@@ -8,7 +8,7 @@
     <% if @backgrounds %>        
         <% @backgrounds.each do |background| %>               
             <div class="web_image_tile">
-                <div class="image"><%= image_tag(image.background_url(:thumb), {:width => "100px", :height => "100px"})%></div>                  
+                <div class="image"><%= image_tag(background.background_url(:thumb), {:width => "100px", :height => "100px"})%></div>                  
                 <div class="web_image_delete"><%= link_to '', background, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete image"  %>
                 </div>
             </div>

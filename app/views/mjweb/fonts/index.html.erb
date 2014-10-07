@@ -8,7 +8,7 @@
     <% if @fonts %>        
         <% @fonts.each do |font| %>               
             <div class="web_image_tile">
-                <div class="image"><%= image_tag(font.font, {:width => "100px", :height => "100px"})%></div>                  
+                <div class="image"><%= image_tag(font.font_url)%></div>                  
                 <div class="web_image_delete"><%= link_to '', font, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete image"  %>
                 </div>
             </div>
