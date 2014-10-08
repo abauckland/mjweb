@@ -174,18 +174,19 @@ module Mjweb
 
  
     def font_style_colour(font_id)
-      case font_id
-        when 1 ; "font-family: 'Ek Mukta', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe                                        
-        when 2 ; "font-family: 'Marck Script', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe
-        when 3 ; "font-family: 'Play', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        when 4 ; "font-family: 'Questrial', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        when 5 ; "font-family: 'Coming Soon', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        when 6 ; "font-family: 'Crimson Text', serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        when 7 ; "font-family: 'Libre Baskerville', serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        when 8 ; "font-family: 'Nunito', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        when 9 ; "font-family: 'Open Sans', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        when 10 ; "font-family: 'Pacifico', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-      end      
+      "font-family: 'Ek Mukta', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+     #case font_id
+     #   when 1 ; "font-family: 'Ek Mukta', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe                                        
+     #   when 2 ; "font-family: 'Marck Script', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe
+      #  when 3 ; "font-family: 'Play', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+      #  when 4 ; "font-family: 'Questrial', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+     #   when 5 ; "font-family: 'Coming Soon', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+     #   when 6 ; "font-family: 'Crimson Text', serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+     #   when 7 ; "font-family: 'Libre Baskerville', serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+     #   when 8 ; "font-family: 'Nunito', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+     #   when 9 ; "font-family: 'Open Sans', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+     #   when 10 ; "font-family: 'Pacifico', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+     # end      
     end 
    
   end

@@ -119,7 +119,7 @@
                     if (item.selected) options.defaultSelectedIndex = index;
                     ddOptions.append('<li>' +
                         '<a class="dd-option">' +
-                            (item.value ? ' <input class="dd-option-value" type="hidden" id="' + options.attribute_id+ '" name="' + options.attribute_name+ '" value="' + item.value + '" />' : '') +
+                            (item.value ? ' <input class="dd-option-value" type="hidden" id="'+options.attribute_id+'" name="'+options.attribute_name+'" value="' + item.value + '" />' : '') +
                             (item.imageSrc ? ' <img class="dd-option-image' + (options.imagePosition == "right" ? ' dd-image-right' : '') + '" src="' + item.imageSrc + '" />' : '') +
                             //(item.text ? ' <label class="dd-option-text">' + item.text + '</label>' : '') +
                             (item.description ? ' <small class="dd-option-description dd-desc">' + item.description + '</small>' : '') +

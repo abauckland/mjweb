@@ -11,6 +11,7 @@ module Mjweb
     # GET /websites.json
     def index
       @contents = Mjweb::Content.where(:company_id => @sub_company.id).order('tile_ref')
+      @design = Mjweb::Design.where(:company_id => @sub_company.id).first
       colour_settings(@design.tile_colour) 
       
       render layout: "mjweb/layouts/website"      
