@@ -143,7 +143,7 @@ $(document).ready(function(){
 
 
 	$("div.help_tooltip").qtip({ // Grab some elements to apply the tooltip to
-	
+
 	    show: 'click',
 	    hide: 'unfocus',
 	    content: {

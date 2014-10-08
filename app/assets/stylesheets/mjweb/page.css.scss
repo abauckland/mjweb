@@ -42,6 +42,12 @@
   @media screen and (max-width: $small_menu) {
   .page_title_button{top: 0px; right: 0px;}    
   }
+  
+.page_title_button_red{
+  @extend .page_title_button;
+  @include red-button;
+  border: 1px solid #878787;
+  } 
     
 .page_info {
   position: absolute;

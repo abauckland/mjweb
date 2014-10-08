@@ -1,4 +1,4 @@
-
+module Mjweb
   class HelpPolicy < Struct.new(:user, :help)
         
     def edit?
@@ -10,3 +10,4 @@
     end  
         
   end
+end

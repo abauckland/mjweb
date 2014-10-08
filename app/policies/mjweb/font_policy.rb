@@ -1,4 +1,4 @@
-
+module Mjweb
   class FontPolicy < Struct.new(:user, :font)
         
     def index?
@@ -18,3 +18,4 @@
     end    
         
   end
+end

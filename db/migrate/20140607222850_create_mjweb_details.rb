@@ -4,8 +4,6 @@ class CreateMjwebDetails < ActiveRecord::Migration
 
       t.integer :company_id
       t.string :tagline
-      
-      t.integer :ecommerce
       t.string :facebook
       t.string :twitter
       t.string :googleplus

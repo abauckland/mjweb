@@ -1,4 +1,4 @@
-
+module Mjweb
   class EventPolicy < Struct.new(:user, :event)
     def owned
       #if user has role of admin or owner
@@ -37,3 +37,4 @@
     end    
         
   end
+end

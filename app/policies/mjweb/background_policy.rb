@@ -1,4 +1,4 @@
-
+module Mjweb
   class BackgroundPolicy < Struct.new(:user, :background)
         
     def index?
@@ -18,3 +18,4 @@
     end    
         
   end
+end
