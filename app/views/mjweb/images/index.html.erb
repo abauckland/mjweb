@@ -10,6 +10,8 @@
                 <div class="image"><%= image_tag(image.image_url, {:width => "100px", :height => "100px"})%></div>                  
                 <% if image_used(image) == false %>
                     <div class="web_image_delete"><%= link_to '', image, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete image"  %>
+                <% else %>
+                    <div class="web_image_used">In Use</div>
                 <% end %>
                 </div>
             </div>

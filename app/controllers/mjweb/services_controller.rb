@@ -30,7 +30,7 @@ module Mjweb
 
     # PATCH/PUT /services/1
     def update
-      if @service.update(service_params)
+      if @content.update(service_params)
         redirect_to services_path, notice: 'Service was successfully updated.'
       else
         render :edit
@@ -39,14 +39,14 @@ module Mjweb
 
     # DELETE /services/1
     def destroy
-      @service.destroy
+      @content.destroy
       redirect_to services_url, notice: 'Service was successfully destroyed.'
     end
 
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_service
-        @service = Service.find(params[:id])
+        @content = Service.find(params[:id])
       end
       
       def get_images

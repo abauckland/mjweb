@@ -175,18 +175,37 @@ module Mjweb
  
     def font_style_colour(design)
       
-      case design.font_id
-        when 1 then "font-family: 'Ek Mukta', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe                                        
-        when 2 then "font-family: 'Marck Script', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe
-        when 3 then "font-family: 'Play', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        when 4 then "font-family: 'Questrial', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        when 5 then "font-family: 'Coming Soon', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        when 6 then "font-family: 'Crimson Text', serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        when 7 then "font-family: 'Libre Baskerville', serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        when 8 then "font-family: 'Nunito', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        when 9 then "font-family: 'Open Sans', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        when 10 then "font-family: 'Pacifico', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-      end      
+        if design.font_id == 1 
+          return "font-family: 'Ek Mukta', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe
+        end
+        if design.font_id == 2 
+          return "font-family: 'Marck Script', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe
+        end        
+        if design.font_id == 3 
+          return "font-family: 'Play', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe
+        end                                                
+        if design.font_id == 4 
+          return "font-family: 'Questrial', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+        end
+        if design.font_id == 5 
+          return "font-family: 'Coming Soon', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+        end
+        if design.font_id == 6 
+          return "font-family: 'Crimson Text', serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+        end
+        if design.font_id == 7 
+          return "font-family: 'Libre Baskerville', serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+        end
+        if design.font_id == 8 
+          return "font-family: 'Nunito', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe e
+        end
+        if design.font_id == 8 
+          return "font-family: 'Open Sans', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+        end
+        if design.font_id == 10 
+          return "font-family: 'Pacifico', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+        end
+    
     end 
    
   end
