@@ -30,7 +30,7 @@ module Mjweb
 
     # PATCH/PUT /products/1
     def update
-      if @product.update(product_params)
+      if @content.update(product_params)
         redirect_to products_path, notice: 'Product was successfully updated.'
       else
         render :edit
@@ -39,14 +39,14 @@ module Mjweb
 
     # DELETE /products/1
     def destroy
-      @product.destroy
+      @content.destroy
       redirect_to products_url, notice: 'Product was successfully destroyed.'
     end
 
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_product
-        @product = Product.find(params[:id])
+        @content = Product.find(params[:id])
       end
       
       def get_images

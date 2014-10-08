@@ -30,7 +30,7 @@ module Mjweb
 
     # PATCH/PUT /networkings/1
     def update
-      if @networking.update(networking_params)
+      if @content.update(networking_params)
         redirect_to networkings_path, notice: 'Networking was successfully updated.'
       else
         render :edit
@@ -39,14 +39,14 @@ module Mjweb
 
     # DELETE /networkings/1
     def destroy
-      @networking.destroy
+      @content.destroy
       redirect_to networkings_url, notice: 'Networking was successfully destroyed.'
     end
 
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_networking
-        @networking = Networking.find(params[:id])
+        @content = Networking.find(params[:id])
       end
       
       def get_images

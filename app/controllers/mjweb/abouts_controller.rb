@@ -30,7 +30,7 @@ module Mjweb
 
     # PATCH/PUT /abouts/1
     def update
-      if @about.update(about_params)
+      if @content.update(about_params)
         redirect_to @about, notice: 'About was successfully updated.'
       else
         render :edit
@@ -39,14 +39,14 @@ module Mjweb
 
     # DELETE /abouts/1
     def destroy
-      @about.destroy
+      @content.destroy
       redirect_to abouts_url, notice: 'About was successfully destroyed.'
     end
 
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_about
-        @about = About.find(params[:id])
+        @content = About.find(params[:id])
       end
       
       def get_images

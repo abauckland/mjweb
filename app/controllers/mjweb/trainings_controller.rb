@@ -30,7 +30,7 @@ module Mjweb
 
     # PATCH/PUT /trainings/1
     def update
-      if @training.update(training_params)
+      if @content.update(training_params)
         redirect_to trainings_path, notice: 'Training was successfully updated.'
       else
         render :edit
@@ -39,14 +39,14 @@ module Mjweb
 
     # DELETE /trainings/1
     def destroy
-      @training.destroy
+      @content.destroy
       redirect_to trainings_url, notice: 'Training was successfully destroyed.'
     end
 
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_training
-        @training = Training.find(params[:id])
+        @content = Training.find(params[:id])
       end
       
       def get_images

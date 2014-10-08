@@ -30,7 +30,7 @@ module Mjweb
 
     # PATCH/PUT /webpages/1
     def update
-      if @webpage.update(webpage_params)
+      if @content.update(webpage_params)
         redirect_to webpages_path, notice: 'Webpage was successfully updated.'
       else
         render :edit
@@ -39,14 +39,14 @@ module Mjweb
 
     # DELETE /webpages/1
     def destroy
-      @webpage.destroy
+      @content.destroy
       redirect_to webpages_url, notice: 'Webpage was successfully destroyed.'
     end
 
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_webpage
-        @webpage = Webpage.find(params[:id])
+        @content = Webpage.find(params[:id])
       end
       
       def get_images

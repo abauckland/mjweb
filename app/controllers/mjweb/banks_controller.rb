@@ -30,7 +30,7 @@ module Mjweb
 
     # PATCH/PUT /banks/1
     def update
-      if @bank.update(bank_params)
+      if @content.update(bank_params)
         redirect_to banks_path, notice: 'Bank was successfully updated.'
       else
         render :edit
@@ -39,14 +39,14 @@ module Mjweb
 
     # DELETE /banks/1
     def destroy
-      @bank.destroy
+      @content.destroy
       redirect_to banks_url, notice: 'Bank was successfully destroyed.'
     end
 
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_bank
-        @bank = Bank.find(params[:id])
+        @content = Bank.find(params[:id])
       end
       
       def get_images
