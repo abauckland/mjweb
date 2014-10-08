@@ -36,8 +36,8 @@
         onSelected: function () { }
     },
 
-    ddSelectHtml = '<div class="dd-select"><input class="dd-selected-value" type="hidden" /><a class="dd-selected"></a><span class="dd-pointer dd-pointer-down"></span></div>',
-    ddOptionsHtml = '<ul class="dd-options"></ul>',
+//    ddSelectHtml = '<div class="dd-select"><input class="dd-selected-value" type="hidden"  id="design_picture1" name="design[picture1]" /><a class="dd-selected"></a><span class="dd-pointer dd-pointer-down"></span></div>',
+//    ddOptionsHtml = '<ul class="dd-options"></ul>',
 
     //CSS for ddSlick
     ddslickCSS = '<style id="css-ddslick" type="text/css">' +
@@ -66,6 +66,10 @@
     methods.init = function (options) {
         //Preserve the original defaults by passing an empty object as the target
         var options = $.extend({}, defaults, options);
+
+    	var ddSelectHtml = '<div class="dd-select"><input class="dd-selected-value" type="hidden"  id="'+options.attribute_id+'" name="'+options.attribute_name+'" /><a class="dd-selected"></a><span class="dd-pointer dd-pointer-down"></span></div>';
+   		var ddOptionsHtml = '<ul class="dd-options"></ul>';
+
 
         //Apply on all selected elements
         return this.each(function () {
@@ -119,7 +123,7 @@
                     if (item.selected) options.defaultSelectedIndex = index;
                     ddOptions.append('<li>' +
                         '<a class="dd-option">' +
-                            (item.value ? ' <input class="dd-option-value" type="hidden" id="'+options.attribute_id+'" name="'+options.attribute_name+'" value="' + item.value + '" />' : '') +
+                            (item.value ? ' <input class="dd-option-value" type="hidden" value="' + item.value + '" />' : '') +
                             (item.imageSrc ? ' <img class="dd-option-image' + (options.imagePosition == "right" ? ' dd-image-right' : '') + '" src="' + item.imageSrc + '" />' : '') +
                             //(item.text ? ' <label class="dd-option-text">' + item.text + '</label>' : '') +
                             (item.description ? ' <small class="dd-option-description dd-desc">' + item.description + '</small>' : '') +
@@ -239,7 +243,9 @@
 
         //Update or Set plugin data with new selection
         pluginData.selectedIndex = index;
+//selected line
         pluginData.selectedItem = selectedLiItem;
+//information in dropdown - not used in updating database
         pluginData.selectedData = selectedData;        
 
         //If set to display to full html, add html

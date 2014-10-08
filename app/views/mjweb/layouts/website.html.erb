@@ -15,11 +15,11 @@
         
         body {  }
     
-        .tagline_cell_small{ <%= font_style_colour(@design.font_id) %> }   
-        .tagline_cell_medium{ <%= font_style_colour(@design.font_id) %> }
+        .tagline_cell_small{ <%= font_style_colour(@design) %> }   
+        .tagline_cell_medium{ <%= font_style_colour(@design) %> }
                 
-        .tile_title_text{ <%= font_style_colour(@design.font_id) %>}        
-        .web_content_tile_title{ <%= font_style_colour(@design.font_id) %>}
+        .tile_title_text{ <%= font_style_colour(@design) %>}        
+        .web_content_tile_title{ <%= font_style_colour(@design) %>}
             
         <% @colour_settings.each_with_index do |setting, i| %>        
             .colour_<%=h i %>{

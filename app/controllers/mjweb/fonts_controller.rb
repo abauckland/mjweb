@@ -6,17 +6,19 @@ module Mjweb
 
     def index
       @fonts = Font.all
+      authorize @fonts
     end
 
 
     def new
       @font = Font.new
+      authorize @font
     end
 
 
     def create
       @font = Font.new(image_params)
-
+      authorize @font
       if @font.save
         redirect_to fonts_path, notice: 'Font was successfully uploaded.'
       else
@@ -27,6 +29,7 @@ module Mjweb
 
     def destroy
       @font = Font.find(params[:id])
+      authorize @font
       @font.destroy
       redirect_to fonts_url, notice: 'Font was successfully deleted.'
     end

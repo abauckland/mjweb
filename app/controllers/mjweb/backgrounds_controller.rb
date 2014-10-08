@@ -6,6 +6,7 @@ module Mjweb
 
     def index
       @backgrounds = Background.all
+      authorize @backgrounds
     end
 
 
@@ -16,7 +17,7 @@ module Mjweb
 
     def create
       @background = Background.new(image_params)
-
+      authorize @background
       if @background.save
         redirect_to backgrounds_path, notice: 'Background was successfully uploaded.'
       else
@@ -26,6 +27,7 @@ module Mjweb
 
     def destroy
       @background = Background.find(params[:id])
+      authorize @background
       @background.destroy
       redirect_to backgrounds_url, notice: 'Background was successfully deleted.'
     end

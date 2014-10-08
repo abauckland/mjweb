@@ -9,7 +9,7 @@ module Mjweb
     end
         
     def index?
-      owned
+      user.admin?
     end
     
     def show?
