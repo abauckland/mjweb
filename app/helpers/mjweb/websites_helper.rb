@@ -175,37 +175,18 @@ module Mjweb
  
     def font_style_colour(design)
       
-        if design.font_id == 1 
-          "font-family: 'Ek Mukta', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe
-        end
-        if design.font_id == 2 
-          "font-family: 'Marck Script', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe
-        end        
-        if design.font_id == 3 
-          "font-family: 'Play', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe
-        end                                                
-        if design.font_id == 4 
-          "font-family: 'Questrial', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        end
-        if design.font_id == 5 
-          "font-family: 'Coming Soon', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        end
-        if design.font_id == 6 
-          "font-family: 'Crimson Text', serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        end
-        if design.font_id == 7 
-          "font-family: 'Libre Baskerville', serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        end
-        if design.font_id == 8 
-          "font-family: 'Nunito', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe e
-        end
-        if design.font_id == 8 
-          "font-family: 'Open Sans', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        end
-        if design.font_id == 10 
-          "font-family: 'Pacifico', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe 
-        end
-    
+      case design.font.name
+        when 'Ek Mukta' ;       "font-family: 'Ek Mukta', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe
+        when 'Marck Script' ;   "font-family: 'Marck Script', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe       
+        when 'Play' ;           "font-family: 'Play', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe                                               
+        when 'Questrial' ;      "font-family: 'Questrial', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+        when 'Coming Soon' ;    "font-family: 'Coming Soon', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+        when 'Crimson Text' ;   "font-family: 'Crimson Text', serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+        when 'Libre Baskerville' ;  "font-family: 'Libre Baskerville', serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+        when 'Nunito' ;         "font-family: 'Nunito', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe e
+        when 'Open Sans' ;      "font-family: 'Open Sans', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+        when 'Pacifico' ;       "font-family: 'Pacifico', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe 
+      end
     end 
    
   end

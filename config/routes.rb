@@ -11,7 +11,6 @@ Mjweb::Engine.routes.draw do
   resources :abouts
   resources :services
 
-  resources :helps
 
 #match 'users/me' => 'users#me', :via => :get 
   resources :fonts
