@@ -4,27 +4,17 @@
             <div class="tile_content">
                 <div class="tile_title_text">Contact Us</div>
                 <ul>
-                    <% if company.address_1 %>
-                        <li class="tile_content_text"><%= company.address_1 %></li>
-                    <% end %>
-                    <% if company.address_2 %>
-                        <li class="tile_content_text"><%= company.address_2 %></li>
-                    <% end %>
-                    <% if company.city %>
-                        <li class="tile_content_text"><%= company.city %></li>
-                    <% end %>
-                    <% if company.county %>
-                        <li class="tile_content_text"><%= company.county %></li>
-                    <% end %>
-                    <% if company.postcode %>
-                        <li class="tile_content_text"><%= company.postcode %></li>
-                    <% end %>
+                    <li class="tile_content_text"><%= company.address_1 if company.address_1 %></li>
+                    <li class="tile_content_text"><%= company.address_2 if company.address_2 %></li>
+                    <li class="tile_content_text"><%= company.city if company.city %></li>
+                    <li class="tile_content_text"><%= company.county if company.county  %></li>
+                    <li class="tile_content_text"><%= company.postcode if company.postcode %></li>
                 </ul>
                  <ul>
-                    <li class="tile_content_text"><%= company.phone_number %></li>
+                    <li class="tile_content_text"><%= company.phone_number if company.postcode %></li>
                 </ul>
                 <ul>
-                    <li class="tile_content_text"><%= company.email %></li>
+                    <li class="tile_content_text"><%= company.email if company.postcode %></li>
                 </ul>
             </div>
         </div>

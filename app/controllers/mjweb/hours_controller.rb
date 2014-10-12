@@ -2,7 +2,7 @@ require_dependency "mjweb/application_controller"
 
 module Mjweb
   class HoursController < ApplicationController
-    before_action :set_hour, only: [:show, :edit, :update, :destroy]
+    before_action :set_hour, only: [:edit, :update]
 
 
     # GET /hours/1/edit
