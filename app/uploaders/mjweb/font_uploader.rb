@@ -3,7 +3,7 @@ module Mjweb
   class FontUploader < CarrierWave::Uploader::Base
 
   #Include RMagick or MiniMagick support:
-  include CarrierWave::RMagick
+#  include CarrierWave::RMagick
   #include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -30,7 +30,7 @@ module Mjweb
   # def scale(width, height)
   #   # do something
   # end
-  process :resize_to_fill => [200, 30]  
+#  process :resize_to_fill => [200, 30]  
 
   # Create different versions of your uploaded files:
   #   version :thumb do
