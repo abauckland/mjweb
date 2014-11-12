@@ -29,7 +29,7 @@
                         </div>
                         <div class="column_form_item_dd-select">
                             <label class="column_form_label" style="width:80px">Background:</label>                        
-                            <div class="column_form_input"><%= f.select :background_id, options_for_select(Mjweb::Background.all.map{ |c| [c.name, c.id, {'data-imagesrc' => c.background_url}] }, @design.background_id) %></div>
+                            <div class="column_form_input"><%= f.select :background_id, options_for_select(Mjweb::Background.all.map{ |c| [c.name, c.id, {'data-imagesrc' => c.background_url(:thumb)}] }, @design.background_id) %></div>
                             <div class="column_help_tooltip" id="website_background"></div>  
                         </div>
                         <div class="column_form_item_dd-select">
