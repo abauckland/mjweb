@@ -23,9 +23,9 @@ Gem::Specification.new do |s|
   s.add_dependency  'carrierwave'
   s.add_dependency 'colorist'
 #  s.add_dependency  'rmagick'
-  s.add_dependency  'sass-rails', '~> 4.0.3'
-  s.add_dependency  'coffee-rails', '~> 4.0.0'
-  s.add_dependency  'tzinfo-data'
-  s.add_dependency  'jquery-rails'
+  s.add_development_dependency  'sass-rails', '~> 4.0.3'
+  s.add_development_dependency  'coffee-rails', '~> 4.0.0'
+  s.add_development_dependency  'tzinfo-data'
+  s.add_development_dependency  'jquery-rails' 
   s.add_development_dependency 'mysql2'
 end
