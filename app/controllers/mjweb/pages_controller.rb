@@ -2,6 +2,9 @@ require_dependency "mjweb/application_controller"
 
 module Mjweb
   class PagesController < ApplicationController
+
+    skip_before_filter :authenticate_user!, :only => [:show]
+
     before_action :set_page, only: [:show, :edit, :update, :destroy]
 
     def index

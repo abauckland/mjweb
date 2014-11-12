@@ -4,9 +4,13 @@ include Colorist
 
 module Mjweb
   class WebsitesController < ApplicationController
+
+    skip_before_filter :authenticate_user!, :only => [:index, :event, :plan]
+
     before_action :set_company
     before_action :set_detail
     before_action :set_design
+    
     # GET /websites
     # GET /websites.json
     def index
