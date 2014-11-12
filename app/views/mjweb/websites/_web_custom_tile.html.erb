@@ -9,7 +9,7 @@
         <% end %> 
     
             <% if content.linktile.type_id == 1 %>
-                <a href="<%= content.link_url %>">
+                <a href="<%= content.linktile.link_url %>">
             <% else %>
                 <a href="<%= page_path(content.linktile.page_id) %>">
             <% end %> 
@@ -30,7 +30,7 @@
                 <div class="tile_content">
                     <div class="tile_title_text"><%= content.linktile.title %></div>
                     <ul>
-                        <% content.lists.each do |item|%>
+                        <% content.linktile.tilelists.each do |item|%>
                         <li class="tile_content_text"><%= item.text %></li>
                         <% end %>
                     </ul>
