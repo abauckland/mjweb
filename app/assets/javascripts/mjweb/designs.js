@@ -11,7 +11,7 @@ jQuery(document).ready(function ($) {
 	$('#design_font_id').ddslick({
 		attribute_id: "design_font_id",
 	    attribute_name: "design[font_id]",
-		width: 175,
+		width: 180,
 		//ddslick.js has been altered directly to get correct dropdown sise and content and provide parameters required by rails
 	});
 

@@ -141,7 +141,8 @@ a.company_logo_link{
 
 .tagline_cell_small{
   text-align:center;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  vertical-align: bottom;
 }
 
 
@@ -152,10 +153,11 @@ a.company_logo_link{
 }
 
 .tagline_cell_medium{
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   text-align:left;
   width: 600px;
   padding: 0px 0px 0px 15px;
+  vertical-align: bottom;
   }
 
 
@@ -270,258 +272,33 @@ a.linkedin {
   height: 200px;
 }
 
-//ecommerce link
-.tile_ecommerce_black{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -1200px no-repeat;
+
+@mixin tile_icons($var_show, $var_hover) {
+    width: 200px;
+    height: 200px;
+    background: asset_url('web_page_icons.png') 0px $var_show no-repeat;;
+    &:hover{
+      background: asset_url('web_page_icons.png') -0px $var_hover no-repeat;
+    }
 }
 
-.tile_ecommerce_white{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -1400px no-repeat;
+@function calculate-black($icon){
+  @return ($icon * -400px) + 400px;
 }
 
-.tile_ecommerce_white_black{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -1400px no-repeat;
-    &:hover{background: asset_url('web_page_icons.png') 0px -1200px no-repeat;}
+@function calculate-white($icon){
+  @return ($icon * -400px) + 200px;
 }
 
-.tile_ecommerce_black_white{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -1200px no-repeat;
-    &:hover{background: asset_url('web_page_icons.png') 0px -1400px no-repeat;}
+$list: 1 2 3 4 5 6 7 8 9 10;
+@each $icon in $list {
+  .tile_#{$icon}_link_white {@include tile_icons(calculate-white($icon), calculate-white($icon))}
+  .tile_#{$icon}_link_black {@include tile_icons(calculate-black($icon), calculate-black($icon))}
+  .tile_#{$icon}_link_white_black {@include tile_icons(calculate-white($icon), calculate-black($icon))}
+  .tile_#{$icon}_link_black_white {@include tile_icons(calculate-black($icon), calculate-white($icon))}
 }
 
-//about link
-.tile_about_black{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px 0px no-repeat;
-}
 
-.tile_about_white{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -200px no-repeat;
-}
-
-.tile_about_white_black{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -200px no-repeat;
-    &:hover{background: asset_url('web_page_icons.png') 0px 0px no-repeat;}
-}
-
-.tile_about_black_white{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px 0px no-repeat;
-    &:hover{background: asset_url('web_page_icons.png') 0px -200px no-repeat;}
-}
-
-//services link
-.tile_services_black{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -2400px no-repeat;
-}
-
-.tile_services_white{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -2600px no-repeat;
-}
-
-.tile_services_white_black{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -2600px no-repeat;
-    &:hover{background: asset_url('web_page_icons.png') 0px -2400px no-repeat;}
-}
-
-.tile_services_black_white{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -2400px no-repeat;
-    &:hover{background: asset_url('web_page_icons.png') 0px -2600px no-repeat;}
-}
-
-//products link
-.tile_products_black{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -2000px no-repeat;
-}
-
-.tile_products_white{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -2200px no-repeat;
-}
-
-.tile_products_white_black{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -2200px no-repeat;
-    &:hover{background: asset_url('web_page_icons.png') 0px -2000px no-repeat;}
-}
-
-.tile_products_black_white{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -2000px no-repeat;
-    &:hover{background: asset_url('web_page_icons.png') 0px -2200px no-repeat;}
-}
-
-//banks link
-.tile_banks_black{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -400px no-repeat;
-}
-
-.tile_banks_white{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -600px no-repeat;
-}
-
-.tile_banks_white_black{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -600px no-repeat;
-    &:hover{background: asset_url('web_page_icons.png') 0px -400px no-repeat;}
-}
-
-.tile_banks_black_white{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -400px no-repeat;
-    &:hover{background: asset_url('web_page_icons.png') 0px -600px no-repeat;}
-}
-
-//books link
-.tile_books_black{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -800px no-repeat;
-}
-
-.tile_books_white{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -1000px no-repeat;
-}
-
-.tile_books_white_black{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -1000px no-repeat;
-    &:hover{background: asset_url('web_page_icons.png') 0px -800px no-repeat;}
-}
-
-.tile_books_black_white{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -800px no-repeat;
-    &:hover{background: asset_url('web_page_icons.png') 0px -1000px no-repeat;}
-}
-
-//networkings link
-.tile_networkings_black{
-    @extend .tile;
-    background: asset_url('networkings_icon_black.png');
-}
-
-.tile_networkings_white{
-    @extend .tile;
-    background: asset_url('networkings_icon_white.png');
-}
-
-.tile_networkings_white_black{
-    @extend .tile;
-    background: asset_url('networkings_icon_white.png');
-    &:hover{background: asset_url('networkings_icon_black.png');}
-}
-
-.tile_networkings_black_white{
-    @extend .tile;
-    background: asset_url('networkings_icon_white.png');
-    &:hover{background: asset_url('networkings_icon_black.png');}
-}
-
-//plans link
-.tile_plans_black{
-    @extend .tile;
-    background: asset_url('plans_icon_black.png');
-}
-
-.tile_plans_white{
-    @extend .tile;
-    background: asset_url('plans_icon_white.png');
-}
-
-.tile_plans_white_black{
-    @extend .tile;
-    background: asset_url('plans_icon_white.png');
-    &:hover{background: asset_url('plans_icon_black.png');}
-}
-
-.tile_plans_black_white{
-    @extend .tile;
-    background: asset_url('plans_icon_white.png');
-    &:hover{background: asset_url('plans_icon_black.png');}
-}
-
-//trainings link
-.tile_trainings_black{
-    @extend .tile;
-    background: asset_url('trainings_icon_black.png');
-}
-
-.tile_trainings_white{
-    @extend .tile;
-    background: asset_url('trainings_icon_white.png');
-}
-
-.tile_trainings_white_black{
-    @extend .tile;
-    background: asset_url('trainings_icon_white.png');
-    &:hover{background: asset_url('trainings_icon_black.png');}
-}
-
-.tile_trainings_black_white{
-    @extend .tile;
-    background: asset_url('trainings_icon_white.png');
-    &:hover{background: asset_url('trainings_icon_black.png');}
-}
-
-//webpages link
-.tile_webpages_black{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -2800px no-repeat;
-}
-
-.tile_webpages_white{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -3000px no-repeat;
-}
-
-.tile_webpages_white_black{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -3000px no-repeat;
-    &:hover{background: asset_url('web_page_icons.png') 0px -2800px no-repeat;}
-}
-
-.tile_webpages_black_white{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -2800px no-repeat;
-    &:hover{background: asset_url('web_page_icons.png') 0px -3000px no-repeat;}
-}
-
-//events link
-.tile_events_black{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -1600px no-repeat;
-}
-
-.tile_events_white{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -1800px no-repeat;
-}
-
-.tile_events_white_black{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -1800px no-repeat;
-    &:hover{background: asset_url('web_page_icons.png') 0px -1600px no-repeat;}
-}
-
-.tile_events_black_white{
-    @extend .tile;
-    background: asset_url('web_page_icons.png') 0px -1600px no-repeat;
-    &:hover{background: asset_url('web_page_icons.png') 0px -1800px no-repeat;}
-}
 .images_tile{
   @extend .tile;  
   position: relative;
@@ -537,7 +314,7 @@ a.linkedin {
 .tile_content{
   width: 200px;
   height: 200px;
-  padding: 10px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
   ul{      padding: 0px 0px 0px 0px;
           list-style-type: none;
   } 
@@ -576,7 +353,7 @@ a.myhq_icon {
   text-decoration: none;
   text-align:center;
   font-weight:bold;
-  padding: 10px 0px 10px 0px;
+  padding: 30px 0px 10px 0px;
 }
 
 .tile_content_text {
@@ -584,7 +361,7 @@ a.myhq_icon {
   font-size: 12px;
 
   text-align:center;
-  padding: 0px 10px 0px 10px;
+  padding: 2px 10px 2px 10px;
   word-wrap: break-word;
 }
 

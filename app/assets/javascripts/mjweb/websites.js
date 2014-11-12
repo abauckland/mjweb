@@ -91,7 +91,7 @@ function feature_tiling(tile_frame, tile_container, tile, tile_id) {
 	}
 }
 
-//function content_tiling(tile_name, container_name){
+
 function content_tiling() {
 
 	//total tiles		
@@ -103,15 +103,21 @@ function content_tiling() {
 
 	var margin = (container - total_tile_width)/2;
 	$('.web_content').css('margin-left',margin+'px');
-
-
 }
 
-function background_image_1() {
-	var body_height = $('body').outerHeight();
-	
-	$('.background_image_1').css('height',body_height+'px' );
 
+function background_image_1() {
+	var body_height = $('.container').height();
+	var window_height = $(window).height();
+	var window_width = $(window).width();
+	
+	if(window_height > body_height){
+		var background_height = window_height;
+	}else{
+		var background_height = body_height ;		
+	}
+			
+	$('.background_image_1').css('height', background_height+'px').css('width', window_width+'px');
 }
 
 
@@ -169,14 +175,6 @@ $(document).ready(function(){
 	        at: 'bottom center', // at the bottom right of...
 	    }
 	})
-
-
-	$("div.help_tooltip").dblclick(function (){
-	// redirect to edit tip content
-	        window.location = 'http://www.myhq.org.uk/helps/'+$(this).attr('id')+'/edit';
-	        return false;
-	});
-
 
 
 

@@ -7,7 +7,7 @@ module Mjweb
 
     # GET /contents
     def index
-      @contents = Content.where(:company_id => current_user.company_id).order(:tile_ref)
+      @contents = policy_scope(Content).order(:tile_ref)
     end
 
     # GET /contents/1
@@ -18,8 +18,16 @@ module Mjweb
     def new
       @content = Content.new
       
-      tile_count = Content.where(:company_id => current_user.company_id).count
+      tile_count = policy_scope(Content).count
       @tile_ref = tile_count + 1
+      
+      
+#      if current_user.company.has_store?
+#        @tiles = Mjweb::Tile.where.not(:id => 10)
+#      else
+        @tiles = Mjweb::Tile.all
+#      end   
+      
     end
 
     # GET /contents/1/edit
@@ -48,7 +56,7 @@ module Mjweb
 
     def move_up            
       if @content.tile_ref >= 2
-        above_row = Content.where(:tile_ref => (@content.tile_ref - 1), :company_id => @content.company_id).first      
+        above_row = policy_scope(Content).where(:tile_ref => (@content.tile_ref - 1)).first      
         above_row.update(:tile_ref => @content.tile_ref)
         @content.update(:tile_ref => @content.tile_ref - 1)
       end
@@ -57,10 +65,10 @@ module Mjweb
 
     def move_down
       
-      tile_count = Content.where(:company_id => @content.company_id).count
+      tile_count = policy_scope(Content).count
             
       if @content.tile_ref != tile_count
-        next_row = Content.where(:tile_ref => (@content.tile_ref + 1), :company_id => @content.company_id).first      
+        next_row = policy_scope(Content).where(:tile_ref => (@content.tile_ref + 1)).first      
         next_row.update(:tile_ref => @content.tile_ref)
         @content.update(:tile_ref => @content.tile_ref + 1)
       end
@@ -72,7 +80,7 @@ module Mjweb
       
       @content.destroy
       
-      @tiles = Content.where(:company_id => @content.company_id).order(:tile_ref)
+      @tiles = policy_scope(Content).order(:tile_ref)
       @tiles.each_with_index do |tile, i|
         tile.update(:tile_ref =>  i+1)
       end
