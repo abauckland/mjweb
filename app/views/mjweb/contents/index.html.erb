@@ -1,18 +1,18 @@
 <div class="page_title">
-    <h1>Content: Home Page Tiles</h1>
+    <h1>Home Page Content</h1>
 </div>
 
  <div class="table_content_with_title">
     <table>
       <thead>
         <tr>
-          <th width="35px" class="mob_cell">Order</th>
-          <th class="mob_cell">Tile Type</th>
-          <th width="75px"  class="tab_cell">Visibility</th>
-          <th width="20px" class="row_button"></th>
-          <th width="20px" class="row_button"></th>
-          <th width="20px" class="row_button"></th>
-          <th width="20px" class="row_button"><%= link_to "", new_content_path, class: 'line_new_icon', title: "add new tile" %></th>
+          <th class="content_order">Order</th>
+          <th class="content_type">Tile Type</th>
+          <th class="content_visibility">Visibility</th>
+          <th class="content_linktile_title">Custom Title</th>
+          <th width="100px" class="row_button">
+              <%= link_to "", new_content_path, class: 'line_new_icon', title: "add new tile" %>
+          </th>
         </tr>
       </thead>
     </table>
@@ -21,13 +21,16 @@
           <tbody>
             <% @contents.each do |content| %>
               <tr>
-                <td width="35px" class="mob_cell"><%= content.tile_ref %></td>
-                <td class="mob_cell"><%= content.tile.name %></td>
-                <td width="75px"  class="tab_cell"><%= content.display %></td>
-                <td width="20px" class="row_button"><%= link_to '', move_up_content_path(content), class: 'line_up_icon', title: "move up"  %></td>
-                <td width="20px" class="row_button"><%= link_to '', move_down_content_path(content), class: 'line_down_icon', title: "move down" %></td>
-                <td width="20px" class="row_button"><%= edit_links(content) %></td>
-                <td width="20px" class="row_button"><%= link_to '', content, :method => :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete tile"  %></td>
+                <td class="content_order"><%= content.tile_ref %></td>
+                <td class="content_type"><%= content.tile.name %></td>
+                <td class="content_visibility"><%= content.display %></td>
+                <td class="content_linktile_title"><%= custom_title(content) %></td>
+                <td width="100px" class="row_button">
+                    <%= link_to '', content, :method => :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete tile"  %>
+                    <%= link_to '', move_up_content_path(content), class: 'line_up_icon', title: "move up"  %>
+                    <%= link_to '', move_down_content_path(content), class: 'line_down_icon', title: "move down" %>
+                    <%= edit_links(content) %>
+                </td>
               </tr>
             <% end %>
           </tbody>

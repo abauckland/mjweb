@@ -30,9 +30,9 @@
             .hover_<%=h i %>{background-color: <%=h setting[:tile] %>;}
             .hover_<%=h i %>:hover{background-color: <%=h setting[:tile_hover] %>;}
             
-            a.hover_link_<%=h i %>{color: <%=h setting[:text] %>;}
-            a.hover_link_<%=h i %>:visited{color: <%=h setting[:text] %>;}
-            a.hover_link_<%=h i %>:hover{color: <%=h setting[:text_hover] %>;}
+            .colour_<%=h i %> a{color: <%=h setting[:text] %>;}
+            .colour_<%=h i %> a:visited{color: <%=h setting[:text] %>;}
+            .colour_<%=h i %> a:hover{color: <%=h setting[:text_hover] %>;}
             
             
 
@@ -54,10 +54,8 @@
         <div class="container">    
         
         <header>    
-            <div class="login_container">
-              <%= link_to "Log-in", main_app.new_user_session_path, class: "login_link"%>   
-            </div>
-        
+            
+            <%= login_link %>        
         
             <div class="company_info_small">    
                 <div class="header_container">   
