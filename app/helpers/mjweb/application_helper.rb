@@ -16,6 +16,10 @@ module Mjweb
         when 4 ; "<div class='background_image_4'></div>".html_safe
         when 5 ; "<div class='background_image_5'></div>".html_safe
         when 6 ; "<div class='background_image_6'></div>".html_safe
+        when 7 ; "<div class='background_image_7'></div>".html_safe
+        when 8 ; "<div class='background_image_8'></div>".html_safe
+        when 9 ; "<div class='background_image_9'></div>".html_safe
+        when 10 ; "<div class='background_image_10'></div>".html_safe
       end
     end
 

@@ -51,13 +51,16 @@ a:visited{color: #000;}
   z-index: -1000;
 }
 
-
-.background_image_1{
-  @extend .background;
-  background: asset_url('background_image_1.png');
-  height: 115%;
-}
-
+.background_image_1{@extend .background; background: asset_url('background_image_1.png');}
+.background_image_2{@extend .background; background: asset_url('background_image_2.png');}
+.background_image_3{@extend .background; background: asset_url('background_image_3.png');}
+.background_image_4{@extend .background; background: asset_url('background_image_4.png');}
+.background_image_5{@extend .background; background: asset_url('background_image_5.png');}
+.background_image_6{@extend .background; background: asset_url('background_image_6.png');}
+.background_image_7{@extend .background; background: asset_url('background_image_7.png');}
+.background_image_8{@extend .background; background: asset_url('background_image_8.png');}
+.background_image_9{@extend .background; background: asset_url('background_image_9.png');}
+.background_image_10{@extend .background; background: asset_url('background_image_10.png');}
 
 div.help_tooltip{
     display: inline-block;
