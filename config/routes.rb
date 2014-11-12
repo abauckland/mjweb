@@ -2,6 +2,7 @@ Mjweb::Engine.routes.draw do
 
   resources :websites, :only => [:index] do
     get :event, :on => :member
+    get :plan, :on => :member
   end
 
 #match 'users/me' => 'users#me', :via => :get 
@@ -29,6 +30,7 @@ Mjweb::Engine.routes.draw do
   resources :designs, :only => [:edit, :update]
   resources :hours, :only => [:edit, :update]
   resources :events
+  resources :plans
   
   resources :contents do
     get :move_up, :on => :member
