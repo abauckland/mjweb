@@ -1,0 +1,74 @@
+<div class="page_title">
+    <h1>Edit tile content</h1>
+</div>
+
+<div class="content">
+    <div class="column_1">
+        <div class="column_content">
+        
+        <% if @linktile.errors.any? %>
+            <div class="column_error">
+                <p><%= pluralize(@linktile.errors.count, "error") %> prohibited this project from being created</p>
+                <ul>
+                <% @linktile.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+                </ul>
+            </div>
+        <% end %>
+        
+            <div class="column_sub_content">
+                <div class="column_form">
+                    <%= form_for(@linktile) do |f| %>
+                        <%= f.hidden_field :content_id, :value => @linktile.content_id %>
+
+                            <div class="column_title">Tile Type & Title</div>
+                        
+                            <div class="column_form_item">
+                                <label class="column_form_label" style="width:80px">Title:*</label>
+                                <div class="column_form_input"><%= f.text_field :title, :maxlength => 30 %></div>
+                                <div class="column_help_tooltip" id="linktile_title"></div>
+                            </div>
+
+                            <div class="column_form_item">
+                                <label class="column_form_label" style="width:80px">Tile Type:</label>
+                                <div class="column_form_text">
+                                    <%= radio_button("linktile", "type_id", 1) %>Link only (ext. url)</td></tr>
+                                </div>
+                            </div>
+
+                            <div class="column_form_item">
+                                <label class="column_form_label" style="width:80px"></label>
+                                <div class="column_form_text">
+                                    <%= radio_button("linktile", "type_id", 2) %>Link only (page)</td></tr>
+                                </div>
+                            </div>
+
+                            <div class="column_form_item">
+                                <label class="column_form_label" style="width:80px"></label>
+                                <div class="column_form_text">
+                                    <%= radio_button("linktile", "type_id", 3) %>Link & List of Items</td></tr>
+                                </div>
+                            </div>
+
+                            <div class="column_form_item">
+                                <label class="column_form_label" style="width:80px"></label>
+                                <div class="column_form_text">
+                                    <%= radio_button("linktile", "type_id", 4) %>List of Items</td></tr>
+                                </div>
+                            </div>
+                </div>
+           </div>     
+                
+           <div class="column_footer">
+                <div class="column_line"></div>
+                <div class="column_submit"><%= f.submit "next"%></div>
+                <div class="column_cancel"><%= link_to "Back", contents_path %></div>
+                <% end %>
+           </div>
+            
+        </div>
+    </div>
+    <div class="column_2 column_2_blank"></div> 
+    <div class="column_3 column_3_blank"></div> 
+</div>

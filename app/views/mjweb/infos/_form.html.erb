@@ -1,0 +1,98 @@
+<div class="content">
+    <div class="column_linked_container">
+        
+        <% if @info.errors.any? %>
+            <div class="column_error">
+                <p><%= pluralize(@info.errors.count, "error") %> prohibited this item from being created</p>
+                <ul>
+                <% @info.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+                </ul>            
+            </div>
+        <% end %>
+        
+        <div class="sub_column_linked_1">
+             <div class="column_info">
+                    <div class="column_form">
+                    <%= form_for(@info) do |f| %>
+                        <%= f.hidden_field :page_id, :value => @info.page_id %>  
+                        
+                            <div class="column_form_item">
+                                <label class="column_form_label" style="width:80px">Title:*</label>                        
+                                <div class="column_form_input"><%= f.text_field :title, :maxlength => 30 %></div>
+                                <div class="column_help_tooltip" id="info_title"></div>  
+                            </div>
+                            <div class="column_form_item">
+                                <label class="column_form_label" style="width:80px">Link Text:</label>                        
+                                <div class="column_form_input"><%= f.text_field :link_text, :maxlength => 50  %></div>
+                                <div class="column_help_tooltip" id="info_link_text"></div>  
+                            </div>
+
+                            <div class="column_form_item">
+                                <label class="column_form_label" style="width:80px"></label> 
+                                <div class="column_form_input">
+                                    <%= radio_button_tag :url, 'custom_url', :checked => true %> Link to external website/url.
+                                </div>
+                            </div>
+                            <div class="column_form_item">
+                                <label class="column_form_label" style="width:80px"></label>                        
+                                <div class="column_form_input"><%= f.url_field :link_url, :placeholder => "http://www.example.co.uk" %></div>
+                                <div class="column_help_tooltip" id="info_link_url"></div>  
+                            </div>                             
+                            
+                            
+                            <div class="column_form_item">
+                                <label class="column_form_label" style="width:80px"></label> 
+                                <div class="column_form_input">
+                                    <%= radio_button_tag :page_id, 'page_url' %>Link to existing page
+                                </div>
+                            </div>                        
+                            <div class="column_form_item">
+                                <label class="column_form_label" style="width:80px"></label> 
+                                <% if @pages.blank? %>    
+                                    <label class="column_form_input" style="width:80px">No other pages are available to link.</label>                        
+                                <% else %>
+                                    <div class="column_form_input"><%= f.select :link_page_id, options_for_select(@pages.map{ |c| [c.name, c.id,] }, @info.link_page_id), :prompt => "Select page to link to...." %></div>
+                                    <div class="column_help_tooltip" id="info_page_link"></div>                                                                              
+                                <% end %>   
+                            </div>
+                            
+                            
+                            <div class="column_form_item">
+                                <label class="column_form_label" style="width:80px">Image*:</label> 
+                                <% if @images.blank? %>                                                               
+                                    <label class="column_form_input" style="width:80px">No images are available, please upload images before selecting</label>                                                                              
+                                <% else %>
+                                    <div class="column_form_image_input"><%= f.select :image_id, options_for_select(@images.map{ |c| [c.name, c.id, {'data-imagesrc' => c.image_url}] }, @info.image_id), :prompt => "Select Image...." %></div>
+                                    
+                               <% end %>
+                               <div class="column_help_tooltip" id="info_image"></div>
+   
+                            </div>
+                     </div>                 
+              </div>
+        </div>
+        <div class="sub_column_linked_2">
+             <div class="column_info">
+                    <div class="column_form">
+                            <div class="column_form_item">
+                                <label class="column_form_label" style="width:80px">Description:*</label>                        
+                                <div class="column_form_input"><%= f.text_area :text, :rows => 15, :maxlength => 500 %></div>
+                                <div class="column_help_tooltip" id="info_description"></div> 
+                            </div>
+                     </div>                 
+              </div>
+        </div> 
+
+        <div class="sub_column_linked_3 column_linked_blank"></div> 
+
+    
+        <div class="column_linked_footer">
+            <div class="column_line"></div>
+            <div class="column_submit"><%= f.submit "save"%></div>
+            <div class="column_cancel"><%= link_to "cancel", infos_path(:id => @info.page_id) %></div>
+            <% end %>
+        </div>
+    </div>
+</div>

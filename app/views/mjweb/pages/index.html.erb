@@ -1,0 +1,32 @@
+<div class="page_title">
+    <h1>Website Pages</h1>
+</div>
+
+ <div class="table_content_with_title">
+    <table>
+      <thead>
+        <tr>
+          <th class="page_name">Title</th>
+          <th width="75px" class="row_button">
+            <%= link_to "", new_page_path, class: 'line_new_icon', title: "add new webpage" %>
+          </th>
+        </tr>
+      </thead>
+    </table>
+    <div class="table_container">
+        <table>
+          <tbody>
+            <% @pages.each do |page| %>
+              <tr>
+                <td class="page_name"><%= page.name %></td>
+                <td width="75px">
+                    <%= page_used(page) %>
+                    <%= link_to '', infos_path(:id => page.id), class: 'line_menu_icon', title: "edit content" %>
+                    <%= link_to '', edit_page_path(page), class: 'line_edit_icon', title: "edit page" %>          
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+</div>

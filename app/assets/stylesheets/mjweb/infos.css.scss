@@ -1,0 +1,39 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+$lrg_menu: 860px;
+$tab_lrg_menu: 720px;
+$tab_sml_menu: 540px;
+$mob_menu: 430px;
+
+//index table 
+.content_order{display: table-cell; width: 20px}
+.content_title{display: table-cell; width: 120px}
+.content_text{display: table-cell}
+.content_link_text{display: table-cell; width: 200px}
+.content_link_url{display: table-cell; width: 200px}
+.content_link_page{display: table-cell; width: 120px}
+.content_image{display: table-cell; width: 50px}
+
+
+@media screen and (max-width: $lrg_menu) {
+
+}
+
+@media screen and (max-width: $tab_lrg_menu) {
+.content_order{display: none}
+.content_text{display: none}
+}
+  
+@media screen and (max-width: $tab_sml_menu) {
+.content_image{display: none}
+.content_link_text{display: none}
+}
+
+@media screen and (max-width: $mob_menu) {
+.content_link_url{display: none}
+.content_link_page{display: none}
+}
+
+

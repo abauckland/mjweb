@@ -1,46 +1,35 @@
 Mjweb::Engine.routes.draw do
 
-  resources :webpages
-  resources :trainings
-  resources :networkings
-  resources :books
-  resources :banks
-  resources :products
-  resources :events
-
-  resources :abouts
-  resources :services
-
+  resources :websites, :only => [:index] do
+    get :event, :on => :member
+  end
 
 #match 'users/me' => 'users#me', :via => :get 
-  resources :fonts
+  resources :fonts, :only => [:index, :new, :create, :destroy]
+  resources :backgrounds, :only => [:index, :new, :create, :destroy]
+  resources :icons, :only => [:index, :new, :create, :destroy]
 
-  resources :backgrounds
+  resources :linktiles, :only => [:edit, :update]  do
+    get :edit_detail, :on => :member
+  end
+  
+  resources :pages
+  
+  resources :infos do
+    get :move_up, :on => :member
+    get :move_down, :on => :member
+  end
   
   resources :images, :only => [:index, :new, :create, :destroy]
   resources :imagesettings, :only => [:show, :new, :create, :destroy] do
     get :list, :on => :member
   end
-      
-  resources :websites, :only => [:index]
   
-  resource :websites do
-    get :about, :on => :member
-    get :service, :on => :member
-    get :bank, :on => :member
-    get :book, :on => :member
-    get :event, :on => :member
-    get :networking, :on => :member
-    get :product, :on => :member
-    get :training, :on => :member            
-    get :webpage, :on => :member
-  end
-
-  resources :settings, :only => [:index]
-  resources :hours, :only => [:edit, :update]
   resources :details, :only => [:edit, :update]
   resources :designs, :only => [:edit, :update]
-
+  resources :hours, :only => [:edit, :update]
+  resources :events
+  
   resources :contents do
     get :move_up, :on => :member
     get :move_down, :on => :member

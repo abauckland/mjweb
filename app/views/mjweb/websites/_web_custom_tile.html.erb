@@ -1,0 +1,41 @@
+<div class="tile_container">             
+
+    <% if content.linktile.type_id != 4 %>
+    
+        <% if content.linktile.type_id == 1 || content.linktile.type_id == 2  %>
+          <div class="hover_<%=h colour_ref %> tile_<%= content.linktile.icon_id %>_link_<%= link_icon(colour_settings, colour_ref)%> colour_<%= colour_ref %>">
+        <% else %> 
+          <div class="hover_<%=h colour_ref %> colour_<%= colour_ref %>">    
+        <% end %> 
+    
+            <% if content.linktile.type_id == 1 %>
+                <a href="<%= content.link_url %>">
+            <% else %>
+                <a href="<%= page_path(content.linktile.page_id) %>">
+            <% end %> 
+                <div class="tile_content">
+                    <div class="tile_title_text"><%= content.linktile.title %></div>
+                    <% if content.linktile.type_id == 3 %>
+                        <ul>
+                            <% content.linktile.tilelists.each do |item|%>
+                            <li class="tile_content_text"><%= item.text %></li>
+                            <% end %>
+                        </ul>
+                    <% end %> 
+                </div>
+            </a>
+          </div> 
+    <% else %> 
+          <div class="hover_<%=h colour_ref %> colour_<%= colour_ref %>">
+                <div class="tile_content">
+                    <div class="tile_title_text"><%= content.linktile.title %></div>
+                    <ul>
+                        <% content.lists.each do |item|%>
+                        <li class="tile_content_text"><%= item.text %></li>
+                        <% end %>
+                    </ul>
+                </div>
+          </div> 
+    <% end %> 
+
+</div>                          

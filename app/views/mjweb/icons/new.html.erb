@@ -1,0 +1,45 @@
+<div class="page_title">
+    <h1>Add Font Type</h1>
+</div>
+
+<div class="content">
+    <div class="column_1">
+        <div class="column_content">
+            
+            <% if @icon.errors.any? %>
+            <div class="column_error">
+            <p><%= pluralize(@icon.errors.count, "error") %> prohibited this detail from being saved:</p>
+                  <ul>
+                  <% @icon.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+            </div>
+            <% end %>
+            
+            <div class="column_sub_content">
+                <div class="column_form">
+                <%= form_for(@icon) do |f| %>                    
+                        <div class="column_form_item">
+                            <label class="column_form_label" style="width:80px">Icon Name:</label>                        
+                            <div class="column_form_input"><%= f.text_field :name %></div>
+                        </div>
+                        <div class="column_form_item_dd-select">
+                            <label class="column_form_label" style="width:80px">Icon Image:</label>                        
+                            <div class="column_form_input"><%= f.file_field :icon %></div> 
+                        </div>
+                </div>
+           </div>     
+                
+           <div class="column_footer">
+                <div class="column_line"></div>
+                <div class="column_submit"><%= f.submit "save"%></div>
+                <div class="column_cancel"><%= link_to "cancel", mjweb.icons_path %></div>
+                <% end %>
+           </div>
+            
+        </div>
+    </div>
+    <div class="column_2 column_2_blank"></div> 
+    <div class="column_3 column_3_blank"></div> 
+</div>

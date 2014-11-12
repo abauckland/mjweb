@@ -1,0 +1,85 @@
+<div class="page_title">
+    <h1>Edit tile content</h1>
+</div>
+
+<div class="content">
+    <div class="column_1">
+        <div class="column_content">
+        
+        <% if @linktile.errors.any? %>
+            <div class="column_error">
+                <p><%= pluralize(@linktile.errors.count, "error") %> prohibited this project from being created</p>
+                <ul>
+                <% @linktile.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+                </ul>
+            </div>
+        <% end %>
+
+            <div class="column_sub_content">
+                <div class="column_form">
+                    <%= form_for(@linktile) do |f| %>
+                    <%= f.hidden_field :content_id, :value => @linktile.content_id %>
+
+
+<% if @linktile.type_id == 1 %>
+
+                            <div class="column_form_item">
+                                <label class="column_form_label" style="width:80px">Link Url:</label>                        
+                                <div class="column_form_input"><%= f.url_field :link_url, :placeholder => "http://www.example.co.uk" %></div>
+                                <div class="column_help_tooltip" id="info_link_url"></div>  
+                            </div>                  
+<% end %>                            
+
+
+<% if @linktile.type_id == 2 || @linktile.type_id == 3 %>
+
+                            <div class="column_form_item">
+                                <label class="column_form_label" style="width:80px">Page Link:</label> 
+                                <% if @pages.blank? %>    
+                                    <label class="column_form_input" style="width:80px">No other pages are available to link.</label>                        
+                                <% else %>
+                                    <div class="column_form_input"><%= f.select :page_id, options_for_select(@pages.map{ |c| [c.name, c.id,] }, @linktile.page_id), {:prompt => "Select page to link to...."}, :class => "full_width" %></div>
+                                    <div class="column_help_tooltip" id="info_page_link"></div>                                                                              
+                                <% end %>   
+                            </div>   
+<% end %>  
+
+
+<% if @linktile.type_id == 1 || @linktile.type_id == 2 %>
+
+                            <div class="column_form_item_dd-select">
+                                <label class="column_form_label" style="width:80px">Tile Icon:*</label>
+                                <div class="column_form_input"><%= f.select :icon_id, options_for_select(Mjweb::Icon.all.map{ |c| [c.name, c.id, {'data-imagesrc' => c.icon_url}] }, @linktile.icon_id) %></div>
+                                <div class="column_help_tooltip" id="linktile_icon"></div>
+                            </div>
+<% end %>                             
+                           
+               
+<% if @linktile.type_id == 3 || @linktile.type_id == 4 %>
+
+                            <%= f.fields_for :tilelists do |builder| %>
+                            <div class="column_form_item">
+                                <label class="column_form_label" style="width:80px">List Item:</label>
+                                <div class="column_form_input"><%= builder.text_field :text, :maxlength => 30, :size => 15 %><%= builder.check_box :_destroy %> remove</div>
+                                <div class="column_help_tooltip" id="linktile_title"></div>
+                            </div>
+                            <% end %>  
+<% end %>
+                </div>
+           </div>
+           <div class="column_footer">
+                <div class="column_line"></div>
+                <div class="column_submit"><%= f.submit "save"%></div>
+                <div class="column_cancel"><%= link_to "Back", edit_linktile_path(:id => @linktile.content_id) %></div>
+                <% end %>
+           </div>
+            
+        </div>
+    </div>
+    <div class="column_2 column_2_blank"></div> 
+    <div class="column_3 column_3_blank"></div> 
+</div>
+  
+

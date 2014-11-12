@@ -1,0 +1,21 @@
+<div class="page_title">
+    <h1>Loaded Icons</h1>
+    <div class="page_title_button"><%= link_to 'Upload Icon', new_icon_path %></div>
+</div>
+
+<div class="image_content_with_title">
+
+    <% if @icons %>        
+        <% @icons.each do |icon| %>               
+            <div class="web_image_tile">
+                <div class="image"><%= image_tag(icon.icon_url)%></div>                 
+                <div class="web_image_delete"><%= link_to '', icon, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete image"  %>
+                </div>
+            </div>
+        <% end %>    
+    <% else %>
+        <div class="web_image_tile">
+            No icon images have been uploaded.
+        </div>
+    <% end %>
+</div>            
