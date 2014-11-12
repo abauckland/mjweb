@@ -30,7 +30,7 @@ module Mjweb
       @info = Info.new(info_params)
 
       if @info.save
-        redirect_to @info, notice: 'Information was successfully created.'
+        redirect_to infos_path(:id => @info.page_id), notice: 'Information was successfully created.'
       else
         render :new
       end
@@ -39,7 +39,7 @@ module Mjweb
     # PATCH/PUT /infos/1
     def update
       if @info.update(info_params)
-        redirect_to @info, notice: 'Information was successfully updated.'
+        redirect_to infos_path(:id => @info.page_id), notice: 'Information was successfully updated.'
       else
         render :edit
       end
@@ -48,7 +48,7 @@ module Mjweb
     # DELETE /infos/1
     def destroy
       @info.destroy
-      redirect_to infos_url, notice: 'info was successfully destroyed.'
+      redirect_to infos_path(:id => @info.page_id), notice: 'info was successfully destroyed.'
     end
 
     def move_up            
