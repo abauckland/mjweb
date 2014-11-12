@@ -2,6 +2,8 @@
     <h1>Image Tile: Selected Image</h1>    
     <% if !@imagesetting %>
         <div class="page_title_button"><%= link_to 'Add Image', new_imagesetting_path(:content_id => @content.id) %></div>
+    <% else %>
+        <div class="page_title_button_red"><%= link_to 'Back', contents_path %></div>
     <% end %>
 </div>
 
