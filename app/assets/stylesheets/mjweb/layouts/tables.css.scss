@@ -23,6 +23,7 @@
       tr{
         border-bottom: 1px solid #000;
         th{padding: 2px 5px 2px 5px;}
+        th.row_button{padding: 2px 2px 2px 2px;}
       }        
       }
   }
@@ -71,7 +72,10 @@
         td{
             padding: 5px 5px 2px 5px;
         }
-      
+        td.row_button{
+            padding: 5px 2px 5px 2px;
+            vertical-align: top;
+        }       
       }
     }
   }
@@ -94,8 +98,4 @@
   .mob_cell{display: table-cell;}
   .tab_cell{display: none;}
   .lrg_cell{display: none;}
-}
-
-.row_button{
-
 }

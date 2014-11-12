@@ -70,9 +70,11 @@
   }
   
 .column_title {
+  @include column_title;
   height: 20px;
   color:#66aa00;
-  padding: 10px 5px 10px 5px;
+  padding: 0px 0px 3px 0px;
+  margin: 0px 0px 7px 0px;
   border-bottom: 2px solid #dddddd;
   }
   @media screen and (max-width: $small_menu) {
@@ -147,11 +149,27 @@
 .column_form_input input[type="date"]{
  float: left;
  width: 130px; //width set so that jquery can calculate height of form in column
+ font-family: $standard_font;
+ font-size:1.3rem;
 }
 
 .column_form_input input[type="time"]{
  float: left;
  width: 130px; //width set so that jquery can calculate height of form in column
+ font-family: $standard_font;
+ font-size:1.3rem;
+}
+
+.column_form_input input[type="radio"]{
+ float: left;
+ width: 20px; //width set so that jquery can calculate height of form in column
+ margin: 2px 0px 5px 0px;
+}
+
+.column_form_input input[type="checkbox"]{
+ float: left;
+ width: 20px; //width set so that jquery can calculate height of form in column
+ margin: 2px 0px 5px 0px;
 }
 
 .column_form_input select{
@@ -162,11 +180,19 @@
 .column_form_input textarea{
  float: left;
  width: 100px; //width set so that jquery can calculate height of form in column
+ font-family: $standard_font;
+ font-size:1.3rem;
 }
 
 .column_form_image_input{
   float: left;
   height: 60px;  
+}
+
+.column_info_text{
+  @extend .column_form_label;
+  padding: 5px 0px 5px 5px;
+  font-weight: normal;  
 }
 
 .column_help_tooltip{
