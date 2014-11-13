@@ -13,8 +13,7 @@ module Mjweb
         when 7 ; link_to '', edit_hour_path(current_user.id), class: 'line_edit_icon', title: "edit opening hours"
         when 8 ; return #events          
         when 9 ; return #plans
-        when 10 ; return #e-commerce
-        when 11 ; link_to '', edit_linktile_path(:id => content.id), class: 'line_edit_icon', title: "edit tile content/link"
+        when 10 ; link_to '', edit_linktile_path(:id => content.id), class: 'line_edit_icon', title: "edit tile content/link"
       end  
     end
 

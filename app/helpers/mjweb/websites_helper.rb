@@ -27,19 +27,21 @@ module Mjweb
         when "hours" ; render_hours(content, colour_ref)
         when "image" ; render_image(content)
         when "images" ; render_images(content)
-
-        when "ecommerce" ; render_ecommerce(content, colour_settings, colour_ref)
-
         when "events_link" ; render_events_link(content, colour_settings, colour_ref) 
         when "plans_link'" ; render_plans_link(content, colour_ref)
         when "custom" ; render_custom_tile(content, colour_settings, colour_ref)
       end
     end
 
-    def render_custom_tile(content, colour_settings, colour_ref)    
-      return render partial: "web_custom_tile", locals: { content: content, colour_settings: colour_settings, colour_ref: colour_ref }     
-    end  
+    def render_custom_tile(content, colour_settings, colour_ref)
 
+      if content.linktile.blank?
+        return  render partial: "web_empty_tile"
+      else
+        return render partial: "web_custom_tile", locals: { content: content, colour_settings: colour_settings, colour_ref: colour_ref }
+      end
+
+    end
 
     def render_contact(content, colour_ref)
       company = ::Company.where(:id => content.company_id).first
@@ -60,13 +62,15 @@ module Mjweb
     end
 
     def render_image(content)
-      #doing as one query does not works with PG and namespaces for some reason  
+      #doing as one query does not works with PG and namespaces for some reason
       set_image = Mjweb::Imagesetting.where(:content_id => content.id).first
       
     	if set_image
     	 image = Mjweb::Image.where(:id => set_image.image_id).first
           
     	 return render partial: "web_image_tile", locals: { image: image }
+    	else
+    	 return  render partial: "web_empty_tile"
     	end
     end
 
@@ -75,22 +79,32 @@ module Mjweb
       image_ids = Mjweb::Imagesetting.where(:content_id => content.id).pluck(:image_id)
 
 	    if image_ids
-	     images = Mjweb::Image.where(:id => image_ids)
+	      images = Mjweb::Image.where(:id => image_ids)
       
-      	return render partial: "web_images_tile", locals: { images: images }
+        return render partial: "web_images_tile", locals: { images: images }
+      else
+        return  render partial: "web_empty_tile"
 	    end
     end
 
     def render_events_link(content, colour_settings, colour_ref)
       events = Mjweb::Event.where(:company_id => content.company_id).order('id')
       
-      return render partial: "web_events_tile", locals: { events: events, colour_settings: colour_settings, colour_ref: colour_ref }    
+      if events.length > 0
+        return render partial: "web_events_tile", locals: { events: events, colour_settings: colour_settings, colour_ref: colour_ref }    
+      else
+       return  render partial: "web_empty_tile"
+      end
     end
     
     def render_plans_link(content, colour_ref)
       plans = Mjweb::Plan.where(:company_id => content.company_id).order('id')
       
-      return render partial: "web_plans_tile", locals: { plans: plans, colour_ref: colour_ref }
+      if plans.length > 0
+        return render partial: "web_plans_tile", locals: { plans: plans, colour_ref: colour_ref }
+      else
+       return  render partial: "web_empty_tile"
+      end
     end 
     
     def  link_icon(colour_settings, colour_ref)
