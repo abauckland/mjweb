@@ -12,7 +12,7 @@ module Mjweb
     end
 
     def show
-      @infos = Info.where(:page_id => params[:page_id]).order('mjweb_infos.order_ref')
+      @infos = Info.where(:page_id => params[:id]).order('mjweb_infos.order_ref')
 
       @design = Mjweb::Design.where(:company_id => @page.company_id).first
       @detail = Mjweb::Detail.where(:company_id => @page.company_id).first
