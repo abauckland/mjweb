@@ -11,7 +11,11 @@
             <% if content.linktile.type_id == 1 %>
                 <a href="<%= content.linktile.link_url %>">
             <% else %>
-                <a href="<%= page_path(content.linktile.page_id) %>">
+                <% if content.linktile.page_id? %>
+                    <a href="<%= page_path(content.linktile.page_id) %>">
+                <% else %>    
+                    <a href="">                    
+                <% end %>    
             <% end %> 
                 <div class="tile_content">
                     <div class="tile_title_text"><%= content.linktile.title %></div>
