@@ -1,0 +1,164 @@
+//settings
+$heading_font: 'Ek Mukta';
+$content_font: Arial,Helvetica,sans-serif;
+$font_color: #fff;
+
+//same as bootstrap settings
+$large_device: 1200px;
+$medium_device: 992px;
+$small_device: 768px;
+//PAGE CONTENT CSS
+.web_content{
+  clear: both;
+  width: 100%;
+  padding: 20px 0px 20px 0px;  
+}
+
+//tile display
+
+  .all_devices{display: block;}  
+  .tablets{display: block;} 
+  .desktops{display: block;} 
+  
+  @media screen and (max-width: $small_device) {
+    .tablets{
+      display: none;
+     }  
+  }
+
+  @media screen and (max-width: $medium_device) {
+    .desktops{
+      display: none;
+     }  
+  }
+
+.tile_container{
+  float: left;
+  width: 200px;
+  height: 200px;
+  a{  text-decoration: none;;}
+  a:hover{
+    text-decoration: none;;
+  }
+  a:visited{  text-decoration: none;;}
+
+}
+
+.empty_tile{
+  float: left;
+  width: 200px;
+  height: 200px;
+  }
+
+.tile{
+  width: 200px;
+  height: 200px;
+}
+
+
+@mixin tile_icons($var_show, $var_hover) {
+    width: 200px;
+    height: 200px;
+    background: asset_url('web_page_icons.png') 0px $var_show no-repeat;;
+    &:hover{
+      background: asset_url('web_page_icons.png') -0px $var_hover no-repeat;
+    }
+}
+
+@function calculate-black($icon){
+  @return ($icon * -400px) + 400px;
+}
+
+@function calculate-white($icon){
+  @return ($icon * -400px) + 200px;
+}
+
+$list: 1 2 3 4 5 6 7 8 9 10;
+@each $icon in $list {
+  .tile_#{$icon}_link_white {@include tile_icons(calculate-white($icon), calculate-white($icon))}
+  .tile_#{$icon}_link_black {@include tile_icons(calculate-black($icon), calculate-black($icon))}
+  .tile_#{$icon}_link_white_black {@include tile_icons(calculate-white($icon), calculate-black($icon))}
+  .tile_#{$icon}_link_black_white {@include tile_icons(calculate-black($icon), calculate-white($icon))}
+}
+
+
+.images_tile{
+  @extend .tile;  
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.multiple_images_tile{
+  @extend .images_tile;  
+}
+
+
+.tile_content{
+  width: 200px;
+  height: 200px;
+  padding: 0px 0px 0px 0px;
+  ul{      padding: 0px 0px 0px 0px;
+          list-style-type: none;
+  } 
+}
+
+
+//FONT STYLES
+.tile_title_text {
+  font-family: 'Ek Mukta', sans-serif;
+  font-size: 1.8rem;
+  text-decoration: none;
+  text-align:center;
+  font-weight:bold;
+  padding: 30px 0px 10px 0px;
+}
+
+.tile_content_text {
+  font-family: $content_font;
+  font-size: 12px;
+
+  text-align:center;
+  padding: 2px 10px 2px 10px;
+  word-wrap: break-word;
+}
+
+ul.tile_contact_text{
+  font-family: $content_font;
+  font-size: 12px;
+  text-align:center;
+  padding: 6px 10px 0px 10px;
+  margin: 0px 0px 0px 0px;
+  li{
+    padding: 0px 0px 0px 0px;    
+  }
+  word-wrap: break-word;  
+}
+
+td.tile_day_text {
+  @extend .tile_content_text;
+  width:67px;
+  padding: 0px 0px 0px 0px;
+  text-align: right;
+}
+
+td.tile_hours_text {
+  @extend .tile_content_text;
+  width: 100px;
+  padding: 0px 0px 0px 0px;
+  text-align: center;
+}
+
+
+.tile_link_icon {
+  width: 200px;
+  height: 200px;
+
+}
+
+.rotating-item {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

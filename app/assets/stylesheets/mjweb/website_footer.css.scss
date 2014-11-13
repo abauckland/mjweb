@@ -1,0 +1,26 @@
+//settings
+$content_font: Arial,Helvetica,sans-serif;
+
+//FOOTER CSS
+.footer_container{
+  clear: both;
+  padding: 40px 0px 0px 0px;
+}
+
+.footer_text{ font-family: $content_font;
+  font-size: 10px;
+  vertical-align:bottom;
+  text-align:left;
+  width: 300px;
+  padding: 0px 0px 3px 5px;
+  }
+
+a.myhq_icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: asset_url('myhq_logo_small.png');
+    &:hover{
+      background: asset_url('myhq_logo_small.png');
+    }
+}

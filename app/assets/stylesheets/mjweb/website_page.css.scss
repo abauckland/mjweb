@@ -1,0 +1,112 @@
+// Place all the styles related to the websites controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//settings
+$heading_font: 'Ek Mukta';
+$content_font: Arial,Helvetica,sans-serif;
+$font_color: #fff;
+
+
+@mixin border-radius($var) {-moz-border-radius:$var; -webkit-border-radius:$var; border-radius:$var;}
+
+/* feature content*/
+.feature_tile{
+  float: left;
+  width: 100%;
+}
+
+.feature_tile_container{float: left;}
+
+
+.feature_tile_item{
+  float: left;
+  width: 300px;
+  height: 460px;
+  padding: 10px 20px 10px 20px;
+}
+
+.feature_sub_tile{
+  float: left;
+  width: 260px;
+  height: 440px;
+}
+
+.web_content_tile_image{
+  width: 200px;
+  height: 200px;
+  margin-left: 30px;
+  background-color: #fff;
+  @include border-radius(8px);
+  border: 2px solid #66aa00;
+}
+
+.web_content_tile_title{
+  width: 260px;
+  height: 20px;
+  margin: 25px 0px 5px 0px;
+  font-size: 2.0rem;
+  font-weight: bold;
+  text-align: center;
+  color: #66aa00;  
+}
+
+.web_content_tile_text{
+  width: 260px;
+  height: 190px;
+  font-size: 1.3rem;
+  text-align: justify;
+  color: #000;  
+}
+
+
+a.web_page_link{
+      text-decoration: none;
+&:hover{
+      color: #fff;
+      text-decoration: none;
+    }
+&:visited{color: #eee;} 
+}
+
+.web_page_link_container{
+  width: 160px;
+  height: 25px;
+  margin-left: 60px;
+  background-color: #000;  
+  @include border-radius(8px);
+  border: 2px solid #66aa00;
+}
+
+.web_page_link_text{
+  width: 100%;
+  padding: 5px 0px 0px 0px;
+  font-size: 1.3rem;
+  text-align: center;
+  color: #fff;
+}
+
+.event_container{
+    margin-top: 10px;
+  padding: 0px 10px 0px 10px;    
+}
+
+.event_title {
+  background-color:#ccc;
+  font-size: 1.2rem;
+  font-weight:bold;
+
+  padding: 8px 10px 5px 10px;   
+}
+
+.event_info {
+  font-size: 1.2rem;
+  background-color:#ddd;
+  padding: 8px 10px 10px 10px;   
+}
+
+.website_page_title{
+  font-size:2rem;
+  font-weight:bold;
+  padding: 0px 10px 0px 10px;    
+}

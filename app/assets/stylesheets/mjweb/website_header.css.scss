@@ -1,0 +1,98 @@
+//settings
+$heading_font: 'Ek Mukta';
+$content_font: Arial,Helvetica,sans-serif;
+$font_color: #fff;
+
+//same as bootstrap settings
+$large_device: 1200px;
+$medium_device: 992px;
+$small_device: 768px;
+
+@mixin dark_grey_24_gradient {background: image-url('dark_grey_24.png') repeat-x};
+
+//HEADER CSS
+.login_container{
+  float: right;
+  width: 50px;
+  height: 24px;
+    a{color:#eee;}
+    a:hover{
+      color: #fff;
+      text-decoration: none;
+    }
+    a:visited{color: #eee;} 
+}
+  @media screen and (max-width: $medium_device) {
+    .login_container{
+      height: 34px;
+     }  
+  }
+
+.login_link{
+  @include dark_grey_24_gradient;
+  display: inline-block;  
+  width: 50px;
+  height: 22px;
+  padding: 2px 0px 0px 0px;
+  color:#ffffff;
+  font-family: $heading_font;
+  font-size: 1.2rem;
+  text-decoration:none;
+  text-align:center;
+  cursor:pointer;
+  &:hover{ 
+    background: none;
+    background-color: green;
+    color: #ffffff;
+  }
+}
+
+
+.header_container{
+  clear:both;
+  width: 100%;
+}
+
+
+@media screen and (min-width: $medium_device) {
+  .company_info_small{
+    display: none;
+  }
+}
+
+.company_logo_small{
+  height: 75px;
+  width: 100%;
+}
+
+a.company_logo_link{
+  height: 75px;
+  width: 100%;
+}
+
+.company_tagline_small{
+  width: 100%;
+  padding: 10px 0px 0px 0px;
+}
+
+
+.tagline_cell_small{
+  text-align:center;
+  font-size: 1.4rem;
+  vertical-align: bottom;
+}
+
+
+  @media screen and (max-width: $medium_device) {
+    .company_info_medium{
+      display: none;
+  }
+}
+
+.tagline_cell_medium{
+  font-size: 1.4rem;
+  text-align:left;
+  width: 600px;
+  padding: 0px 0px 0px 15px;
+  vertical-align: bottom;
+  }
