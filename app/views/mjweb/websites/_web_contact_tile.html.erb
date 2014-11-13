@@ -3,18 +3,18 @@
         <div class="colour_<%= colour_ref %> tile">
             <div class="tile_content">
                 <div class="tile_title_text">Contact Us</div>
-                <ul>
-                    <li class="tile_content_text"><%= company.address_1 if company.address_1 %></li>
-                    <li class="tile_content_text"><%= company.address_2 if company.address_2 %></li>
-                    <li class="tile_content_text"><%= company.city if company.city %></li>
-                    <li class="tile_content_text"><%= company.county if company.county  %></li>
-                    <li class="tile_content_text"><%= company.postcode if company.postcode %></li>
+                <ul class="tile_contact_text">
+                    <li><%= company.address_1 if company.address_1 %></li>
+                    <li><%= company.address_2 if company.address_2 %></li>
+                    <li><%= company.city if company.city %></li>
+                    <li><%= company.county if company.county  %></li>
+                    <li><%= company.postcode if company.postcode %></li>
                 </ul>
-                 <ul>
-                    <li class="tile_content_text"><%= company.phone_number if company.postcode %></li>
+                <ul class="tile_contact_text">
+                    <li><%= company.phone_number if company.postcode %></li>
                 </ul>
-                <ul>
-                    <li class="tile_content_text"><%= company.email if company.postcode %></li>
+                <ul class="tile_contact_text">
+                    <li><%= company.email if company.postcode %></li>
                 </ul>
             </div>
         </div>
