@@ -9,17 +9,17 @@
 			<% end %>
                     <p class="web_content_tile_title"><%= info.title %></p>
                     <p class="web_content_tile_text"><%= info.text %></p> 
-                    <% if info.link_url %>
-                        <a href="<%= info.link_url %>">
-                            <div class="web_content_tile_link">
-                                <div class="web_content_tile_link_text"><%= info.link_text %></div>
+                    <% unless info.link_url.blank? || info.link_text.blank? %>
+                        <a class="web_page_link" href="<%= info.link_url %>">
+                            <div class="web_page_link_container">
+                                <div class="web_page_link_text"><%= info.link_text %></div>
                             </div>
                         </a>
                     <% end %>                 
-                    <% if info.link_page_id %>
+                    <% unless info.link_page_id.blank? || info.link_text.blank? %>
                         <a href="<%= page_path(info.link_page_id) %>">
-                            <div class="web_content_tile_link">
-                                <div class="web_content_tile_link_text"><%= info.link_text %></div>
+                            <div class="web_page_link_container">
+                                <div class="web_page_link_text"><%= info.link_text %></div>
                             </div>
                         </a>
                     <% end %>  
