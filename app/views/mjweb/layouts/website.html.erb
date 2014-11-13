@@ -38,10 +38,10 @@
 
             .web_content_tile_image{ border: 2px solid <%=h setting[:tile] %>}
             .web_content_tile_title{ color: <%=h setting[:tile] %>}
-            .web_content_tile_link{background-color: <%=h setting[:tile] %>; border: 2px solid <%=h setting[:tile] %>}
-            .web_content_tile_link:hover{background-color: <%=h setting[:tile_hover] %>; border: 2px solid <%=h setting[:tile_hover] %>}
-            .web_content_tile_link_text{ color: <%=h setting[:text] %>}
-            .web_content_tile_link_text:hover{color: <%=h setting[:text_hover] %>;}
+            .web_page_link_container{background-color: <%=h setting[:tile] %>; border: 2px solid <%=h setting[:tile] %>}
+            .web_page_link_container:hover{background-color: <%=h setting[:tile_hover] %>; border: 2px solid <%=h setting[:tile_hover] %>}
+            .web_page_link_text{ color: <%=h setting[:text] %>}
+            .web_page_link_text:hover{color: <%=h setting[:text_hover] %>;}
 
         <% end %>
         
@@ -59,7 +59,7 @@
         
             <div class="company_info_small">    
                 <div class="header_container">   
-                    <a class="company_logo_link" href="">
+                    <a class="company_logo_link" href="<%= websites_path %>">
                         <div class="company_logo_small"><%= image_tag @detail.company.logo, height: '75'%></div>      
                     </a>
                     <% if @detail.tagline %>
