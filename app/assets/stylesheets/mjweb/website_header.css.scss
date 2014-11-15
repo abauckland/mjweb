@@ -51,6 +51,7 @@ $small_device: 768px;
 .header_container{
   clear:both;
   width: 100%;
+  padding: 0px 20px 0px 20px;
 }
 
 
@@ -78,7 +79,7 @@ a.company_logo_link{
 
 .tagline_cell_small{
   text-align:center;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   vertical-align: bottom;
 }
 
@@ -90,7 +91,7 @@ a.company_logo_link{
 }
 
 .tagline_cell_medium{
-  font-size: 1.4rem;
+  font-size: 2.0rem;
   text-align:left;
   width: 600px;
   padding: 0px 0px 0px 15px;

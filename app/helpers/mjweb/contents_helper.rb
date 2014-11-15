@@ -17,10 +17,12 @@ module Mjweb
       end  
     end
 
-    def custom_title(content)
+    def tile_title(content)
       linktile = Linktile.where(:content_id => content.id).first
-      if linktile
-        return linktile.title
+      if content.tile_id == 10
+        return linktile.title        
+      else  
+        return content.tile.name
       end
     end
     

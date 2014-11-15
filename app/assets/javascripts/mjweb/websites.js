@@ -101,7 +101,11 @@ function content_tiling() {
 	var tiles_in_row_rounded = roundDown(tiles_in_row);	
 	var total_tile_width = (tiles_in_row_rounded*tile_width);
 
-	var margin = (container - total_tile_width)/2;
+	var margin = (container - total_tile_width)/2 -20;
+	if (margin <= 0){
+	 margin = 0	
+	}
+	
 	$('.web_content').css('margin-left',margin+'px');
 }
 

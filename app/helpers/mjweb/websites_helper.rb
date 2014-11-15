@@ -91,7 +91,7 @@ module Mjweb
       events = Mjweb::Event.where(:company_id => content.company_id).order('id')
       
       if events.length > 0
-        return render partial: "web_events_tile", locals: { events: events, colour_settings: colour_settings, colour_ref: colour_ref }    
+        return render partial: "web_events_tile", locals: { events: events, content: content, colour_settings: colour_settings, colour_ref: colour_ref }    
       else
        return  render partial: "web_empty_tile"
       end

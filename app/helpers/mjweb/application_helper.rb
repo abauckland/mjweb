@@ -27,16 +27,16 @@ module Mjweb
     def font_style_colour(design)
       
       case design.font.name
-        when 'Ek Mukta' ;       "font-family: 'Ek Mukta', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe
-        when 'Marck Script' ;   "font-family: 'Marck Script', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe
-        when 'Play' ;           "font-family: 'Play', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe
-        when 'Questrial' ;      "font-family: 'Questrial', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe
-        when 'Coming Soon' ;    "font-family: 'Coming Soon', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe
-        when 'Crimson Text' ;   "font-family: 'Crimson Text', serif; font-size: 2.2rem; line-height: 2.4rem".html_safe
-        when 'Libre Baskerville' ;  "font-family: 'Libre Baskerville', serif; font-size: 2.2rem; line-height: 2.4rem".html_safe
-        when 'Nunito' ;         "font-family: 'Nunito', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe
-        when 'Open Sans' ;      "font-family: 'Open Sans', sans-serif; font-size: 2.2rem; line-height: 2.4rem".html_safe
-        when 'Pacifico' ;       "font-family: 'Pacifico', cursive; font-size: 2.2rem; line-height: 2.4rem".html_safe
+        when 'Ek Mukta' ;       "font-family: 'Ek Mukta', sans-serif".html_safe
+        when 'Marck Script' ;   "font-family: 'Marck Script', cursive".html_safe
+        when 'Play' ;           "font-family: 'Play', sans-serif".html_safe
+        when 'Questrial' ;      "font-family: 'Questrial', sans-serif".html_safe
+        when 'Coming Soon' ;    "font-family: 'Coming Soon', cursive".html_safe
+        when 'Crimson Text' ;   "font-family: 'Crimson Text', serif".html_safe
+        when 'Libre Baskerville' ;  "font-family: 'Libre Baskerville', serif".html_safe
+        when 'Nunito' ;         "font-family: 'Nunito', sans-serif".html_safe
+        when 'Open Sans' ;      "font-family: 'Open Sans', sans-serif".html_safe
+        when 'Pacifico' ;       "font-family: 'Pacifico', cursive".html_safe
       end
     end
 
