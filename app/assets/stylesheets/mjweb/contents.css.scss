@@ -11,20 +11,20 @@ $mob_menu: 430px;
 .content_order{display: table-cell; width: 40px}
 .content_type{display: table-cell; width: 120px}
 .content_visibility{display: table-cell; width: 80px}
-.content_linktile_title{display: table-cell; width: 150px}
+.content_title{display: table-cell; width: 150px}
 
 @media screen and (max-width: $lrg_menu) {
 
 }
 
 @media screen and (max-width: $tab_lrg_menu) {
-
+.content_type{display: none}
 }
   
 @media screen and (max-width: $tab_sml_menu) {
-.content_visibility{display: none}
+.content_order{display: none}
 }
 
 @media screen and (max-width: $mob_menu) {
-.content_linktile_title{display: none}
+.content_visibility{display: none}
 }
