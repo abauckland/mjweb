@@ -32,7 +32,15 @@
                             <div class="column_form_item">
                                 <label class="column_form_label" style="width:80px"></label> 
                                 <div class="column_form_input">
-                                    <%= radio_button_tag :url, 'custom_url', :checked => true %> Link to external website/url.
+                                    <%= radio_button_tag :url, 'no_url', :checked => true %> No link.
+                                </div>
+                            </div>
+
+
+                            <div class="column_form_item">
+                                <label class="column_form_label" style="width:80px"></label> 
+                                <div class="column_form_input">
+                                    <%= radio_button_tag :url, 'custom_url'%> Link to external website/url.
                                 </div>
                             </div>
                             <div class="column_form_item">
@@ -53,7 +61,7 @@
                                 <% if @pages.blank? %>    
                                     <label class="column_form_input" style="width:80px">No other pages are available to link.</label>                        
                                 <% else %>
-                                    <div class="column_form_input"><%= f.select :link_page_id, options_for_select(@pages.map{ |c| [c.name, c.id,] }, @info.link_page_id), :prompt => "Select page to link to...." %></div>
+                                    <div class="column_form_input"><%= f.select :link_page_id, options_for_select(@pages.map{ |c| [c.name, c.id,] }, @info.link_page_id), {:prompt => "Select page to link to...."}, :class => "full_width" %></div>
                                     <div class="column_help_tooltip" id="info_page_link"></div>                                                                              
                                 <% end %>   
                             </div>
@@ -64,7 +72,7 @@
                                 <% if @images.blank? %>                                                               
                                     <label class="column_form_input" style="width:80px">No images are available, please upload images before selecting</label>                                                                              
                                 <% else %>
-                                    <div class="column_form_image_input"><%= f.select :image_id, options_for_select(@images.map{ |c| [c.name, c.id, {'data-imagesrc' => c.image_url(:thumb)}] }, @info.image_id), :prompt => "Select Image...." %></div>
+                                    <div class="column_form_image_input"><%= f.select :image_id, options_for_select(@images.map{ |c| [c.name, c.id, {'data-imagesrc' => c.image_url}] }, @info.image_id), :prompt => "Select Image...." %></div>
                                     
                                <% end %>
                                <div class="column_help_tooltip" id="info_image"></div>
@@ -79,7 +87,9 @@
                             <div class="column_form_item">
                                 <label class="column_form_label" style="width:80px">Description:*</label>                        
                                 <div class="column_form_input"><%= f.text_area :text, :rows => 15, :maxlength => 500 %></div>
-                                <div class="column_help_tooltip" id="info_description"></div> 
+
+                                <div class="column_help_tooltip" id="info_description"></div>
+                                <div class="info_character_count"></div>
                             </div>
                      </div>                 
               </div>

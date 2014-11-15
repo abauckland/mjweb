@@ -1,5 +1,8 @@
 <div class="page_title">
-    <h1><%= @page.name %> Information</h1>
+    <div class="page_title_text">
+        <h1><%= @page.name %> Information</h1>      
+    </div> 
+    <div class="title_help_tooltip" id="page_info_index"></div>     
     <div class="page_title_button_red"><%= link_to "back to pages", pages_path %> </div>
 </div>
 
@@ -12,9 +15,9 @@
           <th class="info_text">Text</th>
           <th class="info_link_text">Link text</th>
           <th class="info_link_url">Link URL</th>
-          <th class="info_line_page">Link Page</th>
+          <th class="info_link_page">Link Page</th>
           <th class="info_image">Image</th>
-          <th width="100px">
+          <th width="125px">
             <%= link_to "", new_info_path(:page_id => @page.id), class: 'line_new_icon', title: "new item" %>
           </th>
         </tr>
@@ -30,13 +33,16 @@
                 <td class="info_text"><%= info.text %></td>
                 <td class="info_link_text"><%= info.link_text %></td>
                 <td class="info_link_url"><%= info.link_url %></td>
-                <td class="info_line_page"><%= info.link_page_id %></td>
-                <td class="info_image"><%= image_tag(info.image.image_url(:thumb), {:width => "50px", :height => "50px"}) if info.image_id? %></td>
-                <td width="100px" class="row_button">
+                <td class="info_link_page"><%= info.link_page_id %></td>
+                <% if info.image_id? %>
+                    <td class="info_image"><%= image_tag(info.image.image_url, {:width => "50px", :height => "50px"}) if info.image_id? %></td>
+                <% end %>
+                <td width="125px" class="row_button">
                     <%= link_to '', info, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete item"  %>                    
                     <%= link_to '', edit_info_path(info), class: 'line_edit_icon', title: "edit item"  %>
                     <%= link_to '', move_down_info_path(info), class: 'line_down_icon', title: "move down" %>
                     <%= link_to '', move_up_info_path(info), class: 'line_up_icon', title: "move up"  %>
+                    <%= link_to '', info_path(info), class: 'line_show_icon', title: "show item"  %>
                 </td>
               </tr>
             <% end %>

@@ -10,14 +10,14 @@
                     <p class="web_content_tile_title"><%= info.title %></p>
                     <p class="web_content_tile_text"><%= info.text %></p> 
                     <% unless info.link_url.blank? || info.link_text.blank? %>
-                        <a class="web_page_link" href="<%= info.link_url %>">
+                        <a class="web_page_link" href="<%= info.link_url %>" target="_blank">
                             <div class="web_page_link_container">
                                 <div class="web_page_link_text"><%= info.link_text %></div>
                             </div>
                         </a>
                     <% end %>                 
-                    <% unless info.link_page_id.blank? || info.link_text.blank? %>
-                        <a href="<%= page_path(info.link_page_id) %>">
+                    <% unless info.link_page_id.blank? || info.link_page_id.blank? %>
+                        <a href="<%= page_path(info.link_page_id) %>" target="_blank">
                             <div class="web_page_link_container">
                                 <div class="web_page_link_text"><%= info.link_text %></div>
                             </div>

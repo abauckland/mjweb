@@ -27,6 +27,20 @@
       height: 23px;
       }
   }
+
+
+.page_title_text{float: left;}
+
+.title_help_tooltip{
+    float: left;
+    width: 10px;
+    height: 10px;
+    margin: 2px 0px 0px 5px;
+    cursor: pointer;
+    background: asset_url('tooltip_icon.png') no-repeat;
+}
+
+
   
 .page_title_button{
   position: absolute;
