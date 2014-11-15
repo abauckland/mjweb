@@ -2,38 +2,48 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
-$lrg_menu: 860px;
-$tab_lrg_menu: 720px;
-$tab_sml_menu: 540px;
-$mob_menu: 430px;
+$lrg_menu: 1350px;
+$tab_lrg_menu: 1150px;
+$tab_sml_menu: 920px;
+$mob_menu: 570px;
 
 //index table 
-.content_order{display: table-cell; width: 20px}
-.content_title{display: table-cell; width: 120px}
-.content_text{display: table-cell}
-.content_link_text{display: table-cell; width: 200px}
-.content_link_url{display: table-cell; width: 200px}
-.content_link_page{display: table-cell; width: 120px}
-.content_image{display: table-cell; width: 50px}
+.info_order{display: table-cell; width: 40px}
+.info_title{display: table-cell; width: 120px}
+.info_text{display: table-cell; width: 400px}
+.info_link_text{display: table-cell; width: 200px}
+.info_link_url{display: table-cell; width: 200px}
+.info_link_page{display: table-cell; width: 120px}
+.info_image{display: table-cell}
 
 
 @media screen and (max-width: $lrg_menu) {
-
+.info_text{display: table-cell; width: 200px}
 }
 
 @media screen and (max-width: $tab_lrg_menu) {
-.content_order{display: none}
-.content_text{display: none}
+.info_text{display: none}
+.info_order{display: none}
+
 }
   
 @media screen and (max-width: $tab_sml_menu) {
-.content_image{display: none}
-.content_link_text{display: none}
+.info_link_url{display: none}
+.info_link_page{display: none}
+
+
 }
 
 @media screen and (max-width: $mob_menu) {
-.content_link_url{display: none}
-.content_link_page{display: none}
+.info_image{display: none}
+.info_link_text{display: none}
 }
 
+
+.info_character_count{
+  clear: both;
+  padding: 2px 0px 0px 80px;
+  color: blue;
+  font-size: 1.2rem;  
+}
 

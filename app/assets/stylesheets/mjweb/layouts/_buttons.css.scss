@@ -61,13 +61,13 @@
 .line_move_icon {@include menu_icons(-0px);}
 .line_menu_icon {@include menu_icons(-40px); float: right; padding: 0px 5px 0px 0px;}
 
-.line_mileage_icon {@include menu_icons(-920px);}
+.line_mileage_icon {@include menu_icons(-920px); float: right; padding: 0px 5px 0px 0px;}
 
 .line_up_icon {@include menu_icons(-680px); float: right; padding: 0px 5px 0px 0px;}
 .line_down_icon {@include menu_icons(-720px); float: right; padding: 0px 5px 0px 0px;}
 
-.line_view_icon {@include menu_icons(-760px);}
-.line_show_icon {@include menu_icons(-800px);}
+.line_view_icon {@include menu_icons(-760px); float: right; padding: 0px 5px 0px 0px;}
+.line_show_icon {@include menu_icons(-800px); float: right; padding: 0px 5px 0px 0px;}
 
 
 .line_show_icon_show {@include menu_icons(-800px); float: right; padding: 0px 5px 0px 0px;}
@@ -99,7 +99,7 @@
 .line_pdf_icon_hidden {@include menu_icons(-1000px); display: none; float: right; padding: 0px 5px 0px 0px;}
 
 
-.line_menu_icon {@include menu_icons(-40px);}
+.line_menu_icon {@include menu_icons(-40px); float: right; padding: 0px 5px 0px 0px;}
 
 .table_pdf_icon {@include menu_icons(-1000px); float: right; padding: 0px 5px 0px 0px;}
 .table_csv_icon {@include menu_icons(-960px); float: right; padding: 0px 5px 0px 0px;}
