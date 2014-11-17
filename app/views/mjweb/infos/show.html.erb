@@ -33,7 +33,7 @@
                             </div>
                             <div class="column_form_item">
                                 <label class="column_form_label" style="width:100px">Link to Page:</label>                        
-                                <div class="column_line_show"><%= @info.link_page.name %></div>   
+                                <div class="column_line_show"><%= @info.link_page.name if @info.link_page_id? %></div>   
                             </div>
                             <div class="column_form_item">
                                 <label class="column_form_label" style="width:100px">Image:</label>                        

@@ -7,7 +7,7 @@ module Mjweb
     before_action :get_pages, only: [:new, :edit]
 
     def index
-      @infos = Info.where(:page_id => params[:id])
+      @infos = Info.where(:page_id => params[:id]).order('order_ref')
       @page = Page.find(params[:id])
     end
     
@@ -16,13 +16,20 @@ module Mjweb
     end
 
     def new
-      info_count = Info.where(:page_id => params[:page_id]).count
+      
 
-      @info = Info.new(:page_id => params[:page_id], :order_ref => (info_count + 1))
+      @info = Info.new
+
+      info_count = Info.where(:page_id => params[:page_id]).count
+      @order_ref = info_count + 1
+
+      @page_id = params[:page_id]
 
     end
 
     def edit
+      @order_ref = @info.order_ref
+      @page_id = @info.page_id
     end
 
     # POST /infos
@@ -63,8 +70,8 @@ module Mjweb
     def move_down      
       info_count = Info.where(:page_id => params[:page_id]).count
             
-      if @info.tile_ref != info_count
-        next_row = Info.where(:tile_ref => (@info.order_ref + 1)).first      
+      if @info.order_ref != info_count
+        next_row = Info.where(:order_ref => (@info.order_ref + 1)).first      
         next_row.update(:order_ref => @info.order_ref)
         @info.update(:order_ref => @info.order_ref + 1)
       end

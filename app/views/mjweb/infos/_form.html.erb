@@ -16,7 +16,8 @@
              <div class="column_info">
                     <div class="column_form">
                     <%= form_for(@info) do |f| %>
-                        <%= f.hidden_field :page_id, :value => @info.page_id %>  
+                        <%= f.hidden_field :page_id, :value => @page_id %>  
+                        <%= f.hidden_field :order_ref, :value => @order_ref %>
                         
                             <div class="column_form_item">
                                 <label class="column_form_label" style="width:80px">Title:*</label>                        
