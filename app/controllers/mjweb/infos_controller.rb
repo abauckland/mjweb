@@ -54,7 +54,17 @@ module Mjweb
 
     # DELETE /infos/1
     def destroy
+      
+      page_id = @info.page_id
+      
       @info.destroy
+
+      
+      @infos = Info.where(:page_id => page_id).order('order_ref')
+      @infos.each_with_index do |info, i|
+        info.update(:order_ref =>  i+1)
+      end
+
       redirect_to infos_path(:id => @info.page_id), notice: 'info was successfully destroyed.'
     end
 

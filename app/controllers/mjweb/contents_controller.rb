@@ -80,9 +80,9 @@ module Mjweb
       
       @content.destroy
       
-      @tiles = policy_scope(Content).order(:tile_ref)
-      @tiles.each_with_index do |tile, i|
-        tile.update(:tile_ref =>  i+1)
+      @contents = policy_scope(Content).order('tile_ref')
+      @contents.each_with_index do |content, i|
+        content.update(:tile_ref =>  i+1)
       end
            
       redirect_to contents_url, notice: 'Tile was successfully deleted.'
