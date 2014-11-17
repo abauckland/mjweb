@@ -72,14 +72,14 @@ a.company_logo_link{
 }
 
 .company_tagline_small{
-  width: 100%;
-  padding: 10px 0px 0px 0px;
+  padding: 10px 0px 0px 0px; 
 }
 
 
 .tagline_cell_small{
   text-align:center;
   font-size: 1.6rem;
+  line-height: 22px;
   vertical-align: bottom;
 }
 
@@ -93,6 +93,7 @@ a.company_logo_link{
 .tagline_cell_medium{
   font-size: 2.0rem;
   text-align:left;
+  line-height: 27px;
   width: 600px;
   padding: 0px 0px 0px 15px;
   vertical-align: bottom;
