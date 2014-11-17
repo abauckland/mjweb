@@ -73,7 +73,7 @@
                                 <% if @images.blank? %>                                                               
                                     <label class="column_form_input" style="width:80px">No images are available, please upload images before selecting</label>                                                                              
                                 <% else %>
-                                    <div class="column_form_image_input"><%= f.select :image_id, options_for_select(@images.map{ |c| [c.name, c.id, {'data-imagesrc' => c.image_url}] }, @info.image_id), :prompt => "Select Image...." %></div>
+                                    <div class="column_form_image_input"><%= f.select :image_id, options_for_select(@images.map{ |c| [c.name, c.id, {'data-imagesrc' => c.image_url(:thumb)}] }, @info.image_id), :prompt => "Select Image...." %></div>
                                     
                                <% end %>
                                <div class="column_help_tooltip" id="info_image"></div>
