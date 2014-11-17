@@ -6,6 +6,8 @@ module Mjweb
     
     has_many :infos, dependent: :destroy
     has_many :linktiles
+    
+    has_many :link_pages, :class_name => "Page", :foreign_key => "link_page_id"
 
     validates :name, presence: true
     
