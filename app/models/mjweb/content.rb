@@ -4,7 +4,7 @@ module Mjweb
     belongs_to :company
     
     #relationships with models in same engine
-    has_many :imagesettings
+    has_many :imagesettings, dependent: :destroy
     has_many :images, :through => :imagesettings
     belongs_to :tile
     has_one :linktile, dependent: :destroy
