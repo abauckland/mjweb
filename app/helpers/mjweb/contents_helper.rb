@@ -20,7 +20,11 @@ module Mjweb
     def tile_title(content)
       linktile = Linktile.where(:content_id => content.id).first
       if content.tile_id == 10
-        return linktile.title        
+        if linktile.blank?
+          return content.tile.name
+        else
+          return linktile.title 
+        end       
       else  
         return content.tile.name
       end
