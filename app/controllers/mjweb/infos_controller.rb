@@ -29,7 +29,7 @@ module Mjweb
 
     def edit
       @order_ref = @info.order_ref
-      @page_id = params[:page_id]
+      @page_id = @info.page_id
     end
 
     # POST /infos
