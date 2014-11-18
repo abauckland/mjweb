@@ -73,7 +73,7 @@ $small_device: 768px;
   @return ($icon * -400px) + 200px;
 }
 
-$list: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16;
+$list: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16, 17, 18;
 @each $icon in $list {
   .tile_#{$icon}_link_white {@include tile_icons(calculate-white($icon), calculate-white($icon))}
   .tile_#{$icon}_link_black {@include tile_icons(calculate-black($icon), calculate-black($icon))}
