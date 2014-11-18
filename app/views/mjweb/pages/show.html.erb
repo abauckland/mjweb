@@ -5,7 +5,7 @@
             <div id ="feature_tile_<%= i %>" class="feature_tile_item">
                 <div class="feature_sub_tile">                
 			<% if info.image_id %>                    
-				<%= image_tag info.image.image, :border=>0, :class=>"web_content_tile_image" %>
+				<%= image_tag info.image.image_url, :border=>0, :class=>"web_content_tile_image" %>
 			<% end %>
                     <p class="web_content_tile_title"><%= info.title %></p>
                     <p class="web_content_tile_text"><%= info.text %></p> 
@@ -16,7 +16,7 @@
                             </div>
                         </a>
                     <% end %>                 
-                    <% unless info.link_page_id.blank? || info.link_page_id.blank? %>
+                    <% unless info.link_page_id.blank? || info.link_text.blank? %>
                         <a href="<%= page_path(info.link_page_id) %>" target="_blank">
                             <div class="web_page_link_container">
                                 <div class="web_page_link_text"><%= info.link_text %></div>
