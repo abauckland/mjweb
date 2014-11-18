@@ -4,6 +4,8 @@ module Mjweb
     def login_link
       if request.host == "www.myhq.org.uk"
         "<div class='login_container'>#{ link_to 'Log-in', main_app.new_user_session_path, class: 'login_link' }</div>".html_safe
+      else
+        "<div class='login_container_empty'></div>".html_safe      
       end
     end
 

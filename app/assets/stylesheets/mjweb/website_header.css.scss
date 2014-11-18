@@ -28,6 +28,19 @@ $small_device: 768px;
      }  
   }
 
+.login_container_empty{
+  float: right;
+  width: 50px;
+  height: 24px;
+}
+  @media screen and (max-width: $medium_device) {
+    .login_container_empty{
+      height: 34px;
+     }  
+  }
+
+
+
 .login_link{
   @include dark_grey_24_gradient;
   display: inline-block;  
@@ -84,7 +97,7 @@ a.company_logo_link{
 }
 
 
-  @media screen and (max-width: $medium_device) {
+@media screen and (max-width: $medium_device) {
     .company_info_medium{
       display: none;
   }
