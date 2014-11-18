@@ -29,7 +29,7 @@ module Mjweb
 
     def edit
       @order_ref = @info.order_ref
-      @page_id = @info.page_id
+      @page_id = params[:page_id]
     end
 
     # POST /infos
@@ -70,7 +70,7 @@ module Mjweb
 
     def move_up            
       if @info.order_ref >= 2
-        above_row = Info.where(:order_ref => (@info.order_ref - 1)).first      
+        above_row = Info.where(:page_id => @info.page_id, :order_ref => (@info.order_ref - 1)).first      
         above_row.update(:order_ref => @info.order_ref)
         @info.update(:order_ref => @info.order_ref - 1)
       end
@@ -81,7 +81,7 @@ module Mjweb
       info_count = Info.where(:page_id => params[:page_id]).count
             
       if @info.order_ref != info_count
-        next_row = Info.where(:order_ref => (@info.order_ref + 1)).first      
+        next_row = Info.where(:page_id => @info.page_id, :order_ref => (@info.order_ref + 1)).first      
         next_row.update(:order_ref => @info.order_ref)
         @info.update(:order_ref => @info.order_ref + 1)
       end
