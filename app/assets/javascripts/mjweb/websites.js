@@ -52,41 +52,49 @@ function feature_tiling(tile_frame, tile_container, tile, tile_id) {
 	var max_tiles_in_row = window_width/content_tile_width;	
 	var max_tiles_in_row_rounded = roundDown(max_tiles_in_row);
 	
-	if (max_tiles_in_row_rounded == 1){
-		var margin = (window_width - content_tile_width)/2;
-		var sub_margin = 0;
-		$(tile_container).css('margin-left',margin+'px');
-		$(tile).css('margin-left',sub_margin+'px');	
+	if (max_tiles_in_row_rounded == 0){
+		$(tile_container).css('margin-left','20px');
+		$(tile).css('margin-left','0px');	
 	}
 	else
-	{	
-		//number of rows
-		var number_of_rows = n/max_tiles_in_row_rounded;
-		var number_of_rows_rounded = roundDown(number_of_rows);
-		//number in left over (in last row)
-		var number_last_row = (n - (number_of_rows_rounded * max_tiles_in_row_rounded));
+	{
 
-		//width of content block
-		var content_block_width = max_tiles_in_row_rounded * content_tile_width;
-		
-		var last_row_tile_ref = ((n-number_last_row));
-	
-		//set margins if wider than
-		if (number_last_row == 0){
-			var margin = (window_width - content_block_width)/2;
+		if (max_tiles_in_row_rounded == 1){
+			var margin = (window_width - content_tile_width)/2;
 			var sub_margin = 0;
-			
 			$(tile_container).css('margin-left',margin+'px');
 			$(tile).css('margin-left',sub_margin+'px');	
 		}
 		else
-		{
-			var margin = (window_width - content_block_width)/2;
-			var sub_margin = (content_block_width - (number_last_row * content_tile_width))/2;
-			var id = last_row_tile_ref;
+		{	
+			//number of rows
+			var number_of_rows = n/max_tiles_in_row_rounded;
+			var number_of_rows_rounded = roundDown(number_of_rows);
+			//number in left over (in last row)
+			var number_last_row = (n - (number_of_rows_rounded * max_tiles_in_row_rounded));
+	
+			//width of content block
+			var content_block_width = max_tiles_in_row_rounded * content_tile_width;
 			
-			$(tile_container).css('margin-left',margin+'px');
-			$(tile_id + id).css('margin-left',sub_margin+'px');	
+			var last_row_tile_ref = ((n-number_last_row));
+		
+			//set margins if wider than
+			if (number_last_row == 0){
+				var margin = (window_width - content_block_width)/2;
+				var sub_margin = 0;
+				
+				$(tile_container).css('margin-left',margin+'px');
+				$(tile).css('margin-left',sub_margin+'px');	
+			}
+			else
+			{
+				var margin = (window_width - content_block_width)/2;
+				var sub_margin = (content_block_width - (number_last_row * content_tile_width))/2;
+				var id = last_row_tile_ref;
+				
+				$(tile_container).css('margin-left',margin+'px');
+				$(tile_id + id).css('margin-left',sub_margin+'px');	
+			}
 		}
 	}
 }
