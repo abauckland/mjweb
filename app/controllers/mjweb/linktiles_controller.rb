@@ -43,7 +43,7 @@ module Mjweb
     private
       # Only allow a trusted parameter "white list" through.
       def linktile_params
-        params.require(:linktile).permit(:content_id, :title, :icon_id, :page_id, :link_url, :type_id, :tilelists_attributes => [:text])
+        params.require(:linktile).permit(:content_id, :title, :icon_id, :page_id, :link_url, :type_id, :tilelists_attributes => [:id, :text])
       end
   end
 end
