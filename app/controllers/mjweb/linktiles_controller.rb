@@ -15,8 +15,10 @@ module Mjweb
       @linktile = Linktile.where(:id => params[:id]).first
       
       if @linktile.type_id == 3 || @linktile.type_id == 4
-        6.times { @linktile.tilelists.build }
-      end 
+        count = @linktile.tilelists.count
+        total_new = 6 - count
+        total_new .times { @linktile.tilelists.build }
+      end
       
       if @linktile.type_id == 2 || @linktile.type_id == 3      
         @pages = policy_scope(Page)
@@ -30,10 +32,12 @@ module Mjweb
     def update
       @linktile = Linktile.where(:id => params[:id]).first
       if @linktile.update(linktile_params)        
-        if params[:type_id]        
-          @linktile.update(:type_id => params[:type_id])
+        if params[:linktile][:type_id]        
+          @linktile.update(:type_id => params[:linktile][:type_id])
+          redirect_to edit_detail_linktile_path(:id => @linktile.id), notice: 'Tile details were successfully updated.'
+        else        
+          redirect_to contents_path, notice: 'Tile details were successfully updated.'
         end
-        redirect_to edit_detail_linktile_path(:id => @linktile.id), notice: 'Tile details were successfully updated.'
       else
         render :edit
       end
@@ -43,7 +47,7 @@ module Mjweb
     private
       # Only allow a trusted parameter "white list" through.
       def linktile_params
-        params.require(:linktile).permit(:content_id, :title, :icon_id, :page_id, :link_url, :type_id, :tilelists_attributes => [:id, :text])
+        params.require(:linktile).permit(:content_id, :title, :icon_id, :page_id, :link_url, :type_id, :tilelists_attributes => [:id, :linktile_id, :text])
       end
   end
 end

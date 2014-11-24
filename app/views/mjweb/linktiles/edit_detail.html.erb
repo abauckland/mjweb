@@ -65,7 +65,7 @@
                             <%= f.fields_for :tilelists do |builder| %>
                             <div class="column_form_item">
                                 <label class="column_form_label" style="width:80px">List Item:</label>
-                                <div class="column_form_input"><%= builder.text_field :text, :maxlength => 30, :size => 15 %><%= builder.check_box :_destroy %> remove</div>
+                                <div class="column_form_input"><%= builder.text_field :text, :maxlength => 30, :size => 15 %></div>
                                 <div class="column_help_tooltip" id="linktile_title"></div>
                             </div>
                             <% end %>  
@@ -75,7 +75,7 @@
            <div class="column_footer">
                 <div class="column_line"></div>
                 <div class="column_submit"><%= f.submit "save"%></div>
-                <div class="column_cancel"><%= link_to "Back", edit_linktile_path(:id => @linktile.content_id) %></div>
+                <div class="column_cancel"><%= link_to "back", contents_path %></div>
                 <% end %>
            </div>
             
