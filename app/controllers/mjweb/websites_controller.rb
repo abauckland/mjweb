@@ -16,7 +16,7 @@ module Mjweb
     def index
       @contents = Mjweb::Content.where(:company_id => @sub_company.id).order('tile_ref')
       @design = Mjweb::Design.where(:company_id => @sub_company.id).first
-      colour_settings(@design.tile_colour) 
+      colour_settings(@design.tile_colour)
       
       render layout: "mjweb/layouts/website"      
     end
@@ -47,6 +47,29 @@ module Mjweb
       def set_detail
         set_company
         @detail = Mjweb::Detail.where(:company_id =>  @sub_company.id).first
+      end
+
+      def set_company
+        subdomain = request.subdomain(tld_length = 2)
+        domain = request.domain(tld_length = 2)
+        
+        if domain == "myhq.org.uk"
+          if subdomain == 'www'
+            company = ::Company.find_by_sql(["SELECT * FROM companies WHERE id = ?", 1])
+          else
+            company = ::Company.find_by_sql(["SELECT * FROM companies WHERE subdomain = ?", subdomain])
+          end
+        else
+          company = ::Company.find_by_sql(["SELECT * FROM companies WHERE domain = ?", domain])
+        end 
+
+        if company.empty?
+          @sub_company = ::Company.find(1)
+        else
+          selected = company.first
+          company_id = selected[:id]
+          @sub_company = ::Company.find(company_id)
+        end
       end
   
   end

@@ -1,44 +1,60 @@
-<div class="page_title">
-    <h1>Events</h1>
+<div class="row title_band">
+    <div class="page_title">
+        <h1>Events</h1>
+    </div>
+    <div class="title_help" id="events_index"></div>
+    <div><%= link_to "add event", new_event_path, class: "title_button" %></div> 
 </div>
 
- <div class="table_content_with_title">
-    <table>
-      <thead>
-        <tr>
-          <th class="mob_cell">Topic</th>
-          <th class="mob_cell" style="width:40px">Date</th>
-          <th class="tab_cell" style="width:30px">Start</th>
-          <th class="tab_cell" style="width:30px">Finish</th>
-          <th class="tab_cell">Venue</th>
-          <th class="lrg_cell">Address</th>
-          <th class="lrg_cell" style="width:50px">Postcode</th>
-          <th class="lrg_cell">Link URL</th>
-          <th width="20px" class="row_button"><%= link_to "", new_event_path, class: 'line_new_icon', title: "add event" %></th>
-          <th width="20px" class="row_button"></th>
-          <th width="20px" class="row_button"></th>
-        </tr>
-      </thead>
-    </table>
-    <div class="table_container">
-        <table>
-          <tbody>
-            <% @events.each do |event| %>
-              <tr>
-                <td class="mob_cell"><%= event.topic %></td>
-                <td class="mob_cell" style="width:40px"><%= event.date.strftime("%d/%m/%y") %></td>
-                <td class="tab_cell" style="width:30px"><%= event.start.strftime("%k:%M") %></td>
-                <td class="tab_cell" style="width:30px"><%= event.finish.strftime("%k:%M") %></td>
-                <td class="tab_cell"><%= event.venue %></td>
-                <td class="lrg_cell"><%= event.address %></td>
-                <td class="lrg_cell" style="width:50px"><%= event.postcode %></td>
-                <td class="lrg_cell"><%= event.link %></td>
-                <td width="20px" class="row_button"></td>
-                <td width="20px" class="row_button"><%= link_to '', edit_event_path(event), class: 'line_edit_icon', title: "edit event" %></td>
-                <td width="20px" class="row_button"><%= link_to '', event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete event"  %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+<div class="row">
+
+    <div class="col-1-1 column_1">
+        <div class="border">                
+                
+            <%= render :partial => "flash_notice" %>
+
+            <div class="row">                
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="event_topic">Topic</th>
+                            <th class="event_date">Date</th>
+                            <th class="event_start">Start</th>
+                            <th class="event_finish">Finish</th>
+                            <th class="event_venue">Venue</th>
+                            <th class="event_address">Address</th>
+                            <th class="event_postcode">Postcode</th>
+                            <th class="event_link">Link</th>
+                            <th class="row_button no_buttons_2"></th>
+                        </tr>
+                    </thead>
+                </table>
+
+                <table>
+                    <tbody>
+                        <% if @events %>            
+                            <% @events.each do |event| %>
+                                <tr>
+                                    <td class="event_topic"><%= event.topic %></td>
+                                    <td class="event_date"><%= event.date.strftime("%d/%m/%y") %></td>
+                                    <td class="event_start"><%= event.start.strftime("%k:%M") %></td>
+                                    <td class="event_finish"><%= event.finish.strftime("%k:%M") %></td>
+                                    <td class="event_venue"><%= event.venue %></td>
+                                    <td class="event_address"><%= event.address %></td>
+                                    <td class="event_postcode"><%= event.postcode %></td>
+                                    <td class="event_link"><%= event.link %></td>
+                                    <td class="row_button no_buttons_2">
+                                        <%= link_to '', event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete event"  %>
+                                        <%= link_to '', edit_event_path(event), class: 'line_edit_icon', title: "edit event" %>                                       
+                                    </td>
+                                </tr>
+                            <% end %>  
+                        <% end %>
+                    </tbody>
+                </table>
+   
+            </div>
+        </div>
     </div>
+
 </div>

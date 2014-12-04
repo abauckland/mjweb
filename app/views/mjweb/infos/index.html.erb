@@ -1,52 +1,64 @@
-<div class="page_title">
-    <div class="page_title_text">
-        <h1><%= @page.name %> Information</h1>      
-    </div> 
-    <div class="title_help_tooltip" id="page_info_index"></div>     
-    <div class="page_title_button_red"><%= link_to "back to pages", pages_path %> </div>
+<div class="row title_band">
+    <div class="page_title">
+        <h1><%= @page.name %> Information</h1>
+    </div>
+    <div class="title_help" id="page_info_index"></div>       
+    <div><%= link_to "back to pages", pages_path, class: "title_button" %></div>
 </div>
 
-<div class="table_content_with_title">
-    <table>
-      <thead>
-        <tr>
-          <th class="info_order">Order</th>
-          <th class="info_title">Title</th>
-          <th class="info_text">Text</th>
-          <th class="info_link_text">Link text</th>
-          <th class="info_link_url">Link URL</th>
-          <th class="info_link_page">Link Page</th>
-          <th class="info_image">Image</th>
-          <th width="125px">
-            <%= link_to "", new_info_path(:page_id => @page.id), class: 'line_new_icon', title: "new item" %>
-          </th>
-        </tr>
-      </thead>
-    </table>
-    <div class="table_container">
-        <table>
-          <tbody>
-            <% @infos.each do |info| %>
-              <tr>
-                <td class="info_order"><%= info.order_ref %></td>
-                <td class="info_title"><%= info.title %></td>
-                <td class="info_text"><%= info.text %></td>
-                <td class="info_link_text"><%= info.link_text %></td>
-                <td class="info_link_url"><%= info.link_url %></td>
-                <td class="info_link_page"><%= info.link_page.name if info.link_page_id? %></td>
-                <% if info.image_id? %>
-                    <td class="info_image"><%= image_tag(info.image.image_url, {:width => "50px", :height => "50px"}) if info.image_id? %></td>
-                <% end %>
-                <td width="125px" class="row_button">
-                    <%= link_to '', info, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete item"  %>                    
-                    <%= link_to '', edit_info_path(info), class: 'line_edit_icon', title: "edit item"  %>
-                    <%= link_to '', move_down_info_path(info), class: 'line_down_icon', title: "move down" %>
-                    <%= link_to '', move_up_info_path(info), class: 'line_up_icon', title: "move up"  %>
-                    <%= link_to '', info_path(info), class: 'line_show_icon', title: "show item"  %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+<div class="row">
+
+    <div class="col-1-1 column_1">
+        <div class="border">                
+                
+            <%= render :partial => "flash_notice" %>
+
+            <div class="row">                
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="info_order">Order</th>
+                            <th class="info_title">Title</th>
+                            <th class="info_text">Text</th>
+                            <th class="info_link_text">Link text</th>
+                            <th class="info_link_url">Link URL</th>
+                            <th class="info_link_page">Link Page</th>
+                            <th class="info_image">Image</th>
+                            <th class="row_button no_buttons_5">
+                                <%= link_to "", new_info_path(:page_id => @page.id), class: 'line_new_icon', title: "new item" %>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+
+                <table>
+                    <tbody>
+                        <% if @infos %>            
+                            <% @infos.each do |info| %>
+                                <tr>
+                                    <td class="info_order"><%= info.order_ref %></td>
+                                    <td class="info_title"><%= info.title %></td>
+                                    <td class="info_text"><%= info.text %></td>
+                                    <td class="info_link_text"><%= info.link_text %></td>
+                                    <td class="info_link_url"><%= info.link_url %></td>
+                                    <td class="info_link_page"><%= info.link_page.name if info.link_page_id? %></td>
+                                    <td class="info_image"><%= image_tag(info.image.image_url(:thumb)) if info.image_id? %></td>  
+                                    <td class="row_button no_buttons_5">
+                                        <%= link_to '', info, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete item"  %>                    
+                                        <%= link_to '', edit_info_path(info), class: 'line_edit_icon', title: "edit item"  %>
+                                        <%= link_to '', move_down_info_path(info), class: 'line_down_icon', title: "move down" %>
+                                        <%= link_to '', move_up_info_path(info), class: 'line_up_icon', title: "move up"  %>
+                                        <%= link_to '', info_path(info), class: 'line_show_icon', title: "show item"  %>                                         
+                                    </td>
+                                </tr>
+                            <% end %>  
+                        <% end %>
+                    </tbody>
+                </table>
+   
+            </div>
+        </div>
     </div>
+
 </div>
+

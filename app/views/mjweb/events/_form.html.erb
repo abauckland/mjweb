@@ -1,71 +1,89 @@
-<div class="content">
-    <div class="column_1">
-        <div class="column_content">
-            
-            <% if @event.errors.any? %>
-            <div class="column_error">
-            <p><%= pluralize(@event.errors.count, "error") %> prohibited this detail from being saved:</p>
-                  <ul>
-                  <% @event.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                  </ul>
-            </div>
-            <% end %>
+<div class="row">
+    <div class="col-1-3 column_1">
+        <div class="border">
 
-            <div class="column_sub_content">
-                <div class="column_form">
+<!-- error messages - associated with form start--> 
+            <%= render :partial => "form_error", :locals => {:item => @event} %>
+
+<!-- form column start-->
+            <div class="row">
                 <%= form_for(@event) do |f| %>      
-                  <%= f.hidden_field :company_id, :value => current_user.company_id %>
-    
-                        <div class="column_form_item">
-                            <label class="column_form_label" style="width:80px">Topic:</label>                        
-                            <div class="column_form_input"><%= f.text_field :topic %></div>
-                            <div class="column_help_tooltip" id="event_topic"></div> 
-                        </div>
-                        <div class="column_form_item">
-                            <label class="column_form_label" style="width:80px">Date:</label>                        
-                            <div class="column_form_input"><%= f.date_field :date, :start_year => Time.now.year%></div> 
-                        </div>
-                        <div class="column_form_item">
-                            <label class="column_form_label" style="width:80px">Start Time:</label>                        
-                            <div class="column_form_input"><%= f.time_field :start %></div>
-                        </div>
-                        <div class="column_form_item">
-                            <label class="column_form_label" style="width:80px">Finish Time:</label>                        
-                            <div class="column_form_input"><%= f.time_field :finish %></div>
-                        </div>
-                        <div class="column_form_item">
-                            <label class="column_form_label" style="width:80px">Venue:</label>                        
-                            <div class="column_form_input"><%= f.text_field :venue %></div>
-                            <div class="column_help_tooltip" id="event_venue"></div>  
-                        </div>
-                        <div class="column_form_item">
-                            <label class="column_form_label" style="width:80px">Address:</label>                        
-                            <div class="column_form_input"><%= f.text_field :address %></div>
-                            <div class="column_help_tooltip" id="event_address"></div>  
-                        </div>
-                        <div class="column_form_item">
-                            <label class="column_form_label" style="width:80px">Postcode:</label>                        
-                            <div class="column_form_input"><%= f.text_field :postcode %></div>
-                            <div class="column_help_tooltip" id="event_postcode"></div>  
-                        </div>
-                        <div class="column_form_item">
-                            <label class="column_form_label" style="width:80px">Link:</label>                        
-                            <div class="column_form_input"><%= f.url_field :link %></div>
-                            <div class="column_help_tooltip" id="event_link"></div>  
-                        </div>
+                    <%= f.hidden_field :company_id, :value => current_user.company_id %>
+                    <fieldset>
+
+                        <!-- form input[text] --> 
+                        <div class="form_tooltip" id="event_topic"></div>
+                        <label class="label_80">Topic:*</label>
+                        <span>
+                            <%= f.text_field :topic %>
+                        </span></br>
+
+                        <!-- form input[text] -->
+                        <div class="form_tooltip" id="event_date"></div>
+                        <label class="label_80">Date:*</label>
+                        <span>
+                            <%= f.date_field :date, {placeholder: 'dd/mm/yyyy'}%>
+                        </span></br>
+
+                        <!-- form input[text] -->
+                        <div class="form_tooltip" id="event_start_time"></div>
+                        <label class="label_80">Start Time:*</label>
+                        <span>
+                            <%= f.time_field :start, {placeholder: 'hh:mm'} %>
+                        </span></br>
+
+                        <!-- form input[text] -->
+                        <div class="form_tooltip" id="event_start_time"></div>
+                        <label class="label_80">Finish Time:*</label>
+                        <span>
+                            <%= f.time_field :finish, {placeholder: 'hh:mm'} %>
+                        </span></br>
+                        
+                        <!-- form input[text] -->
+                        <div class="form_tooltip" id="event_venue"></div>
+                        <label class="label_80">Venue:*</label>
+                        <span>
+                            <%= f.text_field :venue %>
+                        </span></br>
+
+                        <!-- form input[text] -->
+                        <div class="form_tooltip" id="event_address"></div>
+                        <label class="label_80">Address:*</label>
+                        <span>
+                            <%= f.text_field :address %>
+                        </span></br>
+
+                        <!-- form input[text] -->
+                        <div class="form_tooltip" id="event_postcode"></div>
+                        <label class="label_80">Postcode:*</label>
+                        <span>
+                            <%= f.text_field :postcode %>
+                        </span></br>
+
+                        <!-- form input[url] -->
+                        <div class="form_tooltip" id="event_link"></div>
+                        <label class="label_80">Link:</label>
+                        <span>
+                            <%= f.url_field :link %>
+                        </span></br>
+                        
+                    </fieldset>
+            </div>
+<!-- column footer start--> 
+            <div class="row">
+                <div class="form_footer">
+                    <%= f.submit "save"%>
+                    <%= link_to "cancel", events_path %>
                 </div>
-           </div>     
-                
-           <div class="column_footer">
-                <div class="column_line"></div>
-                <div class="column_submit"><%= f.submit "save"%></div>
                 <% end %>
-           </div>
-            
+            </div>
         </div>
     </div>
-    <div class="column_2 column_2_blank"></div> 
-    <div class="column_3 column_3_blank"></div> 
-</div>   
+
+    <div class="col-1-3 column_2">
+        <div class="border blank_column"></div>
+    </div>
+    <div class="col-1-3 column_3">
+        <div class="border blank_column"></div>
+    </div>
+</div> 

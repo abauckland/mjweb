@@ -3,8 +3,6 @@ class CreateMjwebIcons < ActiveRecord::Migration
     create_table :mjweb_icons do |t|
       t.string :name
       t.string :icon
-      t.string :icon_black
-      t.string :icon_white
 
       t.timestamps
     end

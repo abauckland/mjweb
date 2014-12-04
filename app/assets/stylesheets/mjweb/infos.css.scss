@@ -8,13 +8,13 @@ $tab_sml_menu: 920px;
 $mob_menu: 570px;
 
 //index table 
-.info_order{display: table-cell; width: 40px}
+.info_order{display: table-cell; width: 45px}
 .info_title{display: table-cell; width: 120px}
 .info_text{display: table-cell; width: 400px}
 .info_link_text{display: table-cell; width: 200px}
-.info_link_url{display: table-cell; width: 200px}
+.info_link_url{display: table-cell}
 .info_link_page{display: table-cell; width: 120px}
-.info_image{display: table-cell}
+.info_image{display: table-cell; width: 60px}
 
 
 @media screen and (max-width: $lrg_menu) {

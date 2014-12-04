@@ -2,26 +2,32 @@
     <div class="page_title_text">
         <h1>Image Tile: Selected Image</h1>        
     </div> 
-    <div class="title_help_tooltip" id="page_imagesettings_show"></div>     
+    <div class="title_help_tooltip" id="page_imagesettings_show"></div>
     <% if !@imagesetting %>
-        <div class="page_title_button"><%= link_to 'Add Image', new_imagesetting_path(:content_id => @content.id) %></div>
+        <div><%= link_to 'Add Image', new_imagesetting_path(:content_id => @content.id) %></div>
     <% else %>
-        <div class="page_title_button_red"><%= link_to 'Back', contents_path %></div>
+        <div><%= link_to 'Back', contents_path %></div>
     <% end %>
 </div>
 
+<div class="row">
 
-<div class="image_content_with_title">
-
-    <% if @imagesetting %>                      
-            <div class="web_image_tile">
-                <div class="image"><%= image_tag(@imagesetting.image.image, {:width => "100px", :height => "100px"})%></div>                  
-                <div class="web_image_delete"><%= link_to '', @imagesetting, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete image"  %>
-                </div>
-            </div>  
-    <% else %>
-        <div class="web_image_tile">
-            No images select.
+    <div class="col-1-1 column_1">
+        <div class="border">
+                                        
+        <%= render :partial => "flash_notice" %>                 
+                        
+            <div class="row">
+                <% if @imagesetting %>         
+                        <div class="image_tile">
+                            <%= image_tag(@imagesetting.image.image)%>            
+                            <%= link_to '', @imagesetting, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete image" %>                     
+                        </div>
+                <% else %> 
+                    <p>No images select.</p>
+                <% end %>   
+            </div>
         </div>
-    <% end %>
+    </div>
+
 </div>

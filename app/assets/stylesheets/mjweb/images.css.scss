@@ -13,10 +13,10 @@
   @include border-radius(4px);
   overflow: auto;
   }
-  @media screen and (max-width: $medium_menu) {
+  @media screen and (max-width: $tablet-landscape) {
     .image_content_with_title {top:95px;}
   }
-   @media screen and (max-width: $small_menu) {
+   @media screen and (max-width: $phone-landscape) {
     .image_content_with_title {top:85px;}
   }
 

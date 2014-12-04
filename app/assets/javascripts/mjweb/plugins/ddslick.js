@@ -24,7 +24,7 @@
         attribute_id: "",
         attribute_name: "",
         keepJSONItemsOnTop: false,
-        width: 260,
+        width: 180,
         height: null,
         background: "#eee",
         selectText: "",
@@ -43,10 +43,10 @@
     ddslickCSS = '<style id="css-ddslick" type="text/css">' +
                 '.dd-select{ border-radius:2px; border:solid 1px #ccc; position:relative; cursor:pointer;}' +
                 '.dd-desc { color:#aaa; display:block; overflow: hidden; font-weight:normal; line-height: 1.4em; }' +
-                '.dd-selected{ overflow:hidden; display:block; padding:5px; font-weight:bold;}' +
-                '.dd-pointer{ width:0; height:0; position:absolute; right:10px; top:50%; margin-top:-3px;}' +
-                '.dd-pointer-down{ border:solid 5px transparent; border-top:solid 5px #000; }' +
-                '.dd-pointer-up{border:solid 5px transparent !important; border-bottom:solid 5px #000 !important; margin-top:-8px;}' +
+                '.dd-selected{ overflow:hidden; display:block; padding:8px; font-weight:bold;}' +
+                '.dd-pointer{ width:0; height:0; position:absolute; right:0px; top:50%; margin-top:-3px;}' +
+                '.dd-pointer-down{ border:solid 3px transparent; border-top:solid 3px #000; }' +
+                '.dd-pointer-up{border:solid 3px transparent !important; border-bottom:solid 3px #000 !important; margin-top:-8px;}' +
                 '.dd-options{ border:solid 1px #ccc; border-top:none; list-style:none; box-shadow:0px 1px 5px #ddd; display:none; position:absolute; z-index:2000; margin:0; padding:0;background:#fff; overflow:auto;}' +
                 '.dd-option{ padding:0px; display:block; border-bottom:solid 1px #ddd; overflow:hidden; text-decoration:none; color:#333; cursor:pointer;-webkit-transition: all 0.25s ease-in-out; -moz-transition: all 0.25s ease-in-out;-o-transition: all 0.25s ease-in-out;-ms-transition: all 0.25s ease-in-out; }' +
                 '.dd-options > li:last-child > .dd-option{ border-bottom:none;}' +

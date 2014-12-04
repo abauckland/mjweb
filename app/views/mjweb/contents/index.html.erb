@@ -1,44 +1,53 @@
-<div class="page_title">
-    <div class="page_title_text">
-        <h1>Home Page Content</h1>        
-    </div> 
-    <div class="title_help_tooltip" id="page_content_index"></div>     
+<div class="row title_band">
+    <div class="page_title">
+        <h1>Home Page Content</h1>            
+    </div>
+    <div class="title_help" id="page_content_index"></div>
+    <div><%= link_to "add tile", new_content_path, class: "title_button" %></div>       
 </div>
 
+<div class="row">
+    <div class="col-1-1 column_1">
+        <div class="border">
 
+            <%= render :partial => "flash_notice" %>
+                        
+            <div class="row">
 
- <div class="table_content_with_title">
-    <table>
-      <thead>
-        <tr>
-          <th class="content_order">Order</th>
-          <th class="content_title">Tile Title</th>
-          <th class="content_visibility">Visibility</th>
-          <th class="content_type">Tile Type</th>
-          <th width="100px" class="row_button">
-              <%= link_to "", new_content_path, class: 'line_new_icon', title: "add new tile" %>
-          </th>
-        </tr>
-      </thead>
-    </table>
-    <div class="table_container">
-        <table>
-          <tbody>
-            <% @contents.each do |content| %>
-              <tr>
-                <td class="content_order"><%= content.tile_ref %></td>                
-                <td class="content_title"><%= tile_title(content) %></td>                
-                <td class="content_visibility"><%= content.display %></td>
-                <td class="content_type"><%= content.tile.name %></td>
-                <td width="100px" class="row_button">
-                    <%= link_to '', content, :method => :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete tile"  %>
-                    <%= link_to '', move_up_content_path(content), class: 'line_up_icon', title: "move up"  %>
-                    <%= link_to '', move_down_content_path(content), class: 'line_down_icon', title: "move down" %>
-                    <%= edit_links(content) %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="content_order">Order</th>
+                            <th class="content_title">Tile Title</th>
+                            <th class="content_visibility">Visibility</th>
+                            <th class="content_type">Tile Type</th>
+                            <th class="row_button no_buttons_4"></th>
+                        </tr>
+                    </thead>
+                </table>
+                
+                <table>
+                    <tbody>
+                        <% if @contents%>
+                            <% @contents.each do |content| %>
+                                <tr>
+                                    <td class="content_order"><%= content.tile_ref %></td>                
+                                    <td class="content_title"><%= tile_title(content) %></td>                
+                                    <td class="content_visibility"><%= content.display %></td>
+                                    <td class="content_type"><%= content.tile.name %></td>
+                                    <td class="row_button no_buttons_4">
+                                        <%= link_to '', content, :method => :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete tile"  %>
+                                        <%= link_to '', move_up_content_path(content), class: 'line_up_icon', title: "move up"  %>
+                                        <%= link_to '', move_down_content_path(content), class: 'line_down_icon', title: "move down" %>
+                                        <%= edit_links(content) %>                                    
+                                    </td>
+                                </tr>
+                            <% end %>
+                        <% end %>
+                    </tbody>
+                </table>
+               
+            </div>
+        </div>
     </div>
 </div>

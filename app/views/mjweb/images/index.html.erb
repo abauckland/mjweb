@@ -1,30 +1,40 @@
-<div class="page_title">
-    <div class="page_title_text">
-        <h1>Loaded Images</h1>        
-    </div> 
-    <div class="title_help_tooltip" id="page_images_index"></div>     
-    <div class="page_title_button"><%= link_to 'Upload Image', new_image_path %></div>
+<div class="row title_band">
+    <div class="page_title">
+        <h1>Loaded Images</h1>
+    </div>
+    <div class="title_help_tooltip" id="page_images_index"></div>
+    <div><%= link_to "upload image", new_image_path, class: "title_button" %></div>
 </div>
 
+<div class="row">
 
-<div class="image_content_with_title">
-    <% if @images %>        
-        <% @images.each do |image| %>               
-            <div class="web_image_tile">
-                <div class="image"><%= image_tag(image.image_url, {:width => "100px", :height => "100px"})%></div>                 
-                <% if image_used(image) == false %>
-                    <div class="web_image_delete"><%= link_to '', image, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete image"  %>
-                <% else %>
-                    <div class="web_image_used">In Use</div>
-                <% end %>
+    <div class="col-1-1 column_1">
+        <div class="border">
+                                        
+        <%= render :partial => "flash_notice" %>                 
+                        
+            <div class="row">
+                <% if @images %>        
+                    <% @images.each do |image| %> 
+                        <div class="image_tile">
+                            <%= image_tag(image.image_url)%>
+                            <% if image_used(image) == false %>              
+                                <%= link_to '', image, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete image"  %>
+                            <% else %>
+                                <p>In Use</p>
+                            <% end %>                        
+                        </div>
+                        <% end %>
+                <% else %> 
+                    <p>No images uploaded.</p>
+                <% end %>   
             </div>
-        <% end %>    
-    <% else %>
-        <div class="web_image_tile">
-            No images uploaded.
         </div>
-    <% end %>
+    </div>
+
 </div>
+
+
 
 
     

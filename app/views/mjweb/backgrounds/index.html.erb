@@ -1,21 +1,31 @@
-<div class="page_title">
-    <h1>Loaded Backgrounds</h1>
-    <div class="page_title_button"><%= link_to 'Upload Background', new_background_path %></div>
+<div class="row title_band">
+    <div class="page_title">
+        <h1>Loaded Backgrounds</h1>
+    </div>
+    <div class="title_help" id="background_index"></div>       
+    <div><%= link_to'Upload Background', new_background_path, class: "title_button" %></div>
 </div>
 
-<div class="image_content_with_title">
+<div class="row">
 
-    <% if @backgrounds %>        
-        <% @backgrounds.each do |background| %>               
-            <div class="web_image_tile">
-                <div class="image"><%= image_tag(background.background_url(:thumb), {:width => "100px", :height => "100px"})%></div>                  
-                <div class="web_image_delete"><%= link_to '', background, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete image"  %>
-                </div>
+    <div class="col-1-1 column_1">
+        <div class="border">
+                                        
+        <%= render :partial => "flash_notice" %>                 
+                        
+            <div class="row">
+                <% if @backgrounds %>        
+                    <% @backgrounds.each do |background| %> 
+                        <div class="image_tile">
+                            <%= image_tag(background.background_url(:thumb))%>
+                            <%= link_to '', background, method: :delete, data: { confirm: 'Are you sure?' }, title: "delete image" %>                      
+                        </div>
+                        <% end %>
+                <% else %> 
+                    <p>No background images have been uploaded.</p>
+                <% end %>   
             </div>
-        <% end %>    
-    <% else %>
-        <div class="web_image_tile">
-            No background images have been uploaded.
         </div>
-    <% end %>
+    </div>
+
 </div>

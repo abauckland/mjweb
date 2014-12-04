@@ -17,7 +17,6 @@ module Mjweb
 
     def new
       
-
       @info = Info.new
 
       info_count = Info.where(:page_id => params[:page_id]).count
@@ -74,7 +73,7 @@ module Mjweb
         above_row.update(:order_ref => @info.order_ref)
         @info.update(:order_ref => @info.order_ref - 1)
       end
-      redirect_to infos_path(:id => @info.page_id), notice: 'Item moved up.'     
+      redirect_to infos_path(:id => @info.page_id), notice: 'Item was successfully moved up.'     
     end
 
     def move_down      
@@ -85,7 +84,7 @@ module Mjweb
         next_row.update(:order_ref => @info.order_ref)
         @info.update(:order_ref => @info.order_ref + 1)
       end
-      redirect_to infos_path(:id => @info.page_id), notice: 'Tile moved down.'     
+      redirect_to infos_path(:id => @info.page_id), notice: 'Tile was successfully moved down.'     
     end
 
     private

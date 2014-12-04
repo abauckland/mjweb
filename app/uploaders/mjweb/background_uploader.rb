@@ -3,7 +3,7 @@ module Mjweb
   class BackgroundUploader < CarrierWave::Uploader::Base
 
   #Include RMagick or MiniMagick support:
-  include CarrierWave::RMagick
+#  include CarrierWave::RMagick
   #include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -30,12 +30,12 @@ module Mjweb
   # def scale(width, height)
   #   # do something
   # end
-  process :resize_to_fill => [100, 100]  
+#  process :resize_to_fill => [100, 100]  
 
   # Create different versions of your uploaded files:
-    version :thumb do
-      process :resize_to_fill => [25, 25]
-    end
+#    version :thumb do
+#      process :resize_to_fill => [25, 25]
+#    end
 
 
   # Add a white list of extensions which are allowed to be uploaded.

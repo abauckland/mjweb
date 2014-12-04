@@ -3,15 +3,15 @@
   They will automatically be included in application.css.
 */
 $lrg_menu: 860px;
-$tab_lrg_menu: 720px;
+$tab_lrg_menu: 640px;
 $tab_sml_menu: 540px;
 $mob_menu: 430px;
 
 //index table 
-.content_order{display: table-cell; width: 40px}
+.content_order{display: table-cell; width: 45px}
 .content_type{display: table-cell; width: 120px}
 .content_visibility{display: table-cell; width: 80px}
-.content_title{display: table-cell; width: 150px}
+.content_title{display: table-cell}
 
 @media screen and (max-width: $lrg_menu) {
 

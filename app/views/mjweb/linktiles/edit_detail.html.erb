@@ -1,88 +1,87 @@
-<div class="page_title">
-    <div class="page_title_text">
-        <h1>Edit tile content</h1>        
-    </div> 
-    <div class="title_help_tooltip" id="page_linktiles_edit_detail"></div>     
+<div class="row title_band">
+    <div class="page_title">
+        <h1>Edit Tile Content</h1>
+    </div>
+    <div class="title_help" id="page_linktiles_edit_detail"></div>
 </div>
 
-<div class="content">
-    <div class="column_1">
-        <div class="column_content">
-        
-        <% if @linktile.errors.any? %>
-            <div class="column_error">
-                <p><%= pluralize(@linktile.errors.count, "error") %> prohibited this project from being created</p>
-                <ul>
-                <% @linktile.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                <% end %>
-                </ul>
-            </div>
-        <% end %>
+<div class="row">
+    <div class="col-1-3 column_1">
+        <div class="border">
 
-            <div class="column_sub_content">
-                <div class="column_form">
-                    <%= form_for(@linktile) do |f| %>
-                    <%= f.hidden_field :content_id, :value => @linktile.content_id %>
+<!-- error messages - associated with form start--> 
+            <%= render :partial => "form_error", :locals => {:item => @linktile} %>
 
+<!-- form column start-->
+            <div class="row">
+                <%= form_for(@linktile) do |f| %>
+                    <%= f.hidden_field :content_id, :value => @linktile.content_id %> 
+                    <fieldset>
 
-<% if @linktile.type_id == 1 %>
-
-                            <div class="column_form_item">
-                                <label class="column_form_label" style="width:80px">Link Url:</label>                        
-                                <div class="column_form_input"><%= f.url_field :link_url, :placeholder => "http://www.example.co.uk" %></div>
-                                <div class="column_help_tooltip" id="info_link_url"></div>  
-                            </div>                  
-<% end %>                            
+                        <% if @linktile.type_id == 1 %>
+                            <!-- form input[select] -->   
+                            <div class="form_tooltip" id="info_link_url"></div>
+                            <label class="label_80">Link Url:</label>
+                            <span>
+                               <%= f.url_field :link_url, :placeholder => "http://www.example.co.uk" %>
+                            </span></br>
+                        <% end %>
 
 
-<% if @linktile.type_id == 2 || @linktile.type_id == 3 %>
+                        <% if @linktile.type_id == 2 || @linktile.type_id == 3 %>
+                            <!-- form input[select] -->   
+                            <div class="form_tooltip" id="info_page_link"></div>
+                            <label class="label_80">Page Link:*</label>
+                            <% if @pages.blank? %>
+                                <span>No other pages are available to link.</span></br>
+                            <% else %>
+                            <span>
+                               <%= f.select :page_id, options_for_select(@pages.map{ |c| [c.name, c.id,] }, @linktile.page_id), {:prompt => "Select page to link to...."} %>
+                            </span></br>
+                            <% end %>                               
+                        <% end %>  
 
-                            <div class="column_form_item">
-                                <label class="column_form_label" style="width:80px">Page Link:</label> 
-                                <% if @pages.blank? %>    
-                                    <label class="column_form_input" style="width:80px">No other pages are available to link.</label>                        
-                                <% else %>
-                                    <div class="column_form_input"><%= f.select :page_id, options_for_select(@pages.map{ |c| [c.name, c.id,] }, @linktile.page_id), {:prompt => "Select page to link to...."}, :class => "full_width" %></div>
-                                    <div class="column_help_tooltip" id="info_page_link"></div>                                                                              
-                                <% end %>   
-                            </div>   
-<% end %>  
 
-
-<% if @linktile.type_id == 1 || @linktile.type_id == 2 %>
-
-                            <div class="column_form_item_dd-select">
-                                <label class="column_form_label" style="width:80px">Tile Icon:*</label>
-                                <div class="column_form_input"><%= f.select :icon_id, options_for_select(Mjweb::Icon.all.map{ |c| [c.name, c.id, {'data-imagesrc' => c.icon_url}] }, @linktile.icon_id) %></div>
-                                <div class="column_help_tooltip" id="linktile_icon"></div>
-                            </div>
-<% end %>                             
+                        <% if @linktile.type_id == 1 || @linktile.type_id == 2 %>
+                            <!-- form input[select] -->   
+                            <div class="form_tooltip" id="linktile_icon"></div>
+                            <label class="label_80">Tile Icon:*</label>
+                            <span>
+                               <%= f.select :icon_id, options_for_select(Mjweb::Icon.all.map{ |c| [c.name, c.id, {'data-imagesrc' => c.icon_url}] }, @linktile.icon_id) %>
+                            </span></br>
+                        <% end %>                             
                            
                
-<% if @linktile.type_id == 3 || @linktile.type_id == 4 %>
-
+                        <% if @linktile.type_id == 3 || @linktile.type_id == 4 %>
                             <%= f.fields_for :tilelists do |builder| %>
-                            <div class="column_form_item">
-                                <label class="column_form_label" style="width:80px">List Item:</label>
-                                <div class="column_form_input"><%= builder.text_field :text, :maxlength => 30, :size => 15 %></div>
-                                <div class="column_help_tooltip" id="linktile_title"></div>
-                            </div>
+                                <!-- form input[text] --> 
+                                <div class="form_tooltip" id="linktile_title"></div>
+                                <label class="label_80">List Item:</label>
+                                <span>
+                                    <%= builder.text_field :text, maxlength: 30, class: "maxlength" %>
+                                    <p class="input_note">Maximum of 30 characters</p>
+                                </span></br>
                             <% end %>  
-<% end %>
+                        <% end %>
+
+                    </fieldset>
+            </div>
+<!-- column footer start--> 
+            <div class="row">
+                <div class="form_footer">
+                    <%= f.submit "save"%>
+                    <%= link_to "cancel", contents_path %>
                 </div>
-           </div>
-           <div class="column_footer">
-                <div class="column_line"></div>
-                <div class="column_submit"><%= f.submit "save"%></div>
-                <div class="column_cancel"><%= link_to "back", contents_path %></div>
                 <% end %>
-           </div>
-            
+            </div>
         </div>
     </div>
-    <div class="column_2 column_2_blank"></div> 
-    <div class="column_3 column_3_blank"></div> 
-</div>
-  
+
+    <div class="col-1-3 column_2">
+        <div class="border blank_column"></div>
+    </div>
+    <div class="col-1-3 column_3">
+        <div class="border blank_column"></div>
+    </div>
+</div>  
 

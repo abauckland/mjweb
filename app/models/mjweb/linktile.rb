@@ -12,7 +12,7 @@ module Mjweb
                                   :reject_if => lambda { |attrs| attrs.all? { |key, value| value.blank? } },
                                   :allow_destroy => true
 
-    validates :content_id, presence: true
+    validates :content, presence: true
     
   end
 end

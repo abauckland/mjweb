@@ -1,0 +1,41 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+$lrg_menu: 1060px;
+$tab_lrg_menu: 900px;
+$tab_sml_menu: 760px;
+$mob_menu: 430px;
+
+
+//index table 
+.event_topic{display: table-cell; width: 200px}
+.event_date{display: table-cell; width: 65px}
+.event_start{display: table-cell; width: 45px}
+.event_finish{display: table-cell; width: 45px}
+.event_venue{display: table-cell; width: 150px}
+.event_address{display: table-cell; width: 200px}
+.event_postcode{display: table-cell; width: 70px}
+.event_link{display: table-cell}
+
+@media screen and (max-width: $lrg_menu) {
+.event_topic{display: table-cell; width: 150px}
+.event_venue{display: table-cell; width: 100px}
+.event_address{display: table-cell; width: 150px}
+}
+
+@media screen and (max-width: $tab_lrg_menu) {
+.event_link{display: none}
+}
+  
+@media screen and (max-width: $tab_sml_menu) {
+.event_address{display: none}
+.event_postcode{display: none}
+.event_finish{display: none}
+}
+
+@media screen and (max-width: $mob_menu) {
+.event_start{display: none}
+
+.event_venue{display: none}
+}

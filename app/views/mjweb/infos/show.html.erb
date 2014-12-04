@@ -1,54 +1,66 @@
-<div class="page_title">
-    <h1>Company Details</h1>
+<div class="row title_band">
+    <div class="page_title">
+        <h1>Customers Details</h1>
+    </div>
 </div>
-<div class="content">
-    <div class="column_linked_container">
 
-        <div class="sub_column_linked_1">
-                 <div class="column_content">
-                        <div class="column_form">                      
-                            <div class="column_form_item">
-                                <label class="column_form_label" style="width:40px">Title:</label>                        
-                                <div class="column_form_input"><%= @info.title%></div>
-                            </div>
-                           
-                            <div class="column_form_item">
-                                <label class="column_form_label" style="width:40px">Text:</label>                        
-                                <div class="column_form_input"><%= @info.text %></div>  
-                            </div>
+<div class="row">
+    <div class="col-1-1">
+        <div class="border">
+
+            <%= render :partial => "flash_notice" %>
+    
+            <div class="row">
+                <div class="sub-1-3 column_1">
+                    <article>
+                        <div class="article-set">
+
+                            <!-- show text line --> 
+                            <label class="label_80">Title:</label>
+                            <span><%= @info.title %></span></br>
+    
+                            <!-- show text line --> 
+                            <label class="label_80">Text:</label>
+                            <span><%= @info.text %></span></br>
+
                         </div>
+                    </article>
                 </div>
-        </div>
-         <div class="sub_column_linked_2">
-            <div class="column_content">
-                <div class="column_form">
-    
-                            <div class="column_form_item">
-                                <label class="column_form_label" style="width:100px">Link Text:</label>                        
-                                <div class="column_line_show"><%= @info.link_text %></div>  
-                            </div>
-                            <div class="column_form_item">
-                                <label class="column_form_label" style="width:100px">Link Url:</label>                        
-                                <div class="column_line_show"><%= @info.link_url %></div>  
-                            </div>
-                            <div class="column_form_item">
-                                <label class="column_form_label" style="width:100px">Link to Page:</label>                        
-                                <div class="column_line_show"><%= @info.link_page.name if @info.link_page_id? %></div>   
-                            </div>
-                            <div class="column_form_item">
-                                <label class="column_form_label" style="width:100px">Image:</label>                        
-                                <div class="column_line_show"><%= image_tag(@info.image.image_url, {:width => "50px", :height => "50px"}) if @info.image_id? %></div>
-                            </div>                                       
-                            
+                <div class="sub-1-3 column_2">
+                    <article>
+                        <div class="article-set">
+
+                        <!-- show text line --> 
+                        <label class="label_80">Link Text:</label>
+                        <span><%= @info.link_text %></span></br>
+
+                        <!-- show text line --> 
+                        <label class="label_80">Link Url:</label>
+                        <span><%= @info.link_url %></span></br>
+
+                        <!-- show text line --> 
+                        <label class="label_80">Link to Page:</label>
+                        <span><%= @info.link_page.name if @info.link_page_id? %></span></br>
+
+                        <!-- show text line --> 
+                        <label class="label_80">Image</label>
+                        <span>
+                            <%= image_tag(@info.image.image_url) if @info.image_id? %>                         
+                        </span></br>
+
                         </div>
-                </div>     
-        </div>
-    
-        <div class="sub_column_linked_3"></div>
-        
-        <div class="column_linked_footer">
-            <div class="column_line"></div>
-            <div class="column_cancel"><%= link_to 'Back', infos_path(:id => @info.page_id) %></div>
+                    </article>                                       
+                </div>
+                
+                <div class="sub-1-3 column_3 blank_column">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form_footer">
+                    <%= link_to 'Back', infos_path(:id => @info.page_id) %>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -32,20 +32,25 @@ module Mjweb
     # POST /pages
     def create
       @page = Page.new(page_params)
-
-      if @page.save
-        redirect_to pages_path, notice: 'page was successfully created.'
-      else
-        render :new
+      respond_to do |format|
+        if @page.save
+          format.html { redirect_to pages_path, notice: 'page was successfully created.'}
+        else
+          format.html { render :new }
+          format.json { render json: @page.errors, status: :unprocessable_entity }
+        end
       end
     end
 
     # PATCH/PUT /pages/1
     def update
-      if @page.update(page_params)
-        redirect_to pages_path, notice: 'page was successfully updated.'
-      else
-        render :edit
+      respond_to do |format|
+        if @page.update(page_params)
+          format.html { redirect_to pages_path, notice: 'page was successfully updated.'}
+        else
+          format.html { render :edit }
+          format.json { render json: @page.errors, status: :unprocessable_entity }
+        end
       end
     end
 

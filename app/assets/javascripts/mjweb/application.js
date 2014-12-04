@@ -12,10 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require mjweb/nav.js
-//= require mjweb/columns.js
-//= require mjweb/columns_linked.js
-//= require mjweb/websites.js
-//= require mjweb/qtip2.js
+//= require mjweb/plugins/qtip2.js
+//= require mjweb/plugins/ddslick.js
+//= require mjweb/layouts/grid.js
+//= require mjweb/layouts/columns.js
+//= require mjweb/layouts/help.js
+//= require mjweb/layouts/nav.js
 //= require_tree .
 
