@@ -12,6 +12,7 @@
  *
  *= require_tree ./layouts
  *= require_tree ./plugins
+ *= require_tree ./wwebsite
  *= require_tree .
  *= require_self
  */

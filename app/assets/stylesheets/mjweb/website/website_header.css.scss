@@ -53,6 +53,7 @@ $small_device: 768px;
   text-decoration:none;
   text-align:center;
   cursor:pointer;
+  background: #555;
   &:hover{ 
     background: none;
     background-color: green;
@@ -65,6 +66,11 @@ $small_device: 768px;
   clear:both;
   width: 100%;
   padding: 0px 20px 0px 20px;
+  table{
+  tr{
+    &:hover{background: #fff;}
+    }
+  }
 }
 
 

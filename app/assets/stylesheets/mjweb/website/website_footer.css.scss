@@ -5,6 +5,11 @@ $content_font: Arial,Helvetica,sans-serif;
 .footer_container{
   clear: both;
   padding: 40px 20px 0px 20px;
+  table{
+  tr{
+    &:hover{background: #fff;}
+    }
+  }
 }
 
 .footer_text{ font-family: $content_font;
@@ -19,8 +24,8 @@ a.myhq_icon {
     display: inline-block;
     width: 30px;
     height: 30px;
-    background: asset_url('myhq_logo_small.png');
+    background: asset_url('header_logo.png');
     &:hover{
-      background: asset_url('myhq_logo_small.png');
+      background: asset_url('header_logo.png');
     }
 }
