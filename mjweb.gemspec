@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Mjweb::VERSION
   s.authors     = "Andrew Burton"
   s.email       = "abauckland@gmail.com"
-  s.homepage    = "myhq.org.uk"
+  s.homepage    = "https://myhq.org.uk"
   s.summary     = "Web Application"
   s.description = "Web Application"
   s.license     = "MIT"
