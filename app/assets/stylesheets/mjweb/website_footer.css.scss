@@ -7,7 +7,9 @@ $content_font: Arial,Helvetica,sans-serif;
   padding: 40px 20px 0px 20px;
 }
 
-.footer_text{ font-family: $content_font;
+.footer_container p{
+  float: left;
+  font-family: $content_font;
   font-size: 9px;
   vertical-align:bottom;
   text-align:left;
@@ -15,12 +17,13 @@ $content_font: Arial,Helvetica,sans-serif;
   padding: 0px 0px 3px 5px;
   }
 
-a.myhq_icon {
+.footer_container a{
+    float: left;
     display: inline-block;
     width: 30px;
     height: 30px;
-    background: asset_url('myhq_logo_small.png');
+    background: asset_url('header_logo.png');
     &:hover{
-      background: asset_url('myhq_logo_small.png');
+      background: asset_url('header_logo.png');
     }
 }
