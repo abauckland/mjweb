@@ -4,8 +4,6 @@ $tablet-protrait: 760px;
 $phone-landscape: 480px;
 $phone-protrait: 320px;
 
-@mixin border-radius($var) {-moz-border-radius:$var; -webkit-border-radius:$var; border-radius:$var;}
-
 .image_content_with_title {
   position: absolute;
   top:115px;    
