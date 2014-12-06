@@ -29,7 +29,7 @@
                         <div class="form_tooltip" id="website_background"></div>
                         <label class="label_80">Background:</label>
                         <span>
-                           <%= f.select :background_id, options_for_select(Mjweb::Background.all.map{ |c| [c.name, c.id, {'data-imagesrc' => c.background_url}] }, @design.background_id) %>
+                           <%= f.select :background_id, options_for_select(Mjweb::Background.all.map{ |c| [c.name, c.id, {'data-imagesrc' => c.background_url(:thumb)}] }, @design.background_id) %>
                         </span></br>
 
                         <!-- form input[select] -->   
