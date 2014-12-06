@@ -1,7 +1,6 @@
 #require_dependency "mjweb/application_controller"
 require 'colorist'
 include Colorist
-require_dependency "mjweb/application_controller"
 
 module Mjweb
   class WebsitesController < ApplicationController
