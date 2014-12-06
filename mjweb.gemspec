@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = Mjweb::VERSION
   s.authors     = "Andrew Burton"
   s.email       = "abauckland@gmail.com"
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Mjweb."
-  s.description = "TODO: Description of Mjweb."
+  s.homepage    = "myhq.org.uk"
+  s.summary     = "Web Application"
+  s.description = "Web Application"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
