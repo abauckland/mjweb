@@ -1,6 +1,8 @@
 //core-ui
-@import "layouts/core";
-@import "layouts/buttons";
+$tablet-landscape: 960px;
+$tablet-protrait: 760px;
+$phone-landscape: 480px;
+$phone-protrait: 320px;
 
 .image_content_with_title {
   position: absolute;
