@@ -8,8 +8,6 @@ $large_device: 1200px;
 $medium_device: 992px;
 $small_device: 768px;
 
-@mixin dark_grey_24_gradient {background: image-url('dark_grey_24.png') repeat-x};
-
 //HEADER CSS
 .login_container{
   float: right;
@@ -42,7 +40,7 @@ $small_device: 768px;
 
 
 .login_link{
-  @include dark_grey_24_gradient;
+  background-color: #ccc;  
   display: inline-block;  
   width: 50px;
   height: 22px;
@@ -54,7 +52,6 @@ $small_device: 768px;
   text-align:center;
   cursor:pointer;
   &:hover{ 
-    background: none;
     background-color: green;
     color: #ffffff;
   }
