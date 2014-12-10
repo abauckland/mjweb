@@ -4,64 +4,33 @@ $medium_device: 992px;
 $small_device: 768px;
 
 
-.social_media_container{
-  clear:both;
-  height: 30px; 
-}
-  @media screen and (min-width: $medium_device) {
-    .social_media_container{
-      padding: 10px 20px 0px 0px;
-     }  
+.social_media_links{
+  height: 30px;
+  margin: 20px 20px 10px 20px;
+  padding: 0px 0px 0px 10px;
+  a{
+    float: right;
+    width: 30px;
+    height: 30px;    
   }
-  @media screen and (max-width: $medium_device) {
-    .social_media_container{
-      padding: 10px 20px 0px 0px;
-     } 
-  }  
-
-.social_media_link{
-  float: right; 
-  padding: 0px 0px 0px 5px;
-  background-position:  0px 0px; 
 }
-
 
 a.facebook {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
     background: asset_url('media_icons.png') 0px 0px;
-    &:hover{
-      background: asset_url('media_icons.png') 0px -30px;
-    }
-}
+    &:hover{background: asset_url('media_icons.png') 0px -30px;}
+  }
 
 a.twitter {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
     background: asset_url('media_icons.png') 90px 0px;
-    &:hover{
-      background: asset_url('media_icons.png') 90px -30px;
-    }
-}
+    &:hover{background: asset_url('media_icons.png') 90px -30px;}
+  }
 
 a.googleplus {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
     background: asset_url('media_icons.png') 30px 0px;
-    &:hover{
-      background: asset_url('media_icons.png') 30px -30px;
-    }
-}
+    &:hover{background: asset_url('media_icons.png') 30px -30px;}
+  }
 
 a.linkedin {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
     background: asset_url('media_icons.png') 60px 0px;
-    &:hover{
-      background: asset_url('media_icons.png') 60px -30px;
-    }
-}
+    &:hover{background: asset_url('media_icons.png') 60px -30px;}
+  }

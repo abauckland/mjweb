@@ -59,9 +59,3 @@ a:visited{color: #000;}
 .background_image_8{@extend .background; background: asset_url('background_image_8.png');}
 .background_image_9{@extend .background; background: asset_url('background_image_9.png');}
 .background_image_10{@extend .background; background: asset_url('background_image_10.png');}
-
-.container {
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 1040px; /* or 950px */
-}

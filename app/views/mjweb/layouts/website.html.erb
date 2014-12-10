@@ -51,66 +51,44 @@
     </head>
     
     <body>    
-        <div class="container">    
-        
-        <header>    
-            
-            <%= login_link %>        
-        
-            <div class="company_info_small">    
-                <div class="header_container">   
-                    <a class="company_logo_link" href="<%= websites_path %>">
-                        <div class="company_logo_small"><%= image_tag @detail.company.logo, height: '75'%></div>      
-                    </a>
-                    <% if @detail.tagline %>
-                        <div class="company_tagline_small"> <table><tr><td class="tagline_cell_small"><%= @detail.tagline %></td></tr></table></div> 
-                    <% end %>
-                </div>
+        <div class="grid-container outline">
+
+            <div class="row">
+                <%= link_to('Log-in', nil, class: 'login_link') if request.host != "www.myhq.org.uk" %>
+            </div>
+
+
+            <div class="row header_small">
+                <div class="col-1-1">
+                    <%= link_to (image_tag(@detail.company.logo)), websites_path, class: 'company_logo_link'%>
+                </div> 
+                <div class="col-1-1">
+                    <%= @detail.tagline if @detail.tagline %>
+                </div>    
+            </div>
+
+            <div class="row header_medium">
+                <%= link_to (image_tag(@detail.company.logo)), websites_path, class: 'company_logo_link'%>
+                <%= @detail.tagline if @detail.tagline %>    
             </div>
         
-            <div class="company_info_medium">    
-                <div class="header_container">
-                    <table border="0" cellpadding="0" cellspacing="0" class="company_logo_medium">
-                        <tr>
-                            <td>
-                                <a class="company_logo_link" href="<%= websites_path %>">
-                                    <div class="company_logo_small"><%= image_tag @detail.company.logo, height: '75'%></div>      
-                                </a>                                                                
-                            </td>
-                            <% if @detail.tagline %>
-                                <td class="tagline_cell_medium"><%= @detail.tagline %></td>
-                            <% end %>
-                        </tr>
-                    </table>
-                </div>
-            </div>
         
-            <div class="social_media_container">                  
-                <% if !@detail.facebook.blank? %>
-                    <div class="social_media_link">
-                        <%= link_to " ", @detail.facebook, class: "facebook"%> 
-                    </div>
-                <% end %>
-                <% if !@detail.twitter.blank? %>
-                    <div class="social_media_link">
-                        <%= link_to " ", @detail.twitter, class: "twitter"%> 
-                    </div>
-                <% end %>
-                <% if !@detail.googleplus.blank? %>
-                    <div class="social_media_link">
-                        <%= link_to " ", @detail.googleplus, class: "googleplus"%> 
-                    </div>
-                <% end %>
-                <% if !@detail.linkedin.blank? %>
-                    <div class="social_media_link">
-                        <%= link_to " ", @detail.linkedin, class: "linkedin"%> 
-                    </div>
-                <% end %>  
-            </div>  
-        </header> 
+            <div class="row">
+                <div class="social_media_links">
+                    <%= link_to(" ", @detail.facebook, class: "facebook") if !@detail.facebook.blank?  %> 
+                    <%= link_to(" ", @detail.twitter, class: "twitter") if !@detail.twitter.blank? %> 
+                    <%= link_to(" ", @detail.googleplus, class: "googleplus") if !@detail.googleplus.blank? %> 
+                    <%= link_to( " ", @detail.linkedin, class: "linkedin") if !@detail.linkedin.blank? %> 
+                </div>  
+            </div> 
         
         <%= yield %>
-        <%= render :partial => "footer" %>
+        
+            <div class="row footer">
+                <%= link_to(image_tag('header_logo.png'), "https://www.myhq.org.uk") %>
+                e-business solutions for small businesses.
+            </div>
+             
         </div>        
     </body>
 </html>

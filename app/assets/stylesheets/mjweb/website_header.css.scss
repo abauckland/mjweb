@@ -4,53 +4,21 @@ $content_font: Arial,Helvetica,sans-serif;
 $font_color: #fff;
 
 //same as bootstrap settings
-$large_device: 1200px;
-$medium_device: 992px;
-$small_device: 768px;
+$small_device: 640px;
 
 //HEADER CSS
-.login_container{
+a.login_link{
   float: right;
-  width: 50px;
-  height: 24px;
-    a{color:#eee;}
-    a:hover{
-      color: #fff;
-      text-decoration: none;
-    }
-    a:visited{color: #eee;} 
-}
-  @media screen and (max-width: $medium_device) {
-    .login_container{
-      height: 34px;
-     }  
-  }
-
-.login_container_empty{
-  float: right;
-  width: 50px;
-  height: 24px;
-}
-  @media screen and (max-width: $medium_device) {
-    .login_container_empty{
-      height: 34px;
-     }  
-  }
-
-
-
-.login_link{
-  background-color: #ccc;  
-  display: inline-block;  
-  width: 50px;
-  height: 22px;
-  padding: 2px 0px 0px 0px;
-  color:#ffffff;
+  background-color: #ccc;
+  font-weight: bold;
+  padding: 2px 5px 3px 5px;
+  margin: 0px 20px 10px 0px;
   font-family: $heading_font;
   font-size: 1.2rem;
   text-decoration:none;
   text-align:center;
   cursor:pointer;
+  &:visited{color: #ffffff;}    
   &:hover{ 
     background-color: green;
     color: #ffffff;
@@ -58,53 +26,29 @@ $small_device: 768px;
 }
 
 
-.header_container{
-  clear:both;
-  width: 100%;
+.header_small{
+  display: none;
   padding: 0px 20px 0px 20px;
 }
-
-
-@media screen and (min-width: $medium_device) {
-  .company_info_small{
-    display: none;
+@media screen and (max-width: $small_device) {
+    .header_small{
+      display: block;      
   }
 }
 
-.company_logo_small{
-  height: 75px;
-  width: 100%;
-}
-
-a.company_logo_link{
-  height: 75px;
-  width: 100%;
-}
-
-.company_tagline_small{
-  padding: 10px 0px 0px 0px; 
-}
-
-
-.tagline_cell_small{
-  text-align:center;
+.header_small div{
   font-size: 1.6rem;
-  line-height: 22px;
-  vertical-align: bottom;
+  padding: 0px 10px 0px 10px;
+  text-align: center;
 }
 
 
-@media screen and (max-width: $medium_device) {
-    .company_info_medium{
+.header_medium{
+  font-size: 2.0rem;
+  padding: 0px 20px 0px 20px;
+}
+@media screen and (max-width: $small_device) {
+    .header_medium{
       display: none;
   }
 }
-
-.tagline_cell_medium{
-  font-size: 2.0rem;
-  text-align:left;
-  line-height: 27px;
-  width: 600px;
-  padding: 0px 0px 0px 15px;
-  vertical-align: bottom;
-  }

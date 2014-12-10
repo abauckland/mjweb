@@ -2,28 +2,6 @@
 $content_font: Arial,Helvetica,sans-serif;
 
 //FOOTER CSS
-.footer_container{
-  clear: both;
-  padding: 40px 20px 0px 20px;
-}
-
-.footer_container p{
-  float: left;
-  font-family: $content_font;
-  font-size: 9px;
-  vertical-align:bottom;
-  text-align:left;
-  width: 300px;
-  padding: 0px 0px 3px 5px;
-  }
-
-.footer_container a{
-    float: left;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background: asset_url('header_logo.png');
-    &:hover{
-      background: asset_url('header_logo.png');
-    }
+.footer{
+  margin: 20px 20px 0px 20px;
 }

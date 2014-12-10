@@ -104,7 +104,7 @@ function content_tiling() {
 
 	//total tiles		
 	var tile_width = $('.tile_container').outerWidth();
-	var container = $('.container').width();
+	var container = $('.grid-container').width();
 	var tiles_in_row = container/tile_width;
 	var tiles_in_row_rounded = roundDown(tiles_in_row);	
 	var total_tile_width = (tiles_in_row_rounded*tile_width);
@@ -119,7 +119,7 @@ function content_tiling() {
 
 
 function background_image_1() {
-	var body_height = $('.container').height();
+	var body_height = $('.grid-container').height();
 	var window_height = $(window).height();
 	var window_width = $(window).width();
 	
