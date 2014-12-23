@@ -21,8 +21,6 @@
     //Set defauls for the control
     defaults = {
         data: [],
-        attribute_id: "",
-        attribute_name: "",
         keepJSONItemsOnTop: false,
         width: 180,
         height: null,
@@ -36,8 +34,8 @@
         onSelected: function () { }
     },
 
-//    ddSelectHtml = '<div class="dd-select"><input class="dd-selected-value" type="hidden"  id="design_picture1" name="design[picture1]" /><a class="dd-selected"></a><span class="dd-pointer dd-pointer-down"></span></div>',
-//    ddOptionsHtml = '<ul class="dd-options"></ul>',
+    ddSelectHtml = '<div class="dd-select"><input class="dd-selected-value" type="hidden" /><a class="dd-selected"></a><span class="dd-pointer dd-pointer-down"></span></div>',
+    ddOptionsHtml = '<ul class="dd-options"></ul>',
 
     //CSS for ddSlick
     ddslickCSS = '<style id="css-ddslick" type="text/css">' +
@@ -66,10 +64,6 @@
     methods.init = function (options) {
         //Preserve the original defaults by passing an empty object as the target
         var options = $.extend({}, defaults, options);
-
-    	var ddSelectHtml = '<div class="dd-select"><input class="dd-selected-value" type="hidden"  id="'+options.attribute_id+'" name="'+options.attribute_name+'" /><a class="dd-selected"></a><span class="dd-pointer dd-pointer-down"></span></div>';
-   		var ddOptionsHtml = '<ul class="dd-options"></ul>';
-
 
         //Apply on all selected elements
         return this.each(function () {
@@ -243,9 +237,7 @@
 
         //Update or Set plugin data with new selection
         pluginData.selectedIndex = index;
-//selected line
         pluginData.selectedItem = selectedLiItem;
-//information in dropdown - not used in updating database
         pluginData.selectedData = selectedData;        
 
         //If set to display to full html, add html
