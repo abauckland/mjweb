@@ -1,8 +1,6 @@
 module Mjweb
   class Hour < ActiveRecord::Base
-
-    TIME_REGEXP = /([0-1][0-9]|2[0-3]):[0-5][0-9]/  #format - HH:MM, 24 hours clock only
-
+    
     #relationship with model in main app
     belongs_to :company
 
