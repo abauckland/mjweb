@@ -45,8 +45,6 @@ a.login_link{
 
 .header_medium{
   position:relative;
-  height: 75px;
-  font-size: 2.0rem;
   padding: 0px 20px 0px 20px;
 }
 @media screen and (max-width: $small_device) {
@@ -55,11 +53,17 @@ a.login_link{
   }
 }
 
-.header_medium .logo{
+.header_medium tr{
+  &:hover{ 
+    background-color: none;
+}
+
+td.logo{
   vertical-align: bottom;
 }
 
-.header_medium .text{
+td.tagline{
   width: 100%;
   padding: 0px 50px 0px 10px;
+  font-size: 2.0rem;
 }
