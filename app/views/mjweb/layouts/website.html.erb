@@ -68,10 +68,14 @@
             </div>
 
             <div class="row header_medium">
-                <%= link_to (image_tag(@detail.company.logo)), websites_path, class: 'company_logo_link'%>
-                <%= @detail.tagline if @detail.tagline %>    
+                <table>
+                    <tr>
+                        <td class="logo"><%= link_to (image_tag(@detail.company.logo)), websites_path, class: 'company_logo_link'%></td>
+                        <td class="text"><%= @detail.tagline if @detail.tagline %></td>                        
+                    </tr>
+                </table>     
             </div>
-        
+      
         
             <div class="row">
                 <div class="social_media_links">

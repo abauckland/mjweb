@@ -55,7 +55,11 @@ a.login_link{
   }
 }
 
-.header_medium img{
-  position:absolute;
-  bottom:0;
+.header_medium .logo{
+  vertical-align: bottom;
+}
+
+.header_medium .text{
+  width: 100%;
+  padding: 0px 50px 0px 10px;
 }
