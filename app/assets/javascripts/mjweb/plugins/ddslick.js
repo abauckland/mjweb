@@ -21,6 +21,8 @@
     //Set defauls for the control
     defaults = {
         data: [],
+        attribute_id: "",
+        attribute_name: "",
         keepJSONItemsOnTop: false,
         width: 180,
         height: null,
@@ -34,18 +36,18 @@
         onSelected: function () { }
     },
 
-    ddSelectHtml = '<div class="dd-select"><input class="dd-selected-value" type="hidden" /><a class="dd-selected"></a><span class="dd-pointer dd-pointer-down"></span></div>',
-    ddOptionsHtml = '<ul class="dd-options"></ul>',
+//    ddSelectHtml = '<div class="dd-select"><input class="dd-selected-value" type="hidden"  id="design_picture1" name="design[picture1]" /><a class="dd-selected"></a><span class="dd-pointer dd-pointer-down"></span></div>',
+//    ddOptionsHtml = '<ul class="dd-options"></ul>',
 
     //CSS for ddSlick
     ddslickCSS = '<style id="css-ddslick" type="text/css">' +
                 '.dd-select{ border-radius:2px; border:solid 1px #ccc; position:relative; cursor:pointer;}' +
                 '.dd-desc { color:#aaa; display:block; overflow: hidden; font-weight:normal; line-height: 1.4em; }' +
-                '.dd-selected{ overflow:hidden; display:block; padding:8px; font-weight:bold;}' +
+                '.dd-selected{ overflow:hidden; display:block; padding:4px; font-weight:bold;}' +
                 '.dd-pointer{ width:0; height:0; position:absolute; right:0px; top:50%; margin-top:-3px; margin-right: 6px}' +
                 '.dd-pointer-down{border-left:solid 3px transparent; border-right:solid 3px transparent; border-top:solid 6px #000; padding: 0px;}' +
                 '.dd-pointer-up{border:solid 3px transparent !important; border-bottom:solid 6px #000 !important; margin-top:-6px; padding: 0px;}' +
-                '.dd-options{ border:solid 1px #ccc; border-top:none; list-style:none; box-shadow:0px 1px 5px #ddd; display:none; z-index:2000; margin:0; padding:0;background:#fff; overflow:auto;}' +
+                '.dd-options{ border:solid 1px #ccc; border-top:none; list-style:none; box-shadow:0px 1px 5px #ddd; display:none; position:absolute; top: 200px; left: 100px; z-index:2000; margin:0; padding:0;background:#fff; overflow:auto;}' +
                 '.dd-option{ padding:0px; display:block; border-bottom:solid 1px #ddd; overflow:hidden; text-decoration:none; color:#333; cursor:pointer;-webkit-transition: all 0.25s ease-in-out; -moz-transition: all 0.25s ease-in-out;-o-transition: all 0.25s ease-in-out;-ms-transition: all 0.25s ease-in-out; }' +
                 '.dd-options > li:last-child > .dd-option{ border-bottom:none;}' +
                 '.dd-option:hover{ background:#f3f3f3; color:#000;}' +
@@ -64,6 +66,10 @@
     methods.init = function (options) {
         //Preserve the original defaults by passing an empty object as the target
         var options = $.extend({}, defaults, options);
+
+    	var ddSelectHtml = '<div class="dd-select"><input class="dd-selected-value" type="hidden"  id="'+options.attribute_id+'" name="'+options.attribute_name+'" /><a class="dd-selected"></a><span class="dd-pointer dd-pointer-down"></span></div>';
+   		var ddOptionsHtml = '<ul class="dd-options"></ul>';
+
 
         //Apply on all selected elements
         return this.each(function () {
@@ -237,7 +243,9 @@
 
         //Update or Set plugin data with new selection
         pluginData.selectedIndex = index;
+//selected line
         pluginData.selectedItem = selectedLiItem;
+//information in dropdown - not used in updating database
         pluginData.selectedData = selectedData;        
 
         //If set to display to full html, add html
