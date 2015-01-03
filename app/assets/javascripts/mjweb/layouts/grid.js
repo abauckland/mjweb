@@ -19,8 +19,9 @@ function separate_column_height(tab_lndscp, tab_prtrt) {
 		$('.column_3').find('.border').css('border','none').css('padding','0px');
 	}else{
 		$('.column_1, .column_2, .column_3').height(highestCol+'px');
-		$('.column_1, .column_2, .column_3').find('.border').css('border','solid 1px #888888').css('padding','12px');
-	}	
+		$('.column_1, .column_2, .column_3').find('.border').css('border','solid 1px #888888').css('padding','12px');		
+	};
+		
 };
 
 
