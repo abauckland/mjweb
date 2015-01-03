@@ -6,7 +6,8 @@ jQuery(document).ready(function ($) {
 	    attribute_name: "linktile[icon_id]",
 		width: 85,
 		height: 125,
-		labelWidth: 80
+		labelWidth: 80,
+		selectHeight: 60
 		//ddslick.js has been altered directly to get correct dropdown sise and content and provide parameters required by rails
 	});
 	

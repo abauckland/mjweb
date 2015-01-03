@@ -5,8 +5,9 @@ jQuery(document).ready(function ($) {
 	$('#design_background_id').ddslick({
 		attribute_id: "design_background_id",
 	    attribute_name: "design[background_id]",
-	    width: 180,
-		labelWidth: 80
+	    width: 85,
+		labelWidth: 80,
+		selectHeight: 60
 		//ddslick.js has been altered directly to get correct dropdown sise and content and provide parameters required by rails
 	});
 	
@@ -14,7 +15,8 @@ jQuery(document).ready(function ($) {
 		attribute_id: "design_font_id",
 	    attribute_name: "design[font_id]",
 	    width: 180,
-		labelWidth: 80
+		labelWidth: 80,
+		selectHeight: 40
 		//ddslick.js has been altered directly to get correct dropdown sise and content and provide parameters required by rails
 	});
 

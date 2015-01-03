@@ -5,8 +5,10 @@ jQuery(document).ready(function ($) {
 	$('#info_image_id').ddslick({
 		attribute_id: "info_image_id",
 	    attribute_name: "info[image_id]",
-		width: 100,
-		labelWidth: 80
+		width: 85,
+		height: 125,
+		labelWidth: 80,
+		selectHeight: 60
 		//ddslick.js has been altered directly to get correct dropdown sise and content and provide parameters required by rails
 	});
 

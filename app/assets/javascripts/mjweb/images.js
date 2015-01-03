@@ -2,14 +2,13 @@
 // All this logic will automatically be available in application.js.
 jQuery(document).ready(function ($) {		
 
-	var select_width = 100;
-	var select_height = 200;
-
 	$('#imagesetting_image_id').ddslick({
 		attribute_id: "imagesetting_image_id",
 	    attribute_name: "imagesetting[image_id]",
-		width: select_width,
+		width: 85,
+		height: 125,
 		labelWidth: 80,
+		selectHeight: 60
 		selectText: "Select image...",
 	});		
 });

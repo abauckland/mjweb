@@ -25,6 +25,7 @@
         attribute_name: "",
         keepJSONItemsOnTop: false,
         labelWidth: 80,
+        selectHeight: 60,
         width: 180,
         height: null,
         background: "#eee",
@@ -42,7 +43,7 @@
 
     //CSS for ddSlick
     ddslickCSS = '<style id="css-ddslick" type="text/css">' +
-                '.dd-select{ border-radius:2px; border:solid 1px #ccc; position:relative; cursor:pointer; height: 60px}' +
+                '.dd-select{ border-radius:2px; border:solid 1px #ccc; position:relative; cursor:pointer; height: '+defaults.selectHeight+'px}' +
                 '.dd-desc { color:#aaa; display:block; overflow: hidden; font-weight:normal; line-height: 1.4em; }' +
                 '.dd-selected{ position: absolute; overflow:hidden; padding:4px; font-weight:bold; top: 0px; left: 0px;}' +
                 '.dd-pointer{ width:0; height:0; position:absolute; right:0px; top:50%; margin-top:-3px; margin-right: 6px}' +
