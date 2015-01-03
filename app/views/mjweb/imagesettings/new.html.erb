@@ -18,13 +18,15 @@
                     <%= f.hidden_field :content_id, :value => @content.id %>    
                     <fieldset>
 
-                        <!-- form input[select] -->   
-                        <div class="form_tooltip" id="imagesetting_image"></div>
-                        <label class="label_80">Image:</label>
-                        <span>
-                            <%= f.select :image_id, options_for_select(@images.map{ |c| [c.name, c.id, {'data-imagesrc' => c.image_url(:thumb)}] }), :prompt => "Select Image...." %>
-                        </span></br>  
-
+                        <!-- form input[image-select] -->
+                        <div class="form_image_select">   
+                            <div class="form_tooltip" id="imagesetting_image"></div>
+                            <label class="label_80">Image:</label>
+                            <div>
+                                <%= f.select :image_id, options_for_select(@images.map{ |c| [c.name, c.id, {'data-imagesrc' => c.image_url(:thumb)}] }), :prompt => "Select Image...." %>
+                            </div>  
+                        </div>
+                        
                     </fieldset>
             </div>
 <!-- column footer start--> 

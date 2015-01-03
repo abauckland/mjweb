@@ -6,6 +6,7 @@ jQuery(document).ready(function ($) {
 		attribute_id: "info_image_id",
 	    attribute_name: "info[image_id]",
 		width: 100,
+		labelWidth: 80
 		//ddslick.js has been altered directly to get correct dropdown sise and content and provide parameters required by rails
 	});
 

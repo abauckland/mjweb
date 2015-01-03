@@ -25,20 +25,23 @@
                             <%= f.color_field :tile_colour %>
                         </span></br>
 
-                        <!-- form input[select] -->   
-                        <div class="form_tooltip" id="website_background"></div>
-                        <label class="label_80">Background:</label>
-                        <span>
-                           <%= f.select :background_id, options_for_select(Mjweb::Background.all.map{ |c| [c.name, c.id, {'data-imagesrc' => c.background_url}] }, @design.background_id) %>
-                        </span></br>
-
-                        <!-- form input[select] -->   
-                        <div class="form_tooltip" id="website_font"></div>
-                        <label class="label_80">Title Font:</label>
-                        <span>
-                           <%= f.select :font_id, options_for_select(Mjweb::Font.all.map{ |c| [c.name, c.id, {'data-imagesrc' => c.font_url}] }, @design.font_id) %>
-                        </span></br>
-                       
+                        <!-- form input[image-select] -->
+                        <div class="form_image_select">     
+                            <div class="form_tooltip" id="website_background"></div>
+                            <label class="label_80">Background:</label>
+                            <div>
+                               <%= f.select :background_id, options_for_select(Mjweb::Background.all.map{ |c| [c.name, c.id, {'data-imagesrc' => c.background_url}] }, @design.background_id) %>
+                            </div>
+                        </div>
+                        
+                        <!-- form input[image-select] -->
+                        <div class="form_image_select">   
+                            <div class="form_tooltip" id="website_font"></div>
+                            <label class="label_80">Title Font:</label>
+                            <div>
+                               <%= f.select :font_id, options_for_select(Mjweb::Font.all.map{ |c| [c.name, c.id, {'data-imagesrc' => c.font_url}] }, @design.font_id) %>
+                            </div>
+                        </div>                       
                     </fieldset>
             </div>
 <!-- column footer start--> 

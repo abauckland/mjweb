@@ -15,11 +15,11 @@
 <!-- form column start-->
             <div class="row">
                 <%= form_for(@linktile) do |f| %>
-                    <%= f.hidden_field :content_id, :value => @linktile.content_id %> 
+                    <%= f.hidden_field :content_id, :value => @linktile.content_id %>
                     <fieldset>
 
                         <% if @linktile.type_id == 1 %>
-                            <!-- form input[select] -->   
+                            <!-- form input[select] -->
                             <div class="form_tooltip" id="info_link_url"></div>
                             <label class="label_80">Link Url:</label>
                             <span>
@@ -29,7 +29,7 @@
 
 
                         <% if @linktile.type_id == 2 || @linktile.type_id == 3 %>
-                            <!-- form input[select] -->   
+                            <!-- form input[select] -->
                             <div class="form_tooltip" id="info_page_link"></div>
                             <label class="label_80">Page Link:*</label>
                             <% if @pages.blank? %>
@@ -38,30 +38,32 @@
                             <span>
                                <%= f.select :page_id, options_for_select(@pages.map{ |c| [c.name, c.id,] }, @linktile.page_id), {:prompt => "Select page to link to...."} %>
                             </span></br>
-                            <% end %>                               
-                        <% end %>  
+                            <% end %>
+                        <% end %>
 
 
                         <% if @linktile.type_id == 1 || @linktile.type_id == 2 %>
-                            <!-- form input[select] -->   
-                            <div class="form_tooltip" id="linktile_icon"></div>
-                            <label class="label_80">Tile Icon:*</label>
-                            <span>
-                               <%= f.select :icon_id, options_for_select(Mjweb::Icon.all.map{ |c| [c.name, c.id, {'data-imagesrc' => c.icon_url}] }, @linktile.icon_id) %>
-                            </span></br>
-                        <% end %>                             
+                            <!-- form input[image-select] -->
+                            <div class="form_image_select">                            
+                                <div class="form_tooltip" id="linktile_icon"></div>
+                                <label class="label_80">Tile Icon:*</label>
+                                <div>
+                                   <%= f.select :icon_id, options_for_select(Mjweb::Icon.all.map{ |c| [c.name, c.id, {'data-imagesrc' => c.icon_url}] }, @linktile.icon_id) %>
+                                </div>
+                            </div>
+                        <% end %>
                            
                
                         <% if @linktile.type_id == 3 || @linktile.type_id == 4 %>
                             <%= f.fields_for :tilelists do |builder| %>
-                                <!-- form input[text] --> 
+                                <!-- form input[text] -->
                                 <div class="form_tooltip" id="linktile_title"></div>
                                 <label class="label_80">List Item:</label>
                                 <span>
                                     <%= builder.text_field :text, maxlength: 30, class: "maxlength" %>
                                     <p class="input_note">Maximum of 30 characters</p>
                                 </span></br>
-                            <% end %>  
+                            <% end %>
                         <% end %>
 
                     </fieldset>

@@ -24,6 +24,7 @@
         attribute_id: "",
         attribute_name: "",
         keepJSONItemsOnTop: false,
+        labelWidth: 80,
         width: 180,
         height: null,
         background: "#eee",
@@ -41,9 +42,9 @@
 
     //CSS for ddSlick
     ddslickCSS = '<style id="css-ddslick" type="text/css">' +
-                '.dd-select{ border-radius:2px; border:solid 1px #ccc; position:relative; cursor:pointer;}' +
+                '.dd-select{ border-radius:2px; border:solid 1px #ccc; position:relative; cursor:pointer; height: 60px}' +
                 '.dd-desc { color:#aaa; display:block; overflow: hidden; font-weight:normal; line-height: 1.4em; }' +
-                '.dd-selected{ overflow:hidden; display:block; padding:4px; font-weight:bold;}' +
+                '.dd-selected{ position: absolute; overflow:hidden; padding:4px; font-weight:bold; top: 0px; left: 0px;}' +
                 '.dd-pointer{ width:0; height:0; position:absolute; right:0px; top:50%; margin-top:-3px; margin-right: 6px}' +
                 '.dd-pointer-down{border-left:solid 3px transparent; border-right:solid 3px transparent; border-top:solid 6px #000; padding: 0px;}' +
                 '.dd-pointer-up{border:solid 3px transparent !important; border-bottom:solid 6px #000 !important; margin-top:-6px; padding: 0px;}' +
@@ -55,7 +56,7 @@
                 '.dd-option-selected { background:#f6f6f6; }' +
                 '.dd-option-image, .dd-selected-image { vertical-align:middle; float:left; margin-right:5px; max-width:145px;}' +
                 '.dd-image-right { float:right; margin-right:15px; margin-left:5px;}' +
-                '.dd-container{ position:relative;}​ .dd-selected-text { font-weight:bold}​</style>';
+                '.dd-container{ position:relative; left: '+defaults.labelWidth+'px;}​ .dd-selected-text { font-weight:bold}​</style>';
 
     //CSS styles are only added once.
     if ($('#css-ddslick').length <= 0) {

@@ -9,6 +9,7 @@ jQuery(document).ready(function ($) {
 		attribute_id: "imagesetting_image_id",
 	    attribute_name: "imagesetting[image_id]",
 		width: select_width,
+		labelWidth: 80
 		selectText: "Select image...",
 	});		
 });

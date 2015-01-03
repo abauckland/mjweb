@@ -73,26 +73,28 @@
                            <%= f.select :link_page_id, options_for_select(@pages.map{ |c| [c.name, c.id,] }, @info.link_page_id), {:prompt => "Select page to link to...."} %>
                         </span></br>
                         <% end %>
-                                               
-                        <!-- form input[select] -->   
-                        <div class="form_tooltip" id="info_image"></div>
-                        <label class="label_80">Image*:</label>
-                        <% if @images.blank? %>
-                        <span>
-                           No images available, please upload images before selecting.
-                        </span></br>
-                        <% else %>
-                        <span>
-                           <%= f.select :image_id, options_for_select(@images.map{ |c| [c.name, c.id, {'data-imagesrc' => c.image_url(:thumb)}] }, @info.image_id), :prompt => "Select Image...." %>
-                        </span></br>
-                        <% end %>
+
+                        <!-- form input[image-select] -->
+                        <div class="form_image_select">
+                            <div class="form_tooltip" id="info_image"></div>
+                            <label class="label_80">Image*:</label>
+                            <% if @images.blank? %>
+                            <span>
+                               No images available, please upload images before selecting.
+                            </span></br>
+                            <% else %>
+                            <div>
+                               <%= f.select :image_id, options_for_select(@images.map{ |c| [c.name, c.id, {'data-imagesrc' => c.image_url(:thumb)}] }, @info.image_id), :prompt => "Select Image...." %>
+                            </div>
+                            <% end %>
+                        </div>
 
                     </fieldset>
-                </div>    
+                </div>
                 <div class="sub-1-3 column_2">
                     <fieldset>
 
-                        <!-- form input[text] --> 
+                        <!-- form input[text] -->
                         <div class="form_tooltip" id="customer_notes"></div>
                         <label class="label_80">Description:*</label>
                         <span>
