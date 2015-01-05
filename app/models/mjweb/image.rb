@@ -1,8 +1,6 @@
 module Mjweb
   class Image < ActiveRecord::Base
 
-    IMAGE_REGEXP = /\A[a-zA-Z0-9\W]+\z/ #any characters but no spaces
-
     #relationship with model in main app
     belongs_to :company
     mount_uploader :image, Mjweb::ImageUploader
@@ -12,7 +10,7 @@ module Mjweb
 
     validates :name,
       presence: true,
-      format: { with: IMAGE_REGEXP, message: "please enter an image that doe not contain any spaces" }
+      format: { with: IMAGE_REGEXP, message: "please enter an image name that does not contain any spaces" }
 
   end
 end
