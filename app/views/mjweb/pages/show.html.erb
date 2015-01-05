@@ -1,26 +1,23 @@
 
-    <div class="feature_tile">     
+    <div class="feature_tile">
         <div class="feature_tile_container">
             <% @infos.each_with_index do |info, i|%>
             <div id ="feature_tile_<%= i %>" class="feature_tile_item">
-                <div class="feature_sub_tile">                
-			<% if info.image_id %>                    
+                <div class="feature_sub_tile">
+			<% if info.image_id %>
 				<%= image_tag info.image.image_url, :border=>0, :class=>"web_content_tile_image" %>
 			<% end %>
                     <p class="web_content_tile_title"><%= info.title %></p>
-                    <p class="web_content_tile_text"><%= info.text %></p> 
-                    
-                    <% if info.link_text.blank? %>
-                    
-                    
-                    
+                    <p class="web_content_tile_text"><%= info.text %></p>
+
+                    <% unless info.link_text.blank? %>
                         <% unless info.link_url.blank? %>
                             <a class="web_page_link" href="<%= info.link_url %>" target="_blank">
                                 <div class="web_page_link_container">
                                     <div class="web_page_link_text"><%= info.link_text %></div>
                                 </div>
                             </a>
-                        <% end %>                 
+                        <% end %>
                         <% unless info.link_page_id.blank? %>
                             <a href="<%= page_path(info.link_page_id) %>" target="_blank">
                                 <div class="web_page_link_container">
@@ -28,9 +25,9 @@
                                 </div>
                             </a>
                         <% end %>
-                    <% end %>   
+                    <% end %>
                 </div>
             </div>
-            <% end %>       
-        </div>            
-    </div>    
+            <% end %>
+        </div>
+    </div>
