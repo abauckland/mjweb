@@ -10,9 +10,7 @@ module Mjweb
     has_many :imagesettings#, inverse_of: :image
     has_many :infos#, inverse_of: :image
 
-    validates :name, presence: true
-
-    validates :image,
+    validates :name,
       presence: true,
       format: { with: IMAGE_REGEXP, message: "please enter an image that doe not contain any spaces" }
 

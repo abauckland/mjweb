@@ -8,7 +8,7 @@ jQuery(document).ready(function ($) {
 		width: 85,
 		height: 125,
 		labelWidth: 80,
-		selectHeight: 60
+		selectHeight: 60,
 		selectText: "Select image...",
 	});		
 });

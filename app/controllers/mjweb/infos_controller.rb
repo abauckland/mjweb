@@ -3,8 +3,8 @@ require_dependency "mjweb/application_controller"
 module Mjweb
   class InfosController < ApplicationController
     before_action :set_info, only: [:show, :edit, :update, :destroy, :move_up, :move_down]
-    before_action :get_images, only: [:new, :edit]
-    before_action :get_pages, only: [:new, :edit]
+    before_action :get_images, only: [:new, :edit, :update, :create]
+    before_action :get_pages, only: [:new, :edit, :update, :create]
 
     def index
       @infos = Info.where(:page_id => params[:id]).order('order_ref')

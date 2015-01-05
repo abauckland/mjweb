@@ -16,7 +16,7 @@ jQuery(document).ready(function ($) {
 	    attribute_name: "design[font_id]",
 	    width: 180,
 		labelWidth: 80,
-		selectHeight: 40
+		selectHeight: 30
 		//ddslick.js has been altered directly to get correct dropdown sise and content and provide parameters required by rails
 	});
 
