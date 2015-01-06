@@ -54,7 +54,7 @@
         <div class="grid-container outline">
 
             <div class="row">
-                <%= link_to('Log-in', main_app.new_user_session_path, class: 'login_link') if request.host != "www.myhq.org.uk" %>
+                <%= link_to('Log-in', main_app.new_user_session_path, class: 'login_link') if request.host == "www.myhq.org.uk" %>
             </div>
 
 
