@@ -45,7 +45,7 @@
                         <!-- show text line --> 
                         <label class="label_80">Image</label>
                         <span>
-                            <%= image_tag(@info.image.image_url) if @info.image_id? %>                         
+                            <%= image_tag(@info.image.image_url(:thumb)) if @info.image_id? %>                         
                         </span></br>
 
                         </div>
