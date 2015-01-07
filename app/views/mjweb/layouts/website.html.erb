@@ -50,7 +50,7 @@
       </style>
     </head>
     
-    <body>    
+    <body>
         <div class="grid-container outline">
 
             <div class="row">
@@ -61,10 +61,10 @@
             <div class="row header_small">
                 <div class="col-1-1">
                     <%= link_to (image_tag(@detail.company.logo)), websites_path, class: 'company_logo_link'%>
-                </div> 
+                </div>
                 <div class="col-1-1">
                     <%= @detail.tagline if @detail.tagline %>
-                </div>    
+                </div>
             </div>
 
             <div class="row header_medium">
@@ -73,26 +73,27 @@
                         <td class="logo"><%= link_to (image_tag(@detail.company.logo)), websites_path, class: 'company_logo_link'%></td>
                         <td class="tagline"><%= @detail.tagline if @detail.tagline %></td>                        
                     </tr>
-                </table>     
+                </table>
             </div>
-      
-        
+
             <div class="row">
                 <div class="social_media_links">
-                    <%= link_to(" ", @detail.facebook, class: "facebook") if !@detail.facebook.blank?  %> 
-                    <%= link_to(" ", @detail.twitter, class: "twitter") if !@detail.twitter.blank? %> 
-                    <%= link_to(" ", @detail.googleplus, class: "googleplus") if !@detail.googleplus.blank? %> 
-                    <%= link_to( " ", @detail.linkedin, class: "linkedin") if !@detail.linkedin.blank? %> 
-                </div>  
-            </div> 
-        
-        <%= yield %>
-        
+                    <%= link_to(" ", @detail.facebook, class: "facebook") if !@detail.facebook.blank?  %>
+                    <%= link_to(" ", @detail.twitter, class: "twitter") if !@detail.twitter.blank? %>
+                    <%= link_to(" ", @detail.googleplus, class: "googleplus") if !@detail.googleplus.blank? %>
+                    <%= link_to( " ", @detail.linkedin, class: "linkedin") if !@detail.linkedin.blank? %>
+                </div>
+            </div>
+
+            <div class="row">
+                <%= yield %>
+            </div>
+            
             <div class="row footer">
                 <%= link_to(image_tag('header_logo.png'), "https://www.myhq.org.uk") %>
                 e-business solutions for small businesses.
             </div>
-             
-        </div>        
+
+        </div>
     </body>
 </html>
