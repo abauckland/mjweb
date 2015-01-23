@@ -26,8 +26,6 @@ function InfiniteRotator(tile) {
 };
 
 
-
-
 function roundDown(x) {
 	//rounds number up to next number
 	if (x < x.toFixed(0)) {
@@ -38,7 +36,6 @@ function roundDown(x) {
 	}
 	return x;
 }
-
 
 
 //function content_tiling(tile_name, container_name){
@@ -104,14 +101,14 @@ function content_tiling() {
 
 	//total tiles		
 	var tile_width = $('.tile_container').outerWidth();
-	var container = $('.grid-container').width();
+	var container = $('row web_tiles').width();
 	var tiles_in_row = container/tile_width;
 	var tiles_in_row_rounded = roundDown(tiles_in_row);	
 	var total_tile_width = (tiles_in_row_rounded*tile_width);
 
-	var margin = (container - total_tile_width)/2 -20;
+	var margin = (container - total_tile_width)/2;
 	if (margin <= 0){
-	 margin = 0	
+	 margin = 0;	
 	}
 	
 	$('.web_content').css('margin-left',margin+'px');
@@ -160,7 +157,7 @@ $(document).ready(function(){
 
 
 
-	$("div.help_tooltip").qtip({ // Grab some elements to apply the tooltip to
+	$("div.help_tooltip").qtip({
 
 	    show: 'click',
 	    hide: 'unfocus',
@@ -170,7 +167,7 @@ $(document).ready(function(){
 	            $.ajax({
 	                url: 'http://www.myhq.org.uk/helps/'+$(this).attr('id'),
 	                type: 'GET', // POST or GET
-	                dataType: 'html',
+	                dataType: 'html'
 	            })
 	            .then(function(content) {
 	                // Now we set the content manually (required!)
@@ -182,11 +179,11 @@ $(document).ready(function(){
 	            return 'Loading...';
 	       }
 	    },
-	        position: {
-	        my: 'top center',  // Position my top left...
-	        at: 'bottom center', // at the bottom right of...
+	    position: {
+	      my: 'top center',  // Position my top left...
+	      at: 'bottom center' // at the bottom right of...
 	    }
-	})
+	});
 
 
 
