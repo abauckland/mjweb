@@ -8,7 +8,7 @@
     <div class="col-1-1">
         <div class="border">
 
-            <%= render :partial => "form_error", :locals => {:item => @hour} %>
+
 
             <%= form_for(@hour) do |f| %>
             <div class="row">
@@ -21,13 +21,13 @@
                         <!-- form input[select] -->
                         <div class="form_tooltip" id="hours_open_status"></div>
                         <label class="label_120">Opening Status:</label>
-                        <span><%= f.select :monday_status, options_for_select(["Open", "Closed"], @hour.monday_status)%></span></br>
+                        <span><%= f.select :monday_status, options_for_select(["Open", "Closed"], selected: @hour.monday_status)%></span></br>
                         <!-- form input[time] -->
                         <label class="label_80">Opening Time:</label>
                         <span><%= f.time_field :monday_open %></span></br>
                         <!-- form input[time] -->
                         <label class="label_80">Closing Time:</label>
-                        <span><%= f.time_field :monday_close, {placeholder: 'hh:mm'} %></span></br>
+                        <span><%= f.time_field :monday_close %></span></br>
 
                         <!-- form title -->
                         <div class="row">
@@ -36,13 +36,13 @@
                         <!-- form input[select] -->
                         <div class="form_tooltip" id="hours_open_status"></div>
                         <label class="label_120">Opening Status:</label>
-                        <span><%= f.select :tuesday_status, options_for_select(["Open", "Closed"], @hour.tuesday_status)%></span></br>
+                        <span><%= f.select :tuesday_status, options_for_select(["Open", "Closed"], selected: @hour.tuesday_status)%></span></br>
                         <!-- form input[time] -->
                         <label class="label_80">Opening Time:</label>
-                        <span><%= f.time_field :tuesday_open, {placeholder: 'hh:mm'} %></span></br>
+                        <span><%= f.time_field :tuesday_open %></span></br>
                         <!-- form input[time] -->
                         <label class="label_80">Closing Time:</label>
-                        <span><%= f.time_field :tuesday_close, {placeholder: 'hh:mm'} %></span></br>
+                        <span><%= f.time_field :tuesday_close %></span></br>
 
                         <!-- form title -->
                         <div class="row">
@@ -51,13 +51,13 @@
                         <!-- form input[select] -->
                         <div class="form_tooltip" id="hours_open_status"></div>
                         <label class="label_120">Opening Status:</label>
-                        <span><%= f.select :wednesday_status, options_for_select(["Open", "Closed"], @hour.wednesday_status)%></span></br>
+                        <span><%= f.select :wednesday_status, options_for_select(["Open", "Closed"], selected: @hour.wednesday_status)%></span></br>
                         <!-- form input[time] -->
                         <label class="label_80">Opening Time:</label>
-                        <span><%= f.time_field :wednesday_open, {placeholder: 'hh:mm'} %></span></br>
+                        <span><%= f.time_field :wednesday_open %></span></br>
                         <!-- form input[time] -->
                         <label class="label_80">Closing Time:</label>
-                        <span><%= f.time_field :wednesday_close, {placeholder: 'hh:mm'} %></span></br>  
+                        <span><%= f.time_field :wednesday_close %></span></br>  
 
 
                     </fieldset>
@@ -72,13 +72,13 @@
                         <!-- form input[select] -->
                         <div class="form_tooltip" id="hours_open_status"></div>
                         <label class="label_120">Opening Status:</label>
-                        <span><%= f.select :monday_status, options_for_select(["Open", "Closed"], @hour.monday_status)%></span></br>
+                        <span><%= f.select :thursday_status, options_for_select(["Open", "Closed"], selected: @hour.monday_status)%></span></br>
                         <!-- form input[time] -->
                         <label class="label_80">Opening Time:</label>
-                        <span><%= f.time_field :monday_open, {placeholder: 'hh:mm'} %></span></br>
+                        <span><%= f.time_field :thursday_open %></span></br>
                         <!-- form input[time] -->
                         <label class="label_80">Closing Time:</label>
-                        <span><%= f.time_field :monday_close, {placeholder: 'hh:mm'} %></span></br>
+                        <span><%= f.time_field :thursday_close %></span></br>
 
                         <!-- form title -->
                         <div class="row">
@@ -87,13 +87,13 @@
                         <!-- form input[select] -->
                         <div class="form_tooltip" id="hours_open_status"></div>
                         <label class="label_120">Opening Status:</label>
-                        <span><%= f.select :friday_status, options_for_select(["Open", "Closed"], @hour.friday_status)%></span></br>
+                        <span><%= f.select :friday_status, options_for_select(["Open", "Closed"], selected: @hour.friday_status)%></span></br>
                         <!-- form input[time] -->
                         <label class="label_80">Opening Time:</label>
-                        <span><%= f.time_field :friday_open, {placeholder: 'hh:mm'} %></span></br>
+                        <span><%= f.time_field :friday_open %></span></br>
                         <!-- form input[time] -->
                         <label class="label_80">Closing Time:</label>
-                        <span><%= f.time_field :friday_close, {placeholder: 'hh:mm'} %></span></br>
+                        <span><%= f.time_field :friday_close %></span></br>
 
                         <!-- form title -->
                         <div class="row">
@@ -102,13 +102,13 @@
                         <!-- form input[select] -->
                         <div class="form_tooltip" id="hours_open_status"></div>
                         <label class="label_120">Opening Status:</label>
-                        <span><%= f.select :saturday_status, options_for_select(["Open", "Closed"], @hour.saturday_status)%></span></br>
+                        <span><%= f.select :saturday_status, options_for_select(["Open", "Closed"], selected: @hour.saturday_status)%></span></br>
                         <!-- form input[time] -->
                         <label class="label_80">Opening Time:</label>
-                        <span><%= f.time_field :saturday_open, {placeholder: 'hh:mm'} %></span></br>
+                        <span><%= f.time_field :saturday_open %></span></br>
                         <!-- form input[time] -->
                         <label class="label_80">Closing Time:</label>
-                        <span><%= f.time_field :saturday_close, {placeholder: 'hh:mm'} %></span></br>
+                        <span><%= f.time_field :saturday_close %></span></br>
 
                     </fieldset>
                 </div>
@@ -126,10 +126,10 @@
                         <span><%= f.select :sunday_status, options_for_select(["Open", "Closed"], @hour.sunday_status)%></span></br>
                         <!-- form input[time] -->
                         <label class="label_80">Opening Time:</label>
-                        <span><%= f.time_field :sunday_open, {placeholder: 'hh:mm'} %></span></br>
+                        <span><%= f.time_field :sunday_open %></span></br>
                         <!-- form input[time] -->
                         <label class="label_80">Closing Time:</label>
-                        <span><%= f.time_field :sunday_close, {placeholder: 'hh:mm'} %></span></br>
+                        <span><%= f.time_field :sunday_close %></span></br>
 
                     </fieldset>
                 </div>
