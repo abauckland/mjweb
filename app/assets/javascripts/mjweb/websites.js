@@ -27,12 +27,15 @@ function InfiniteRotator(tile) {
 
 
 function roundDown(x) {
-	//rounds number up to next number
-	if (x < x.toFixed(0)) {
-		var n = x.toFixed(0);
-		x = +n - 1;
+	//rounds number down to next number	
+	var n = x.toFixed(0);
+	// 4.2 => 4
+	// 4.6 => 5
+
+	if (x > n) {
+	 x = n; // 4.2 => 4
 	}else{
-		x = x.toFixed(0);
+	 x = n - 1; // 4.6 => 4
 	}
 	return x;
 }
