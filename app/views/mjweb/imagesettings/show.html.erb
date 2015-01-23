@@ -1,13 +1,13 @@
-<div class="page_title">
-    <div class="page_title_text">
-        <h1>Image Tile: Selected Image</h1>        
-    </div> 
+<div class="row title_band">
+    <div class="page_title">
+        <h1>Image Tile: Selected Image</h1>
+    </div>
+    <div class="title_help" id="page_imagesettings_new"></div>
     <div class="title_help_tooltip" id="page_imagesettings_show"></div>
     <% if @imagesetting %>
         <div><%= link_to 'Back', contents_path %></div>
     <% else %>
-        <div><%= link_to 'Add Image', new_imagesetting_path(:content_id => @content.id) %></div>
-
+        <div><%= link_to 'Add Image', new_imagesetting_path(:content_id => @content.id), class: "title_button"  %></div>
     <% end %>
 </div>
 
