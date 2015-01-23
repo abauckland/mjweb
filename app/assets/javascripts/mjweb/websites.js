@@ -112,7 +112,7 @@ function content_tiling(y) {
 //	var n = x.toFixed(0);
 	// 4.2 => 4
 	// 4.6 => 5
-	var x = y;
+	var x = (y)/200;
 	if (x > x.toFixed(0)) {
 	 x = x.toFixed(0); // 4.2 => 4
 	}else{
@@ -121,7 +121,7 @@ function content_tiling(y) {
 	return x;
 
 	var margin = (y - (x*200))/2;	
-	$('.web_content').css('margin-left', margin+'px');
+	$('.web_tiles').css('margin-left', margin+'px');
 }
 
 
@@ -148,10 +148,10 @@ $(document).ready(function(){
 		background_image_1();
 	});
 
-	var y = ($('div.row.web_tiles').outerWidth())/200;
+	var y = $('.grid-container').outerWidth();
 	content_tiling(y);
 	$(window).resize(function(){
-		var x = ($('div.row.web_tiles').outerWidth())/200;
+		var y = $('.grid-container').outerWidth();
 		content_tiling(y);
 	});
 	
