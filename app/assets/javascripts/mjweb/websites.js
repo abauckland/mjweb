@@ -99,12 +99,12 @@ function feature_tiling(tile_frame, tile_container, tile, tile_id) {
 }
 
 
-function content_tiling() {
+function content_tiling(y) {
 
 	//total tiles		
 //	var tile_width = $('.tile_container').outerWidth();
 //	var container = $('web_tiles').outerWidth()-40;
-	var x = ($('div.row.web_tiles').outerWidth())/200;
+//	var x = ($('div.row.web_tiles').outerWidth())/200;
 //	var x = container/200;
 //	var tiles_in_row_rounded = roundDown(tiles_in_row);	
 //	var total_tile_width = (tiles_in_row_rounded*200);
@@ -112,7 +112,7 @@ function content_tiling() {
 //	var n = x.toFixed(0);
 	// 4.2 => 4
 	// 4.6 => 5
-
+	var x = y;
 	if (x > x.toFixed(0)) {
 	 x = x.toFixed(0); // 4.2 => 4
 	}else{
@@ -120,7 +120,7 @@ function content_tiling() {
 	}
 	return x;
 
-	var margin = (($('div.row.web_tiles').outerWidth()) - (x*200))/2;	
+	var margin = (y - (x*200))/2;	
 	$('.web_content').css('margin-left', margin+'px');
 }
 
@@ -148,10 +148,11 @@ $(document).ready(function(){
 		background_image_1();
 	});
 
-	
-	content_tiling();
+	var y = ($('div.row.web_tiles').outerWidth())/200;
+	content_tiling(y);
 	$(window).resize(function(){
-		content_tiling();
+		var x = ($('div.row.web_tiles').outerWidth())/200;
+		content_tiling(y);
 	});
 	
 	//responsive layout of content
