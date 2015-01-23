@@ -103,28 +103,25 @@ function content_tiling() {
 
 	//total tiles		
 //	var tile_width = $('.tile_container').outerWidth();
-	var container = $('web_tiles').outerWidth()-40;
-	var x = container/200;
+//	var container = $('web_tiles').outerWidth()-40;
+	var x = ($('div.row.web_tiles').outerWidth())/200;
+//	var x = container/200;
 //	var tiles_in_row_rounded = roundDown(tiles_in_row);	
-	var total_tile_width = (tiles_in_row_rounded*200);
+//	var total_tile_width = (tiles_in_row_rounded*200);
 
-	var n = x.toFixed(0);
+//	var n = x.toFixed(0);
 	// 4.2 => 4
 	// 4.6 => 5
 
-	if (x > n) {
-	 x = n; // 4.2 => 4
+	if (x > x.toFixed(0)) {
+	 x = x.toFixed(0); // 4.2 => 4
 	}else{
-	 x = n - 1; // 4.6 => 4
+	 x = x.toFixed(0) - 1; // 4.6 => 4
 	}
 	return x;
 
-	var margin = (container - (x*200))/2;
-//	if (margin <= 0){
-//	 margin = 0;	
-//	}
-	
-	$('.web_content').css('margin-left',margin+'px');
+	var margin = (($('div.row.web_tiles').outerWidth()) - (x*200))/2;	
+	$('.web_content').css('margin-left', margin+'px');
 }
 
 
