@@ -112,14 +112,14 @@ function content_tiling(y) {
 //	var n = x.toFixed(0);
 	// 4.2 => 4
 	// 4.6 => 5
-	var x = (y)/200;
+	var x = (y-40)/200;
 	if (x > x.toFixed(0)) {
 	 x = x.toFixed(0); // 4.2 => 4
 	}else{
 	 x = x.toFixed(0) - 1; // 4.6 => 4
 	}
 
-	$('.web_tiles').css('margin-left', (y-(x*200))/2 +'px');
+	$('.web_tiles').css('margin-left', (((y-40)-(x*200))/2) +'px');
 }
 
 
