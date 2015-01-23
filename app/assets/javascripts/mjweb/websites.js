@@ -55,7 +55,6 @@ function feature_tiling(tile_frame, tile_container, tile, tile_id) {
 	}
 	else
 	{
-
 		if (max_tiles_in_row_rounded == 1){
 			var margin = (window_width - content_tile_width)/2;
 			var sub_margin = 0;
@@ -100,16 +99,16 @@ function feature_tiling(tile_frame, tile_container, tile, tile_id) {
 function content_tiling() {
 
 	//total tiles		
-	var tile_width = $('.tile_container').outerWidth();
-	var container = $('row web_tiles').width();
-	var tiles_in_row = container/tile_width;
+//	var tile_width = $('.tile_container').outerWidth();
+	var container = $('web_tiles').outerWidth()-40;
+	var tiles_in_row = container/200;
 	var tiles_in_row_rounded = roundDown(tiles_in_row);	
-	var total_tile_width = (tiles_in_row_rounded*tile_width);
+	var total_tile_width = (tiles_in_row_rounded*200);
 
 	var margin = (container - total_tile_width)/2;
-	if (margin <= 0){
-	 margin = 0;	
-	}
+//	if (margin <= 0){
+//	 margin = 0;	
+//	}
 	
 	$('.web_content').css('margin-left',margin+'px');
 }
