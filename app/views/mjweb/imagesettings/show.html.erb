@@ -3,10 +3,11 @@
         <h1>Image Tile: Selected Image</h1>        
     </div> 
     <div class="title_help_tooltip" id="page_imagesettings_show"></div>
-    <% if !@imagesetting %>
-        <div><%= link_to 'Add Image', new_imagesetting_path(:content_id => @content.id) %></div>
-    <% else %>
+    <% if @imagesetting %>
         <div><%= link_to 'Back', contents_path %></div>
+    <% else %>
+        <div><%= link_to 'Add Image', new_imagesetting_path(:content_id => @content.id) %></div>
+
     <% end %>
 </div>
 
