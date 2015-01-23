@@ -118,10 +118,8 @@ function content_tiling(y) {
 	}else{
 	 x = x.toFixed(0) - 1; // 4.6 => 4
 	}
-	return x;
 
-	var margin = (y - (x*200))/2;	
-	$('.web_tiles').css('margin-left', margin+'px');
+	$('.web_tiles').css('margin-left', (y-(x*200))/2 +'px');
 }
 
 
