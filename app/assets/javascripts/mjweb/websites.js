@@ -104,11 +104,22 @@ function content_tiling() {
 	//total tiles		
 //	var tile_width = $('.tile_container').outerWidth();
 	var container = $('web_tiles').outerWidth()-40;
-	var tiles_in_row = container/200;
-	var tiles_in_row_rounded = roundDown(tiles_in_row);	
+	var x = container/200;
+//	var tiles_in_row_rounded = roundDown(tiles_in_row);	
 	var total_tile_width = (tiles_in_row_rounded*200);
 
-	var margin = (container - total_tile_width)/2;
+	var n = x.toFixed(0);
+	// 4.2 => 4
+	// 4.6 => 5
+
+	if (x > n) {
+	 x = n; // 4.2 => 4
+	}else{
+	 x = n - 1; // 4.6 => 4
+	}
+	return x;
+
+	var margin = (container - (x*200))/2;
 //	if (margin <= 0){
 //	 margin = 0;	
 //	}
