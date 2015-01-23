@@ -9,7 +9,7 @@ $medium_device: 992px;
 $small_device: 768px;
 //PAGE CONTENT CSS
 .web_tiles{
-  padding: 0px 20px 0px 20px;
+  padding: 20px 20px 20px 20px;
 }
 @media screen and (max-width: $small_device) {
     .web_tiles{
