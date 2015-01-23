@@ -34,3 +34,8 @@ a.linkedin {
     background: asset_url('media_icons.png') 60px 0px;
     &:hover{background: asset_url('media_icons.png') 60px -30px;}
   }
+
+a.instagram {
+    background: asset_url('media_icons.png') 120px 0px;
+    &:hover{background: asset_url('media_icons.png') 120px -30px;}
+  }
