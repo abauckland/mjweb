@@ -24,7 +24,7 @@
                         <span><%= f.select :monday_status, options_for_select(["Open", "Closed"], @hour.monday_status)%></span></br>
                         <!-- form input[time] -->
                         <label class="label_80">Opening Time:</label>
-                        <span><%= f.time_field :monday_open, {placeholder: 'hh:mm'} %></span></br>                                                
+                        <span><%= f.time_field :monday_open %></span></br>                                                
                         <!-- form input[time] -->
                         <label class="label_80">Closing Time:</label>
                         <span><%= f.time_field :monday_close, {placeholder: 'hh:mm'} %></span></br>                        
