@@ -27,12 +27,15 @@ function InfiniteRotator(tile) {
 
 
 function roundDown(x) {
-	//rounds number up to next number
-	if (x < x.toFixed(0)) {
-		var n = x.toFixed(0);
-		x = +n - 1;
+	//rounds number down to next number	
+	var n = x.toFixed(0);
+	// 4.2 => 4
+	// 4.6 => 5
+
+	if (x > n) {
+	 x = n; // 4.2 => 4
 	}else{
-		x = x.toFixed(0);
+	 x = n - 1; // 4.6 => 4
 	}
 	return x;
 }
@@ -55,7 +58,6 @@ function feature_tiling(tile_frame, tile_container, tile, tile_id) {
 	}
 	else
 	{
-
 		if (max_tiles_in_row_rounded == 1){
 			var margin = (window_width - content_tile_width)/2;
 			var sub_margin = 0;
@@ -97,21 +99,27 @@ function feature_tiling(tile_frame, tile_container, tile, tile_id) {
 }
 
 
-function content_tiling() {
+function content_tiling(y) {
 
 	//total tiles		
-	var tile_width = $('.tile_container').outerWidth();
-	var container = $('row web_tiles').width();
-	var tiles_in_row = container/tile_width;
-	var tiles_in_row_rounded = roundDown(tiles_in_row);	
-	var total_tile_width = (tiles_in_row_rounded*tile_width);
+//	var tile_width = $('.tile_container').outerWidth();
+//	var container = $('web_tiles').outerWidth()-40;
+//	var x = ($('div.row.web_tiles').outerWidth())/200;
+//	var x = container/200;
+//	var tiles_in_row_rounded = roundDown(tiles_in_row);	
+//	var total_tile_width = (tiles_in_row_rounded*200);
 
-	var margin = (container - total_tile_width)/2;
-	if (margin <= 0){
-	 margin = 0;	
+//	var n = x.toFixed(0);
+	// 4.2 => 4
+	// 4.6 => 5
+	var x = (y-40)/200;
+	if (x > x.toFixed(0)) {
+	 x = x.toFixed(0); // 4.2 => 4
+	}else{
+	 x = x.toFixed(0) - 1; // 4.6 => 4
 	}
-	
-	$('.web_content').css('margin-left',margin+'px');
+
+	$('.web_tiles').css('margin-left', (((y-40)-(x*200))/2) +'px');
 }
 
 
@@ -138,10 +146,11 @@ $(document).ready(function(){
 		background_image_1();
 	});
 
-	
-	content_tiling();
+	var y = $('.grid-container').outerWidth();
+	content_tiling(y);
 	$(window).resize(function(){
-		content_tiling();
+		var y = $('.grid-container').outerWidth();
+		content_tiling(y);
 	});
 	
 	//responsive layout of content
