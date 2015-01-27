@@ -10,7 +10,7 @@ module Mjweb
         when 4 ; link_to '', list_imagesetting_path(content.id), class: 'line_edit_icon', title: "edit images"
         when 5 ; return #location map 
         when 6 ; return #contact
-        when 7 ; link_to '', edit_hour_path(current_user.id), class: 'line_edit_icon', title: "edit opening hours"
+        when 7 ; link_to '', edit_hour_path(current_user.company_id), class: 'line_edit_icon', title: "edit opening hours"
         when 8 ; return #events          
         when 9 ; return #plans
         when 10 ; link_to '', edit_linktile_path(:id => content.id), class: 'line_edit_icon', title: "edit tile content/link"
