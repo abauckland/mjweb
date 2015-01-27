@@ -21,11 +21,6 @@ a.facebook {
   }
 
 a.twitter {
-    background: asset_url('media_icons.png') 90px 0px;
-    &:hover{background: asset_url('media_icons.png') 90px -30px;}
-  }
-
-a.googleplus {
     background: asset_url('media_icons.png') 30px 0px;
     &:hover{background: asset_url('media_icons.png') 30px -30px;}
   }
@@ -34,6 +29,13 @@ a.linkedin {
     background: asset_url('media_icons.png') 60px 0px;
     &:hover{background: asset_url('media_icons.png') 60px -30px;}
   }
+
+
+a.googleplus {
+    background: asset_url('media_icons.png') 90px 0px;
+    &:hover{background: asset_url('media_icons.png') 90px -30px;}
+  }
+
 
 a.instagram {
     background: asset_url('media_icons.png') 120px 0px;
