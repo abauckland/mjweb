@@ -24,7 +24,7 @@ module Mjweb
     private
       # Only allow a trusted parameter "white list" through.
       def detail_params
-        params.require(:detail).permit(:company_id, :tagline, :facebook, :twitter, :googleplus, :linkedin)
+        params.require(:detail).permit(:company_id, :tagline, :facebook, :twitter, :googleplus, :linkedin, :instagram)
       end
   end
 end
