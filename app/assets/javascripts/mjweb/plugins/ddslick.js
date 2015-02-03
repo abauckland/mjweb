@@ -140,7 +140,7 @@
                     selectedIndex: -1,
                     selectedItem: null,
                     selectedData: null
-                }
+                };
                 obj.data('ddslick', pluginData);
 
                 //Check if needs to show the select text, otherwise show selected or default selection
@@ -183,7 +183,7 @@
             if (options.index)
                 selectIndex($(this), options.index);
         });
-    }
+    };
 
     //Public method to open drop down
     methods.open = function () {
@@ -221,7 +221,7 @@
                 $this.removeData('ddslick').unbind('.ddslick').replaceWith(originalElement);
             }
         });
-    }
+    };
 
     //Private: Select index
     function selectIndex(obj, index) {
