@@ -7,8 +7,8 @@ module Mjweb
        
     validates :background_id, :font_id, presence: true    
     validates :tile_colour,
-      presence: true#,
-#      format: { with: COLOUR_REGEXP, message: "please enter a vaild hex colour in the format #dddddd or #ddd" }
+      presence: true,
+      format: { with: COLOUR_REGEXP, message: "please enter a vaild hex colour in the format #dddddd or #ddd" }
     
     
   end
