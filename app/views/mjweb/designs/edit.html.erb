@@ -26,15 +26,6 @@
                         </span></br>
 
                         <!-- form input[image-select] -->
-                        <div class="form_image_select">     
-                            <div class="form_tooltip" id="website_background"></div>
-                            <label class="label_80">Background:</label>
-                            <div>
-                               <%= f.select :background_id, options_for_select(Mjweb::Background.all.map{ |c| [c.name, c.id, {'data-imagesrc' => c.background_url}] }, @design.background_id) %>
-                            </div>
-                        </div>
-                        
-                        <!-- form input[image-select] -->
                         <div class="form_image_select">   
                             <div class="form_tooltip" id="website_font"></div>
                             <label class="label_80">Title Font:</label>
