@@ -3,7 +3,7 @@ function InfiniteRotator(tile) {
 			//initial fade-in time (in milliseconds)
 			var initialFadeIn = 0;
 			//interval between items (in milliseconds)
-			var itemInterval = 3000;
+			var itemInterval = 4000;
 			//cross-fade time (in milliseconds)
 			var fadeTime = 1500;
 			//count number of items
