@@ -12,5 +12,7 @@ module Mjweb
       presence: true,
       format: { with: IMAGE_REGEXP, message: "please enter an image name that does not contain any spaces" }
 
+    validates_presence_of :image
+
   end
 end
