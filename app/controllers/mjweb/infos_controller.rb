@@ -44,7 +44,21 @@ module Mjweb
 
     # PATCH/PUT /infos/1
     def update
+
       if @info.update(info_params)
+
+        if params[:url] == 'no_url'
+          @info.update(info.link_text => nil, info.link_url => nil, info.link_page_id => nil)
+        end
+  
+        if params[:url] == 'custom_url'
+          @info.update(info.link_text => nil, info.link_url => nil)
+        end
+  
+        if params[:url] == 'page_url'
+          @info.update(info.link_page_id => nil)
+        end
+
         redirect_to infos_path(:id => @info.page_id), notice: 'Information was successfully updated.'
       else
         render :edit
