@@ -21,13 +21,6 @@ module Mjweb
       tile_count = policy_scope(Content).count
       @tile_ref = tile_count + 1
       
-      
-#      if current_user.company.has_store?
-#        @tiles = Mjweb::Tile.where.not(:id => 10)
-#      else
-        @tiles = Mjweb::Tile.all
-#      end   
-      
     end
 
     # GET /contents/1/edit
@@ -60,13 +53,13 @@ module Mjweb
         above_row.update(:tile_ref => @content.tile_ref)
         @content.update(:tile_ref => @content.tile_ref - 1)
       end
-      redirect_to contents_path, notice: 'Tile moved up.'      
+      redirect_to contents_path, notice: 'Tile moved up.'
     end
 
     def move_down
       
       tile_count = policy_scope(Content).count
-            
+
       if @content.tile_ref != tile_count
         next_row = policy_scope(Content).where(:tile_ref => (@content.tile_ref + 1)).first      
         next_row.update(:tile_ref => @content.tile_ref)
@@ -77,14 +70,14 @@ module Mjweb
 
     # DELETE /contents/1
     def destroy
-      
+
       @content.destroy
-      
+
       @contents = policy_scope(Content).order('tile_ref')
       @contents.each_with_index do |content, i|
         content.update(:tile_ref =>  i+1)
       end
-           
+
       redirect_to contents_url, notice: 'Tile was successfully deleted.'
     end
 
@@ -99,7 +92,7 @@ module Mjweb
         case group      
           when 1 ; @tiles = Mjweb::Tile.all
           when 2 ; @tiles = Mjweb::Tile.where(:group => 2)
-          when 3 ; @tiles = Mjweb::Tile.where(:group => [2, 3])            
+          when 3 ; @tiles = Mjweb::Tile.where(:group => [2, 3])
         end  
         
       end
