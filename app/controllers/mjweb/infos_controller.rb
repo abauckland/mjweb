@@ -10,9 +10,9 @@ module Mjweb
       @infos = Info.where(:page_id => params[:id]).order('order_ref')
       @page = Page.find(params[:id])
     end
-    
+
     def show
-      
+
     end
 
     def new
@@ -46,19 +46,6 @@ module Mjweb
     def update
 
       if @info.update(info_params)
-
-        if params[:url] == 'no_url'
-          @info.update(info.link_text => nil, info.link_url => nil, info.link_page_id => nil)
-        end
-  
-        if params[:url] == 'custom_url'
-          @info.update(info.link_text => nil, info.link_url => nil)
-        end
-  
-        if params[:url] == 'page_url'
-          @info.update(info.link_page_id => nil)
-        end
-
         redirect_to infos_path(:id => @info.page_id), notice: 'Information was successfully updated.'
       else
         render :edit
@@ -69,10 +56,9 @@ module Mjweb
     def destroy
       
       page_id = @info.page_id
-      
+
       @info.destroy
 
-      
       @infos = Info.where(:page_id => page_id).order('order_ref')
       @infos.each_with_index do |info, i|
         info.update(:order_ref =>  i+1)
@@ -117,7 +103,7 @@ module Mjweb
 
       # Only allow a trusted parameter "white list" through.
       def info_params
-        params.require(:info).permit(:order_ref, :page_id, :title, :text, :link_url, :link_text, :link_page_id, :image_id)
+        params.require(:info).permit(:order_ref, :page_id, :title, :text, :link_type, :link_url, :link_text, :link_page_id, :image_id)
       end
   end
 end

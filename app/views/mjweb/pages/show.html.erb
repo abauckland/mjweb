@@ -10,21 +10,19 @@
                     <p class="web_content_tile_title"><%= info.title %></p>
                     <p class="web_content_tile_text"><%= info.text %></p>
 
-                    <% unless info.link_text.blank? %>
-                        <% unless info.link_url.blank? %>
-                            <a class="web_page_link" href="<%= info.link_url %>" target="_blank">
-                                <div class="web_page_link_container">
-                                    <div class="web_page_link_text"><%= info.link_text %></div>
-                                </div>
-                            </a>
-                        <% end %>
-                        <% unless info.link_page_id.blank? %>
-                            <a href="<%= page_path(info.link_page_id) %>" target="_blank">
-                                <div class="web_page_link_container">
-                                    <div class="web_page_link_text"><%= info.link_text %></div>
-                                </div>
-                            </a>
-                        <% end %>
+                    <% if info.link_type == 2 %>
+                        <a class="web_page_link" href="<%= info.link_url %>" target="_blank">
+                            <div class="web_page_link_container">
+                                <div class="web_page_link_text"><%= info.link_text %></div>
+                            </div>
+                        </a>
+                    <% end %>
+                    <% if info.link_type == 3 %>
+                        <a href="<%= page_path(info.link_page_id) %>" target="_blank">
+                            <div class="web_page_link_container">
+                                <div class="web_page_link_text"><%= info.link_text %></div>
+                            </div>
+                        </a>
                     <% end %>
                 </div>
             </div>

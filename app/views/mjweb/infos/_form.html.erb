@@ -5,9 +5,9 @@
             <%= render :partial => "form_error", :locals => {:item => @info} %>
 
             <%= form_for(@info) do |f| %>
-                <%= f.hidden_field :page_id, :value => @page_id %>  
+                <%= f.hidden_field :page_id, :value => @page_id %>
                 <%= f.hidden_field :order_ref, :value => @order_ref %>
-    
+
             <div class="row">
                 <div class="sub-1-3 column_1">
                     <fieldset>
@@ -19,32 +19,32 @@
                             <%= f.text_field :title, {rows: 1, maxlength: 30, class: "maxlength"} %>
                             <p class="input_note">Maximum of 30 characters</p>
                         </span></br>
-                        
-                        <!-- form input[radio] -->                        
+
+                        <!-- form input[radio] -->
                         <div class="form_tooltip" id="info_link_no_link"></div>
                         <label class="label_80"></label>
                         <span>
-                            <%= radio_button_tag :url, 'no_url', :checked => true %>
+                            <%= f.radio_button :link_type, 1 %>
                             <span>No link.</span>
                         </span></br>
 
-                        <!-- form input[radio] -->                        
+                        <!-- form input[radio] -->
                         <div class="form_tooltip" id="info_link_custom_link"></div>
                         <label class="label_80"></label>
                         <span>
-                            <%= radio_button_tag :url, 'custom_url'%>
+                            <%= f.radio_button :link_type, 2 %>
                             <span>Link to external website/url.</span>
                         </span></br>
 
-                        <!-- form input[radio] -->                        
+                        <!-- form input[radio] -->
                         <div class="form_tooltip" id="info_link_existing_page"></div>
                         <label class="label_80"></label>
                         <span>
-                            <%= radio_button_tag :url, 'page_url' %>
+                            <%= f.radio_button :link_type, 3 %>
                             <span>Link to existing page.</span>
                         </span></br>
 
-                        <!-- form input[text] --> 
+                        <!-- form input[text] -->
                         <div class="form_tooltip" id="info_link_text"></div>
                         <label class="label_80">Link Text:</label>
                         <span>
@@ -52,7 +52,7 @@
                             <p class="input_note">Maximum of 50 characters</p>
                         </span></br>
 
-                        <!-- form input[url] --> 
+                        <!-- form input[url] -->
                         <div class="form_tooltip" id="info_title_url"></div>
                         <label class="label_80"></label>
                         <span>
@@ -61,7 +61,7 @@
                         </span></br>
 
 
-                        <!-- form input[select] -->   
+                        <!-- form input[select] -->
                         <div class="form_tooltip" id="info_page_link"></div>
                         <label class="label_80"></label>
                         <% if @pages.blank? %>
