@@ -24,7 +24,7 @@
                             <th class="info_link_url">Link URL</th>
                             <th class="info_link_page">Link Page</th>
                             <th class="info_image">Image</th>
-                            <th class="row_button no_buttons_5">
+                            <th class="row_button no_buttons_6">
                                 <%= link_to "", new_info_path(:page_id => @page.id), class: 'line_new_icon', title: "new item" %>
                             </th>
                         </tr>
@@ -43,7 +43,7 @@
                                     <td class="info_link_url"><%= info.link_url %></td>
                                     <td class="info_link_page"><%= info.link_page.name if info.link_page_id? %></td>
                                     <td class="info_image"><%= image_tag(info.image.image_url(:thumb)) if info.image_id? %></td>  
-                                    <td class="row_button no_buttons_5">
+                                    <td class="row_button no_buttons_6">
                                         <%= link_to '', info, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete item"  %>                    
                                         <%= link_to '', edit_info_path(info), class: 'line_edit_icon', title: "edit item"  %>
                                         <%= link_to '', move_down_info_path(info), class: 'line_down_icon', title: "move down" %>
