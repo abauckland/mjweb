@@ -13,19 +13,19 @@ jQuery(document).ready(function ($) {
 	});
 
 
-	if ($('input#info_link_type_1').is(':checked')) {
-		$('input#info_link_text').attr('disabled', 'disabled');
-		$('input#info_link_url').attr('disabled', 'disabled');
-		$('select#info_link_page_id').attr('disabled', 'disabled');
-	};
+//	if ($('input#info_link_type_1').is(':checked')) {
+//		$('input#info_link_text').attr('disabled', 'disabled');
+//		$('input#info_link_url').attr('disabled', 'disabled');
+//		$('select#info_link_page_id').attr('disabled', 'disabled');
+//	};
 
-	if ($('input#info_link_type_2').is(':checked')) {
-		$('input#info_link_url').attr('disabled', 'disabled');
-	};
+//	if ($('input#info_link_type_2').is(':checked')) {
+//		$('input#info_link_url').attr('disabled', 'disabled');
+//	};
 
-	if ($('input#info_link_type_3').is(':checked')) {
-		$('select#info_link_page_id').attr('disabled', 'disabled');
-	};
+//	if ($('input#info_link_type_3').is(':checked')) {
+//		$('select#info_link_page_id').attr('disabled', 'disabled');
+//	};
 
 	$('input#info_link_type_1').click(function (){
 		$('input#info_link_type_2').prop('checked', false);
