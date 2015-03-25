@@ -67,24 +67,24 @@ module Mjweb
       redirect_to infos_path(:id => @info.page_id), notice: 'info was successfully destroyed.'
     end
 
-    def move_up            
+    def move_up
       if @info.order_ref >= 2
-        above_row = Info.where(:page_id => @info.page_id, :order_ref => (@info.order_ref - 1)).first      
+        above_row = Info.where(:page_id => @info.page_id, :order_ref => (@info.order_ref - 1)).first
         above_row.update(:order_ref => @info.order_ref)
-        @info.update(:order_ref => @info.order_ref - 1)
+        @info.update(:order_ref => (@info.order_ref - 1))
       end
-      redirect_to infos_path(:id => @info.page_id), notice: 'Item was successfully moved up.'     
+      redirect_to infos_path(:id => @info.page_id), notice: 'Item was successfully moved up.'
     end
 
-    def move_down      
+    def move_down
       info_count = Info.where(:page_id => params[:page_id]).count
-            
+
       if @info.order_ref != info_count
-        next_row = Info.where(:page_id => @info.page_id, :order_ref => (@info.order_ref + 1)).first      
+        next_row = Info.where(:page_id => @info.page_id, :order_ref => (@info.order_ref + 1)).first
         next_row.update(:order_ref => @info.order_ref)
-        @info.update(:order_ref => @info.order_ref + 1)
+        @info.update(:order_ref => (@info.order_ref + 1))
       end
-      redirect_to infos_path(:id => @info.page_id), notice: 'Tile was successfully moved down.'     
+      redirect_to infos_path(:id => @info.page_id), notice: 'Tile was successfully moved down.'
     end
 
     private
@@ -92,7 +92,7 @@ module Mjweb
       def set_info
         @info = Info.find(params[:id])
       end
-      
+
       def get_images
         @images = policy_scope(Image)
       end
