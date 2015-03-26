@@ -9,7 +9,7 @@
     <div class="col-1-3 column_1">
         <div class="border">
 
-<!-- error messages - associated with form start--> 
+<!-- error messages - associated with form start-->
             <%= render :partial => "form_error", :locals => {:item => @linktile} %>
 
 <!-- form column start-->
@@ -25,7 +25,7 @@
                             <p class="input_note">Maximum of 30 characters</p>
                         </span></br>
 
-                        <!-- form input[radio] -->                        
+                        <!-- form input[radio] --> 
                         <div class="form_tooltip"></div>
                         <label class="label_80">Tile Type:</label>
                         <span>
@@ -33,7 +33,7 @@
                             <span>Link only (ext. url)</span>
                         </span></br>
 
-                        <!-- form input[radio] -->                        
+                        <!-- form input[radio] -->
                         <div class="form_tooltip"></div>
                         <label class="label_80"></label>
                         <span>
@@ -41,7 +41,7 @@
                             <span>Link only (page)</span>
                         </span></br>
 
-                        <!-- form input[radio] -->                        
+                        <!-- form input[radio] -->
                         <div class="form_tooltip"></div>
                         <label class="label_80"></label>
                         <span>
@@ -49,19 +49,19 @@
                             <span>Link & List of Items</span>
                         </span></br>
 
-                        <!-- form input[radio] -->                        
+                        <!-- form input[radio] -->
                         <div class="form_tooltip"></div>
                         <label class="label_80"></label>
                         <span>
                             <%= radio_button("linktile", "type_id", 4) %>
                             <span>List of Items</span>
-                        </span></br>                                                
+                        </span></br>
                     </fieldset>
             </div>
 <!-- column footer start--> 
             <div class="row">
                 <div class="form_footer">
-                    <%= f.submit "save"%>
+                    <%= f.submit "save & next"%>
                     <%= link_to "cancel", contents_path %>
                 </div>
                 <% end %>
