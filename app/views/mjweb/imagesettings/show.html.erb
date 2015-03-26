@@ -5,9 +5,9 @@
     <div class="title_help" id="page_imagesettings_new"></div>
     <div class="title_help_tooltip" id="page_imagesettings_show"></div>
     <% if @imagesetting %>
-        <div><%= link_to 'Back', contents_path %></div>
+        <div><%= link_to 'Back', contents_path, class: "title_button" %></div>
     <% else %>
-        <div><%= link_to 'Add Image', new_imagesetting_path(:content_id => @content.id), class: "title_button"  %></div>
+        <div><%= link_to 'Add Image', new_imagesetting_path(:content_id => @content.id), class: "title_button" %></div>
     <% end %>
 </div>
 
@@ -15,13 +15,13 @@
 
     <div class="col-1-1 column_1">
         <div class="border">
-                                        
-        <%= render :partial => "flash_notice" %>                 
+
+        <%= render :partial => "flash_notice" %>
                         
             <div class="row">
-                <% if @imagesetting %>         
+                <% if @imagesetting %>
                         <div class="image_tile">
-                            <%= image_tag(@imagesetting.image.image)%>            
+                            <%= image_tag(@imagesetting.image.image)%>
                             <%= link_to '', @imagesetting, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete image" %>                     
                         </div>
                 <% else %> 
