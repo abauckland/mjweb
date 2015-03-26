@@ -74,7 +74,7 @@ a.web_page_link{
 .web_page_link_container{
   width: 160px;
   height: 25px;
-  margin-left: 60px;
+  margin-left: 50px;
   background-color: #000;  
   @include border-radius(8px);
   border: 2px solid #66aa00;
@@ -82,7 +82,7 @@ a.web_page_link{
 
 .web_page_link_text{
   width: 100%;
-  padding: 5px 0px 0px 0px;
+  padding: 3px 0px 0px 0px;
   font-size: 1.3rem;
   text-align: center;
   color: #fff;
