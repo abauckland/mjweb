@@ -2,7 +2,6 @@
     <div class="page_title">
         <h1>Upload New Image</h1>
     </div>
-    <div class="title_help" id="page_images_new"></div>
 </div>
 
 <div class="row">
@@ -14,11 +13,11 @@
 
 <!-- form column start-->
             <div class="row">
-                <%= form_for(@image, :html => {:multipart => true}) do |f| %>       
-                  <%= f.hidden_field :company_id, :value => current_user.company_id %>   
+                <%= form_for(@image, :html => {:multipart => true}) do |f| %>
+                  <%= f.hidden_field :company_id, :value => current_user.company_id %>
                     <fieldset>
 
-                        <!-- form input[select] -->   
+                        <!-- form input[select] -->
                         <div class="form_tooltip" id="website_image_name"></div>
                         <label class="label_80">Name:</label>
                         <span>
@@ -31,7 +30,7 @@
                         <span>
                            <%= f.file_field :image, accept: "image/*" %>
                         </span></br>
-                                                
+
                     </fieldset>
             </div>
 <!-- column footer start--> 

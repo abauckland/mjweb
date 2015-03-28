@@ -2,7 +2,7 @@
     <div class="page_title">
         <h1>Loaded Images</h1>
     </div>
-    <div class="title_help_tooltip" id="page_images_index"></div>
+    <div class="title_help" id="page_images_index"></div>
     <div><%= link_to "upload image", new_image_path, class: "title_button" %></div>
 </div>
 
@@ -10,19 +10,19 @@
 
     <div class="col-1-1 column_1">
         <div class="border">
-                                        
-        <%= render :partial => "flash_notice" %>                 
+
+        <%= render :partial => "flash_notice" %>
                         
             <div class="row">
-                <% if @images %>        
+                <% if @images %>
                     <% @images.each do |image| %> 
                         <div class="image_tile">
                             <%= image_tag(image.image_url)%>
-                            <% if image_used(image) == false %>              
+                            <% if image_used(image) == false %>
                                 <%= link_to '', image, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete image"  %>
                             <% else %>
                                 <p>In Use</p>
-                            <% end %>                        
+                            <% end %>
                         </div>
                         <% end %>
                 <% else %> 
@@ -33,11 +33,3 @@
     </div>
 
 </div>
-
-
-
-
-    
-    
-
-            

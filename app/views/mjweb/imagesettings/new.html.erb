@@ -2,7 +2,6 @@
     <div class="page_title">
         <h1>Add Image to Tile</h1>
     </div>
-    <div class="title_help" id="page_imagesettings_new"></div>
 </div>
 
 <div class="row">
@@ -15,11 +14,11 @@
 <!-- form column start-->
             <div class="row">
                 <%= form_for(@imagesetting) do |f| %>
-                    <%= f.hidden_field :content_id, :value => @content.id %>    
+                    <%= f.hidden_field :content_id, :value => @content.id %>
                     <fieldset>
 
                         <!-- form input[image-select] -->
-                        <div class="form_image_select">   
+                        <div class="form_image_select">
                             <div class="form_tooltip" id="imagesetting_image"></div>
                             <label class="label_80">Image:</label>
                             <div>

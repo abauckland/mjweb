@@ -10,20 +10,20 @@
 
     <div class="col-1-1 column_1">
         <div class="border">
-                                        
-        <%= render :partial => "flash_notice" %>                 
-                        
+
+        <%= render :partial => "flash_notice" %>
+
             <div class="row">
-                <% if @imagesettings %>         
+                <% if @imagesettings %>
                     <% @imagesettings.each do |imagesetting| %> 
                         <div class="image_tile">
-                            <%= image_tag(imagesetting.image.image_url(:thumb))%>             
-                            <%= link_to '', imagesetting, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete image" %>                     
+                            <%= image_tag(imagesetting.image.image_url(:thumb))%>
+                            <%= link_to '', imagesetting, method: :delete, data: { confirm: 'Are you sure?' }, class: 'line_delete_icon', title: "delete image" %>
                         </div>
                         <% end %>
-                <% else %> 
+                <% else %>
                     <p>No images select.</p>
-                <% end %>   
+                <% end %>
             </div>
         </div>
     </div>

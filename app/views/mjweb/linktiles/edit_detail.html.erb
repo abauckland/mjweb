@@ -2,7 +2,6 @@
     <div class="page_title">
         <h1>Edit Tile Content</h1>
     </div>
-    <div class="title_help" id="page_linktiles_edit_detail"></div>
 </div>
 
 <div class="row">
@@ -41,10 +40,9 @@
                             <% end %>
                         <% end %>
 
-
                         <% if @linktile.type_id == 1 || @linktile.type_id == 2 %>
                             <!-- form input[image-select] -->
-                            <div class="form_image_select">                            
+                            <div class="form_image_select">
                                 <div class="form_tooltip" id="linktile_icon"></div>
                                 <label class="label_80">Tile Icon:*</label>
                                 <div>
@@ -52,12 +50,11 @@
                                 </div>
                             </div>
                         <% end %>
-                           
-               
+
                         <% if @linktile.type_id == 3 || @linktile.type_id == 4 %>
                             <%= f.fields_for :tilelists do |builder| %>
                                 <!-- form input[text] -->
-                                <div class="form_tooltip" id="linktile_title"></div>
+                                <div class="form_tooltip" id="linktile_list"></div>
                                 <label class="label_80">List Item:</label>
                                 <span>
                                     <%= builder.text_field :text, maxlength: 30, class: "maxlength" %>
