@@ -30,11 +30,11 @@ a.login_link{
   display: none;
   padding: 0px 20px 0px 20px;
 }
-@media screen and (max-width: $small_device) {
-    .header_small{
-      display: block;      
-  }
-}
+//@media screen and (max-width: $small_device) {
+//    .header_small{
+//      display: block;      
+//  }
+//}
 
 .header_small div{
   font-size: 1.6rem;
@@ -43,21 +43,21 @@ a.login_link{
 }
 
 
-.header_medium{
-  position:relative;
-  padding: 0px 20px 0px 20px;
-}
-@media screen and (max-width: $small_device) {
-    .header_medium{
-      display: none;
-  }
-}
+//.header_medium{
+//  position:relative;
+//  padding: 0px 20px 0px 20px;
+//}
+//@media screen and (max-width: $small_device) {
+//    .header_medium{
+//      display: none;
+//  }
+//}
 
-.header_medium tr{
-  &:hover{ 
-    background: none;
-  }
-}
+//.header_medium tr{
+//  &:hover{ 
+//    background: none;
+//  }
+//}
 
 td.logo{
   vertical-align: bottom;

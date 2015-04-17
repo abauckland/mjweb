@@ -6,7 +6,7 @@ module Mjweb
     
     belongs_to :link_page, :class_name => "Page"
 
-    validates :title, :text, :image, presence: true
+    validates :title, :text, presence: true
         
   end
 end

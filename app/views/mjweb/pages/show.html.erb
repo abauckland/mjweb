@@ -4,9 +4,9 @@
             <% @infos.each_with_index do |info, i|%>
             <div id ="feature_tile_<%= i %>" class="feature_tile_item">
                 <div class="feature_sub_tile">
-			<% if info.image_id %>
-				<%= image_tag info.image.image_url, :border=>0, :class=>"web_content_tile_image" %>
-			<% end %>
+					<% if info.image_id %>
+						<%= image_tag info.image.image_url, :border=>0, :class=>"web_content_tile_image" %>
+					<% end %>
                     <p class="web_content_tile_title"><%= info.title %></p>
                     <p class="web_content_tile_text"><%= info.text %></p>
 

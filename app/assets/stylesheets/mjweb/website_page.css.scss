@@ -33,10 +33,11 @@ $font_color: #fff;
   height: 440px;
 }
 
+
 .web_content_tile_image{
   width: 200px;
   height: 200px;
-  margin-left: 30px;
+  margin: 0px 0px 30px 30px;
   background-color: #fff;
   @include border-radius(8px);
   border: 2px solid #66aa00;
@@ -44,8 +45,8 @@ $font_color: #fff;
 
 .web_content_tile_title{
   width: 260px;
-  height: 20px;
-  margin: 20px 0px 20px 0px;
+  line-height: 2.25rem;
+  margin: 0px 0px 10px 0px;
   font-size: 2.0rem;
   font-weight: bold;
   text-align: center;
@@ -60,7 +61,6 @@ $font_color: #fff;
   text-align: justify;
   color: #000;  
 }
-
 
 a.web_page_link{
       text-decoration: none;
@@ -87,6 +87,7 @@ a.web_page_link{
   text-align: center;
   color: #fff;
 }
+
 
 .event_container{
     margin-top: 10px;

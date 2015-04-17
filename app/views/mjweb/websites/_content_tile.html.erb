@@ -1,23 +1,23 @@
 
-    <div class="feature_tile">     
-        <div class="feature_tile_container">
-            <% @contents.each_with_index do |content, i|%>
-            <div id ="feature_tile_<%= i %>" class="feature_tile_item">
-                <div class="feature_sub_tile">                
-			<% if content.image_id %>                    
-				<%= image_tag content.image.image, :border=>0, :class=>"web_content_tile_image" %>
-			<% end %>
-                    <p class="web_content_tile_title"><%= content.title %></p>
-                    <p class="web_content_tile_text"><%= content.text %></p> 
-                    <% if content.link_url %>
-                        <a href="<%= content.link_url %>">
-                            <div class="web_content_tile_link">
-                                <div class="web_content_tile_link_text"><%= content.link_text %></div>
-                            </div>
-                        </a>
-                    <% end %>                 
-                </div>
-            </div>
-            <% end %>       
-        </div>            
-    </div>    
+<div class="feature_tile">     
+	<div class="feature_tile_container">
+		<% @contents.each_with_index do |content, i|%>
+			<div id ="feature_tile_<%= i %>" class="feature_tile_item">
+				<div class="feature_sub_tile">
+					<% if content.image_id %>
+						<%= image_tag content.image.image, :border=>0, :class=>"web_content_tile_image" %>
+					<% end %>
+		            <p class="web_content_tile_title"><%= content.title %></p>
+		            <p class="web_content_tile_text"><%= content.text %></p> 
+		            <% if content.link_url %>
+		                <a href="<%= content.link_url %>">
+		                    <div class="web_content_tile_link">
+		                    <div class="web_content_tile_link_text"><%= content.link_text %></div>
+		                    </div>
+		                </a>
+		            <% end %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
