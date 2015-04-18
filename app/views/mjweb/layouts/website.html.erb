@@ -3,50 +3,49 @@
     <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            
+
     <%= set_background(@design) %>
-            
+
     <title><%=h @detail.company.name %></title> 
       <%= stylesheet_link_tag 'mjweb/application', media: 'all'%>
       <%= javascript_include_tag 'mjweb/application'%>
       
       <style>
         html { font-size: 62.5%; }
-        
+
         body {  }
-    
-        .tagline_cell_small{ <%= font_style_colour(@design) %> }   
+
+        .tagline_cell_small{ <%= font_style_colour(@design) %> }
         .tagline_cell_medium{ <%= font_style_colour(@design) %> }
                 
-        .tile_title_text{ <%= font_style_colour(@design) %>}        
+        .tile_title_text{ <%= font_style_colour(@design) %>}
         .web_content_tile_title{ <%= font_style_colour(@design) %>}
             
-        <% @colour_settings.each_with_index do |setting, i| %>        
+        <% @colour_settings.each_with_index do |setting, i| %>
             .colour_<%=h i %>{
                 color: <%=h setting[:text] %>;
-                background-color: <%=h setting[:tile] %>;        
-            }           
-      
+                background-color: <%=h setting[:tile] %>;
+            }
+
             .hover_<%=h i %>{background-color: <%=h setting[:tile] %>;}
             .hover_<%=h i %>:hover{background-color: <%=h setting[:tile_hover] %>;}
-            
+
             .colour_<%=h i %> a{color: <%=h setting[:text] %>;}
             .colour_<%=h i %> a:visited{color: <%=h setting[:text] %>;}
             .colour_<%=h i %> a:hover{color: <%=h setting[:text_hover] %>;}
-            
-            
+
 
             .web_content_tile_image{ border: 2px solid <%=h setting[:tile] %>}
-            .web_content_tile_title{ color: <%=h setting[:tile] %>}
+            p.web_content_tile_title{ color: <%=h setting[:tile] %>}
             .web_page_link_container{background-color: <%=h setting[:tile] %>; border: 2px solid <%=h setting[:tile] %>}
             .web_page_link_container:hover{background-color: <%=h setting[:tile_hover] %>; border: 2px solid <%=h setting[:tile_hover] %>}
             .web_page_link_text{ color: <%=h setting[:text] %>}
             .web_page_link_text:hover{color: <%=h setting[:text_hover] %>;}
 
         <% end %>
-        
 
-        
+
+
       </style>
     </head>
     
@@ -67,12 +66,12 @@
                 </div>
             </div>
 
-            <div class="row header_small">
+            <div class="row header">
                 <div class="col-1-1">
                     <%= link_to (image_tag(@detail.company.logo)), websites_path, class: 'company_logo_link'%>
                 </div>
                 <div class="col-1-1">
-                    <%= @detail.tagline if @detail.tagline %>
+                    <div><%= @detail.tagline if @detail.tagline %></div>
                 </div>
             </div>
 
