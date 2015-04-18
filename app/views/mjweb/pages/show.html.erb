@@ -8,7 +8,7 @@
 						<%= image_tag info.image.image_url, :border=>0, :class=>"web_content_tile_image" %>
 					<% end %>
                     <p class="web_content_tile_title"><%= info.title %></p>
-                    <p class="web_content_tile_text"><%= info.text %></p>
+                    <p class="web_content_tile_text"><%= info.text.html_safe %></p>
 
                     <% if info.link_type == 2 %>
                         <a class="web_page_link" href="<%= info.link_url %>" target="_blank">
