@@ -38,7 +38,7 @@
                                 <tr>
                                     <td class="info_order"><%= info.order_ref %></td>
                                     <td class="info_title"><%= info.title %></td>
-                                    <td class="info_text"><%= info.text %></td>
+                                    <td class="info_text"><%= info.text.html_safe %></td>
                                     <td class="info_link_text"><%= info.link_text %></td>
                                     <td class="info_link_url"><%= info.link_url %></td>
                                     <td class="info_link_page"><%= info.link_page.name if info.link_page_id? %></td>
