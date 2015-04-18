@@ -27,37 +27,21 @@ a.login_link{
 
 
 .header_small{
-  display: none;
+  display: block;
   padding: 0px 20px 0px 20px;
 }
-//@media screen and (max-width: $small_device) {
-//    .header_small{
-//      display: block;      
-//  }
-//}
 
 .header_small div{
-  font-size: 1.6rem;
+  font-size: 2.0rem;
   padding: 0px 10px 0px 10px;
   text-align: center;
 }
+@media screen and (max-width: $small_device) {
+    .header_small div{
+      font-size: 1.6rem;
+  }
+}
 
-
-//.header_medium{
-//  position:relative;
-//  padding: 0px 20px 0px 20px;
-//}
-//@media screen and (max-width: $small_device) {
-//    .header_medium{
-//      display: none;
-//  }
-//}
-
-//.header_medium tr{
-//  &:hover{ 
-//    background: none;
-//  }
-//}
 
 td.logo{
   vertical-align: bottom;
