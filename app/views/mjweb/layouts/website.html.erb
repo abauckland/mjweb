@@ -75,20 +75,10 @@
                 </div>
             </div>
 
-<!--         <div class="row header_medium">
-                <table>
-                    <tr>
-                        <td class="logo"><%= link_to (image_tag(@detail.company.logo)), websites_path, class: 'company_logo_link'%></td>
-                        <td class="tagline"><%= @detail.tagline if @detail.tagline %></td>                        
-                    </tr>
-                </table>
-            </div>
--->
 
-            <div class="row web_tiles">
-                <%= yield %>
-            </div>
-            
+            <%= yield %>
+
+
 <!--        <div class="row footer">
                 <%= link_to(image_tag('header_logo.png'), "https://www.myhq.org.uk") %>
                 e-business solutions for small businesses.
