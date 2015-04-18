@@ -23,7 +23,7 @@
 
                         <!-- form input[text] --> 
                         <div class="form_tooltip" id="info_title"></div>
-                        <label class="label_80">Title:*</label>
+                        <label class="label_60">Title:*</label>
                         <span>
                             <%= f.text_field :title, {rows: 1, maxlength: 30, class: "maxlength"} %>
                             <p class="input_note">Maximum of 30 characters</p>
@@ -31,7 +31,7 @@
 
                         <!-- form input[radio] -->
                         <div class="form_tooltip" id="info_link_no_link"></div>
-                        <label class="label_80"></label>
+                        <label class="label_60"></label>
                         <span>
                             <%= f.radio_button :link_type, 1 %>
                             <span>No link.</span>
@@ -39,7 +39,7 @@
 
                         <!-- form input[radio] -->
                         <div class="form_tooltip" id="info_link_custom_link"></div>
-                        <label class="label_80"></label>
+                        <label class="label_60"></label>
                         <span>
                             <%= f.radio_button :link_type, 2 %>
                             <span>Link to external website/url.</span>
@@ -47,7 +47,7 @@
 
                         <!-- form input[radio] -->
                         <div class="form_tooltip" id="info_link_existing_page"></div>
-                        <label class="label_80"></label>
+                        <label class="label_60"></label>
                         <span>
                             <%= f.radio_button :link_type, 3 %>
                             <span>Link to existing page.</span>
@@ -55,7 +55,7 @@
 
                         <!-- form input[text] -->
                         <div class="form_tooltip" id="info_link_text"></div>
-                        <label class="label_80">Link Text:</label>
+                        <label class="label_60">Link Text:</label>
                         <span>
                             <%= f.text_field :link_text, {rows: 1, maxlength: 50, class: "maxlength"} %>
                             <p class="input_note">Maximum of 50 characters</p>
@@ -63,7 +63,7 @@
 
                         <!-- form input[url] -->
                         <div class="form_tooltip" id="info_title_url"></div>
-                        <label class="label_80"></label>
+                        <label class="label_60"></label>
                         <span>
                             <%= f.url_field :link_url, :placeholder => "http://www.example.co.uk" %>
                             <p class="input_note">Maximum of 100 characters</p>
@@ -72,7 +72,7 @@
 
                         <!-- form input[select] -->
                         <div class="form_tooltip" id="info_link_page"></div>
-                        <label class="label_80"></label>
+                        <label class="label_60"></label>
                         <% if @pages.blank? %>
                         <span>
                            No pages available.
@@ -86,7 +86,7 @@
                         <!-- form input[image-select] -->
                         <div class="form_image_select">
                             <div class="form_tooltip" id="info_image"></div>
-                            <label class="label_80">Image:</label>
+                            <label class="label_60">Image:</label>
                             <% if @images.blank? %>
                             <span>
                                No images available, please upload images before selecting.
