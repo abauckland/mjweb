@@ -31,6 +31,14 @@ $font_color: #fff;
   float: left;
   width: 260px;
   height: 440px;
+  p{
+    font-size: 1.3rem
+    width: 260px;
+    padding: 0px;
+    margin: 0px 0px 10px 0px;
+    text-align: justify;
+    color: #000;
+  }  
 }
 
 
@@ -53,14 +61,13 @@ $font_color: #fff;
   color: #66aa00;  
 }
 
-.web_content_tile_text{
-  width: 260px;
+//.web_content_tile_text{
+//  width: 260px;
 //  height: 190px;
-  padding: 0px 0px 10px 0px;
-  text-align: justify;
-  color: #000;
-  p{font-size: 1.3rem}
-}
+//  padding: 0px 0px 10px 0px;
+//  text-align: justify;
+//  color: #000;
+//}
 
 a.web_page_link{
       text-decoration: none;
