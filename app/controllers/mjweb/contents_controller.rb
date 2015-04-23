@@ -20,7 +20,7 @@ module Mjweb
       
       tile_count = policy_scope(Content).count
       @tile_ref = tile_count + 1
-      
+
     end
 
     # GET /contents/1/edit
@@ -49,7 +49,7 @@ module Mjweb
 
     def move_up            
       if @content.tile_ref >= 2
-        above_row = policy_scope(Content).where(:tile_ref => (@content.tile_ref - 1)).first      
+        above_row = policy_scope(Content).where(:tile_ref => (@content.tile_ref - 1)).first
         above_row.update(:tile_ref => @content.tile_ref)
         @content.update(:tile_ref => @content.tile_ref - 1)
       end
@@ -61,11 +61,11 @@ module Mjweb
       tile_count = policy_scope(Content).count
 
       if @content.tile_ref != tile_count
-        next_row = policy_scope(Content).where(:tile_ref => (@content.tile_ref + 1)).first      
+        next_row = policy_scope(Content).where(:tile_ref => (@content.tile_ref + 1)).first
         next_row.update(:tile_ref => @content.tile_ref)
         @content.update(:tile_ref => @content.tile_ref + 1)
       end
-      redirect_to contents_path, notice: 'Tile moved down.'    
+      redirect_to contents_path, notice: 'Tile moved down.'
     end
 
     # DELETE /contents/1
@@ -88,13 +88,13 @@ module Mjweb
       end
 
       def set_tiles
-        group = current_user.company.plan
-        case group      
+        group = current_user.company.group
+        case group
           when 1 ; @tiles = Mjweb::Tile.all
           when 2 ; @tiles = Mjweb::Tile.where(:group => 2)
           when 3 ; @tiles = Mjweb::Tile.where(:group => [2, 3])
-        end  
-        
+        end
+
       end
 
       # Only allow a trusted parameter "white list" through.
